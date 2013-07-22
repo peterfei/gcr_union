@@ -1,0 +1,34 @@
+p
+  strong 车型编码:
+  = @car_model.car_model_code
+p
+  strong 车型名称:
+  = @car_model.car_model_name
+p
+  strong 车辆品牌:
+  = @car_model.car_model
+p
+  strong 车型品牌:
+  = @car_model.car_model_type
+p
+  strong 车型编码:
+  = @car_model.car_type_code
+p
+  strong 车辆品牌图片:
+  =image_tag @car_model.car_model_img_url.url(:thumb) if @car_model.car_model_img_url?
+p
+  strong 品牌箱数:
+  = @car_model.car_model_package
+p
+  strong 品牌排量:
+  = @car_model.car_model_size
+p
+  strong 品牌变速类型:
+  = @car_model.car_model_atmt
+p
+  strong 状态:
+  = @car_model.status_text
+
+= link_to '编辑', edit_car_model_path(@car_model)
+'|
+= link_to '返回', car_models_path

@@ -1,0 +1,2 @@
+module BaseRateCodesHelper
+end

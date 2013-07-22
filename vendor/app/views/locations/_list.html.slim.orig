@@ -1,0 +1,19 @@
+- @locations.each do |location|
+  tr class="location_#{location.id}"
+    td= location.city.try(:city_name)
+    td= location.location_name
+    td= location.address
+    td= location.phone
+    td= location.location_name
+    td= location.status
+    td
+<<<<<<< HEAD
+      .btn-group
+        = link_to  '查看',location_path(location),:remote=>true  ,class:'btn btn-small'
+        = link_to '修改',  edit_location_path(location),:remote=>true ,class:"btn btn-small"
+        = link_to  '删除',locations_path(location), method: :delete, data: {  confirm: "确定要删除吗?"},:remote=>true ,class:"btn btn-small"
+=======
+      = link_to '查看', location_path(location), remote:true, class: 'btn btn-small'
+      = link_to  '修改', edit_location_path(location), remote:true, class: 'btn btn-small'
+      = link_to  '删除', location_path(location), method: :delete, data: {  confirm: "确定要删除吗?"}, remote:true, class: 'btn btn-small'
+>>>>>>> e03e2d88cdaec73cea2981a40829bf61b51b5680

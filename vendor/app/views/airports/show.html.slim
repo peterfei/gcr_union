@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Airport code:
+  = @airport.airport_code
+p
+  strong Airport name:
+  = @airport.airport_name
+p
+  strong City code:
+  = @airport.city_code
+p
+  strong Status:
+  = @airport.status
+
+= link_to 'Edit', edit_airport_path(@airport)
+'|
+= link_to 'Back', airports_path

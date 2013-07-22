@@ -1,0 +1,88 @@
+.row.order_all
+  h4.header 订单基本信息
+  .row-fluid 
+    .span12
+      dl.dl-horizontal
+        .span5
+          dt 订单编号
+          dd = @reservation.confirmation
+        .span5 
+          dt 订单人
+          dd = @reservation.customer.customer_name
+  .row-fluid
+    .span12
+      dl.dl-horizontal
+        .span5 
+          dt 预定时间
+          dd = @reservation.created_at.to_s(:db)
+        .span5
+          dt 客户名称
+          dd = @reservation.customer.customer_name
+  .row-fluid
+    .span12
+      dl.dl-horizontal
+        .span5
+          dt 订车人联系电话
+          dd = @reservation.reservation_person_phone
+        .span5
+          dt  来源
+          dd= @reservation.source_code 
+  .row-fluid
+    .span12
+      dl.dl-horizontal
+        .span5
+            dt 预定车型
+            dd =@reservation.car_type 
+        .span5
+            dt 业务类型
+            dd =@reservation.base_rate_code 
+  .row-fluid 
+    .span12
+      dl.dl-horizontal
+        .span5
+            dt 所属城市 
+            dd= @reservation.city rescue '暂无'   
+        .span5
+            dt 所属区域 
+            dd = @reservation.pickup_district 
+  .row-fluid 
+    .span12
+      dl.dl-horizontal
+        .span4
+            dt  所属门店
+            dd = @reservation.location
+        .span4
+            dt 车牌号
+            dd=@reservation.car.car_tag rescue '暂无' 
+
+        .span4
+            dt 司机姓名
+            dd=@reservation.driver.driver_name rescue '暂无'
+  .row-fluid
+    .span12
+      dl.dl-horizontal
+        .span5
+            dt 订单状态
+            dd =@reservation.status_text
+        .span5
+            dt 开始时间
+            dd=@reservation.pickup_date
+  .row-fluid
+    .span12
+      dl.dl-horizontal
+        .span5
+            dt 结束时间
+            dd = @reservation.return_date  
+        .span5 
+            dt 特殊乘客
+            dd = @reservation.special_passenger.map(&:text)  
+  .row-fluid
+    .span12
+      dl.dl-horizontal
+        .span1
+          =link_to reservations_path  do 
+            button.btn.btn-primary  返回
+        .span1.offset=link_to edit_reservation_path(@reservation.id),:remote=>true do 
+            button.btn.btn-primary 编辑
+      
+

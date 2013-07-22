@@ -1,0 +1,23 @@
+h1 Listing sys_parameters
+
+table
+  tr
+    th Para name
+    th Para value
+    th Para desc
+    th
+    th
+    th
+
+  - @sys_parameters.each do |sys_parameter|
+    tr
+      td = sys_parameter.para_name
+      td = sys_parameter.para_value
+      td = sys_parameter.para_desc
+      td = link_to 'Show', sys_parameter
+      td = link_to 'Edit', edit_sys_parameter_path(sys_parameter)
+      td = link_to 'Destroy', sys_parameter, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Sys parameter', new_sys_parameter_path

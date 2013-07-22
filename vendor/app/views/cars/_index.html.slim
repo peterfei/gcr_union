@@ -1,0 +1,18 @@
+= link_to '/cars/new', remote: true do
+  button.btn
+    | 新增
+table.table.table-bordered.table-hover
+  thead 
+    tr 
+      th 所属门店
+      th 车型
+      th 车牌号
+      th 状态
+      th 操作
+  tbody
+    = render @cars
+-if @cars.kind_of? ActiveRecord::Relation
+  .pagination.pagination-right
+    =paginate @cars, :theme => 'bootstrap', remote: true
+-else
+  = link_to '返回', cars_path, remote: true

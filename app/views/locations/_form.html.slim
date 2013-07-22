@@ -1,0 +1,47 @@
+= simple_form_for @location, html: { class: 'form-horizontal'}, wrapper:'bootstrap',remote:true do |f|
+  .span12
+    h4.header 门店信息
+    .row-fluid
+      .span4
+        = f.input :location_name, :label=>'门店名称'
+      .span4
+        = f.input :phone
+  .span12
+    .row-fluid
+      .span4.form-inline
+        = f.association :city, :label=>'城市', :input_html=>{:id=>"pickup_city"}, :as=>:string, :placeholder=>"请选择"
+      .span4
+        = f.association :district, :label=>'区域', :input_html=>{:id=>"pickup_district"}, :as=>:string, :placeholder=>"请选择"
+  .span12
+    .row-fluid
+      .span4
+        = f.input :address, :label=>'街道'
+  .span12
+    h4.header 负责人信息
+    .row-fluid
+      .span4
+        = f.input :principal, :label=>'负责人'
+      .span4
+        = f.input :principal_phone, :label=>'负责人电话'
+  .span12
+    h4.header 营业信息
+    .row-fluid
+      .span4.form-inline
+        = f.input :start_time,as: :string, :label=>'营业时间', input_html:{class:"datepicker"}
+      .span4
+        = f.input :end_time,as: :string, :label=>'至', input_html:{class:"datepicker"}
+  .span12
+    .row-fluid
+      .span4
+        =f.input :is24, as: :boolean, :label=>'24小时营业'
+  .span12 
+    .row-fluid
+      .span6.form-inline
+        = f.input :rate_code_list, :collection => Location.rate_code_lists, :as=>:check_boxes, :label=>'业务范围'
+  .span12
+    .row-fluid
+      .span6.form-inline
+        = f.input :status, :collection => Location.status_list, :input_html => { :placeholder => '请选择营业状态' }
+  .span12
+    .span1= link_to '返回',locations_path, :remote=>true, class:"btn"
+    .span1.offset= f.button :submit, :class =>'btn btn-primary', :value => '保存'

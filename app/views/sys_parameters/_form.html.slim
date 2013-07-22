@@ -1,0 +1,10 @@
+= simple_form_for(@sys_parameter) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :para_name
+    = f.input :para_value
+    = f.input :para_desc
+
+  .form-actions
+    = f.button :submit

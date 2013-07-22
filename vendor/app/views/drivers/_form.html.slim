@@ -1,0 +1,12 @@
+= simple_form_for @driver, html: { class: 'form-horizontal'}, wrapper:'bootstrap' ,remote:true do |f|
+  = f.input :driver_name, :label=>'驾驶员姓名'
+  = f.input :driver_phone, :label=>'驾驶员手机'
+  = f.association :company, :label=>'所属公司', :placeholder=>"请选择"
+  = f.association :location, :label=>'所属门店', :placeholder=>"请选择",input_html:{:id=>"location_id"}
+  = f.input :status, :collection => Driver.status_list, :input_html => { :placeholder => '请选择' }
+  .wdj_bordertop
+    .wdj_btnwidth
+      .span1=link_to '返回',drivers_path,remote:true,class:"btn"
+      .span1.offset= f.submit :class =>'btn btn-primary', :value => '保存'
+      
+

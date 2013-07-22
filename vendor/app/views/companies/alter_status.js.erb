@@ -1,0 +1,3 @@
+td=$("<%=j render(@company) %>").children().hide();
+$('.company_<%=@company.id%>').html(td).addClass('info');
+td.fadeIn('slow');

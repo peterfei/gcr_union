@@ -1,0 +1,58 @@
+//.page
+  .page-container
+    .container
+      .row.location_all
+        .span12
+          /h4.header 订单查询
+          /form.form-horizontal.order_search
+            .row-fluid
+              .span11
+                .span4
+                  .control-group
+                    label.control-label for=""
+                    .controls
+                      input id="" type="text"
+                .span4
+                  .control-group
+                    label.control-label for=""
+                    .controls
+                      input id="" type="text"
+              .span1
+                .save_button.search_button
+                  .btn.btn-primary 查询
+            /! row-fluid
+          /! form-horizontal
+          .span4 = link_to new_location_path(), :remote=>true do
+            button class="btn btn-primary" 新增
+          table.sortable.table-hover
+            thead
+              tr
+                th 城市
+                th 门店名称
+                th 地址
+                th 门店电话
+                th 车辆数量
+                th 状态
+                th 操作
+              tbody
+              =render :partial => 'list'
+          /! table
+          /! 分页
+          .pagination.pagination-centered
+            =paginate @locations,theme:"bootstrap"
+      /! row
+    /! container
+/! page
+
+.page
+  .page-container
+    .container#main
+      = render 'index'
+          /! table
+          /! 分页
+          .pagination.pagination-centered
+            =paginate @locations,theme:"bootstrap"
+      /! row
+    /! container
+/! page
+

@@ -1,0 +1,17 @@
+.row.location_all
+  .span12
+    h4.header 驾驶员查询
+    =link_to new_driver_path ,:remote=>true do 
+      button.btn 新增驾驶员
+    table.table.table-condensed
+      thead
+        tr
+          th 姓名
+          th 电话
+          th 所属公司
+          th 所属门店
+          th 状态
+          th 操作
+        tbody
+        //=render :partial => 'list'
+        = render @drivers

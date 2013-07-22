@@ -1,0 +1,10 @@
+p
+  strong 帐号:
+  = @manager_user.login_name
+p
+  strong 用户类型:
+  = @manager_user.manager_user_type_text
+
+= link_to '编辑', edit_manager_user_path(@manager_user)
+'|
+= link_to '返回', manager_users_path

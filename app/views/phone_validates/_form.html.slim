@@ -1,0 +1,18 @@
+= form_for @phone_validate do |f|
+  - if @phone_validate.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@phone_validate.errors.count, "error")} prohibited this phone_validate from being saved:"
+      ul
+        - @phone_validate.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :phone_number
+    = f.text_field :phone_number
+  .field
+    = f.label :validate_code
+    = f.text_field :validate_code
+  .field
+    = f.label :overdue_date
+    = f.datetime_select :overdue_date
+  .actions = f.submit 'Save'

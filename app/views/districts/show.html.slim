@@ -1,0 +1,16 @@
+p
+  strong 区域编码:
+  = @district.district_code
+p
+  strong 区域名称:
+  = @district.district_name
+p
+  strong 状态:
+  = @district.status_text
+p
+  strong 城市:
+  = @district.city.try(:city_name)
+
+= link_to '编辑', edit_district_path(@district)
+'|
+= link_to '返回', districts_path

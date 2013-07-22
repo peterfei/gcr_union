@@ -1,0 +1,2 @@
+module CarTypeRatesHelper
+end

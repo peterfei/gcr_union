@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>华夏通联加盟商管理平台</title>
+
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag params[:controller] %>
+</head>
+<link type="text/css" rel="stylesheet" media="all" href="/assets/login.css?body=1">
+<style>
+
+
+    .form-horizontal .control-label {
+        width: 60px;
+    }
+
+</style>
+<script>
+    function fleshVerify(){
+
+        var timenow = new Date().getTime();
+        document.getElementById('verifyImg').src= '/captcha?action=captcha&i='+timenow;
+    }
+
+</script>
+<body style="background:none; background-color:#e7f3ff; ">
+<div class="login_all">
+  <div class="login_all_content">
+    <div class="login_mask">
+      <div class="login_all_left">
+        <div class="login_header">
+
+            <%= image_tag('logo_jm.png') %>
+          <div class="clr"></div>
+        </div>
+        <div class="car_mate"></div>
+
+      </div>
+
+      <div class="login_all_right">
+        <div class="login_text">
+          <div class="login_text_top"> </div>
+          <div class="login_text_certont">
+            <div class="alert-messages" >
+              <%= render '/layouts/messages' %>
+            </div>
+            <%= simple_form_for '', :url => user_sessions_path,wrapper:'bootstrap',style:{margin:'0 0 0 0'} do |f| %>
+              <h4>用户登陆</h4>
+                <div class="form-horizontal">
+                  <%= f.input :login, :required => false, :autofocus => true,label:'用户名' %>
+                  <%= f.input :password, :required => false %>
+                </div>
+
+                
+
+                <div class="login_form_botton">
+                  <%= f.button :submit, "" ,:class=>'login_button'%>
+                  <button class="reset_button"  tabindex="3" type="reset"></button>
+                </div>
+
+            <% end %>
+          </div>
+          <div class="login_text_bottom"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+<%= javascript_include_tag "application" %>
+</html>
+
+

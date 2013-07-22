@@ -1,0 +1,12 @@
+.page
+  .page-container
+    .container#main
+      = render 'index'
+          /! table
+          /! 分页
+          .pagination.pagination-centered
+            =paginate @drivers,theme:"bootstrap"
+      /! row
+    /! container
+/! page
+

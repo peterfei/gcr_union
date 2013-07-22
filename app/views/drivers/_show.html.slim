@@ -1,0 +1,28 @@
+.row.location_all
+  h4.header 驾驶员信息
+  .span12
+    .row-fluid
+      dl.dl-horizontal
+        .span5
+          dt 驾驶员姓名
+          dd= @driver.driver_name
+        .span5
+          dt 驾驶员手机
+          dd = @driver.driver_phone
+  .span12
+    .row-fluid
+      dl.dl-horizontal
+        .span5
+          dt 所属公司
+          dd = @driver.company.try(:company_name)
+        .span5
+          dt 所属门店
+          dd = @driver.location.try(:location_name)
+  .span12
+    .row-fluid
+      .span1 = link_to drivers_path  do
+        button class="btn" 返回
+      .span2 = link_to edit_driver_path(@driver.id),:remote=>true do
+        button class="btn" 编辑
+
+

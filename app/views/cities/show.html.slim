@@ -1,0 +1,16 @@
+p
+  strong 城市名称:
+  = @city.city_name
+p
+  strong 城市编码:
+  = @city.city_code
+p
+  strong 拼音:
+  = @city.pinyin
+p
+  strong 状态:
+  = @city.status_text
+
+= link_to '编辑', edit_city_path(@city)
+'|
+= link_to '返回', cities_path

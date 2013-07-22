@@ -1,0 +1,295 @@
+zh-CN:
+  enumerize:
+    sex:
+      male: '男'
+      female: '女'
+    status:
+      enable: '待租'
+      disable: '在租'
+    reservation:
+      special_passenger:
+        old: "老人"
+        patient: "病人"
+        baby: "儿童"
+        pregnant: "孕妇"
+        foreign: "外宾"
+        leader: "领导"
+      special_requirements:
+        en_driver: '英文驾驶员'
+        waiting_card: '举牌等候'
+      status:
+        unconfirm: '未确认'
+        pending: '待处理'
+        waitexec: '待执行'
+        hascar: '已配车'
+        execing: '执行中'
+        done: '已完成'
+        canceled: '已取消'
+
+    car_type_rate:
+      prices_included:
+        oil: "油"
+        insure: "险"
+        driver: "驾"
+
+  simple_form:
+    labels:
+      defaults:
+        use_hour: '用车时长'
+        use_day: '用车天数'
+        confirmation: '订单编号'
+        pickup_date: '上车时间'
+        return_date: '下车时间'
+        pickup_city: '上车城市'
+        return_city: '下车城市'
+        location: '选择门店'
+        car: '选择车辆'
+        driver: '选择司机'
+        pickup_district: '上车区域'
+        reservation_person_phone: '手机号码'
+        special_requirements: '增值服务'
+        special_passenger: '特殊乘客'
+        passenger: '乘车人'
+        passenger_phone: '乘车人电话'
+        passenger_num: '乘客人数'
+        remark: '备注'
+
+        invoice_title: '发票抬头'
+        send_address: '寄送地址'
+        receiver: '收件人'
+        receiver_phone: '联系电话'
+
+        up_construction: "参考建筑"
+        down_construction: '参考建筑'
+        up_address: '上车地点'
+        down_address: '下车地点'
+
+        airline: '航班编号'
+        airport: '机场名称'
+        railway: '车站'
+        train_number: '车次'
+
+        confirmation_contains: '订单编号'
+        base_rate_code_id_equals: '业务类型'
+        pickup_date_equals: '用车时间'
+        status_equals: '订单状态'
+
+        phone: '手机号码'
+        username: '登录名称'
+        email: '电子邮件'
+        password: '密码'
+        current_password: '旧密码'
+        password_confirmation: '确认密码'
+
+        customer_name: '客户名称'
+        identity_code: '证件号码'
+        identity_type_name: '证件类型'
+        guding_phone: '固定电话'
+        cus_type: '客户类别'
+        status: '状态'
+        sex: '性别'
+  views:
+    pagination:
+      first: "&laquo; 首页"
+      last: "尾页 &raquo;"
+      previous: "&lsaquo; 上一页"
+      next: "下一页 &rsaquo;"
+      truncate: "..."
+  date:
+    abbr_day_names:
+    - 日
+    - 一
+    - 二
+    - 三
+    - 四
+    - 五
+    - 六
+    abbr_month_names:
+    - 
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 星期日
+    - 星期一
+    - 星期二
+    - 星期三
+    - 星期四
+    - 星期五
+    - 星期六
+    formats:
+      default: ! '%Y-%m-%d'
+      long: ! '%Y年%b%d日'
+      short: ! '%b%d日'
+    month_names:
+    - 
+    - 一月
+    - 二月
+    - 三月
+    - 四月
+    - 五月
+    - 六月
+    - 七月
+    - 八月
+    - 九月
+    - 十月
+    - 十一月
+    - 十二月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 大约一小时
+        other: 大约 %{count} 小时
+      about_x_months:
+        one: 大约一个月
+        other: 大约 %{count} 个月
+      about_x_years:
+        one: 大约一年
+        other: 大约 %{count} 年
+      almost_x_years:
+        one: 接近一年
+        other: 接近 %{count} 年
+      half_a_minute: 半分钟
+      less_than_x_minutes:
+        one: 不到一分钟
+        other: 不到 %{count} 分钟
+      less_than_x_seconds:
+        one: 不到一秒
+        other: 不到 %{count} 秒
+      over_x_years:
+        one: 一年多
+        other: ! '%{count} 年多'
+      x_days:
+        one: 一天
+        other: ! '%{count} 天'
+      x_minutes:
+        one: 一分钟
+        other: ! '%{count} 分钟'
+      x_months:
+        one: 一个月
+        other: ! '%{count} 个月'
+      x_seconds:
+        one: 一秒
+        other: ! '%{count} 秒'
+    prompts:
+      day: 日
+      hour: 时
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: 必须是可被接受的
+      blank: 不能为空字符
+      confirmation: 与确认值不匹配
+      empty: 不能留空
+      equal_to: 必须等于 %{count}
+      even: 必须为双数
+      exclusion: 是保留关键字
+      greater_than: 必须大于 %{count}
+      greater_than_or_equal_to: 必须大于或等于 %{count}
+      inclusion: 不包含于列表中
+      invalid: 是无效的
+      less_than: 必须小于 %{count}
+      less_than_or_equal_to: 必须小于或等于 %{count}
+      not_a_number: 不是数字
+      not_an_integer: 必须是整数
+      odd: 必须为单数
+      record_invalid: ! '验证失败: %{errors}'
+      taken: 已经被使用
+      too_long: 过长（最长为 %{count} 个字符）
+      too_short: 过短（最短为 %{count} 个字符）
+      wrong_length: 长度非法（必须为 %{count} 个字符）
+    template:
+      body: 如下字段出现错误：
+      header:
+        one: 有 1 个错误发生导致「%{model}」无法被保存。
+        other: 有 %{count} 个错误发生导致「%{model}」无法被保存。
+  helpers:
+    select:
+      prompt: 请选择
+    submit:
+      create: 新增%{model}
+      submit: 储存%{model}
+      update: 更新%{model}
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%u %n'
+        precision: 2
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: CN¥
+    format:
+      delimiter: ! ','
+      precision: 3
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: 十亿
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ', 和 '
+      two_words_connector: ! ' 和 '
+      words_connector: ! ', '
+  time:
+    am: 上午
+    formats:
+      default: ! '%Y年%b%d日 %A %H:%M:%S %Z'
+      long: ! '%Y年%b%d日 %H:%M'
+      short: ! '%b%d日 %H:%M'
+    pm: 下午
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors

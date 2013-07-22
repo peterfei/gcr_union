@@ -1,0 +1,33 @@
+= form_for @shunfengch do |f|
+  - if @shunfengch.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@shunfengch.errors.count, "error")} prohibited this shunfengch from being saved:"
+      ul
+        - @shunfengch.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :start_date
+    = f.datetime_select :start_date
+  .field
+    = f.label :rate
+    = f.text_field :rate
+  .field
+    = f.label :status
+    = f.number_field :status
+  .field
+    = f.label :up_address
+    = f.text_field :up_address
+  .field
+    = f.label :down_address
+    = f.text_field :down_address
+  .field
+    = f.label :reservation
+    = f.text_field :reservation
+  .field
+    = f.label :car
+    = f.text_field :car
+  .field
+    = f.label :driver
+    = f.text_field :driver
+  .actions = f.submit 'Save'
