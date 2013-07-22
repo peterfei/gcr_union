@@ -201,6 +201,7 @@ ActiveRecord::Schema.define(:version => 20130706061246) do
     t.string   "password_digest"
     t.string   "login_name"
     t.integer  "manager_user_type"
+    t.string   "origin"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end

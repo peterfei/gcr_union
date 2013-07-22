@@ -30,7 +30,11 @@ FactoryGirl.define do
   #  pickup_city_id 199 
   #  pickup_district_id 1769
   #  location_id 1
-  #end
+  #end 
+  factory :manager_user do  
+    login_name "admin" 
+    password "admin"
+  end
 end
 
 

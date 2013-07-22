@@ -1,3 +1,4 @@
+#encoding:utf-8
 module UserSessionsHelper
 	def login_as(user)
 		session[:user_id] = user.id
@@ -23,7 +24,7 @@ module UserSessionsHelper
 	def login_from_session
 		if session[:user_id].present?
 			begin 
-				User.find(session[:user_id])	
+				ManagerUser.find(session[:user_id])	
 			rescue
 				session[:user_id] = nil
 			end
@@ -37,7 +38,7 @@ module UserSessionsHelper
 
 	def need_sign_in
 		unless login?
-			redirect_to '/', :notice => 'You Need Sign In'
+			redirect_to '/', :notice => '请登录'
 		end
 	end
 

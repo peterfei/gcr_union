@@ -31,15 +31,27 @@
     <div class="view_all">
       <div class="head" >
 
-        <div class="logo">
-          <%= image_tag 'logo_jm.png' %>
-        </div>
-
-        <%= render '/layouts/menubar' %>
-        <div class="user_infor">
-            <span class="uesr_name">admin,欢迎您！<%=link_to '注销',root_path%> </span>
-          <span>华夏通联加盟商管理平台</span>
-        </div>
+        
+          <%-if current_user.origin=='j'%> 
+              <div class="logo">
+                  <%= image_tag 'logo_jm.png' %>
+              </div>
+              <%= render '/layouts/menubar_j' %> 
+              <div class="user_infor">
+                  <span class="uesr_name"><%=current_user.login_name%>,欢迎您！<%=link_to '注销',root_path%> </span>
+                  <span>华夏通联加盟商管理平台</span>
+              </div>
+          <%-else%> 
+              <div class="logo">
+                  <%= image_tag 'logo_home.png' %>
+              </div>
+              <%= render '/layouts/menubar' %> 
+              <div class="user_infor">
+                  <span class="uesr_name"><%=current_user.login_name%>,欢迎您！<%=link_to '注销',root_path%> </span>
+                  <span>华夏通联运营商管理平台</span>
+              </div>
+        <%-end%>
+        
 
         <div class="clr"></div>
       </div><!-- head_home -->
@@ -67,11 +79,17 @@
         </ul>
       </div>
       <div id="msg_bottom"></div>
-    </div>
-    <div class="foot">
-      <p>版权所有(C)2009-2013 华夏通联加盟商管理平台</p>
-    </div>
+  </div> 
 
+  <%-if current_user.origin=='j'%> 
+      <div class="foot">
+          <p>版权所有(C)2009-2013 华夏通联加盟商管理平台</p>
+      </div>
+  <%-else%> 
+      <div class="foot">
+          <p>版权所有(C)2009-2013 华夏通联运营商管理平台</p>
+      </div>
+  <%-end%>
     <%= javascript_include_tag "application" %>
     <!-- 自动激活菜单 -->
     <script type="text/javascript">

@@ -4,6 +4,7 @@ class CreateManagerUsers < ActiveRecord::Migration
       t.string :password_digest
       t.string :login_name
       t.integer :manager_user_type
+      t.string :origin
 
       t.timestamps
     end

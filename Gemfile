@@ -57,4 +57,7 @@ gem 'enumerize'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem 'delayed_job_active_record'
-gem 'settingslogic'
+gem 'settingslogic' 
+gem 'bcrypt-ruby' 
+#用户权限
+gem 'cancan'

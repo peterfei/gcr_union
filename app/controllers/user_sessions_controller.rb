@@ -7,22 +7,14 @@ class UserSessionsController < ApplicationController
 	end
 
   def create 
-    #user = User.find_by_username(params[:username]) 
-    #if user && user.authenticate(params[:password])
-    if params[:login]=='admin' && params[:password]=='admin'
-    #  login_as user 
-    #  @user = user
-      #respond_to do |format|  
-      #  flash.now[:success] = "登陆成功"
-      #  format.js
-      #end
+    user = ManagerUser.find_by_login_name(params[:login]) 
+    if user && user.authenticate(params[:password])
+      login_as user 
       redirect_to reservations_path
     else
-
-      respond_to do |format| 
-        flash[:error] = "登陆失败,请重新登陆" 
-        format.html {redirect_to :back}
-      end
+        flash.now[:error] = "登陆失败,请重新登陆" 
+        render 'new'
+        #format.html {redirect_to :back}
     end
   end
 

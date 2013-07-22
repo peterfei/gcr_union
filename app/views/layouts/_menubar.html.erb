@@ -1,25 +1,27 @@
 <div class="menu" id="menubar">
     <ul>
+        <li class=" menu-btn-order"><a href="#" class="call_center"></a></li>
+        <li class="<%= active reservations_path%> menu-btn-order"><a href="<%=reservations_path%>" class="order_one"></a></li>
 
-    <li class="<%= active reservations_path%> menu-btn-order"><a href="<%=reservations_path%>" class="order_one"></a></li>
+        <li class="<%= active companies_path%> menu-btn-pickup"><a href="<%=companies_path%>" class="pickup_car_one"></a></li> 
+<li class="<%= active locations_path%> menu-btn-customers menu_item">
+      <a href="<%=locations_path%>" class="client_one"></a>
+      <div class="menu_navigation">
+        <div class="mav_top"></div>
+        <ul class="menu_sub">
+          <li class="">
+            <a class="menu_sub_last" href="#">大客户信息</a>
+          </li>
+          <li class="menu_sub_last">
+            <a class="menu_sub_last" href="#">会员</a>
+          </li>         
+        </ul>
+        <div class="mav_bottom"></div>
+      </div>
+  </li> 
+
     <li class="<%= active cars_path%> menu-btn-returning"><a href="<%=cars_path%>" class="car_pay"></a></li>
     <li class="<%= active drivers_path%> menu-btn-matching"><a href="<%=drivers_path%>" class="driver_one"></a></li>
-    <li class="<%= active locations_path%> menu-btn-customers menu_item">
-        <a href="<%=locations_path%>" class="client_one"></a>
-        <div class="menu_navigation">
-            <div class="mav_top"></div>
-            <ul class="menu_sub">
-                <li class="">
-                    <a class="menu_sub_last" href="#">大客户信息</a>
-                </li>
-                <li class="menu_sub_last">
-                    <a class="menu_sub_last" href="#">会员</a>
-                </li>         
-            </ul>
-            <div class="mav_bottom"></div>
-        </div>
-    </li>
-    <li class="<%= active companies_path%> menu-btn-pickup"><a href="<%=companies_path%>" class="pickup_car_one"></a></li>
-      
+    
   </ul>
 </div><!-- .menu -->
