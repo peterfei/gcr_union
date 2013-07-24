@@ -44,12 +44,17 @@ class DriversController < ApplicationController
 
   # POST /drivers
   # POST /drivers.json
-  def create
-    @driver = Driver.new(params[:driver])
-
+  def create 
+    drivers_params=params[:drivers].map{|c|c} 
+    logger.info "------#{drivers_params}"
+    #@driver = Driver.new(drivers_params)
     respond_to do |format|
-      if @driver.save
-        format.html { redirect_to @driver, notice: '驾驶员添加成功' }
+      #if @driver.save
+      if Driver.create(drivers_params) 
+        @search = Driver.search(params[:search])
+        @drivers=@search.page params[:page]
+        format.js {render 'index'}
+        #format.html { redirect_to @driver, notice: '驾驶员添加成功' }
         format.json { render json: @driver, status: :created, location: @driver }
       else
         format.html { render action: "new" }

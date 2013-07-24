@@ -1,9 +1,24 @@
 = simple_form_for @driver, html: { class: 'form-horizontal'}, wrapper:'bootstrap' ,remote:true do |f|
-  = f.input :driver_name, :label=>'驾驶员姓名'
-  = f.input :driver_phone, :label=>'驾驶员手机'
-  = f.association :company, :label=>'所属公司', :placeholder=>"请选择"
-  = f.association :location, :label=>'所属门店', :placeholder=>"请选择",input_html:{:id=>"location_id"}
-  = f.input :status, :collection => Driver.status_list, :input_html => { :placeholder => '请选择' }
+  .driver 
+    .span12.row-fluid
+      .span6
+        = f.input :driver_name, :label=>'驾驶员姓名' do 
+          =text_field_tag 'drivers[][driver_name]'
+      .span6
+        = f.input :driver_phone, :label=>'驾驶员手机' do 
+          =text_field_tag 'drivers[][driver_phone]'
+    .span12.row-fluid
+      .span6
+        = f.input :company_id, :label=>'所属公司', :placeholder=>"请选择" do 
+          =text_field_tag 'drivers[][company_id]'
+      .span6
+        = f.input :location_id, :label=>'所属门店', :placeholder=>"请选择",input_html:{:id=>"location_id"} do 
+          =text_field_tag 'drivers[][location_id]'
+    .span12.row-fluid
+      .span6
+        = f.input :status, :collection => Driver.status_list, :input_html => { :placeholder => '请选择' }  do 
+          =text_field_tag 'drivers[][status]'
+    i.icon-plus
   .wdj_bordertop
     .wdj_btnwidth
       .span1=link_to '返回',drivers_path,remote:true,class:"btn"
