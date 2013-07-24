@@ -315,8 +315,12 @@ ActiveRecord::Schema.define(:version => 20130706061246) do
     t.string   "phone"
     t.string   "password_digest"
     t.string   "email"
+    t.string   "uuid"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
+  add_index "users", ["uuid"], :name => "index_users_on_uuid", :unique => true
 
 end
