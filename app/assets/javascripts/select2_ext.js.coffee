@@ -103,7 +103,7 @@ $.fn.extend
     @find('select:not(.select2)').select2 allowClear: true
     $('#pickup_city,#return_city').pickup_city_select2()
     $('#pickup_district,#return_district').pickup_district_select2()
-    $('#location_id').location_select2()
+    $('#location_id,#drivers__location_id').location_select2()
     $('#car_id').car_info_select2()
     $('#driver_id').driver_info_select2()
-    $('#company_id').company_info_select2()
+    $('#company_id,#drivers__company_id').company_info_select2()
