@@ -1,9 +1,0 @@
-td = reservation.confirmation
-td = reservation.customer.customer_name 
-td = reservation.created_at.to_s(:db)
-td = reservation.pickup_date
-td = reservation.pickup_city||"深圳市"
-td = reservation.status_text 
-td = reservation.car_type
-td class="opr_#{reservation.id}"
-  =render :partial => 'list_opr',:locals=>{:reservation=>reservation}

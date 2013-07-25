@@ -1,6 +1,0 @@
-.control-group.select.optional.disabled
-  label.select.optional.control-label=label rescue '上车时间：'
-  .controls
-    .input-append
-      =text_field_tag 'reservation[pickup_date(1s)]', @reservation.pickup_date.date, class: 'datepicker input-small'
-      =text_field_tag 'reservation[pickup_date(2s)]', @reservation.pickup_date.time, class: 'input-mini timepicker'
