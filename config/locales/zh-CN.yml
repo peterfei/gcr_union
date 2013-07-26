@@ -3,6 +3,9 @@ zh-CN:
     sex:
       male: '男'
       female: '女'
+    car:
+      enable: '待租'
+      disable: '在租'
     reservation:
       special_passenger:
         old: "老人"
@@ -85,6 +88,10 @@ zh-CN:
         cus_type: '客户类别'
         status: '状态'
         sex: '性别'
+
+        location: '选择门店'
+        car: '选择车辆'
+        driver: '选择司机'
 
         base_rate: '基本价格'
         xhour: '超小时费'
