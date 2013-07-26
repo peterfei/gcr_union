@@ -1,0 +1,17 @@
+h1 Listing call_centers
+
+table
+  tr
+    th
+    th
+    th
+
+  - @call_centers.each do |call_center|
+    tr
+      td = link_to 'Show', call_center
+      td = link_to 'Edit', edit_call_center_path(call_center)
+      td = link_to 'Destroy', call_center, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Call center', new_call_center_path

@@ -1,4 +1,7 @@
 GcrUnion::Application.routes.draw do
+  resources :call_centers
+
+
   resources :railways
 
 

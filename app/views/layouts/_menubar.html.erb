@@ -1,8 +1,9 @@
 <div class="menu" id="menubar">
   <ul>
-        <%-if can? :read,CallCenter%>
+    <%-if current_user.role=='oprator' or current_user.role=='admin' or current_user.role=='call_center'%> 
+
           <li class=" menu-btn-order"><a href="#" class="call_center"></a></li>
-        <%end%>
+        <%-unless current_user.role=='call_center'%>
         <li class="<%= active reservations_path%> menu-btn-order"><a href="<%=reservations_path%>" class="order_one"></a></li>
 
         <li class="<%= active companies_path%> menu-btn-pickup"><a href="<%=companies_path%>" class="pickup_car_one"></a></li> 
@@ -25,5 +26,7 @@
     <li class="<%= active cars_path%> menu-btn-returning"><a href="<%=cars_path%>" class="car_pay"></a></li>
     <li class="<%= active drivers_path%> menu-btn-matching"><a href="<%=drivers_path%>" class="driver_one"></a></li>
     
+        <%end%>
+        <%end%>
   </ul>
 </div><!-- .menu -->
