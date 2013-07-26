@@ -1,8 +1,0 @@
-=simple_form_for @district do |f|
-  = f.input :district_code, :label => '区域编码'
-  = f.input :district_name, :label => '区域名称'
-  -@city = City.all.map { |list| [list.city_name,list.id] }
-  = f.association :city, :collection => @city, :placeholder => '请选择所城市', :label => '城市'
-  = f.input :status, collection: District.status_list, :as=>:radio_buttons, :checked=>@district[:status] || 0, :label=>'状态'
-  = f.submit :value => '提交'
-

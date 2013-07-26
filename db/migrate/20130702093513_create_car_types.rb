@@ -8,8 +8,8 @@ class CreateCarTypes < ActiveRecord::Migration
       t.integer :sequence
       t.integer :big_package
       t.integer :small_package
-      t.string  :car_type_img_url
-      t.integer :status
+      t.string  :image
+      t.string :status
 
       t.timestamps
     end

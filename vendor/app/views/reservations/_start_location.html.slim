@@ -1,7 +1,0 @@
-.control-group.select.optional.disabled
-  label.select.optional.control-label= label rescue '上车地点：'
-  .controls
-    =fields_for @reservation do |f|
-      =f.text_field :pickup_city_id,class:'input-small pickup_city',id:"pickup_city"
-      =f.text_field :pickup_district_id,class:'input-small pickup_district',id:"pickup_district"
-      =f.text_field :up_address,class:'input-small'

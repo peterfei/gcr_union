@@ -40,6 +40,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
     client_side_validations (3.2.5)
@@ -74,7 +77,6 @@ GEM
       railties (>= 3.0.0)
     ffi (1.9.0)
     formatador (0.2.4)
-    growl (1.0.3)
     guard (1.8.1)
       formatador (>= 0.2.4)
       listen (>= 1.0.0)
@@ -98,6 +100,8 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    libnotify (0.8.1)
+      ffi (>= 1.0.11)
     libv8 (3.11.8.17)
     listen (1.2.2)
       rb-fsevent (>= 0.9.3)
@@ -161,6 +165,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    remotipart (1.2.1)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -231,6 +236,7 @@ DEPENDENCIES
   bootstrap-sass
   cancan
   capybara
+  carrierwave
   childprocess
   client_side_validations
   client_side_validations-simple_form
@@ -239,11 +245,11 @@ DEPENDENCIES
   enumerize
   execjs
   factory_girl_rails
-  growl
   guard-rspec
   guard-spork
   jquery-rails (= 2.1.4)
   kaminari
+  libnotify
   meta_search
   mini_magick
   mysql2
@@ -252,6 +258,7 @@ DEPENDENCIES
   pry-nav
   rails (= 3.2.13)
   rb-inotify
+  remotipart
   rspec-rails
   ruby-pinyin
   sass-rails (~> 3.2.3)

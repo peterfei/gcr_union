@@ -1,4 +1,4 @@
-=simple_form_for @car_model do |f|
+=simple_form_for @car_model, wrapper: 'bootstrap', class: 'form-horizontal' do |f|
   = f.input :car_model_code, :label => '车型编码'
   = f.input :car_model_name, :label => '车型名称'
   = f.input :car_model, :label => '车辆品牌'

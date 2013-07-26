@@ -1,6 +1,0 @@
-=simple_form_for @city do |f|
-  = f.input :city_name, :label => '城市名称'
-  = f.input :city_code, :label => '城市编码'
-  = f.input :pinyin, :label => '拼音'
-  = f.input :status, collection: City.status_list, :as=>:radio_buttons, :checked=>@city[:status] || 0, :label=>'状态'
-  = f.submit :value => '提交'

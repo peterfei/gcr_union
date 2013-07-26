@@ -53,6 +53,9 @@ end
 gem "simple_form"
 gem "meta_search"
 
+gem 'remotipart'
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'enumerize'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'

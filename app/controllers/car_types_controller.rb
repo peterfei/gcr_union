@@ -7,6 +7,7 @@ class CarTypesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @car_types }
+      format.js
     end
   end
 
@@ -18,6 +19,7 @@ class CarTypesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @car_type }
+      format.js
     end
   end
 
@@ -28,7 +30,7 @@ class CarTypesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @car_type }
+      format.js
     end
   end
 
@@ -49,6 +51,7 @@ class CarTypesController < ApplicationController
       else
         format.html { render action: "new" }
         format.json { render json: @car_type.errors, status: :unprocessable_entity }
+        format.js {render 'new'}
       end
     end
   end
@@ -62,6 +65,7 @@ class CarTypesController < ApplicationController
       if @car_type.update_attributes(params[:car_type])
         format.html { redirect_to @car_type, notice: 'Car type was successfully updated.' }
         format.json { head :no_content }
+        format.js { render 'show' }
       else
         format.html { render action: "edit" }
         format.json { render json: @car_type.errors, status: :unprocessable_entity }
@@ -78,6 +82,7 @@ class CarTypesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to car_types_url }
       format.json { head :no_content }
+      format.js 
     end
   end
 end
