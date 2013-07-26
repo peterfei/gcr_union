@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong 基本价格:
+  = @car_type_rate.base_rate
+p
+  strong 超小时费:
+  = @car_type_rate.xhour
+p
+  strong 超公里费:
+  = @car_type_rate.xdis_rate
+p
+  strong 价格包含:
+  = @car_type_rate.prices_included_text
+p
+  strong 车型:
+  = @car_type_rate.car_type
+p
+  strong 业务类型:
+  = @car_type_rate.base_rate_code
+
+= link_to '编辑', edit_car_type_rate_path(@car_type_rate), remote: true
+'|
+= link_to '返回', car_type_rates_path, remote: true

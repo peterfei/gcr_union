@@ -1,0 +1,11 @@
+tr
+  td = car_type_rate.base_rate
+  td = car_type_rate.xhour
+  td = car_type_rate.xdis_rate
+  td = car_type_rate.prices_included.map(&:text).join('/')
+  td = car_type_rate.car_type
+  td = car_type_rate.base_rate_code
+  td
+    .btn-group
+      = link_to '显示', car_type_rate, remote: true, class: 'btn btn-small'
+      = link_to '编辑', edit_car_type_rate_path(car_type_rate), remote: true, class: 'btn btn-small'
