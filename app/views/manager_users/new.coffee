@@ -1,0 +1,2 @@
+$('#main').html("<%= j(render('form'))%>")
+$('body').init_components()

@@ -27,7 +27,7 @@ test:
   database: gcr_union_test
   pool: 5
   username: root
-  password: 
+  password: root
 
 production:
   adapter: mysql2
@@ -36,5 +36,5 @@ production:
   database: gcr_union_pro
   pool: 5
   username: root
-  password: 
+  password: root
 

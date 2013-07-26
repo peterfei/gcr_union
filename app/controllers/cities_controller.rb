@@ -1,5 +1,6 @@
 # coding: utf-8
 class CitiesController < ApplicationController
+  before_filter  :need_sign_in
   # GET /cities
   # GET /cities.json
 

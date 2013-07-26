@@ -1,6 +1,7 @@
-= link_to '/cars/new', remote: true do
-  button.btn
-    | 新增
+-if can? :create,Car
+  = link_to '/cars/new', remote: true do
+    button.btn
+      | 新增
 table.table.table-bordered.table-hover
   thead 
     tr 

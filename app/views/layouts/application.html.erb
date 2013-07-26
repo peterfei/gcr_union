@@ -32,13 +32,13 @@
       <div class="head" >
 
         
-          <%-if current_user.origin=='j'%> 
+          <%-if current_user.role=='oprator'%> 
               <div class="logo">
                   <%= image_tag 'logo_jm.png' %>
               </div>
               <%= render '/layouts/menubar_j' %> 
               <div class="user_infor">
-                  <span class="uesr_name"><%=current_user.login_name%>,欢迎您！<%=link_to '注销',root_path%> </span>
+                  <span class="uesr_name"><%=current_user.login_name%>,欢迎您！<%=link_to '注销',signout_path%> </span>
                   <span>华夏通联加盟商管理平台</span>
               </div>
           <%-else%> 
@@ -81,7 +81,7 @@
       <div id="msg_bottom"></div>
   </div> 
 
-  <%-if current_user.origin=='j'%> 
+  <%-if current_user.role=='oprator'%> 
       <div class="foot">
           <p>版权所有(C)2009-2013 华夏通联加盟商管理平台</p>
       </div>

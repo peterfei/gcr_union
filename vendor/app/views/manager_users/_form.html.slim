@@ -2,4 +2,5 @@
   = f.input :login_name, :label => '帐号'
   = f.input :password_digest, :label => '密码'
   = f.input :manager_user_type, collection: ManagerUser.manager_user_type_list, :as=>:radio_buttons, :checked=>@manager_user[:manager_user_type] || 1, :label=>'用户类型'
+  = f.collection_select :role, User::ROLES, :to_s, :humanize
   = f.submit :value => '提交'

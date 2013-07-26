@@ -1,5 +1,5 @@
 # coding: utf-8
-class CarsController < ApplicationController
+class CarsController < ApplicationController 
   # GET /cars
   # GET /cars.json
   def index 
