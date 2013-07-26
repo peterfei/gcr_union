@@ -1,0 +1,15 @@
+= link_to new_car_type_path, remote: true do
+  button.btn
+    | 新增
+table.table.table-bordered.table-hover
+  tr
+    th 车型编码
+    th 车型名称
+    th 描述
+    th 座位数
+    th 大行李
+    th 小行李
+    th 车型图片
+    th 状态
+    th colspan='2' 操作
+  = render @car_types
