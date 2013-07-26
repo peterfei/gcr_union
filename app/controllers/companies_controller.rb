@@ -1,5 +1,6 @@
 # coding: utf-8
 class CompaniesController < ApplicationController
+  before_filter  :need_sign_in
   # GET /companies
   # GET /companies.json
   def index

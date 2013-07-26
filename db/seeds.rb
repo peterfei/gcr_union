@@ -44,12 +44,8 @@ Car.create([
   {location_id:location_id,car_tag:"粤E74112",status:'Y'},
 ])
 ManagerUser.new(
-  login_name:'jiameng',
-  password: 'jiameng',
-  origin:'j'
+  login_name:'admin',
+  password: 'admin',
+  role:'admin'
 ).save validate:false
-ManagerUser.new(
-  login_name:'yunying',
-  password: 'yunying',
-  origin:'y'
-).save validate:false
+

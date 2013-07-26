@@ -4,7 +4,8 @@ class ManagerUsersController < ApplicationController
   def index
     @manager_users = ManagerUser.all
 
-    respond_to do |format|
+    respond_to do |format| 
+      format.js
       format.html # index.html.erb
       format.json { render json: @manager_users }
     end
@@ -15,8 +16,8 @@ class ManagerUsersController < ApplicationController
   def show
     @manager_user = ManagerUser.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
+    respond_to do |format| 
+      format.js
       format.json { render json: @manager_user }
     end
   end
@@ -26,7 +27,8 @@ class ManagerUsersController < ApplicationController
   def new
     @manager_user = ManagerUser.new
 
-    respond_to do |format|
+    respond_to do |format| 
+      format.js
       format.html # new.html.erb
       format.json { render json: @manager_user }
     end
@@ -34,7 +36,10 @@ class ManagerUsersController < ApplicationController
 
   # GET /manager_users/1/edit
   def edit
-    @manager_user = ManagerUser.find(params[:id])
+    @manager_user = ManagerUser.find(params[:id]) 
+    respond_to do |format| 
+      format.js
+    end
   end
 
   # POST /manager_users
@@ -57,7 +62,9 @@ class ManagerUsersController < ApplicationController
   # PUT /manager_users/1.json
   def update
     @manager_user = ManagerUser.find(params[:id])
-
+    if params[:manager_user][:password].present?
+       params[:manager_user].delete(:password)
+    end
     respond_to do |format|
       if @manager_user.update_attributes(params[:manager_user])
         format.html { redirect_to @manager_user, notice: 'Manager user was successfully updated.' }

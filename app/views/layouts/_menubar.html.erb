@@ -1,6 +1,8 @@
 <div class="menu" id="menubar">
-    <ul>
-        <li class=" menu-btn-order"><a href="#" class="call_center"></a></li>
+  <ul>
+        <%-if can? :read,CallCenter%>
+          <li class=" menu-btn-order"><a href="#" class="call_center"></a></li>
+        <%end%>
         <li class="<%= active reservations_path%> menu-btn-order"><a href="<%=reservations_path%>" class="order_one"></a></li>
 
         <li class="<%= active companies_path%> menu-btn-pickup"><a href="<%=companies_path%>" class="pickup_car_one"></a></li> 

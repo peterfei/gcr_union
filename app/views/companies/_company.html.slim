@@ -9,4 +9,5 @@ tr class="company_#{company.id}"
   td= company.status_text
   td
     = link_to '查看', company_path(company),remote:true, class: 'btn btn-small'
-    = link_to '修改', edit_company_path(company),remote:true, class: 'btn btn-small'
+    -if can? :update,company
+      = link_to '修改', edit_company_path(company),remote:true, class: 'btn btn-small'
