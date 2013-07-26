@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(:version => 20130706061246) do
     t.integer  "sequence"
     t.integer  "big_package"
     t.integer  "small_package"
-    t.string   "car_type_img_url"
-    t.integer  "status"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.string   "image"
+    t.string   "status"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "cars", :force => true do |t|

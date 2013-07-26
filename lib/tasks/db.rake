@@ -3,7 +3,7 @@ Rake::TaskManager.record_task_metadata = true
 
 namespace :db do
   desc '创建uploads文件夹,并建立软链接'
-  task :filestorage => :environment do |task|
+  task :storage => :environment do |task|
     puts task.comment
 
     gcr_web_puclic_path=File.expand_path("../gcr-web/public",Rails.root)
@@ -154,6 +154,6 @@ namespace :db do
   desc "准备所有数据"
   task :all => [:create_database, :load_data, :car_type,
                 :car_model, :car_type_rate, :city, :railway,
-                :airport, :coupon, :filestorage]
+                :airport, :coupon, :storage]
 
 end
