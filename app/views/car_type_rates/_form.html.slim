@@ -1,33 +1,9 @@
-= form_for @car_type_rate do |f|
-  - if @car_type_rate.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@car_type_rate.errors.count, "error")} prohibited this car_type_rate from being saved:"
-      ul
-        - @car_type_rate.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :base_rate
-    = f.number_field :base_rate
-  .field
-    = f.label :xhour
-    = f.number_field :xhour
-  .field
-    = f.label :xdis_rate
-    = f.number_field :xdis_rate
-  .field
-    = f.label :oil_status
-    = f.number_field :oil_status
-  .field
-    = f.label :insure_status
-    = f.number_field :insure_status
-  .field
-    = f.label :driver_status
-    = f.number_field :driver_status
-  .field
-    = f.label :car_type
-    = f.text_field :car_type
-  .field
-    = f.label :base_rate_code
-    = f.text_field :base_rate_code
-  .actions = f.submit 'Save'
+= simple_form_for @car_type_rate, remote: true do |f|
+  = f.input :base_rate
+  = f.input :xhour
+  = f.input :xdis_rate
+  = f.input :prices_included
+  = f.association :car_type, placeholder: t('helpers.select.prompt'), disabled: true
+  = f.association :base_rate_code, placeholder: t('helpers.select.prompt'), disabled: true
+  .actions
+    = f.submit '保存'
