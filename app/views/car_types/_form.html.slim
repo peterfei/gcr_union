@@ -1,9 +1,9 @@
 =simple_form_for @car_type,:html => { :multipart => true }, :remote => true do |f|
-  = f.input :car_type_code, :label => '车型编码'
+  /= f.input :car_type_code, :label => '车型编码'
   = f.input :car_type_name, :label => '车型名称'
-  = f.input :description, :label => '描述'
   = f.input :persons, :label => '座位数'
   = f.input :big_package, :label => '大行李'
   = f.input :small_package, :label => '小行李'
+  = f.input :description, :label => '描述'
   = f.input :image, :as => :file, :label => '车型图片'
-  = f.submit :value => '提交'
+  = f.submit :value => '提交',class: 'btn btn-primary'

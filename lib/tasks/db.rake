@@ -88,6 +88,7 @@ namespace :db do
         cn.id = i+1
         cn.car_type_name = c.first
         cn.image = image_file(c.last)
+        cn.persons = 4
       end.save
     end
   end

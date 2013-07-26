@@ -1,5 +1,5 @@
 tr
-  td = car_type.car_type_code
+  td = car_type.id
   td = car_type
   td = car_type.description
   td = car_type.persons
@@ -9,5 +9,7 @@ tr
   //td = car_type.car_type_img_url
   td = image_tag car_type.image.url(:thumb) if car_type.image?
   td =
-  td = link_to '显示', car_type, remote: true
-  td = link_to '编辑', edit_car_type_path(car_type), remote: true
+  td
+    .btn-group
+      = link_to '显示', car_type, remote: true, class: 'btn btn-small'
+      = link_to '编辑', edit_car_type_path(car_type), remote: true, class: 'btn btn-small'
