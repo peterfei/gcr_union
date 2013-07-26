@@ -2,10 +2,29 @@
 Rake::TaskManager.record_task_metadata = true
 
 namespace :db do
+  desc '创建uploads文件夹,并建立软链接'
+  task :filestorage => :environment do |task|
+    puts task.comment
+
+    gcr_web_puclic_path=File.expand_path("../gcr-web/public",Rails.root)
+
+    `cd #{Rails.root.join('public')}
+     [ ! -d "uploads" ] && mkdir uploads/
+     cd #{gcr_web_puclic_path}
+     if [ -d "../../szunions" ];then
+       gcr_union="../../szunions/public/uploads/"
+     else
+       gcr_union="../../gcr-union/public/uploads/"
+     fi
+     [ -d "uploads" ] && rm -rf uploads
+     ln -s $gcr_union ./
+    `
+  end
+
   desc "执行迁移文件"
   task :create_database => :environment do |task|
     puts task.comment
-    
+
     Rake::Task["db:migrate:reset"].invoke
   end
 
@@ -56,13 +75,21 @@ namespace :db do
     puts task.comment
 
     CarType.destroy_all
-    CarType.create([
-      {car_type_name: "舒适车型", },
-      {car_type_name: "商务车型", },
-      {car_type_name: "经济车型", },
-      {car_type_name: "豪华车型", },
-      {car_type_name: "家用车型", }
-    ])
+    def image_file name
+      return unless name
+      asset_path=Rails.root.join('lib','assets')
+      File.open(asset_path.join(name))
+    end
+
+    types=%w/舒适车型 商务车型 经济车型 豪华车型 家用车型/
+    images=Dir.foreach(Rails.root.join('lib','assets')).to_a.grep(/cartype/).sort*2
+    types.zip(images).each_with_index do |c,i|
+      CarType.new do |cn|
+        cn.id = i+1
+        cn.car_type_name = c.first
+        cn.image = image_file(c.last)
+      end.save
+    end
   end
   desc "准备车辆品牌数据"
   task :car_model => :environment do |task|
@@ -90,7 +117,7 @@ namespace :db do
         new = sample.call
       end
       collestions << new
-      
+
       CarTypeRate.create(
         car_type_id: new.first,
         base_rate_code_id: new.last ,
@@ -109,7 +136,7 @@ namespace :db do
     start_date=30.days.ago
     end_date=start_date + 100.days
     code="ABCD"
-    coupon=Coupon.create(coupon_code: code, denomination: 100, start_date: start_date, end_date: end_date)
+    Coupon.create(coupon_code: code, denomination: 100, start_date: start_date, end_date: end_date)
     # 50.times do
     #   start_date=Random.rand(-30..30).days.ago
     #   end_date=start_date + Random.rand(10..30).days
@@ -125,6 +152,8 @@ namespace :db do
 
 
   desc "准备所有数据"
-  task :all => [:create_database, :load_data, :car_type, :car_model, :car_type_rate, :city, :railway, :airport]
-  
+  task :all => [:create_database, :load_data, :car_type,
+                :car_model, :car_type_rate, :city, :railway,
+                :airport, :coupon, :filestorage]
+
 end
