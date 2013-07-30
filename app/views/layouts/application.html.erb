@@ -41,13 +41,22 @@
                   <span class="uesr_name"><%=current_user.login_name%>,欢迎您！<%=link_to '注销',signout_path%> </span>
                   <span>华夏通联加盟商管理平台</span>
               </div>
-          <%-else%> 
+          <%-elsif current_user.role=='call_center'%> 
               <div class="logo">
                   <%= image_tag 'logo_home.png' %>
               </div>
               <%= render '/layouts/menubar' %> 
               <div class="user_infor">
                   <span class="uesr_name"><%=current_user.login_name%>,欢迎您！<%=link_to '注销',root_path%> </span>
+                  <span>华夏通联运营商管理平台</span>
+              </div> 
+          <%-else%>
+              <div class="logo">
+                  <%= image_tag 'logo_home.png' %>
+              </div>
+              <%= render '/layouts/menubar' %> 
+              <div class="user_infor">
+                  <span class="uesr_name"><a href ="<%=manager_users_path%>" target="_blank"><%=current_user.login_name%>,欢迎您！</a><%=link_to '注销',root_path%> </span>
                   <span>华夏通联运营商管理平台</span>
               </div>
         <%-end%>
