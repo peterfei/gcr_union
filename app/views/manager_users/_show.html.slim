@@ -4,6 +4,9 @@ p
 p
   strong 用户类型:
   = @manager_user.manager_user_type_text
-
-= link_to '编辑', edit_manager_user_path(@manager_user),remote:true
-= link_to '返回', manager_users_path
+p
+  strong 用户角色:
+  =@manager_user.role_text
+.btn-group
+  = link_to '编辑', edit_manager_user_path(@manager_user),remote:true,class:'btn btn-small'
+  = link_to '返回', manager_users_path,class:'btn btn-small'
