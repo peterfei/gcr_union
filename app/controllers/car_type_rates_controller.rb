@@ -2,7 +2,7 @@ class CarTypeRatesController < ApplicationController
   # GET /car_type_rates
   # GET /car_type_rates.json
   def index
-    @car_type_rates = CarTypeRate.all
+    @car_type_rates = CarTypeRate.includes(:base_rate_code,:car_type).all
 
     respond_to do |format|
       format.html # index.html.erb
