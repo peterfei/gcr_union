@@ -95,7 +95,7 @@ form{  padding:0 0;}
 .foot p{ font:normal 10px/1.3 "Microsoft Yahei"!important; text-align:center; line-height:28px; color:#FFF; padding-top:8px;}
 
 /*menu*/
-.menu {width:660px;height:100px; float:left;}
+.menu {width:760px;height:100px; float:left;}
 .menu ul{ padding:10px 0 0 18px;}
 .menu ul li{ position: relative; height: 100px;text-align: center;float: left;}
 .menu ul li.active a.order_one{ display:inline-block; background:url(order_infor_ac.png) 0 0 no-repeat; width:89px; height:95px; float:left;}
@@ -107,6 +107,10 @@ form{  padding:0 0;}
 .menu ul li.active a.call_center{ display:inline-block; background:url(callcenter_ac.png) 0 0 no-repeat; width:89px; height:95px; float:left;}
 .menu ul li a.call_center{ display:inline-block; background:url(callcenter.png) 0 0 no-repeat; width:89px; height:95px; float:left;}
 .menu ul li a.call_center:hover { background:url(callcenter_ho.png) 0 0 no-repeat;}
+
+.menu ul li.active a.platform{ display:inline-block; background:url(platform_ac.png) 0 0 no-repeat; width:89px; height:95px; float:left;}
+.menu ul li a.platform{ display:inline-block; background:url(platform.png) 0 0 no-repeat; width:89px; height:95px; float:left;}
+.menu ul li a.platform:hover { background:url(platform_ho.png) 0 0 no-repeat;}
 
 .menu ul li a.driver_one{ display:inline-block; background:url(driver_infor.png) 0 0 no-repeat; width:112px; height:95px; float:left;}
 .menu ul li a.driver_one:hover { background:url(driver_infor_ho.png) 0 0 no-repeat; }

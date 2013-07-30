@@ -1,14 +1,16 @@
 table.table.table-condensed
   tr
     th 帐号
-    th 用户类型
-    th colspan='3' 操作
+    th 用户类型 
+    th 角色权限
+    th colspan='2' 操作
   tbody
   - @manager_users.each do |manager_user|
     tr
       td = manager_user.login_name
-      td = manager_user.manager_user_type
-      td colspan=3  
+      td = manager_user.manager_user_type_text
+      td = manager_user.role_text
+      td colspan=2  
         .btn-group
           = link_to '显示', manager_user,class:"btn btn-small",remote:true
           = link_to '编辑', edit_manager_user_path(manager_user),class:"btn btn-small",remote:true
