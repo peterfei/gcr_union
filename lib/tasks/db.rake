@@ -6,18 +6,20 @@ namespace :db do
   task :storage => :environment do |task|
     puts task.comment
 
-    web_name   = 'gcr-web'
-    admin_name = Rails.root.basename
+    require 'shell'
 
-    web_public_path=File.expand_path("../#{web_name}/public",Rails.root)
-    admin_uploads_path="../../#{admin_name}/public/uploads/"
+    web_names=%w/gcr-web www.zhucheqq.com/
+    admin_uploads_path="../../#{Rails.root.basename}/public/uploads/"
 
-    `cd #{Rails.root.join('public')}
-     [ ! -d "uploads" ] && mkdir uploads/
-     cd #{web_public_path}
-     [ -d "uploads" ] && rm -rf uploads
-     ln -s #{admin_uploads_path} ./
-    `
+    sh = Shell.cd(Rails.root.join('public'))
+    sh.transact do
+      mkdir 'uploads' unless exists? 'uploads'
+      cd '../../'
+      web_names.each{|d| cd d if exists? d}
+      cd 'public'
+      system *%w/rm -rf uploads/ if exists? 'uploads'
+      system *%W(ln -s #{admin_uploads_path} ./)
+    end
   end
 
   desc "执行迁移文件"
