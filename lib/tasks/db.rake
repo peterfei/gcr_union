@@ -6,18 +6,17 @@ namespace :db do
   task :storage => :environment do |task|
     puts task.comment
 
-    gcr_web_puclic_path=File.expand_path("../gcr-web/public",Rails.root)
+    web_name   = 'gcr-web'
+    admin_name = Rails.root.basename
+
+    web_public_path=File.expand_path("../#{web_name}/public",Rails.root)
+    admin_uploads_path="../../#{admin_name}/public/uploads/"
 
     `cd #{Rails.root.join('public')}
      [ ! -d "uploads" ] && mkdir uploads/
-     cd #{gcr_web_puclic_path}
-     if [ -d "../../szunions" ];then
-       gcr_union="../../szunions/public/uploads/"
-     else
-       gcr_union="../../gcr-union/public/uploads/"
-     fi
+     cd #{web_public_path}
      [ -d "uploads" ] && rm -rf uploads
-     ln -s $gcr_union ./
+     ln -s #{admin_uploads_path} ./
     `
   end
 
