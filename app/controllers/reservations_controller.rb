@@ -112,7 +112,7 @@ class ReservationsController < ApplicationController
      if request.put?  
         $o = @reservation.update_attributes(params[:reservation])   
         @reservation.car.update_attribute(:status,'disable')  
-        @reservation.driver.update_attribute(:status,1)
+        @reservation.driver.update_attribute(:status,'disable')
         @reservation.flow("waitexec")
       #  SmsApi.send_sms_message(@reservation.reservation_person_phone,"已为您的订单#{@reservation.confirmation}分配好车辆和司机,车牌号:#{@reservation.car.car_tag}")
      end 
@@ -133,7 +133,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id]) 
     @reservation.flow("execing")  
     @reservation.car.update_attribute(:status,'enable')
-    @reservation.driver.update_attribute(:status,0)
+    @reservation.driver.update_attribute(:status,'enable')
     respond_to do |format| 
       format.js{render 'execing.js.erb'}
       #format.html { redirect_to reservations_url, notice: '订单执行成功.' }
@@ -142,7 +142,8 @@ class ReservationsController < ApplicationController
   #取消订单 
   def cancel
     @reservation = Reservation.find(params[:id])  
-    @reservation.car.update_attribute(:status,0) if @reservation.car
+    @reservation.car.update_attribute(:status,'enable') if @reservation.car 
+    @reservation.driver.update_attribute(:status,'enable') if @reservation.driver
     @reservation.flow("cancel") 
     respond_to do |format| 
       format.js{render 'execing.js.erb'}

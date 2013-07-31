@@ -14,7 +14,7 @@
       .span6
         = f.input :location_id, :label=>'所属门店', :placeholder=>"请选择",input_html:{:id=>"location_id"} do 
           =text_field_tag 'drivers[][location_id]'
-    .span12.row-fluid
+    /.span12.row-fluid
       .span6
         = f.input :status, :collection => Driver.status_list, :input_html => { :placeholder => '请选择' }  do 
           =text_field_tag 'drivers[][status]'

@@ -173,7 +173,7 @@ ActiveRecord::Schema.define(:version => 20130726083645) do
   create_table "drivers", :force => true do |t|
     t.string   "driver_name"
     t.string   "driver_phone"
-    t.integer  "status"
+    t.string   "status"
     t.integer  "company_id"
     t.integer  "location_id"
     t.datetime "created_at",   :null => false
