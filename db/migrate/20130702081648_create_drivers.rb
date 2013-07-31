@@ -3,7 +3,7 @@ class CreateDrivers < ActiveRecord::Migration
     create_table :drivers do |t|
       t.string :driver_name
       t.string :driver_phone
-      t.integer :status
+      t.string :status
       t.references :company
       t.references :location
 
