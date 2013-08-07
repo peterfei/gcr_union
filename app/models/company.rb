@@ -8,7 +8,7 @@ class Company < ActiveRecord::Base
   has_many :drivers
   belongs_to :city
   belongs_to :district
-
+  has_many :manager_users
   #加盟商状态
   def self.status_list
     [['启用',0],['停用',1],['审核',2]]
