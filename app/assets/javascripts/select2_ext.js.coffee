@@ -85,7 +85,7 @@ $.fn.extend
         return {}=
           search: {
             location_id_equals: $('#location_id').val()
-            status_equals:0
+            status_equals: 'enable'
             driver_name_contains: term
           }
           page: page

@@ -10,7 +10,7 @@ class Ability
        if user.role =="admin"
          can :manage, :all
        elsif user.role=='oprator'
-         can :manage,[Driver,Car,Location]
+         can :manage,[Driver,Car,Location,Reservation,City,District]
          can :read,[Reservation,Company]
          can :update,Company
        else
