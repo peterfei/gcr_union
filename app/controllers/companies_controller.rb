@@ -56,7 +56,10 @@ class CompaniesController < ApplicationController
   def create
     if params[:company].present?
       params[:company][:status] = 0
+      params[:company][:created_at] = Time.now
+      params[:company][:manager_user_id] = current_user.id
     end
+    
     @company = Company.new(params[:company])
     @result = 0
     respond_to do |format|
@@ -77,6 +80,9 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @result = 0
     respond_to do |format|
+      if params[:company].present?
+        params[:company][:updated_at] = Time.now
+      end
       if @company.update_attributes(params[:company])
         @result = 1
         #format.html { redirect_to @company, notice: '公司信息更新成功.' }

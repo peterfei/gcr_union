@@ -16,7 +16,8 @@ class UserSessionsController < ApplicationController
       redirect_to reservations_path
     else
         flash.now[:error] = "登陆失败,请重新登陆" 
-        render 'new'
+        #render 'new'
+        redirect_to root_path
         #format.html {redirect_to :back}
     end
   end
