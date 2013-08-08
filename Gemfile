@@ -60,4 +60,5 @@ gem 'delayed_job_active_record'
 gem 'settingslogic' 
 gem 'bcrypt-ruby' ,'~> 3.0.0'
 #用户权限
-gem 'cancan'
+gem 'cancan' 
+gem 'cells'

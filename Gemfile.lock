@@ -43,6 +43,9 @@ GEM
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    cells (3.8.8)
+      actionpack (>= 3.0)
+      railties (>= 3.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
     client_side_validations (3.2.5)
@@ -235,6 +238,7 @@ DEPENDENCIES
   cancan
   capybara
   carrierwave
+  cells
   childprocess
   client_side_validations
   client_side_validations-simple_form
