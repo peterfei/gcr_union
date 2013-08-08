@@ -7,8 +7,15 @@ tr class="company_#{company.id}"
   td= company.link_man
   td= company.phone
   td= company.address
-  td= company.status_text
+  td
+    -msg = ''
+    -if company.status.to_i==0
+      -msg = '停用'
+    -else
+      -msg = '启用'
+    = link_to company.status_text, alter_status_path(company),remote:true, data: {  confirm: "确定要#{msg}[#{company.company_name}]吗?"}, class: 'btn btn-small',id: 'compstatus_btn',tip: msg
   td
     = link_to '查看', company_path(company),remote:true, class: 'btn btn-small'
     -if can? :update,company
       = link_to '修改', edit_company_path(company),remote:true, class: 'btn btn-small'
+      = link_to  '删除',company, method: :delete, data: {  confirm: "确定要删除吗?"},:remote=>true ,class:"btn btn-small"

@@ -11,4 +11,4 @@
         = link_to  '查看',location_path(location),:remote=>true  ,class:'btn btn-small'
         -if can? :update,location
           = link_to '修改',  edit_location_path(location),:remote=>true ,class:"btn btn-small"
-          = link_to  '删除',locations_path(location), method: :delete, data: {  confirm: "确定要删除吗?"},:remote=>true ,class:"btn btn-small"
+          = link_to  '删除',location, method: :delete, data: {  confirm: "确定要删除吗?"},:remote=>true ,class:"btn btn-small"

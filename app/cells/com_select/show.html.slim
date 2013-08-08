@@ -1,0 +1,20 @@
+.w_defined
+  .w_defined_cont2
+    h3.hide_list_title
+      | 不显示
+      a.w_defined_icon.w_defined_righticon title="添加所有"
+    ul.field_list.hide_list
+      = render_cell :com_select, :field,:field=>@show
+    .clear
+  .w_defined_cont2
+    h3.show_list_title
+      a.w_defined_icon.w_defined_lefticon title="移除所有"
+      | 显示
+    ul.field_list.show_list 
+      /= render_cell :com_select, :field
+    .clear
+  .clear
+  .w_defined_btn
+    input.button_save type="submit" value=""
+    a href="javascript:history.go(-1);"
+
