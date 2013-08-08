@@ -1,6 +1,7 @@
 .page
   .page-container
     .container#main
+      /= render_cell :com_select ,:show,:show => Location.all
       = render 'index'
           /! table
           /! 分页

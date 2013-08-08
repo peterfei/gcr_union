@@ -1,0 +1,38 @@
+.w_defined_topmain { height: 35px; margin-bottom: 5px; }
+
+.w_defined_tit { height: 30px; line-height: 35px; font-size: 14px; font-family: "微软雅黑"; }
+
+.w_defined_cont1 { background: #fff; border: 1px solid #ccc; padding: 5px 0; }
+.w_defined_cont1 ul li { width: 180px; float: left; height: 30px; line-height: 30px; font-size: 12px; font-family: "微软雅黑"; margin: 0 15px; }
+.w_defined_cont1 ul li input { margin-right: 5px; vertical-align: middle; width: 15px; height: 15px; }
+
+.w_defined_cont2 { float: left; width: 400px; margin-right: 20px; background: #fff; border: 1px solid #ccc; padding: 1px; }
+.w_defined_cont2 h3 { height: 30px; line-height: 30px; background: #dad9d8; margin-bottom: 1px; padding: 0 6px; }
+.w_defined_cont2 h3.hide_list_title { padding-right: 15px; }
+.w_defined_cont2 ul { max-height: 500px; height: 500px; overflow: auto; }
+.w_defined_cont2 ul li { height: 30px; line-height: 30px; background: #f4f4f4; margin-bottom: 1px; padding: 0 15px 0 5px; }
+.w_defined_cont2 ul li.highlight { background: #F5F3DF; }
+.w_defined_cont2 ul li span { font-size: 12px; font-family: "微软雅黑"; float: left; }
+.w_defined_cont2 .w_defined_icon { float: right; width: 15px; height: 15px; margin-left: 5px; margin-top: 7px; cursor: pointer; }
+
+.w_defined_cont2 .w_defined_upicon { background: url(defined_icon_up.png) no-repeat 0 0; }
+.w_defined_cont2 .w_defined_upicon:hover { background: url(defined_icon_up_red.png) no-repeat 0 0; }
+
+.w_defined_cont2 .w_defined_downicon { background: url(defined_icon_down.png) no-repeat 0 0; }
+.w_defined_cont2 .w_defined_downicon:hover { background: url(defined_icon_down_red.png) no-repeat 0 0; }
+
+.w_defined_cont2 .w_defined_lefticon { float: left; background: url(defined_icon_left.png) no-repeat 0 0; margin-right: 5px; }
+.w_defined_cont2 .w_defined_lefticon:hover { float: left; background: url(defined_icon_left_red.png) no-repeat 0 0; }
+
+.w_defined_cont2 .w_defined_righticon { background: url(defined_icon_right.png) no-repeat 0 0; }
+.w_defined_cont2 .w_defined_righticon:hover { background: url(defined_icon_right_red.png) no-repeat 0 0; }
+
+.w_defined_cont2 .hide_list .w_defined_lefticon,
+.w_defined_cont2 .hide_list .w_defined_upicon,
+.w_defined_cont2 .hide_list .w_defined_downicon { display: none; }
+
+.w_defined_cont2 .show_list .w_defined_righticon { display: none; }
+
+.w_defined_btn { height: 32px; text-align: center; margin-top: 15px; width: 820px;}
+
+
