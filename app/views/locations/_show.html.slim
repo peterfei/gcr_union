@@ -32,10 +32,10 @@
       .row-fluid
         .span5
           dt 营业开始时间
-          dd  = @location.start_time.to_s[10..19]
+          dd  = @location.start_time
         .span5
           dt 营业结束时间
-          dd = @location.end_time.to_s[10..19]
+          dd = @location.end_time
   .span12
     dl.dl-horizontal
       .row-fluid
@@ -44,7 +44,7 @@
           dd = @location.is24_text
         .span5
           dt 业务范围
-          dd
+          dd = @location.rate_code_list.map(&:text).join(' ')
   .span12
     dl.dl-horizontal
       .row-fluid

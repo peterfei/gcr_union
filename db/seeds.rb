@@ -27,18 +27,7 @@ SysParameter.create([
   {para_id:9,para_name:'MAIL_TIMEOUT',para_value:'25000',para_desc:''}
 ])
 
-Location.destroy_all
-Location.create([
-  {location_name:"罗湖总店",city_id:4403,district_id:440303},
-  {location_name:"罗湖分店1",city_id:4403,district_id:440304},
-  {location_name:"罗湖分店2",city_id:4403,district_id:440305}
-])
-Car.destroy_all 
-location_id=Location.find_by_location_name('罗湖总店').id
-Car.create([
-  {location_id:location_id,car_tag:"粤E74110",status:'Y'},
-  {location_id:location_id,car_tag:"粤E74112",status:'Y'},
-])
+
 ManagerUser.new(
   login_name:'admin',
   password: 'admin',

@@ -29,7 +29,13 @@ class LocationsController < ApplicationController
   # GET /locations/new.json
   def new
     @location = Location.new
-
+    #默认营业时间
+    @start_time_hour = '08'
+    @start_time_min = '30'
+    @end_time_hour = '17'
+    @end_time_min = '30'
+    
+    @location.status = 1
     respond_to do |format|
       #format.html # new.html.erb
       format.js
@@ -40,6 +46,14 @@ class LocationsController < ApplicationController
   # GET /locations/1/edit
   def edit
     @location = Location.find(params[:id]) 
+    start_time = @location.start_time
+    end_time = @location.end_time
+    
+    @start_time_hour = start_time.split(':')[0]
+    @start_time_min = start_time.split(':')[1]
+    @end_time_hour = end_time.split(':')[0]
+    @end_time_min = end_time.split(':')[1]
+    
     respond_to do |format|
       format.js # new.html.erb
       format.json { render json: @location }
@@ -49,17 +63,14 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
-    @location = Location.new(params[:location])
-
-    @rate_code_list = ""
-    if params[:location][:rate_code_list].present?
-      params[:location][:rate_code_list].each do |value|
-        if value!=""
-          @rate_code_list+=value+"-"
-        end
-      end
-      params[:location][:rate_code_list] = @rate_code_list
+    start_time = "#{params[:start_time_hour]}:#{params[:start_time_min]}"
+    end_time = "#{params[:end_time_hour]}:#{params[:end_time_min]}"
+    if params[:location].present?
+      params[:location][:created_at] = Time.now
+      params[:location][:start_time] = start_time
+      params[:location][:end_time] = end_time
     end
+    @location = Location.new(params[:location])
 
     respond_to do |format|
       if @location.save 
@@ -77,23 +88,19 @@ class LocationsController < ApplicationController
   # PUT /locations/1.json
   def update
     @location = Location.find(params[:id])
-
-    @rate_code_list = ""
-    if params[:location][:rate_code_list].present?
-      params[:location][:rate_code_list].each do |value|
-         if value!=""
-          @rate_code_list+=value+"|"
-         end
-      end
-      params[:location][:rate_code_list] = @rate_code_list
-    end
-
     respond_to do |format|
+      start_time = "#{params[:start_time_hour]}:#{params[:start_time_min]}"
+      end_time = "#{params[:end_time_hour]}:#{params[:end_time_min]}"
+      if params[:location].present?
+        params[:location][:updated_at] = Time.now
+        params[:location][:start_time] = start_time
+        params[:location][:end_time] = end_time
+      end
       if @location.update_attributes(params[:location])
-        format.html { redirect_to @location, notice: '门店信息更新成功.' }
+        format.js
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { redirect_to edit_location_path(params[:id]) }
         format.json { render json: @location.errors, status: :unprocessable_entity }
       end
     end
