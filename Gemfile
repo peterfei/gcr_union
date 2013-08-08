@@ -20,7 +20,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails','2.1.4'
+gem 'jquery-rails'
 gem 'kaminari'
 gem 'slim-rails'
 gem 'mini_magick'
