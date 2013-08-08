@@ -18,7 +18,6 @@
 *.swp
 /config/database.yml
 /public/uploads/
-/Gemfile
 /Gemfile.lock
 /Gemfile~
 /gcr_union_dev

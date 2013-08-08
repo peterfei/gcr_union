@@ -1,0 +1,37 @@
+.flash { 
+  position: fixed;
+  width: 1210px;
+  padding: 0 20px;
+  height: 39px;
+  line-height: 39px;
+  font-family: "微软雅黑";
+  z-index: 32767;
+  font-size: 14px;
+  background-color: #B9D8F1;
+  color: #234D83;
+  border-bottom: 1px solid #A3C4DA;
+}
+
+.flash_info { 
+  background-color: #B9D8F1;
+  color: #234D83;
+  border-bottom: 1px solid #A3C4DA;
+}
+
+.flash_success { 
+  background-color: #CBDBBD;
+  color: #0088CC;
+  border-bottom: 1px solid #CBDBBD;
+}
+
+.flash_error { 
+  background-color: #F02E1D;
+  color: #FFF;
+  border-bottom: 1px solid #DAA3A3;
+}
+
+.flash_warning { 
+  background-color: #FAF7B4;
+  color: #796500;
+  border-bottom: 1px solid #D6D690;
+}

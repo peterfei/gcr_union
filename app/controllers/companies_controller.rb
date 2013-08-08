@@ -26,7 +26,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1.json
   def show
     @company = Company.find(params[:id])
-
+    @result = 0
     respond_to do |format|
       format.html # show.html.erb
       format.js
@@ -54,11 +54,15 @@ class CompaniesController < ApplicationController
   # POST /companies
   # POST /companies.json
   def create
+    if params[:company].present?
+      params[:company][:status] = 0
+    end
     @company = Company.new(params[:company])
-
+    @result = 0
     respond_to do |format|
       if @company.save
-        format.html { redirect_to @company, notice: '公司信息新增成功' }
+        @result = 1
+        format.js
         format.json { render json: @company, status: :created, location: @company }
       else
         format.html { render action: "new" }
@@ -71,13 +75,15 @@ class CompaniesController < ApplicationController
   # PUT /companies/1.json
   def update
     @company = Company.find(params[:id])
-
+    @result = 0
     respond_to do |format|
       if @company.update_attributes(params[:company])
-        format.html { redirect_to @company, notice: '公司信息更新成功.' }
+        @result = 1
+        #format.html { redirect_to @company, notice: '公司信息更新成功.' }
+        format.js
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { redirect_to edit_company_path(params[:id]) }
         format.json { render json: @company.errors, status: :unprocessable_entity }
       end
     end
@@ -98,7 +104,7 @@ class CompaniesController < ApplicationController
 
   def alter_status
     @company = Company.find(params[:id])
-
+    
     respond_to do |format|
       if @company.status==0
         @company.update_attribute(:status, 1)

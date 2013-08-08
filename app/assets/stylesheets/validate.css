@@ -1,0 +1,11 @@
+﻿p#vtip {position: absolute; padding: 10px; left: 5px; font-size: 0.8em; background-color: white; border: 1px solid #a6c9e2; -moz-border-radius: 5px; -webkit-border-radius: 5px; z-index: 9999;}
+p#vtip #vtipArrow { position: absolute; top: -10px; left: 5px }
+.input_validation-failed { 
+  border: 2px solid #E9322D; 
+  border-color: #E9322D;
+  box-shadow: 0 0 6px #F8B9B7;
+  color: #B94A48;
+  }
+input[type="button"]{
+  border: 0 none;
+}

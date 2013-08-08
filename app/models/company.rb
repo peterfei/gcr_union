@@ -8,7 +8,12 @@ class Company < ActiveRecord::Base
   has_many :drivers
   belongs_to :city
   belongs_to :district
-
+  validates :company_name              , :presence => { :message => '请输入公司简称' }
+  validates :company_full_name              , :presence => { :message => '请输入公司全称' }
+  validates :reg_money              , :presence => { :message => '请输入注册资金' }
+  validates :taxpayer_code              , :presence => { :message => '请输入营业执照' }
+  
+  
   #加盟商状态
   def self.status_list
     [['启用',0],['停用',1],['审核',2]]
