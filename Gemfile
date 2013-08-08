@@ -1,4 +1,4 @@
-source 'http://ruby.taobao.org'
+source 'http://mirrors.tuna.tsinghua.edu.cn/rubygems/'
 
 gem 'rails', '3.2.13'
 
@@ -6,6 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+#gem 'sqlite3'
 gem 'bootstrap-sass'
 # Gems used only for assets and not required
 # in production environments by default.

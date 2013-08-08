@@ -463,7 +463,7 @@ vertical-align: middle;
 }
 
 
-.alert-messages { padding-left:15px; margin-bottom: 0px; margin-top:10px; margin-bottom:-10px; }
+.alert-messages { padding-left:15px; margin-bottom: 0px; margin-top:1px; margin-bottom:-10px; }
 .alert-messages .alert { margin-bottom: 0px; }
 
 #costdisplay{ overflow-x:auto; }

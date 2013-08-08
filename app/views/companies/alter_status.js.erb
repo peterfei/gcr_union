@@ -1,3 +1,8 @@
 td=$("<%=j render(@company) %>").children().hide();
 $('.company_<%=@company.id%>').html(td).addClass('info');
 td.fadeIn('slow');
+<%if @company.status.to_i==0%>
+flash('启用成功','success');
+<%else%>
+flash('停用成功','success');
+<%end%>

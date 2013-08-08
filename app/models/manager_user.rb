@@ -2,7 +2,7 @@
 class ManagerUser < ActiveRecord::Base
   attr_accessible :login_name, :manager_user_type, :password_digest,:password,:origin,:role
   has_secure_password  
-  belongs_to :company
+  belongs_to :company ,:class_name=>'Company',:foreign_key=>:id
   ROLES = [['运营中心','admin'],  ['呼叫中心','call_center'],['加盟商', 'oprator' ]]
   def self.manager_user_type_list
     [['个人',0],['企业',1]]
