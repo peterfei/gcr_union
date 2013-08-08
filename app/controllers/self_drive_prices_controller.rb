@@ -1,0 +1,2 @@
+class SelfDrivePricesController < ApplicationController
+end

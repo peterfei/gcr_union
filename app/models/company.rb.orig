@@ -8,13 +8,16 @@ class Company < ActiveRecord::Base
   has_many :drivers
   belongs_to :city
   belongs_to :district
-  has_many :manager_users
+<<<<<<< HEAD
   validates :company_name              , :presence => { :message => '请输入公司简称' }
   validates :company_full_name              , :presence => { :message => '请输入公司全称' }
   validates :reg_money              , :presence => { :message => '请输入注册资金' }
   validates :taxpayer_code              , :presence => { :message => '请输入营业执照' }
   
   
+=======
+  has_many :manager_users
+>>>>>>> 9d3a5708d80d5574d51215b8d686e7b029bdb85f
   #加盟商状态
   def self.status_list
     [['启用',0],['停用',1],['审核',2]]

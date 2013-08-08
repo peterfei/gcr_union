@@ -1,4 +1,5 @@
 tr class="company_#{company.id}"
+  td= company.manager_users.map(&:to_s).join(',')
   td= company.company_name
   td= company.company_full_name
   td= company.taxpayer_code
