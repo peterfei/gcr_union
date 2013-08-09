@@ -40,10 +40,15 @@ jQuery ->
       start = moment event.start
       end   = moment event.end
       
-      for i in [0 .. end.diff(start,'days')]
-        _day = start.add('days',i&&1).format('YYYY-MM-DD')
-        days.push(_day) if ($.inArray(_day, days) == -1)
-        prices.push event.prices
+      if end
+        for i in [0 .. end.diff(start,'days')]
+          _day = start.add('days',i&&1).format('YYYY-MM-DD')
+          days.push(_day) if ($.inArray(_day, days) == -1)
+          prices.push event.prices
+      else
+          _day = start.format('YYYY-MM-DD')
+          days.push(_day) if ($.inArray(_day, days) == -1)
+          prices.push event.prices
     [days, prices]
 
   daysInEvent = (event)->
