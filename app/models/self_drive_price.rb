@@ -4,5 +4,5 @@ class SelfDrivePrice < ActiveRecord::Base
   attr_accessible :date, :flag, :rate
   extend Enumerize
 
-  enumerize :flag, in: [:weekday, :weekenday, :custome]
+  enumerize :flag, in: [:weekday, :weekend, :custome]
 end
