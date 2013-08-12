@@ -13,9 +13,6 @@ jQuery ->
     selectHelper: true
     select: (start, end, allDay) ->
       prices = prompt('请输入价格')
-      console.log start
-      console.log end
-      console.log allDay
       if prices
         $('#calendar').fullCalendar(
           'renderEvent'
@@ -33,43 +30,17 @@ jQuery ->
     events: []
   )
 
-  $.getDays = ->
+  $.days_and_prices = ->
     days=[]
     prices = []
     $($('#calendar').fullCalendar('clientEvents')).each (i,event)->
       start = moment event.start
       end   = moment event.end
       
-      if end
-        for i in [0 .. end.diff(start,'days')]
-          _day = start.add('days',i&&1).format('YYYY-MM-DD')
-          days.push(_day) if ($.inArray(_day, days) == -1)
-          prices.push event.prices
-      else
-          _day = start.format('YYYY-MM-DD')
-          days.push(_day) if ($.inArray(_day, days) == -1)
+      end = start unless end
+      for i in [0 .. end.diff(start,'days')]
+        _day = start.add('days',i&&1).format('YYYY-MM-DD')
+        if ($.inArray(_day, days) == -1)
+          days.push(_day)
           prices.push event.prices
     [days, prices]
-
-  daysInEvent = (event)->
-    start = moment event.start
-    end   = moment event.end
-    days=[]
-    prices = []
-    for i in [0 .. end.diff(start,'days')]
-      _day = start.add('days',i&&1).format('YYYY-MM-DD')
-      days.push _day
-      prices
-      
-  $.recalcEvent = ->
-    events = $('#calendar').fullCalendar('clientEvents')
-    current = events.pop()
-    current_days = daysInEvent current
-    for e in events
-      end=e.end
-      start=e.start
-      days=daysInEvent(e)
-      allDays = days + current_days
-      if allDays.unique().length != allDays.length
-        console.log 1
-      
