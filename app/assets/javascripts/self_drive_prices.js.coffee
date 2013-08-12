@@ -1,22 +1,27 @@
+Array::last = (n) ->
+  if n? then @[(Math.max @length - n, 0)...] else @[@length - 1]
+
+Array::unique = ->
+  output = {}
+  output[@[key]] = @[key] for key in [0...@length]
+  value for key, value of output
+
 jQuery ->
   $('#calendar').fullCalendar(
     editable: true
     selectable: true
     selectHelper: true
     select: (start, end, allDay) ->
-      # title = prompt('Event Title:')
-      title = '已选中'
-      console.log start
-      console.log end
-      console.log allDay
-      if title
+      prices = prompt('请输入价格')
+      if prices
         $('#calendar').fullCalendar(
           'renderEvent'
           {
-            title: title,
-            start: start,
-            end: end,
+            title: "￥#{prices}"
+            start: start
+            end: end
             allDay: allDay
+            prices: prices
           }
           true
         )
@@ -24,14 +29,17 @@ jQuery ->
     events: []
   )
 
-  $.getDays = ->
+  $.days_and_prices = ->
     days=[]
-    $($('#calendar').fullCalendar('clientEvents')).each (i,event)->
+    prices = []
+    for event in $('#calendar').fullCalendar('clientEvents')
       start = moment event.start
       end   = moment event.end
-      DAY = 1000 * 60 * 60 * 24
       
-      for i in [0 .. Math.round((end-start) / DAY)]
+      end = start unless end
+      for i in [0 .. end.diff(start,'days')]
         _day = start.add('days',i&&1).format('YYYY-MM-DD')
-        days.push(_day) if ($.inArray(_day, days) == -1)
-    days
+        if ($.inArray(_day, days) == -1)
+          days.push(_day)
+          prices.push event.prices
+    [days, prices]
