@@ -22,7 +22,6 @@ jQuery ->
             end: end
             allDay: allDay
             prices: prices
-            url: 'asdfasdf'
           }
           true
         )
@@ -33,7 +32,7 @@ jQuery ->
   $.days_and_prices = ->
     days=[]
     prices = []
-    $($('#calendar').fullCalendar('clientEvents')).each (i,event)->
+    for event in $('#calendar').fullCalendar('clientEvents')
       start = moment event.start
       end   = moment event.end
       
