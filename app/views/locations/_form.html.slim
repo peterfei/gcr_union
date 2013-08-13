@@ -8,14 +8,16 @@
         = f.input :phone
   .span12
     .row-fluid
-      .span4.form-inline
-        = f.association :city, :label=>'城市', :input_html=>{:id=>"pickup_city"}, :as=>:string, :placeholder=>"请选择"
+      .span4.form-inline 
+        =f.association :company
       .span4
-        = f.association :district, :label=>'区域', :input_html=>{:id=>"pickup_district"}, :as=>:string, :placeholder=>"请选择"
+        = f.association :city, :label=>'城市', :input_html=>{:id=>"pickup_city"}, :as=>:string, :placeholder=>"请选择"
   .span12
     .row-fluid
       .span4
-        = f.input :address, :label=>'街道'
+        = f.association :district, :label=>'区域', :input_html=>{:id=>"pickup_district"}, :as=>:string, :placeholder=>"请选择"
+      .span4 
+        = f.input :address, :label=>'街道' 
   .span12
     h4.header 负责人信息
     .row-fluid
