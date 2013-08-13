@@ -10,14 +10,14 @@ link href="/assets/validation.css?body=1" media="screen" rel="stylesheet" type="
         = f.input :phone,:input_html=>{:tip=>"*必填,请输入门店手机号码,如:18888888888",:maxlength=>11}
   .span12
     .row-fluid
-      .span4.form-inline tip='请选择门店所在城市'
+      .span4.form-inline tip='*必填,请选择门店所在城市'
         = f.association :city, :label=>'城市', :input_html=>{:id=>"pickup_city"}, :as=>:string,:placeholder=>"请选择"
-      .span4 tip='请选择门店所在城市区域'
+      .span4 tip='*必填,请选择门店所在城市区域'
         = f.association :district, :label=>'区域', :input_html=>{:id=>"pickup_district"}, :as=>:string,:placeholder=>"请选择"
   .span12
     .row-fluid
       .span4
-        = f.input :address, :label=>'街道',:input_html=>{:tip=>"*必填,请选择门店所在城市区域的街道,不能超过50个字符",:maxlength=>50}
+        = f.input :address, :label=>'街道',:input_html=>{:tip=>"请选择门店所在城市区域的街道,不能超过50个字符",:maxlength=>50}
   .span12
     h4.header 负责人信息
     .row-fluid
@@ -46,7 +46,7 @@ link href="/assets/validation.css?body=1" media="screen" rel="stylesheet" type="
     .row-fluid
       .span6.form-inline
         
-        = f.input :rate_code_list,value_method: ->(a){p a;a.first }, :as=>:check_boxes, :label=>'业务范围'
+        = f.input :rate_code_list,value_method: ->(a){a.first}, :as=>:check_boxes, :label=>'业务范围'
   .span12
     .row-fluid
       .span6.form-inline
