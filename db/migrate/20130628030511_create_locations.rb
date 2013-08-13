@@ -16,7 +16,7 @@ class CreateLocations < ActiveRecord::Migration
 
       t.references :city
       t.references :district
-
+      t.references :company
       t.timestamps
     end
   end

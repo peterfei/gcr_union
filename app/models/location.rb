@@ -1,7 +1,7 @@
 # coding: utf-8
 class Location < ActiveRecord::Base
-  attr_accessible :address, :city_id, :district_id,:created_at,:updated_at, :end_time, :is24, :latitude, :location_name, :longitude, :phone, :phone, :principal, :principal_phone, :rate_code_list, :start_time, :status
-
+  attr_accessible :address, :city_id, :district_id,:created_at,:updated_at, :end_time, :is24, :latitude, :location_name, :longitude, :phone, :phone, :principal, :principal_phone, :rate_code_list, :start_time, :status,:company_id
+  belongs_to :company
   belongs_to :city
   belongs_to :district
   has_many :drivers

@@ -198,6 +198,7 @@ ActiveRecord::Schema.define(:version => 20130807084524) do
     t.integer  "status"
     t.integer  "city_id"
     t.integer  "district_id"
+    t.integer  "company_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

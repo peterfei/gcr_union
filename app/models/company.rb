@@ -6,6 +6,7 @@ class Company < ActiveRecord::Base
 
   self.primary_key = :id
   has_many :drivers
+  has_many :locations
   belongs_to :city
   belongs_to :district
   has_many :manager_users ,:class_name=>'ManagerUser',:foreign_key=>:id
