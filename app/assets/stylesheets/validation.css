@@ -15,3 +15,9 @@ input[type="button"]{
   color:white;
   text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
 }
+#s2id_start_time_hour{margin:0px 5px 0px 5px;}
+#yysjj{
+  margin:0 auto 0 105px;
+  width: 230px;
+}
+#s2id_end_time_min{margin:0px 5px 0px 5px;}

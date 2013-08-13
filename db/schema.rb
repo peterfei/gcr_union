@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130806090611) do
+ActiveRecord::Schema.define(:version => 20130807084524) do
 
   create_table "airports", :force => true do |t|
     t.string  "name"
@@ -192,8 +192,8 @@ ActiveRecord::Schema.define(:version => 20130806090611) do
     t.string   "rate_code_list"
     t.string   "longitude"
     t.string   "latitude"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.string   "start_time"
+    t.string   "end_time"
     t.integer  "is24"
     t.integer  "status"
     t.integer  "city_id"
@@ -284,6 +284,19 @@ ActiveRecord::Schema.define(:version => 20130806090611) do
   add_index "reservations", ["customer_id"], :name => "index_reservations_on_customer_id"
   add_index "reservations", ["driver_id"], :name => "index_reservations_on_driver_id"
   add_index "reservations", ["location_id"], :name => "index_reservations_on_location_id"
+
+  create_table "self_drive_prices", :force => true do |t|
+    t.date     "date"
+    t.decimal  "rate",         :precision => 10, :scale => 0
+    t.integer  "car_model_id"
+    t.integer  "location_id"
+    t.string   "flag"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+  end
+
+  add_index "self_drive_prices", ["car_model_id"], :name => "index_self_drive_prices_on_car_model_id"
+  add_index "self_drive_prices", ["location_id"], :name => "index_self_drive_prices_on_location_id"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

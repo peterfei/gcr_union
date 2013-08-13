@@ -12,6 +12,8 @@ $.fn.extend
   lazy_select2: (options) ->
     options = $.extend { page_size: 15 }, options
     @select2
+      width: options.width || 222
+      multiple: options.multiple || false
       allowClear: true
       initSelection: (element, callback) ->
         id = element.val()
@@ -99,6 +101,18 @@ $.fn.extend
             company_name_contains: term
           }
           page: page
+
+  car_model_select2: () ->
+    @lazy_select2
+      multiple: true
+      url: -> '/car_models'
+      init: (id) -> '/car_models/' + id
+      params: (term, page) ->
+        return {}=
+          search: {
+            car_model_name_contains: term
+          }
+          page: page
   init_components: () ->
     @find('select:not(.select2)').select2 allowClear: true
     $('#pickup_city,#return_city').pickup_city_select2()
@@ -107,3 +121,5 @@ $.fn.extend
     $('#car_id').car_info_select2()
     $('#driver_id').driver_info_select2()
     $('#company_id,#drivers__company_id').company_info_select2()
+
+    $('#car_model_ids').car_model_select2()

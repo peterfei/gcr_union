@@ -36,4 +36,9 @@
           th 状态
           th 操作
         tbody
-        =render @companies
+        -if @companies.present?
+          =render @companies
+        -else
+          tr
+            td colspan='10' style='text_align:center'
+              |暂无数据

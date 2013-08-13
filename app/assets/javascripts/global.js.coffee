@@ -21,12 +21,12 @@ jQuery ->
   # 初始化页面中的 select
   $('body').init_components()
   $('.alert').delay(1000).slideUp()
-  #protocol = (if window.location.protocol is "http:" then "ws://" else "wss://")
-  #address = protocol + window.location.host + window.location.pathname + "/ws"
-  #socket = new WebSocket(address)
-  #socket.onmessage = (msg) ->
-  #  msg.data is "reload" and window.location.reload() 
+
   $('.datepicker').datepicker
     format: 'yyyy-mm-dd'
     language: 'zh-CN'
     autoclose: true
+
+  $('#main').on 'focus', '.custome_date_range', ->
+    $(@).daterangepicker
+      format: 'YYYY/MM/DD'

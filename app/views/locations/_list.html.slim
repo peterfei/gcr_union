@@ -4,7 +4,8 @@
     td= location.location_name
     td= location.address
     td= location.phone
-    td= location.location_name
+    td tip='负责人电话:#{location.phone}'
+      =location.principal
     td= location.status_text
     td
       .btn-group

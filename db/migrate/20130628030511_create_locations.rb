@@ -9,8 +9,8 @@ class CreateLocations < ActiveRecord::Migration
       t.string :rate_code_list
       t.string :longitude
       t.string :latitude
-      t.datetime :start_time
-      t.datetime :end_time
+      t.string :start_time
+      t.string :end_time
       t.integer :is24
       t.integer :status
 

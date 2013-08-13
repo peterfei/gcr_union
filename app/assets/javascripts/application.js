@@ -15,10 +15,9 @@
 //= require jquery.remotipart
 //= require easy_validator.pack
 //= require jquery.bgiframe.min
-//= require d3
 //= require select2
-//= require bootstrap 
-//= require rails.validations 
+//= require bootstrap
+//= require rails.validations
 //= require rails.validations.simple_form
-//= require_tree .
 //= require_tree ../../../vendor/assets/javascripts/
+//= require_tree .

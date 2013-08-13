@@ -1,3 +1,4 @@
+#encoding: utf-8
 module ApplicationHelper
   # render json for select2,index and show included
   #
@@ -7,17 +8,18 @@ module ApplicationHelper
   #     format.html
   #     format.json { render_select2 @city, text: 'city_name' }
   #   end
-  def active href
-    :active if href.start_with?("/#{params[:controller]}")
-  end
+
   def render_select2(*args)
+    render json: data_select2(*args)
+  end
+
+  def data_select2(*args)
     options=args.extract_options!
-    name_method = options.fetch(:text, :name)
+    name_method = options.fetch(:text, :to_s)
     id_method   = options.fetch(:id, :id)
     object=args.shift
-
     if object.respond_to? :map
-      render json: {
+      {
         results: object.map do |o|
           {id: o.send(id_method), text: o.send(name_method)}
           .merge Hash[args.zip args.map{|x| o.send x}]
@@ -25,8 +27,12 @@ module ApplicationHelper
         total: object.total_count
       }
     else
-      render json: {id: object.send(id_method), text: object.send(name_method)}
+      {id: object.send(id_method), text: object.send(name_method)}
       .merge(Hash[args.zip args.map{|x| object.send x}])
     end
+  end
+
+  def active href
+    :active if href.start_with?("/#{params[:controller]}")
   end
 end
