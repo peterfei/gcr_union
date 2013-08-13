@@ -1,1 +1,17 @@
-#calendar
+-if can? :create,SelfDrivePrice
+  = link_to new_self_drive_price_path, remote: true do
+    button.btn
+      | 新增
+table.table.table-bordered.table-hover
+  thead
+    tr
+      th 所属门店
+      th 车辆品牌
+      th 价格
+      th 类型
+      th 操作
+  tbody
+    = render @self_drive_prices
+.pagination.pagination-right
+  =paginate @self_drive_prices, :theme => 'bootstrap', remote: true
+= link_to '返回', self_drive_prices_path, remote: true

@@ -63,3 +63,4 @@ gem 'bcrypt-ruby' ,'~> 3.0.0'
 #用户权限
 gem 'cancan' 
 gem 'cells'
+gem "activerecord-import", "~> 0.3.1"

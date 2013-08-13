@@ -2,11 +2,12 @@ class CarModelsController < ApplicationController
   # GET /car_models
   # GET /car_models.json
   def index
-    @car_models = CarModel.all
+    @search = CarModel.search(params[:search])
+    @car_models = @search.page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @car_models }
+      format.json { render_select2 @car_models }
     end
   end
 

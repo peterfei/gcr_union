@@ -39,6 +39,11 @@ zh-CN:
     customer:
       identity_type_name:
         id: '身份证'
+    self_drive_price:
+      flag:
+        weekday: '周内'
+        weekend: '周末'
+        custome: '自定'
 
   simple_form:
     labels:

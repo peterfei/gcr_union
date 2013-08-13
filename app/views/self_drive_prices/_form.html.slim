@@ -1,0 +1,20 @@
+= simple_form_for @self_drive_price, remote: false, html: {class: 'form-horizontal'},wrapper:'bootstrap' do |f|
+  = f.association :location, :placeholder => '请选择所属门店', :label=>'所属门店'
+  = f.input '' ,:label=>'车辆型号' do
+    = text_field_tag :car_model_ids
+
+  = f.input '' ,:label=>'周内价' do
+    = text_field_tag :weekday_prices
+
+  = f.input '' ,:label=>'周末价' do
+    = text_field_tag :weekend_prices
+
+  = f.input '' ,:label=>'自定价格' do
+    = text_field_tag :'custome_date_range[]',nil, class: 'custome_date_range'
+    = text_field_tag :'custome_prices[]', nil, class: 'span2'
+    = link_to '#', class: 'custome_prices_plus' do
+      i.icon-plus
+  div.wdj_bordertop
+    .wdj_btnwidth
+      .span1= f.submit :value => '提交', class: 'btn btn-primary'
+      .span1.offset= link_to '返回', cars_path, remote: true, class: 'btn'

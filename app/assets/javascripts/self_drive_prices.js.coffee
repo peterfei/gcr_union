@@ -7,6 +7,11 @@ Array::unique = ->
   value for key, value of output
 
 jQuery ->
+  $('#main').on 'click','.custome_prices_plus', ->
+    _div=$(@).parent()
+    _div.clone().insertAfter(_div)
+    false
+
   $('#calendar').fullCalendar(
     editable: true
     selectable: true
