@@ -15,7 +15,7 @@ GcrUnion::Application.routes.draw do
   resources :phone_validates
   resources :coupons
   resources :self_drive_prices
-  resources :reservations do  
+  resources :reservations do
       match 'dispatch_location' ,:on=>:member
       match 'dispatch_car' ,:on=>:member 
       match 'execing' ,:on=>:member 

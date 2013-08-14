@@ -40,7 +40,7 @@ jQuery ->
     for event in $('#calendar').fullCalendar('clientEvents')
       start = moment event.start
       end   = moment event.end
-      
+
       end = start unless end
       for i in [0 .. end.diff(start,'days')]
         _day = start.add('days',i&&1).format('YYYY-MM-DD')
@@ -48,3 +48,13 @@ jQuery ->
           days.push(_day)
           prices.push event.prices
     [days, prices]
+
+  $.init_calendar = ->
+    car_model = $('.car_model_show').val()
+    $.ajax({
+      dataType: "json",
+      url: 'self_drive_prices',
+      data: {search: {car_model_id_equals: 1}}
+      success: (data) ->
+        console.log data
+      })
