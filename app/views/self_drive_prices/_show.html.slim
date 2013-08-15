@@ -1,15 +1,15 @@
 p#notice= notice
-table.table
+table.table.table-hover
   tr
-    td 所属门店
-    td=@car.location
+    td 车辆品牌
+    td=@self_drive_prices.car_model
   tr
-    td 车型
-    td=@car.car_type
+    td== link_to '周内价格', @self_drive_prices.edit_path, remote: true
+    td= @self_drive_prices.weekday_prices
   tr
-    td 车牌号
-    td=@car.car_tag
-  tr
-    td 状态
-    td=@car.status_text
-= link_to '返回', cars_path, remote: true
+    td== link_to '周末价格', @self_drive_prices.edit_path, remote: true
+    td=@self_drive_prices.weekend_prices
+  -@self_drive_prices.range.each do |range,prices|
+    tr
+      td== link_to range, @self_drive_prices.edit_path, remote: true
+      td=prices

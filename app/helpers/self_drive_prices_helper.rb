@@ -15,13 +15,6 @@ module SelfDrivePricesHelper
   end
 
   def calc_range list
-    range = []
-    _last = nil
-    list.each do |d|
-      range << nil if _last and (_last + 1.days != d)
-      range << d
-      _last = d
-    end
-    range.split nil
+    list.slice_before([]){|e,l|e-1.days!=(l<<e)[-2]}.to_a
   end
 end

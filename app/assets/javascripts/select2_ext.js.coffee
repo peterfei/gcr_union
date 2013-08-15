@@ -123,4 +123,4 @@ $.fn.extend
     $('#company_id,#drivers__company_id').company_info_select2()
 
     $('#car_model_ids').car_model_select2()
-    $('.car_model_show').car_model_select2()
+    $('#car_model_show').car_model_select2()

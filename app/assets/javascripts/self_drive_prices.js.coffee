@@ -12,6 +12,9 @@ jQuery ->
     _div.clone().insertAfter(_div)
     false
 
+  $('#main').on 'change', '#car_model_show', ->
+    $.get("/self_drive_prices/#{$(@).val().split(',').last()}")
+
   $('#calendar').fullCalendar(
     editable: true
     selectable: true

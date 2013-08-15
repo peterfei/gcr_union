@@ -10,6 +10,10 @@ class SelfDrivePricesController < ApplicationController
     end
   end
 
+  def show
+    @self_drive_prices = SelfDrivePrice.prices_for(params[:id])
+  end
+
   def new
     @self_drive_price = SelfDrivePrice.new
   end

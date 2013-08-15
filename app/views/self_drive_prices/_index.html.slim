@@ -1,7 +1,8 @@
-input.car_model_show
+form
+  input#car_model_show
 -if can? :create,SelfDrivePrice
   = link_to new_self_drive_price_path, remote: true do
     button.btn
       | 新增
-#calendar
+#show_prices
 = link_to '返回', self_drive_prices_path, remote: true
