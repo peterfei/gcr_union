@@ -1,1 +1,2 @@
-$('#main').html("<%=j render('show') %>");
+item = $("<%=j render('show') %>")
+item.hide().fadeIn().appendTo('#show_prices')

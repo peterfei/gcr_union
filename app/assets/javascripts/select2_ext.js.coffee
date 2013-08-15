@@ -102,9 +102,9 @@ $.fn.extend
           }
           page: page
 
-  car_model_select2: () ->
+  car_model_select2: (multiple=true) ->
     @lazy_select2
-      multiple: true
+      multiple: multiple
       url: -> '/car_models'
       init: (id) -> '/car_models/' + id
       params: (term, page) ->
@@ -123,3 +123,4 @@ $.fn.extend
     $('#company_id,#drivers__company_id').company_info_select2()
 
     $('#car_model_ids').car_model_select2()
+    $('#car_model_show').car_model_select2()

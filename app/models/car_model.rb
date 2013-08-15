@@ -6,6 +6,11 @@ class CarModel < ActiveRecord::Base
 
   has_many :cars
   belongs_to :car_type
+  has_many :self_drive_prices
+
+  def self.without_prices
+    includes(:self_drive_prices).where(:self_drive_prices => {car_model_id: nil})
+  end
 
   def to_s
     car_model_name

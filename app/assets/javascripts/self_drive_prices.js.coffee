@@ -12,6 +12,20 @@ jQuery ->
     _div.clone().insertAfter(_div)
     false
 
+  $.last = []
+  $('#main').on 'change', '#car_model_show', ->
+    current = $(@).val().split(',')
+    if current.length >= $.last.length
+      $.get("/self_drive_prices/#{current.last()}")
+    else
+      diff = []
+      for i in $.last
+        unless i in current
+          diff.push i
+      for i in diff
+        $("#table-#{i}").fadeOut('slow',->($(@).remove()))
+    $.last = current
+
   $('#calendar').fullCalendar(
     editable: true
     selectable: true
@@ -40,7 +54,7 @@ jQuery ->
     for event in $('#calendar').fullCalendar('clientEvents')
       start = moment event.start
       end   = moment event.end
-      
+
       end = start unless end
       for i in [0 .. end.diff(start,'days')]
         _day = start.add('days',i&&1).format('YYYY-MM-DD')
@@ -48,3 +62,13 @@ jQuery ->
           days.push(_day)
           prices.push event.prices
     [days, prices]
+
+  $.init_calendar = ->
+    car_model = $('.car_model_show').val()
+    $.ajax({
+      dataType: "json",
+      url: 'self_drive_prices',
+      data: {search: {car_model_id_equals: 1}}
+      success: (data) ->
+        console.log data
+      })
