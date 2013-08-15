@@ -12,8 +12,19 @@ jQuery ->
     _div.clone().insertAfter(_div)
     false
 
+  $.last = []
   $('#main').on 'change', '#car_model_show', ->
-    $.get("/self_drive_prices/#{$(@).val().split(',').last()}")
+    current = $(@).val().split(',')
+    if current.length >= $.last.length
+      $.get("/self_drive_prices/#{current.last()}")
+    else
+      diff = []
+      for i in $.last
+        unless i in current
+          diff.push i
+      for i in diff
+        $("#table-#{i}").fadeOut('slow',->($(@).remove()))
+    $.last = current
 
   $('#calendar').fullCalendar(
     editable: true
