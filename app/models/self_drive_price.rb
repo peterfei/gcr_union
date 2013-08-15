@@ -48,15 +48,19 @@ class SelfDrivePrice < ActiveRecord::Base
       end
       prices = []
       date_range.zip(custome_prices).each do |range,_prices|
-        _start, _end = range.split(' - ')
-        _start       = Date.parse(_start)
-        _end         = Date.parse(_end)
-        until _start > _end do
-          prices << SelfDrivePrice.new(car_model_id: car_model_id,
-                                       date: _start,
-                                       rate: _prices,
-                                       flag: :custome)
-          _start += 1.days
+        begin
+          _start, _end = range.split(' - ')
+          _start       = Date.parse(_start)
+          _end         = Date.parse(_end)
+          until _start > _end do
+            prices << SelfDrivePrice.new(car_model_id: car_model_id,
+                                         date: _start,
+                                         rate: _prices,
+                                         flag: :custome)
+            _start += 1.days
+          end
+        rescue
+          next
         end
       end
       prices
