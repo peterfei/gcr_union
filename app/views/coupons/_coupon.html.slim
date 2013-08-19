@@ -1,0 +1,9 @@
+tr
+  td = coupon.coupon_code
+  td = coupon.denomination
+  td = coupon.start_date
+  td = coupon.end_date
+  td.btn-group
+    = link_to '查看', coupon,class:'btn btn-small',remote:true
+    = link_to '编辑', edit_coupon_path(coupon),class:'btn btn-small',remote:true
+    = link_to '删除', coupon, :confirm => 'Are you sure?', :method => :delete,class:'btn btn-small'

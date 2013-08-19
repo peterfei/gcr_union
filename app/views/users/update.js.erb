@@ -1,0 +1,5 @@
+<%-if flash[:error].present?%>
+  flash('<%=flash[:error]%>','notice');
+<%-else%> 
+  flash('<%=flash[:success]%>','success');
+<%-end%>

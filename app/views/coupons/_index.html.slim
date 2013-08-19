@@ -1,0 +1,14 @@
+.row.coupon
+  .span12
+    h4.header 优惠码
+  table.table.table-condensed
+    tr
+      th 优惠码
+      th 优惠价格 
+      th 优惠开始日期 
+      th 优惠结束日期
+      th 操作
+
+    = render @coupons
+  br
+  = link_to '新建优惠码', new_coupon_path,class:"btn btn-small",remote:true

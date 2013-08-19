@@ -1,0 +1,9 @@
+tr class="user_#{user.id}"
+  td = user.username 
+  td = user.phone 
+  td = user.email  
+  td = user.status
+  td  
+    =link_to '查看',user_path(user),class:'btn btn-small',remote:true 
+    =link_to '编辑',edit_user_path(user),class:'btn btn-small',remote:true 
+    =link_to '停用',change_user_status_path(user),class:'btn btn-small',remote:true 
