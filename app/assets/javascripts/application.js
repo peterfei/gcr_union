@@ -11,11 +11,11 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
+//= require jquery_ujs 
 //= require jquery.remotipart
 //= require easy_validator.pack
 //= require jquery.bgiframe.min
-//= require select2
+//= require select2 
 //= require bootstrap
 //= require rails.validations
 //= require rails.validations.simple_form

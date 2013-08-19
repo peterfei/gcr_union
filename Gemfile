@@ -63,3 +63,4 @@ gem 'bcrypt-ruby' ,'~> 3.0.0'
 gem 'cancan' 
 gem 'cells'
 gem "activerecord-import", "~> 0.3.1" 
+gem "wice_grid", '3.2.1'

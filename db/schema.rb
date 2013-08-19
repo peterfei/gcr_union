@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20130807084524) do
     t.string   "color"
     t.string   "status"
     t.integer  "receive_model"
+    t.integer  "seat"
     t.integer  "location_id"
     t.integer  "car_type_id"
     t.integer  "car_model_id"

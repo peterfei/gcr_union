@@ -5,6 +5,7 @@ class CreateCars < ActiveRecord::Migration
       t.string :color
       t.string :status
       t.integer :receive_model
+      t.integer :seat
 
       t.references :location
       t.references :car_type

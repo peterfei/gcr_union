@@ -8,7 +8,7 @@ tr
   td = car_type.small_package
   //td = car_type.car_type_img_url
   td = image_tag car_type.image.url(:thumb) if car_type.image?
-  td =
+  /td =
   td
     .btn-group
       = link_to '显示', car_type, remote: true, class: 'btn btn-small'

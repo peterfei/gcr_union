@@ -5,7 +5,7 @@ class DriversController < ApplicationController
   def index
     @search = Driver.search(params[:search])
     @drivers=@search.page params[:page]
-
+    #@drivers=initialize_grid(@search.page params[:page])
     respond_to do |format|
       format.js
       format.html # index.html.erb
