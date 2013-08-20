@@ -7,15 +7,17 @@ class SelfDrivePrice < ActiveRecord::Base
 
   enumerize :flag, in: [:weekday, :weekend, :custome]
 
-  scope :prices_for,     ->(car_model_id){ where(car_model_id: car_model_id) }
-  scope :range_record,   ->{ where(flag: 'custome') }
+  scope :for, ->(car_model_id){ where(car_model_id: car_model_id) }
+  scope :custome_prices, ->{ where(flag: 'custome')  }
+  scope :weekday_prices, ->{ find_by_flag('weekday') }
+  scope :weekend_prices, ->{ find_by_flag('weekend') }
 
   class << self
     include SelfDrivePricesHelper
 
     def range
       range = {}
-      range_record.to_a.group_by(&:rate).each do |prices,_range|
+      custome_prices.to_a.group_by(&:rate).each do |prices,_range|
         dates     = _range.sort_by(&:date).map(&:date)
         calc_range(dates).each do |r|
           range[get_text_range r] = prices
@@ -30,10 +32,10 @@ class SelfDrivePrice < ActiveRecord::Base
     def edit_path
       "self_drive_prices/#{car_model.id}/edit"
     end
-    def weekday_prices
+    def weekday_rate
       find_by_flag('weekday').rate
     end
-    def weekend_prices
+    def weekend_rate
       find_by_flag('weekend').rate
     end
 
@@ -44,7 +46,7 @@ class SelfDrivePrice < ActiveRecord::Base
       range_reset    = options[:range_reset]
 
       if range_reset
-        prices_for(car_model_id).range_record.destroy_all
+        prices_for(car_model_id).custome_prices.destroy_all
       end
       prices = []
       date_range.zip(custome_prices).each do |range,_prices|
@@ -65,5 +67,10 @@ class SelfDrivePrice < ActiveRecord::Base
       end
       prices
     end
+
+  end
+
+  def + other
+    self.rate + other.rate
   end
 end

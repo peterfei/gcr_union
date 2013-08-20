@@ -11,7 +11,7 @@ class SelfDrivePricesController < ApplicationController
   end
 
   def show
-    @self_drive_prices = SelfDrivePrice.prices_for(params[:id])
+    @self_drive_prices = SelfDrivePrice.for(params[:id])
   end
 
   def new
@@ -19,7 +19,7 @@ class SelfDrivePricesController < ApplicationController
   end
 
   def edit
-    @self_drive_prices = SelfDrivePrice.prices_for(params[:id])
+    @self_drive_prices = SelfDrivePrice.for(params[:id])
     respond_to do |format|
       format.js
       format.html # index.html.erb
@@ -27,7 +27,7 @@ class SelfDrivePricesController < ApplicationController
   end
 
   def update
-    SelfDrivePrice.prices_for(params[:car_model_ids]).destroy_all
+    SelfDrivePrice.for(params[:car_model_ids]).destroy_all
     respond_to do |format|
       if SelfDrivePrice.import _create
         format.html { redirect_to self_drive_prices_path }
@@ -40,7 +40,7 @@ class SelfDrivePricesController < ApplicationController
   # POST /self_drive_prices
   # POST /self_drive_prices.json
   def create
-    SelfDrivePrice.prices_for(params[:car_model_ids]).destroy_all
+    SelfDrivePrice.for(params[:car_model_ids]).destroy_all
     respond_to do |format|
       if SelfDrivePrice.import _create
         format.html { redirect_to self_drive_prices_path }
