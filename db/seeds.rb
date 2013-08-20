@@ -5,13 +5,14 @@
 
 BaseRateCode.destroy_all
 BaseRateCode.create([
-  {rate_code: 'JJ', rate_code_name: "接机", base_hour: 1, base_km: 1}, 
-  {rate_code: 'SJ', rate_code_name: "送机", base_hour: 1, base_km: 1}, 
-  {rate_code: 'JHC', rate_code_name: "接火车", base_hour: 1, base_km: 1}, 
-  {rate_code: 'SHC', rate_code_name: "送火车", base_hour: 1, base_km: 1}, 
-  {rate_code: 'RZ', rate_code_name: "日租", base_hour: 1, base_km: 1}, 
+  {rate_code: 'JJ', rate_code_name: "接机", base_hour: 1, base_km: 1},
+  {rate_code: 'SJ', rate_code_name: "送机", base_hour: 1, base_km: 1},
+  {rate_code: 'JHC', rate_code_name: "接火车", base_hour: 1, base_km: 1},
+  {rate_code: 'SHC', rate_code_name: "送火车", base_hour: 1, base_km: 1},
+  {rate_code: 'RZ', rate_code_name: "日租", base_hour: 1, base_km: 1},
   {rate_code: 'SZ', rate_code_name: "时租", base_hour: 1, base_km: 1},
-  {rate_code: 'DDD', rate_code_name: "定制", base_hour: 1, base_km: 1}
+  {rate_code: 'DDD', rate_code_name: "定制", base_hour: 1, base_km: 1},
+  {rate_code: 'ZJ', rate_code_name: "自驾"}
 ])
 
 SysParameter.destroy_all

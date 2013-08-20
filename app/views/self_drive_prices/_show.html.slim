@@ -5,10 +5,10 @@ table.table.table-hover id="table-#{@self_drive_prices.car_model.id}"
     td=@self_drive_prices.car_model
   tr
     td== link_to '周内价格', @self_drive_prices.edit_path, remote: true
-    td= @self_drive_prices.weekday_prices
+    td= @self_drive_prices.weekday_rate
   tr
     td== link_to '周末价格', @self_drive_prices.edit_path, remote: true
-    td=@self_drive_prices.weekend_prices
+    td=@self_drive_prices.weekend_rate
   -@self_drive_prices.range.each do |range,prices|
     tr
       td== link_to range, @self_drive_prices.edit_path, remote: true
