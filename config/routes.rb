@@ -1,4 +1,12 @@
-GcrUnion::Application.routes.draw do
+GcrUnion::Application.routes.draw do 
+  
+  # Make sure this routeset is defined last
+  #ComfortableMexicanSofa::Routing.content(:path => '/', :sitemap => false)
+
+  ComfortableMexicanSofa::Routing.admin(:path => '/cms-admin')
+  #  
+  #  # Make sure this routeset is defined last
+  #ComfortableMexicanSofa::Routing.content(:path => '/', :sitemap => false)
   resources :call_centers
   resources :railways
   resources :airports

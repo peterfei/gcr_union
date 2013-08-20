@@ -1,6 +1,6 @@
 #source 'http://mirrors.tuna.tsinghua.edu.cn/rubygems/'
 source 'http://ruby.taobao.org'
-gem 'rails', '3.2.13'
+gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -21,7 +21,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails','2.1.4'
+gem 'jquery-rails','2.2.0'
 gem 'kaminari'
 gem 'slim-rails'
 gem 'mini_magick'
@@ -63,4 +63,6 @@ gem 'bcrypt-ruby' ,'~> 3.0.0'
 gem 'cancan' 
 gem 'cells'
 gem "activerecord-import", "~> 0.3.1" 
-gem "wice_grid", '3.2.1'
+gem "wice_grid", '3.2.1' 
+gem 'comfortable_mexican_sofa','1.8.0'
+

@@ -8,7 +8,8 @@ class Ability
        p '-------------'
        p "Ability::user#{user.to_yaml}"
        if user.role =="admin"
-         can :manage, :all
+         can :manage, :all 
+         can [:read, :manage], "CmsAdmin::Base"
        elsif user.role=='oprator'
          can :manage,[Driver,Car,Location,Reservation,City,District]
          can :read,[Reservation,Company]
