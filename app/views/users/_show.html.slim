@@ -1,0 +1,14 @@
+.row.user_all
+  h4.header 用户信息
+  .span12  
+    dl.dl-horizontal
+      .row-fluid 
+        .span4
+          dt 用户名
+          dd = @user.username 
+        .span4 
+          dt 用户手机
+          dd = @user.phone 
+        .span4 
+          dt 邮箱
+          dd = @user.email

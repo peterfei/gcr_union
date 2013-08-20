@@ -1,3 +1,3 @@
-$('#main').on 'click','.car_car_tag i', ->
+$('#main').on 'click','.record i', ->
   _div=$(@).parent()
   _div.clone().insertAfter(_div)

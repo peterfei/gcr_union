@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20130807084524) do
     t.string   "color"
     t.string   "status"
     t.integer  "receive_model"
+    t.integer  "seat"
     t.integer  "location_id"
     t.integer  "car_type_id"
     t.integer  "car_model_id"
@@ -176,8 +177,11 @@ ActiveRecord::Schema.define(:version => 20130807084524) do
     t.string   "status"
     t.integer  "company_id"
     t.integer  "location_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "driver_allowed"
+    t.integer  "driver_year"
+    t.string   "born"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "drivers", ["company_id"], :name => "index_drivers_on_company_id"
@@ -338,6 +342,7 @@ ActiveRecord::Schema.define(:version => 20130807084524) do
     t.string   "password_digest"
     t.string   "email"
     t.string   "uuid"
+    t.string   "status"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

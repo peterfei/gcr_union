@@ -15,7 +15,8 @@ class CouponsController < ApplicationController
   def show
     @coupon = Coupon.find(params[:id])
 
-    respond_to do |format|
+    respond_to do |format| 
+      format.js
       format.html # show.html.erb
       format.json { render json: @coupon }
     end
@@ -26,7 +27,8 @@ class CouponsController < ApplicationController
   def new
     @coupon = Coupon.new
 
-    respond_to do |format|
+    respond_to do |format| 
+      format.js
       format.html # new.html.erb
       format.json { render json: @coupon }
     end
@@ -34,7 +36,10 @@ class CouponsController < ApplicationController
 
   # GET /coupons/1/edit
   def edit
-    @coupon = Coupon.find(params[:id])
+    @coupon = Coupon.find(params[:id]) 
+    respond_to do |format|  
+      format.js 
+    end
   end
 
   # POST /coupons
@@ -43,10 +48,12 @@ class CouponsController < ApplicationController
     @coupon = Coupon.new(params[:coupon])
 
     respond_to do |format|
-      if @coupon.save
+      if @coupon.save 
+        format.js
         format.html { redirect_to @coupon, notice: 'Coupon was successfully created.' }
         format.json { render json: @coupon, status: :created, location: @coupon }
-      else
+      else 
+        format.js {render action: "new"}
         format.html { render action: "new" }
         format.json { render json: @coupon.errors, status: :unprocessable_entity }
       end

@@ -5,7 +5,7 @@ class DriversController < ApplicationController
   def index
     @search = Driver.search(params[:search])
     @drivers=@search.page params[:page]
-
+    #@drivers=initialize_grid(@search.page params[:page])
     respond_to do |format|
       format.js
       format.html # index.html.erb
@@ -49,14 +49,16 @@ class DriversController < ApplicationController
     logger.info "------#{drivers_params}"
     #@driver = Driver.new(drivers_params)
     respond_to do |format|
-      #if @driver.save
-      if Driver.create(drivers_params) 
+      #if @driver.save 
+      begin
+        Driver.create!(drivers_params)  
         @search = Driver.search(params[:search])
         @drivers=@search.page params[:page]
         format.js {render 'index'}
         #format.html { redirect_to @driver, notice: '驾驶员添加成功' }
         format.json { render json: @driver, status: :created, location: @driver }
-      else
+      rescue 
+        format.js{render 'new'}
         format.html { render action: "new" }
         format.json { render json: @driver.errors, status: :unprocessable_entity }
       end

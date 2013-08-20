@@ -1,21 +1,12 @@
-= form_for @coupon do |f|
-  - if @coupon.errors.any?
+= simple_form_for @coupon,html: {class: 'form-horizontal'},wrapper:'bootstrap',remote:true do |f|
+  /- if @coupon.errors.any?
     #error_explanation
       h2 = "#{pluralize(@coupon.errors.count, "error")} prohibited this coupon from being saved:"
       ul
         - @coupon.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :coupon_code
-    = f.text_field :coupon_code
-  .field
-    = f.label :denomination
-    = f.text_field :denomination
-  .field
-    = f.label :start_date
-    = f.datetime_select :start_date
-  .field
-    = f.label :end_date
-    = f.datetime_select :end_date
-  .actions = f.submit 'Save'
+          li = message 
+  =f.input :coupon_code ,:label=>"优惠码"
+  =f.input :denomination ,label:"优惠金额",as: :string
+  =f.input :start_date ,label:"优惠开始日期",input_html:{ class: 'datepicker input-small'},as: :string
+  =f.input :end_date ,label:"优惠结束日期", input_html:{ class: 'datepicker input-small'},as: :string
+  = f.button :submit, :value => '提交'

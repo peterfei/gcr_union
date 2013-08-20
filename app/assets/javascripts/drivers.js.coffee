@@ -3,8 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
   $('#drivers__location_id').select2()
-  $('#main').on 'click','#new_driver i', ->
-    console.log 111
+  $('#main').on 'click','.driver i', ->
     _div = $(@).parent()
     _div.clone().insertAfter(_div)
 

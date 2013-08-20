@@ -3,10 +3,12 @@
   = f.association :car_type, :placeholder => '请选择车辆类型', :label=>'车辆品牌'
   = f.association :car_model, :placeholder => '请选择车辆品牌', :label=>'车辆型号'
   -if @car.new_record?
-    = f.input :car_tag, :label=>'车牌号码' do
-      =text_field_tag 'cars[][car_tag]'
-      span 颜色
-      =text_field_tag 'cars[][color]'
+    .record
+      = f.input :car_tag, :label=>'车牌号码' do
+        =text_field_tag 'cars[][car_tag]'
+        span 颜色
+        =text_field_tag 'cars[][color]' 
+      =f.input :seat ,input_html:{:name=>"cars[][seat]"},as: :string,label:"座位数"
       i.icon-plus
   -else
     = f.input :car_tag, :label=>'车牌号码' do

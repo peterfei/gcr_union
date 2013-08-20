@@ -1,5 +1,5 @@
-source 'http://mirrors.tuna.tsinghua.edu.cn/rubygems/'
-
+#source 'http://mirrors.tuna.tsinghua.edu.cn/rubygems/'
+source 'http://ruby.taobao.org'
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
@@ -25,7 +25,6 @@ gem 'jquery-rails','2.1.4'
 gem 'kaminari'
 gem 'slim-rails'
 gem 'mini_magick'
-gem 'nokogiri'
 gem 'ruby-pinyin'
 
 group :development, :test do 
@@ -63,4 +62,5 @@ gem 'bcrypt-ruby' ,'~> 3.0.0'
 #用户权限
 gem 'cancan' 
 gem 'cells'
-gem "activerecord-import", "~> 0.3.1"
+gem "activerecord-import", "~> 0.3.1" 
+gem "wice_grid", '3.2.1'

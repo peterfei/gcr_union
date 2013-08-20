@@ -5,7 +5,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :phone
       t.string :password_digest
       t.string :email
-      t.string :uuid
+      t.string :uuid 
+      t.string :status
       t.timestamps
     end
     add_index :users, :username, unique: true

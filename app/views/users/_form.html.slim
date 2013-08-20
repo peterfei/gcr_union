@@ -1,0 +1,22 @@
+=simple_form_for @user,html:{class:'form-horizontal'},wrapper:"bootstrap",remote:true do |f|
+  =f.fields_for :customer do |cf|
+      .span5=cf.input :customer_name 
+      .span5=cf.input :sex  
+      .span5=cf.input :identity_type_name
+      .span5=cf.input :identity_code
+      .span5=cf.input :guding_phone
+  .span12 
+    .row-fluid
+      .span5  = f.input :username 
+      .span5 = f.input :phone
+  .span12 
+    .row-fluid 
+      .span5 = f.input :email    
+  
+  .span12
+    .row-fluid  
+      .span5 = f.input :password  
+  .span12
+    .span5 = f.input :password_confirmation 
+  .span12 =f.submit '保存',class:'btn btn-primary'
+

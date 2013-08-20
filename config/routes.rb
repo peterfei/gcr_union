@@ -24,7 +24,9 @@ GcrUnion::Application.routes.draw do
   end
   resources :cars, path_names: { destroy: 'disable' }
   resources :locations
-  resources :companies
+  resources :companies 
+  resources :users 
+  match 'users/change_user_status/:id'=>"users#change_user_status",:as=>"change_user_status"
   match 'drivers/change_status/:id' => 'drivers#change_status',:as=>'change_status'
   match 'companies/alter_status/:id' => 'companies#alter_status',:as=>'alter_status'
   # The priority is based upon order of creation:
