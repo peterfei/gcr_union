@@ -7,10 +7,10 @@
     = text_field_tag :car_model_ids, self_drive_price.try(:car_model_id), readonly: @self_drive_prices
 
   = f.input '' ,:label=>'周内价' do
-    = text_field_tag :weekday_prices, @self_drive_prices.try(:weekday_prices)
+    = text_field_tag :weekday_prices, @self_drive_prices.try(:weekday_rate)
 
   = f.input '' ,:label=>'周末价' do
-    = text_field_tag :weekend_prices, @self_drive_prices.try(:weekend_prices)
+    = text_field_tag :weekend_prices, @self_drive_prices.try(:weekend_rate)
 
   = f.input '' ,:label=>'自定价格' do
     -(@self_drive_prices.range rescue [nil]).each  do |range,prices|
