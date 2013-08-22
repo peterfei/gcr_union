@@ -1,0 +1,18 @@
+.row.models_all
+  .span12 
+    = link_to '新增车辆品牌', new_car_model_path,class:"btn btn-small",remote:true
+    table.table.table-condensed
+      tr
+        th 车型编码
+        th 车型名称
+        th 车辆品牌 
+        th 车型图片
+        th 车型品牌 
+        th 车型编码
+        th 品牌排量
+        th 品牌变速类型
+        th colspan='3' 操作
+      tbody 
+        =render @car_models 
+    .pagination.pagination-centered
+      =paginate @car_models
