@@ -34,8 +34,8 @@ class LocationsController < ApplicationController
     @start_time_min = '30'
     @end_time_hour = '17'
     @end_time_min = '30'
-    
     @location.status = 1
+
     respond_to do |format|
       #format.html # new.html.erb
       format.js
@@ -45,15 +45,15 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
-    @location = Location.find(params[:id]) 
+    @location = Location.find(params[:id])
     start_time = @location.start_time
     end_time = @location.end_time
-    
+
     @start_time_hour = start_time.split(':')[0]
     @start_time_min = start_time.split(':')[1]
     @end_time_hour = end_time.split(':')[0]
     @end_time_min = end_time.split(':')[1]
-    
+
     respond_to do |format|
       format.js # new.html.erb
       format.json { render json: @location }
@@ -66,14 +66,13 @@ class LocationsController < ApplicationController
     start_time = "#{params[:start_time_hour]}:#{params[:start_time_min]}"
     end_time = "#{params[:end_time_hour]}:#{params[:end_time_min]}"
     if params[:location].present?
-      params[:location][:created_at] = Time.now
       params[:location][:start_time] = start_time
       params[:location][:end_time] = end_time
     end
     @location = Location.new(params[:location])
 
     respond_to do |format|
-      if @location.save 
+      if @location.save
         format.js
         format.html { redirect_to @location, notice: '门店信息建立成功.' }
         format.json { render json: @location, status: :created, location: @location }
@@ -92,7 +91,6 @@ class LocationsController < ApplicationController
       start_time = "#{params[:start_time_hour]}:#{params[:start_time_min]}"
       end_time = "#{params[:end_time_hour]}:#{params[:end_time_min]}"
       if params[:location].present?
-        params[:location][:updated_at] = Time.now
         params[:location][:start_time] = start_time
         params[:location][:end_time] = end_time
       end

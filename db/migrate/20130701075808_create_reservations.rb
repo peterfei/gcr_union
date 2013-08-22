@@ -39,13 +39,14 @@ class CreateReservations < ActiveRecord::Migration
       t.references :customer
       t.references :company
       t.references :driver
-      t.references :location
       t.references :base_rate_code
 
       t.references :pickup_city
       t.references :return_city
       t.references :pickup_district
       t.references :return_district
+      t.references :pickup_location
+      t.references :return_location
 
       t.references :airport
       t.references :railway
@@ -61,7 +62,8 @@ class CreateReservations < ActiveRecord::Migration
     add_index :reservations, :customer_id
     add_index :reservations, :company_id
     add_index :reservations, :driver_id
-    add_index :reservations, :location_id
+    add_index :reservations, :pickup_location_id
+    add_index :reservations, :return_location_id
     add_index :reservations, :base_rate_code_id
   end
 end

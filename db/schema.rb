@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20130820074020) do
     t.string   "color"
     t.string   "status"
     t.integer  "receive_model"
+    t.integer  "seat"
     t.integer  "location_id"
     t.integer  "car_type_id"
     t.integer  "car_model_id"
@@ -293,8 +294,11 @@ ActiveRecord::Schema.define(:version => 20130820074020) do
     t.string   "status"
     t.integer  "company_id"
     t.integer  "location_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "driver_allowed"
+    t.integer  "driver_year"
+    t.string   "born"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "drivers", ["company_id"], :name => "index_drivers_on_company_id"
@@ -380,12 +384,13 @@ ActiveRecord::Schema.define(:version => 20130820074020) do
     t.integer  "customer_id"
     t.integer  "company_id"
     t.integer  "driver_id"
-    t.integer  "location_id"
     t.integer  "base_rate_code_id"
     t.integer  "pickup_city_id"
     t.integer  "return_city_id"
     t.integer  "pickup_district_id"
     t.integer  "return_district_id"
+    t.integer  "pickup_location_id"
+    t.integer  "return_location_id"
     t.integer  "airport_id"
     t.integer  "railway_id"
     t.integer  "coupon_id"
@@ -401,7 +406,8 @@ ActiveRecord::Schema.define(:version => 20130820074020) do
   add_index "reservations", ["confirmation"], :name => "index_reservations_on_confirmation"
   add_index "reservations", ["customer_id"], :name => "index_reservations_on_customer_id"
   add_index "reservations", ["driver_id"], :name => "index_reservations_on_driver_id"
-  add_index "reservations", ["location_id"], :name => "index_reservations_on_location_id"
+  add_index "reservations", ["pickup_location_id"], :name => "index_reservations_on_pickup_location_id"
+  add_index "reservations", ["return_location_id"], :name => "index_reservations_on_return_location_id"
 
   create_table "self_drive_prices", :force => true do |t|
     t.date     "date"
@@ -455,6 +461,7 @@ ActiveRecord::Schema.define(:version => 20130820074020) do
     t.string   "password_digest"
     t.string   "email"
     t.string   "uuid"
+    t.string   "status"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
