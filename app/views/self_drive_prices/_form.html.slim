@@ -3,8 +3,7 @@
 -url              = "/self_drive_prices/#{car_model_id}"
 = simple_form_for car_model_id ? self_drive_price : @self_drive_price, url: url, remote: false, html: {class: 'form-horizontal'},wrapper: 'bootstrap' do |f|
   = f.association :location, placeholder: '请选择所属门店', label: '所属门店'
-  = f.input '' ,label: '车辆型号' do
-    = text_field_tag :car_model_ids, self_drive_price.try(:car_model_id), readonly: @self_drive_prices
+  = f.association :car_model, label: '车辆型号', value: self_drive_price.try(:car_model_id), readonly: @self_drive_prices, as: 'string'
 
   = f.input '' ,label: '周内价' do
     = text_field_tag :weekday_prices, @self_drive_prices.try(:weekday_rate)

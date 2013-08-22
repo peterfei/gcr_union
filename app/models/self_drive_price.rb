@@ -7,7 +7,10 @@ class SelfDrivePrice < ActiveRecord::Base
 
   enumerize :flag, in: [:weekday, :weekend, :custome]
 
-  scope :for, ->(car_model_id){ where(car_model_id: car_model_id) }
+  scope :for, ->(params){
+    where(location_id: params[:location_id],
+          car_model_id: params[:car_model_id])
+  }
   scope :custome_prices, ->{ where(flag: 'custome')  }
   scope :weekday_prices, ->{ find_by_flag('weekday') }
   scope :weekend_prices, ->{ find_by_flag('weekend') }
