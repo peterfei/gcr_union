@@ -1,4 +1,12 @@
+$(document).on 'ajaxStart', ->
+  NProgress.start()
+$(document).on 'ajaxComplete', ->
+  NProgress.done()
+$(window).load ->
+  NProgress.done()
+
 jQuery ->
+  NProgress.start()
   #$('body').on 'hidden', '.modal', ->
   #  $(@).removeData('modal')
   #$('.datepicker').on 'click', (e) ->
