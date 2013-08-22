@@ -6,15 +6,12 @@ gem 'rails'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-#gem 'sqlite3'
 gem 'bootstrap-sass'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'execjs'
   gem 'therubyracer', :platforms => :ruby
 
@@ -27,7 +24,7 @@ gem 'slim-rails'
 gem 'mini_magick'
 gem 'ruby-pinyin'
 
-group :development, :test do 
+group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'guard-rspec'
@@ -57,12 +54,11 @@ gem 'enumerize'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem 'delayed_job_active_record'
-gem 'settingslogic' 
+gem 'settingslogic'
 gem 'bcrypt-ruby' ,'~> 3.0.0'
 #用户权限
-gem 'cancan' 
+gem 'cancan'
 gem 'cells'
-gem "activerecord-import", "~> 0.3.1" 
-gem "wice_grid", '3.2.1' 
+gem "activerecord-import", "~> 0.3.1"
+gem "wice_grid", '3.2.1'
 gem 'comfortable_mexican_sofa','1.8.0'
-
