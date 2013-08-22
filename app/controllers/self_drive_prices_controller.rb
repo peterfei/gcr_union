@@ -52,13 +52,16 @@ class SelfDrivePricesController < ApplicationController
   private
   def _create
     prices = []
+    location_id = params[:self_drive_price][:location_id]
     params[:car_model_ids].split(',').each do |id|
-      weekday_prices=params[:weekday_prices]
-      weekend_prices=params[:weekend_prices]
+      weekday_prices = params[:weekday_prices]
+      weekend_prices = params[:weekend_prices]
       prices << SelfDrivePrice.new(car_model_id: id,
+                                   location_id: location_id,
                                    rate: weekday_prices,
                                    flag: :weekday)
       prices << SelfDrivePrice.new(car_model_id: id,
+                                   location_id: location_id,
                                    rate: weekend_prices,
                                    flag: :weekend)
       prices += SelfDrivePrice.range_insert(params.merge(car_model_id: id))

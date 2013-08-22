@@ -43,6 +43,7 @@ class SelfDrivePrice < ActiveRecord::Base
       date_range     = options[:date_range]
       custome_prices = options[:custome_prices]
       car_model_id   = options[:car_model_id]
+      location_id    = options[:self_drive_price][:location_id]
       range_reset    = options[:range_reset]
 
       if range_reset
@@ -56,6 +57,7 @@ class SelfDrivePrice < ActiveRecord::Base
           _end         = Date.parse(_end)
           until _start > _end do
             prices << SelfDrivePrice.new(car_model_id: car_model_id,
+                                         location_id: location_id,
                                          date: _start,
                                          rate: _prices,
                                          flag: :custome)

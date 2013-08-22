@@ -1,7 +1,7 @@
 #encoding:utf-8
 class Reservation < ActiveRecord::Base
-  attr_accessible :confirmation, :pickup_date, 
-    :reservation_person_phone, :return_date, :source_code, 
+  attr_accessible :confirmation, :pickup_date,
+    :reservation_person_phone, :return_date, :source_code,
     :status, :total_price, :send_address, :receiver, :receiver_phone,
     :special_passenger, :special_requirements, :up_address, :down_address,
     :up_construction, :down_construction, :remark, :rental_range,
@@ -60,7 +60,7 @@ class Reservation < ActiveRecord::Base
   end
   def pickup_city_id
     read_attribute(:pickup_city_id)||read_attribute(:return_city_id)
-  end 
+  end
 
   def pickup_district_id
     read_attribute(:pickup_district_id)||read_attribute(:return_district_id)
@@ -87,28 +87,28 @@ class Reservation < ActiveRecord::Base
     write_attribute :confirmation, "#{base_rate_code.rate_code}#{Time.now.strftime('%Y%m%d%H%M%S%L')}"
   end
 
-  composed_of :pickup_date, 
-    :class_name => 'CompoundDatetime', 
+  composed_of :pickup_date,
+    :class_name => 'CompoundDatetime',
     :mapping => [ %w(pickup_date datetime) ],
     :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
-  composed_of :return_date, 
-    :class_name => 'CompoundDatetime', 
+  composed_of :return_date,
+    :class_name => 'CompoundDatetime',
     :mapping => [ %w(return_date datetime) ],
     :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
-  #订单状态流转 
-  def flow(status) 
-    case status  
-    when 'pending' 
+  #订单状态流转
+  def flow(status)
+    case status
+    when 'pending'
       update_attribute :status,:waitexec
-    when 'waitexec' 
-      update_attribute :status,:hascar 
-    when 'hascar' 
-      update_attribute :status,:execing 
-    when 'execing'  
-      update_attribute :status,:done 
-    when 'cancel' 
+    when 'waitexec'
+      update_attribute :status,:hascar
+    when 'hascar'
+      update_attribute :status,:execing
+    when 'execing'
+      update_attribute :status,:done
+    when 'cancel'
       update_attribute :status,:canceled
     end
-  end 
+  end
 end
 

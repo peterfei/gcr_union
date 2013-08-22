@@ -9,6 +9,7 @@ class Location < ActiveRecord::Base
   belongs_to :district
   has_many   :drivers
   has_many   :car_types
+  has_many   :self_drive_prices
 
   validates :location_name,   presence: { message: '请输入门店名称' }
   validates :phone,           presence: { message: '请输入门店手机号码' }
