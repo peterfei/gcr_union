@@ -38,3 +38,18 @@ jQuery ->
   $('#main').on 'focus', '.custome_date_range', ->
     $(@).daterangepicker
       format: 'YYYY/MM/DD'
+  # 导航
+  $(".menu ul li").hover (->
+    $(this).addClass "menu_hover"
+  ), ->
+    $(this).removeClass "menu_hover"
+
+  $(".menu_item").hover (->
+    $(this).find("> .menu_navigation").slideDown 100
+  ), ->
+    $(this).find("> .menu_navigation").slideUp 100
+
+  $(".sub_menu_item").hover (->
+    $(this).find("> .sub_menu_navigation").slideDown 100
+  ), ->
+    $(this).find("> .sub_menu_navigation").slideUp 100

@@ -8,25 +8,45 @@
         <li class="<%= active companies_path%> menu-btn-pickup"><a href="<%=companies_path%>" class="pickup_car_one"></a></li> 
 <li class="<%= active locations_path%> menu-btn-customers menu_item">
       <a href="<%=locations_path%>" class="client_one"></a>
-      <div class="menu_navigation">
-        <div class="mav_top"></div>
-        <ul class="menu_sub">
-          <li class="">
-            <a class="menu_sub_last" href="#">大客户信息</a>
-          </li>
-          <li class="menu_sub_last">
-            <a class="menu_sub_last" href="#">会员</a>
-          </li>         
-        </ul>
-        <div class="mav_bottom"></div>
-      </div>
+      
   </li> 
 
     <li class="<%= active cars_path%> menu-btn-returning"><a href="<%=cars_path%>" class="car_pay"></a></li>
     <li class="<%= active drivers_path%> menu-btn-matching"><a href="<%=drivers_path%>" class="driver_one"></a></li> 
 
     <%-unless current_user.role=='call_center' or current_user.role=='oprator'%>
-    <li class="<%= active manager_users_path%> platform"><a href="<%=manager_users_path%>" class="platform"></a></li>
+      <li class="<%= active manager_users_path%> platform menu_item">
+        <a href="#" class="platform"></a>
+        <div class="menu_navigation">
+        <div class="mav_top"></div>
+        <ul class="menu_sub">
+          <li class=""> 
+
+            <a class="menu_sub_last" href="<%=manager_users_path%>">账号权限</a>
+          </li>
+          <li class="menu_sub_last">
+            <a class="menu_sub_last" href="<%=car_models_path%>">品牌维护</a>
+          </li>          
+          <li class="menu_sub_last">
+            <a class="menu_sub_last" href="<%=car_types_path%>">车型维护</a>
+
+          </li> 
+          <li class="menu_sub_last">
+            <a class="menu_sub_last" href="<%=users_path%>">用户维护</a>
+          </li> 
+          <li class="menu_sub_last">
+            <a class="menu_sub_last" href="<%=cms_admin_path%>">前台CMS维护</a>
+          </li> 
+          <li class="menu_sub_last">
+            <a class="menu_sub_last" href="<%=self_drive_prices_path%>">自驾价格维护</a>
+          </li> 
+          <li class="menu_sub_last">
+            <a class="menu_sub_last" href="<%=car_type_rates_path%>">车型价格维护</a>
+          </li>
+        </ul>
+        <div class="mav_bottom"></div>
+      </div>
+      </li> 
         <%end%>
         <%end%>
   </ul>
