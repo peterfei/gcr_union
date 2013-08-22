@@ -5,7 +5,8 @@ class CarModelsController < ApplicationController
     @search = CarModel.search(params[:search])
     @car_models = @search.page params[:page]
 
-    respond_to do |format|
+    respond_to do |format| 
+      format.js
       format.html # index.html.erb
       format.json { render_select2 @car_models }
     end
@@ -16,7 +17,8 @@ class CarModelsController < ApplicationController
   def show
     @car_model = CarModel.find(params[:id])
 
-    respond_to do |format|
+    respond_to do |format| 
+      format.js
       format.html # show.html.erb
       format.json { render_select2 @car_model }
     end
@@ -27,7 +29,8 @@ class CarModelsController < ApplicationController
   def new
     @car_model = CarModel.new
 
-    respond_to do |format|
+    respond_to do |format| 
+      format.js
       format.html # new.html.erb
       format.json { render json: @car_model }
     end
@@ -35,7 +38,10 @@ class CarModelsController < ApplicationController
 
   # GET /car_models/1/edit
   def edit
-    @car_model = CarModel.find(params[:id])
+    @car_model = CarModel.find(params[:id])  
+    respond_to do |format|  
+        format.js
+    end
   end
 
   # POST /car_models
@@ -43,11 +49,16 @@ class CarModelsController < ApplicationController
   def create
     @car_model = CarModel.new(params[:car_model])
 
-    respond_to do |format|
-      if @car_model.save
-        format.html { redirect_to @car_model, notice: 'Car model was successfully created.' }
+    respond_to do |format| 
+      
+      if @car_model.save 
+        @search = CarModel.search(params[:search])
+        @car_models = @search.page params[:page] 
+        #format.html { redirect_to @car_model, notice: 'Car model was successfully created.' }
+        format.js {render 'index'}
         format.json { render json: @car_model, status: :created, location: @car_model }
       else
+        format.js{render 'index'}
         format.html { render action: "new" }
         format.json { render json: @car_model.errors, status: :unprocessable_entity }
       end
@@ -60,7 +71,7 @@ class CarModelsController < ApplicationController
     @car_model = CarModel.find(params[:id])
 
     respond_to do |format|
-      if @car_model.update_attributes(params[:car_model])
+      if @car_model.update_attributes(params[:car_model]) 
         format.html { redirect_to @car_model, notice: 'Car model was successfully updated.' }
         format.json { head :no_content }
       else

@@ -1,34 +1,5 @@
-table
-  tr
-    th 车型编码
-    th 车型名称
-    th 车辆品牌
-    th 车型品牌
-    th 车型编码
-    th 车辆品牌图片
-    th 品牌箱数
-    th 品牌排量
-    th 品牌变速类型
-    th 状态
-    th colspan='3' 操作
+.page 
+  .page-container
+    .container#main
+      =render 'index'
 
-  - @car_models.each do |car_model|
-    tr
-      td = car_model.car_model_code
-      td = car_model.car_model_name
-      td = car_model.car_model
-      td = car_model.car_model_type
-      /td = car_model.car_type_code
-      //td = car_model.car_model_img_url
-      /td = image_tag car_model.car_model_img_url.url(:thumb) if car_model.car_model_img_url?
-      td = car_model.car_model_package
-      td = car_model.car_model_size
-      td = car_model.car_model_atmt
-      /td = car_model.status_text
-      td = link_to '显示', car_model
-      td = link_to '编辑', edit_car_model_path(car_model)
-      td = link_to '删除', car_model, :confirm => '确定要删除吗?', :method => :delete
-
-br
-
-= link_to '新增车辆品牌', new_car_model_path

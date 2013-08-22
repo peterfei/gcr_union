@@ -56,7 +56,7 @@
               </div>
               <%= render '/layouts/menubar' %> 
               <div class="user_infor">
-                  <span class="uesr_name"><a href ="<%=manager_users_path%>" target="_blank"><%=current_user.login_name%>,欢迎您！</a><%=link_to '注销',root_path%> </span>
+                  <span class="uesr_name"><a href ="<%=manager_users_path%>" target="_blank"><%=current_user.login_name%>,欢迎您！</a><%=link_to '注销',signout_path%> </span>
                   <span>华夏通联运营商管理平台</span>
               </div>
         <%-end%>

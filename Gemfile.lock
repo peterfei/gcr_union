@@ -254,6 +254,8 @@ GEM
       rack (>= 1.0.0)
     thor (0.18.1)
     tilt (1.4.1)
+    tinymce-rails (4.0.2)
+      railties (>= 3.1.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -308,5 +310,6 @@ DEPENDENCIES
   spork
   therubyracer
   thin
+  tinymce-rails
   uglifier (>= 1.0.3)
   wice_grid (= 3.2.1)
