@@ -1,6 +1,12 @@
-form
-  input#location_show
-  input#car_model_show
+form.form-horizontal
+  .control-group
+    label.control-label for="inputEmail" 门店：
+    .controls
+      input#location_show
+  .control-group
+    label.control-label for="inputPassword" 车型：
+    .controls
+      input#car_model_show
 -if can? :create,SelfDrivePrice
   = link_to new_self_drive_price_path, remote: true do
     button.btn

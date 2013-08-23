@@ -183,6 +183,6 @@ namespace :db do
   desc "准备所有数据"
   task :all => [:create_database, :load_data, :car_type,
                 :car_model, :car_type_rate, :city, :railway,
-                :airport, :coupon, :storage]
+                :airport, :coupon, :storage, 'city:sz']
 
 end
