@@ -43,5 +43,5 @@ GcrUnion::Application.routes.draw do
   match '/signin', :to => 'user_sessions#new'
   match '/signout', :to => 'user_sessions#destroy', :var => :delete
   resources :user_sessions, :only => [:new, :create, :destroy]
-  root :to=>"user_sessions#new"
+  root :to=>"reservations#index"
 end
