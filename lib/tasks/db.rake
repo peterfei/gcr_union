@@ -51,14 +51,7 @@ namespace :db do
   end
 
   task 'city:sz' => :environment do |task|
-    city = City.find_by_city_name('深圳市')
-    City.destroy_all
-    City.new do |c|
-      c.id        = city.id
-      c.city_name = city.city_name
-      c.pinyin    = city.pinyin
-      c.status    = city.status
-    end.save
+    City.destroy_all(City.arel_table[:city_name].not_eq('深圳市'))
   end
 
   desc "准备门店数据"
