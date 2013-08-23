@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><%= content_for?(:title) ? yield(:title) : "华夏通联加盟商管理平台" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "车联天下管理平台" %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -39,7 +39,7 @@
               <%= render '/layouts/menubar_j' %> 
               <div class="user_infor">
                   <span class="uesr_name"><%=current_user.login_name%>,欢迎您！<%=link_to '注销',signout_path%> </span>
-                  <span>华夏通联加盟商管理平台</span>
+                  <span>车联天下管理平台</span>
               </div>
           <%-elsif current_user.role=='call_center'%> 
               <div class="logo">
@@ -48,7 +48,7 @@
               <%= render '/layouts/menubar' %> 
               <div class="user_infor">
                   <span class="uesr_name"><%=current_user.login_name%>,欢迎您！<%=link_to '注销',root_path%> </span>
-                  <span>华夏通联运营商管理平台</span>
+                  <span>车联天下管理平台</span>
               </div> 
           <%-else%>
               <div class="logo">
@@ -57,7 +57,7 @@
               <%= render '/layouts/menubar' %> 
               <div class="user_infor">
                   <span class="uesr_name"><a href ="<%=manager_users_path%>" target="_blank"><%=current_user.login_name%>,欢迎您！</a><%=link_to '注销',signout_path%> </span>
-                  <span>华夏通联运营商管理平台</span>
+                  <span>车联天下管理平台</span>
               </div>
         <%-end%>
         
@@ -92,11 +92,11 @@
 
   <%-if current_user.role=='oprator'%> 
       <div class="foot">
-          <p>版权所有(C)2009-2013 华夏通联加盟商管理平台</p>
+          <p>版权所有(C)2009-2013 车联天下管理平台</p>
       </div>
   <%-else%> 
       <div class="foot">
-          <p>版权所有(C)2009-2013 华夏通联运营商管理平台</p>
+          <p>版权所有(C)2009-2013 车联天下管理平台</p>
       </div>
   <%-end%>
     <%= javascript_include_tag "application" %>
