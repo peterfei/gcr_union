@@ -8,15 +8,15 @@ namespace :db do
 
     require 'shell'
 
-    web_names=%w/gcr-web www.zhucheqq.com/
+    web_names=%w/gcr-web www.zucheqq.com/
     admin_uploads_path="../../#{Rails.root.basename}/public/uploads/"
 
     sh = Shell.cd(Rails.root.join('public'))
     sh.transact do
       mkdir 'uploads' unless exists? 'uploads'
       cd '../../'
-      web_names.each{|d| cd d if exists? d}
-      cd 'public'
+      web_names.select!{|d| exists? d}
+      cd "#{web_names.first}/public"
       system *%w/rm -rf uploads/ if exists? 'uploads'
       system *%W(ln -s #{admin_uploads_path} ./)
     end
@@ -47,6 +47,33 @@ namespace :db do
     District.destroy_all
     open Rails.root.join('lib','tasks','sql','district.sql') do |f|
       ActiveRecord::Base.connection.execute(f.read)
+    end
+  end
+
+  task 'city:sz' => :environment do |task|
+    city = City.find_by_city_name('深圳市')
+    City.destroy_all
+    City.new do |c|
+      c.id        = city.id
+      c.city_name = city.city_name
+      c.pinyin    = city.pinyin
+      c.status    = city.status
+    end.save
+  end
+
+  desc "准备门店数据"
+  task :location => :environment do |task|
+    puts task.comment
+
+    Location.destroy_all
+    %w{北京市 深圳市}.each do |c|
+      (City.find_by_city_name(c) or next).districts.map do |d|
+        { city_id: d.city_id,
+          district_id: d.id,
+          location_name: "#{d}门店" }
+      end.each do |l|
+        Location.new(l).save(validate: false)
+      end
     end
 
   end
@@ -148,10 +175,10 @@ namespace :db do
     # end
 
   end
+
   task 'coupon:clear' => :environment do |task|
     Coupon.destroy_all
   end
-
 
   desc "准备所有数据"
   task :all => [:create_database, :load_data, :car_type,
