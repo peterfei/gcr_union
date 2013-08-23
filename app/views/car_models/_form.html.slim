@@ -6,7 +6,7 @@
       .span4
         = f.input :car_model_name, :label => '车型名称' 
     .row-fluid
-      .span4= f.input :car_model, :label => '车辆品牌'
+      .span4= f.association :car_type, :label => '车型名称' ,:placeholder=>"请选择车型"
       .span4= f.input :car_model_type, :label => '车型品牌'
         /= f.input :car_type_code, :label => '车型编码'
     .row-fluid
