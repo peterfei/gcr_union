@@ -27,7 +27,7 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @result = 0
-    respond_to do |format|
+    respond_to do |format| 
       format.html # show.html.erb
       format.js
       format.json { render json: @company }
@@ -63,9 +63,11 @@ class CompaniesController < ApplicationController
     @company = Company.new(params[:company])
     @result = 0
     respond_to do |format|
-      if @company.save
+      if @company.save 
+        @search = Company.search(params[:search])
+        @companies=@search.page params[:page]
         @result = 1
-        format.js
+        format.js {render 'index'}
         format.json { render json: @company, status: :created, location: @company }
       else
         format.html { render action: "new" }
@@ -83,10 +85,12 @@ class CompaniesController < ApplicationController
       if params[:company].present?
         params[:company][:updated_at] = Time.now
       end
-      if @company.update_attributes(params[:company])
+      if @company.update_attributes(params[:company]) 
+        @search = Company.search(params[:search])
+        @companies=@search.page params[:page]
         @result = 1
         #format.html { redirect_to @company, notice: '公司信息更新成功.' }
-        format.js
+        format.js {render "index"}
         format.json { head :no_content }
       else
         format.html { redirect_to edit_company_path(params[:id]) }

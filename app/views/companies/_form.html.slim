@@ -3,40 +3,40 @@ link href="/assets/validation.css?body=1" media="screen" rel="stylesheet" type="
   .span12
     h4.header 注册信息
     .row-fluid
-      .span6
+      .span5
         = f.input :company_name, :label=>"公司简称",:input_html=>{:maxlength=>10,:tip=>"*必填,请输入公司简称,不能超过10个字符"}
-      .span6
+      .span5
         = f.input :company_full_name, :label=>'公司全称',:input_html=>{:maxlength=>20,:tip=>"*必填,请输入公司全称,不能超过20个字符"}
   .span12
     .row-fluid
-      .span6
+      .span5
         = f.input :taxpayer_code, :label=>'营业执照',:input_html=>{:maxlength=>11,:tip=>"*必填,请输入营业执照."}
-      .span6
+      .span5
         = f.input :reg_money, :label=>'注册资金(万元)',:input_html=>{:maxlength=>11,:tip=>"*必填,请输入注册资金."}
   .span12
     h4.header 公司资料
     .row-fluid
-      .span6
+      .span5
         = f.input :link_man, :label=>'联系人',:input_html=>{:maxlength=>10,:tip=>"请输入联系人姓名,可以为空"}
-      .span6
+      .span5
         = f.input :link_man_phone, :label=>'联系人电话',:input_html=>{:maxlength=>11,:tip=>"请输入联系人电话,如:18888888888,可以为空"}
   .span12
     .row-fluid
-      .span6
+      .span5
         = f.input :phone, :label=>'公司电话',:input_html=>{:maxlength=>11,:tip=>"请输入公司电话,如:029-8888888,可以为空"}
-      .span6
+      .span5
         = f.input :fax, :label=>'传真号码',:input_html=>{:maxlength=>11,:tip=>"请输入传真号码,如:029-8888888,可以为空"}
   .span12
     .row-fluid
-      .span6
+      .span5
         = f.input :email, :label=>'电子邮箱',:input_html=>{:maxlength=>20,:tip=>"请输入电子邮箱,如:029@rongyitech.com,可以为空"}
-      .span6
+      .span5
         = f.association :city, :label=>'城市', :input_html=>{:id=>"pickup_city"}, :as=>:string, :placeholder=>"请选择"
   .span12
     .row-fluid
-      .span6
+      .span5
         = f.association :district, :label=>'区域', :input_html=>{:id=>"pickup_district"}, :as=>:string, :placeholder=>"请选择"
-      .span6
+      .span5
         = f.input :address, :label=>'街道',:input_html=>{:tip=>"街道详细地址,可以为空"}
   //.span12
     .row-fluid
@@ -53,5 +53,5 @@ link href="/assets/validation.css?body=1" media="screen" rel="stylesheet" type="
   .span12.wdj_bordertop
     .wdj_btnwidth
       .span1= link_to '返回',companies_path,:remote=>true, class:"btn"
-      .span1.offset= f.submit :type=>'button',:class =>'btn btn-primary', :value => '保存', :id=>"companyOfSaveBtn"
+      .span1.offset= f.submit :class =>'btn btn-primary', :value => '保存', :id=>"companyOfSaveBtn"
 

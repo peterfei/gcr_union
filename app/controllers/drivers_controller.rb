@@ -97,11 +97,11 @@ class DriversController < ApplicationController
   def change_status
     @driver = Driver.find(params[:id])
 
-    respond_to do |format|
-      if @driver.status=='在租'
-        @driver.update_attribute(:status, 1)
+    respond_to do |format| 
+      if @driver.status=='enable'
+        @driver.update_attribute(:status, 'disable')
       else
-        @driver.update_attribute(:status, 0)
+        @driver.update_attribute(:status, 'enable')
       end
       #format.html { redirect_to drivers_url }
       format.js
