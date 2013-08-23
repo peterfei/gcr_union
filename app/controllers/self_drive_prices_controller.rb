@@ -11,7 +11,10 @@ class SelfDrivePricesController < ApplicationController
   end
 
   def show
-    @self_drive_prices = SelfDrivePrice.for(params[:id])
+    @self_drive_prices = SelfDrivePrice.for(
+      location_id: params[:location_id],
+      car_model_id: params[:id]
+    )
   end
 
   def new
@@ -19,7 +22,10 @@ class SelfDrivePricesController < ApplicationController
   end
 
   def edit
-    @self_drive_prices = SelfDrivePrice.for(params[:id])
+    @self_drive_prices = SelfDrivePrice.for(
+      location_id: params[:location_id],
+      car_model_id: params[:id]
+    )
     respond_to do |format|
       format.js
       format.html # index.html.erb
@@ -27,7 +33,7 @@ class SelfDrivePricesController < ApplicationController
   end
 
   def update
-    SelfDrivePrice.for(params[:car_model_ids]).destroy_all
+    SelfDrivePrice.for(params[:self_drive_price]).destroy_all
     respond_to do |format|
       if SelfDrivePrice.import _create
         format.html { redirect_to self_drive_prices_path }
@@ -40,7 +46,7 @@ class SelfDrivePricesController < ApplicationController
   # POST /self_drive_prices
   # POST /self_drive_prices.json
   def create
-    SelfDrivePrice.for(params[:car_model_ids]).destroy_all
+    SelfDrivePrice.for(params[:self_drive_price]).destroy_all
     respond_to do |format|
       if SelfDrivePrice.import _create
         format.html { redirect_to self_drive_prices_path }
@@ -53,7 +59,7 @@ class SelfDrivePricesController < ApplicationController
   def _create
     prices = []
     location_id = params[:self_drive_price][:location_id]
-    params[:car_model_ids].split(',').each do |id|
+    params[:self_drive_price][:car_model_id].split(',').each do |id|
       weekday_prices = params[:weekday_prices]
       weekend_prices = params[:weekend_prices]
       prices << SelfDrivePrice.new(car_model_id: id,
