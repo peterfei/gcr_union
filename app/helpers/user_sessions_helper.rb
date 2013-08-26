@@ -38,7 +38,7 @@ module UserSessionsHelper
 
 	def need_sign_in
 		unless login?
-			redirect_to '/', :notice => '请登录'
+			redirect_to 'user_sessions/new', :notice => '请登录'
 		end
 	end
 
