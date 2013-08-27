@@ -4,6 +4,7 @@ class CreateDistricts < ActiveRecord::Migration
       t.string :district_code
       t.string :district_name
       t.string :status
+      t.integer :suburbs
       t.references :city
 
     end
