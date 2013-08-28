@@ -4,15 +4,6 @@
       .row.order_all
         .span12
           h4.header 订单信息
-          /form.form-inline
-            input.input-small placeholder="Email" type="text"
-            input.input-small placeholder="Password" type="password"
-              label.checkbox
-                input type="checkbox"
-                  | Remember me
-              button.btn type="submit" 
-                |查询 
-          /= cms_snippet_content('test')
           table.table.table-condensed
             thead
               tr
@@ -22,7 +13,8 @@
                 th 用车时间
                 th 用车地点
                 th 订单状态
-                th 预约车型
+                th 预约车型 
+                th 业务类型
                 th 操作
             tbody
               -@reservations.each_with_index do |reservation,index|
