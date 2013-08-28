@@ -9,8 +9,10 @@ class Reservation < ActiveRecord::Base
     :pickup_city_id, :return_city_id, :base_rate_code_id, :car_type_id,
     :invoice_title, :pickup_district_id, :return_district_id,
     :passenger_num, :airport_id, :railway_id, :airline, :coupon_id,
-    :send_status, :car_id,:location_id,:driver_id
+    :send_status, :car_id, :train_number, :car_model_id,
+    :return_location_id, :pickup_location_id
 
+  default_scope ->{order("created_at DESC")}
   extend Enumerize
 
   serialize :special_passenger, Array
@@ -18,9 +20,10 @@ class Reservation < ActiveRecord::Base
   enumerize :special_passenger, in: [:old, :patient, :baby, :pregnant, :foreign, :leader], multiple: true
   enumerize :special_requirements, in: [:en_driver, :waiting_card], multiple: true
 
-  enumerize :status, in: [:unconfirm, :pending, :waitexec, :hascar, :execing, :done , :canceled], default: :unconfirm
+  enumerize :status, in: [:unconfirm, :pending, :waitexec, :hascar, :execing, :done , :canceled],
+    default: :unconfirm, predicates: true
 
-  #mount_uploader :attachment, AttachmentUploader
+  # mount_uploader :attachment, AttachmentUploader
 
   belongs_to :car_type
   belongs_to :car_model
@@ -36,6 +39,9 @@ class Reservation < ActiveRecord::Base
   belongs_to :return_city, class_name: 'City'
   belongs_to :pickup_district, class_name: 'District'
   belongs_to :return_district, class_name: 'District'
+  belongs_to :pickup_location, class_name: 'Location'
+  belongs_to :return_location, class_name: 'Location'
+
   belongs_to :airport
   belongs_to :railway
 
