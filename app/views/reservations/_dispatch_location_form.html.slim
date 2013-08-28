@@ -4,7 +4,7 @@
     h3 分配门店
   .modal-body
     =f.input :pickup_city_id,:input_html=>{:id=>"pickup_city",value:@reservation.pickup_city_id},:as=>:string,:placeholder=>"请选择",:validate=>{:presence=>true},:label=>"选择城市"
-    =f.input :pickup_district_id,:input_html=>{:id=>"pickup_district",value:(@Reservation.pickup_district_id rescue '')},:as=>:string,:placeholder=>"请选择",:validate=>{:presence=>true},label:"请选择门店"
+    =f.input :pickup_district_id,:input_html=>{:id=>"pickup_district",value:(@Reservation.pickup_district_id rescue '')},:as=>:string,:placeholder=>"请选择",:validate=>{:presence=>true},label:"请选择区域"
     =f.association :location,:input_html=>{:id=>"location_id"},:as=>:string,:placeholder=>"请选择",:validate=>{:presence=>true}
     =f.hidden_field :send_status,:value=>1
   .modal-footer
