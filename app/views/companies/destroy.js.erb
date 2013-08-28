@@ -1,1 +1,5 @@
+<%-if @errors%>  
+  window.location.href='<%-companies_path%>'
+<%-else%> 
 $('.company_<%=@company.id%>').html('');
+<%end%>

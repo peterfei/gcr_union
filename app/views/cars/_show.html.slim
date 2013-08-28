@@ -2,7 +2,7 @@ p#notice= notice
 table.table
   tr
     td 所属门店
-    td=@car.location
+    td=@car.location || ''
   tr
     td 车型
     td=@car.car_type
@@ -12,4 +12,4 @@ table.table
   tr
     td 状态
     td=@car.status_text
-= link_to '返回', cars_path, remote: true
+= link_to '返回', cars_path

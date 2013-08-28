@@ -1,1 +1,5 @@
-$('.location_<%=@location.id%>').html('');
+<%-if @error%>  
+  window.location.href='<%-locations_path%>'
+<%-else%>
+  $('.location_<%=@location.id%>').html(''); 
+<%end%>

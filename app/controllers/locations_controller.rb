@@ -70,13 +70,14 @@ class LocationsController < ApplicationController
       params[:location][:end_time] = end_time
     end
     @location = Location.new(params[:location])
-
+    
     respond_to do |format|
-      if @location.save
+      if @location.save!
         format.js
         format.html { redirect_to @location, notice: '门店信息建立成功.' }
         format.json { render json: @location, status: :created, location: @location }
-      else
+      else 
+        logger.info "errors:">>@location.errors
         format.js {render 'new'}
         format.html { render action: "new" }
         format.json { render json: @location.errors, status: :unprocessable_entity }
@@ -94,11 +95,14 @@ class LocationsController < ApplicationController
       if params[:location].present?
         params[:location][:start_time] = start_time
         params[:location][:end_time] = end_time
-      end
+      end 
+
       if @location.update_attributes(params[:location])
         format.js
         format.json { head :no_content }
-      else
+      else 
+
+        format.js{render 'new'}
         format.html { redirect_to edit_location_path(params[:id]) }
         format.json { render json: @location.errors, status: :unprocessable_entity }
       end
@@ -109,12 +113,18 @@ class LocationsController < ApplicationController
   # DELETE /locations/1.json
   def destroy
     @location = Location.find(params[:id])
-    @location.destroy
-
-    respond_to do |format|
-      format.js
-      #format.html { redirect_to locations_url }
-      format.json { head :no_content }
+    
+    respond_to do |format| 
+      if @location.destroy 
+        format.js
+        #format.html { redirect_to locations_url }
+        format.json { head :no_content } 
+      else 
+        @error= "该门店有车辆或司机，不能删除!"  
+        flash[:error] = @error
+        format.js
+      end
+      
     end
   end
 end

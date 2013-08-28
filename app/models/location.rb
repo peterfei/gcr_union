@@ -7,7 +7,8 @@ class Location < ActiveRecord::Base
   belongs_to :company
   belongs_to :city
   belongs_to :district
-  has_many   :drivers
+  has_many   :drivers 
+  has_many :cars
   has_many   :car_types
   has_many   :self_drive_prices
 
@@ -71,5 +72,10 @@ class Location < ActiveRecord::Base
 
   def is24_text
     (Location.is24_list.find { |t,k|  k == self.is24.to_i } or []).first
+  end 
+  def destroy 
+    unless drivers.count==0 or cars.count==0 
+      super
+    end
   end
 end

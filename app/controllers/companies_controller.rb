@@ -103,12 +103,19 @@ class CompaniesController < ApplicationController
   # DELETE /companies/1.json
   def destroy
     @company = Company.find(params[:id])
-    @company.destroy
-
+    
     respond_to do |format|
-      #format.html { redirect_to companies_url }
-      format.js
-      format.json { head :no_content }
+      #format.html { redirect_to companies_url } 
+      if @company.destroy 
+        format.js
+        format.json { head :no_content } 
+      else  
+        @errors = "该公司下有门店，不能删除!"
+        flash[:error] = @errors 
+        #format.html {redirect_to :index}
+        format.js
+      end
+      
     end
   end
 

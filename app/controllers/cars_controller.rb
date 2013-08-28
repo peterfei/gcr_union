@@ -48,7 +48,7 @@ class CarsController < ApplicationController
     @cars =Car.create(cars_params)
     respond_to do |format|  
       if  @cars.map{|c| c.errors.full_messages}==[[]]
-        format.js {render 'index'}
+        format.js {render 'index'} 
       else
         format.js {render 'error_msg'}
       end
@@ -59,12 +59,13 @@ class CarsController < ApplicationController
   # PUT /cars/1.json
   def update
     @car = Car.find(params[:id])
-
-    respond_to do |format|
+    respond_to do |format|  
       if @car.update_attributes(params[:car])
         format.html { redirect_to @car, notice: '车辆信息更新成功.' }
-        format.json { head :no_content }
-      else
+        format.json { head :no_content } 
+        format.js 
+      else 
+        format.js {render 'new'}
         format.html { render action: "edit" }
         format.json { render json: @car.errors, status: :unprocessable_entity }
       end

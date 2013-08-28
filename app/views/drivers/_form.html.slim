@@ -1,7 +1,7 @@
 = simple_form_for @driver, html: { class: 'form-horizontal'}, wrapper:'bootstrap' ,remote:true ,validate:true do |f|
     h4.header 驾驶员维护
     .span12.row-fluid
-      .span4
+      /.span4
         = f.input :company_id, :label=>'所属公司', :placeholder=>"请选择" do 
           =text_field_tag 'drivers[][company_id]'
       .span4

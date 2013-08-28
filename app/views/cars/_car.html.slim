@@ -1,6 +1,6 @@
 tr class="car_#{car.id}"
-  td =car.location
-  td =car.car_model
+  td = car.location.try(:company).to_s << "/" <<  car.location.to_s || ''
+  /td =car.car_model
   td =car
   td =car.status_text
   td

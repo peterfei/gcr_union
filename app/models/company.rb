@@ -15,7 +15,7 @@ class Company < ActiveRecord::Base
   validates :company_full_name              , :presence => { :message => '请输入公司全称' }
   validates :reg_money              , :presence => { :message => '请输入注册资金' }
   validates :taxpayer_code              , :presence => { :message => '请输入营业执照' }
-  
+  #before_destroy :company_with_locations? 
   
   #加盟商状态
   def self.status_list
@@ -32,5 +32,15 @@ class Company < ActiveRecord::Base
 
   def to_s
     company_name
+  end  
+  def destroy 
+     if locations.count==0 
+       super 
+     end
   end
+  private 
+    def company_with_locations?   
+      errors.add(:base,"can't destroy company with locations") unless locations.count==0 
+      errors.blank?
+    end
 end
