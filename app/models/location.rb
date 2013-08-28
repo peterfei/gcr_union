@@ -12,11 +12,14 @@ class Location < ActiveRecord::Base
   has_many   :self_drive_prices
 
   validates :location_name,   presence: { message: '请输入门店名称' }
-  validates :phone,           presence: { message: '请输入门店手机号码' }
+  validates :phone,           presence: { message: '请输入门店手机号码' } 
+  validates_length_of :phone, :is => 11, :message => '手机号不合法，请输入合法的手机号码', :if => Proc.new{|o| !o.phone.blank?}
+  
   validates :city_id,         presence: { message: '请输入门店所在城市' }
   validates :district_id,     presence: { message: '请输入门店所在城市区域' }
   validates :principal,       presence: { message: '请输入门店联系人姓名' }
-  validates :principal_phone, presence: { message: '请输入门店联系人手机号码' }
+  validates :principal_phone, presence: { message: '请输入门店联系人手机号码' } 
+  validates_length_of :principal_phone, :is => 11, :message => '手机号不合法，请输入合法的手机号码', :if => Proc.new{|o| !o.phone.blank?}
   validates :status,          presence: { message: '请输入门店工作状态' }
 
   extend Enumerize

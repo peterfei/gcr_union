@@ -77,12 +77,12 @@
             dt 特殊乘客
             dd = @reservation.special_passenger.map(&:text)  
   .row-fluid
-    .span12
-      dl.dl-horizontal
-        .span1
+    .span12.wdj_bordertop
+      .wdj_btnwidth
+        .btn-group
           =link_to reservations_path  do 
-            button.btn.btn-primary  返回
-        .span1.offset=link_to edit_reservation_path(@reservation.id),:remote=>true do 
-            button.btn.btn-primary 编辑
+            button.btn.btn-small  返回
+          =link_to edit_reservation_path(@reservation.id),:remote=>true do 
+            button.btn.btn-small 编辑
       
 

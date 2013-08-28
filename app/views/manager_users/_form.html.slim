@@ -3,5 +3,9 @@
   = f.input :password, :label => '密码'
   = f.input :manager_user_type, collection: ManagerUser.manager_user_type_list, :as=>:radio_buttons, :checked=>@manager_user[:manager_user_type] || 1, :label=>'用户类型'
   = f.input :role, collection:ManagerUser::ROLES,label:"用户角色" ,placeholder:"请选择角色" 
-  .hide= f.input :company_id,collection: Company.all,:allow_blank=>false,label:"所属公司",placeholder:"请选择公司",input_html:{id:'company_owner'}
-  = f.button :submit, :value => '提交'
+  .hide= f.input :company_id,collection: Company.all,:allow_blank=>false,label:"所属公司",placeholder:"请选择公司",input_html:{id:'company_owner'} 
+  .span12.wdj_bordertop
+    .wdj_btnwidth
+      .btn-group
+      = f.button :submit, :value => '提交' ,class:"btn btn-small"
+      = link_to '返回', manager_users_path,class:"btn btn-small"

@@ -103,7 +103,9 @@
       =f.input :special_requirements,label:"特殊要求",as: :check_boxes 
   .span12.row-fluid
     .span5=f.input :remark,as: :text ,input_html:{rows:3}
-  .span12
-    .span5.offset5= f.submit :class => 'btn btn-primary', :value => '提交'
-
+  .span12.wdj_bordertop
+    .wdj_btnwidth 
+      .btn-group
+      = f.submit :class => 'btn btn-small', :value => '提交'
+      = link_to '返回', cars_path, remote: true, class: 'btn btn-small'
       

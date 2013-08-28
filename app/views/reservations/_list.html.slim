@@ -4,6 +4,7 @@ td = reservation.created_at.to_s(:db)
 td = reservation.pickup_date
 td = reservation.down_address||reservation.up_address
 td = reservation.status_text 
-td = reservation.car_type
+td = reservation.car_type 
+td = reservation.base_rate_code
 td class="opr_#{reservation.id}"
   =render :partial => 'list_opr',:locals=>{:reservation=>reservation}
