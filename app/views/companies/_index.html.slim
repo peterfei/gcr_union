@@ -1,7 +1,7 @@
 .row.location_all
   .span12
     h4.header 公司信息
-    -if can? :create,Company
+    /-if can? :create,Company
       =link_to new_company_path(), :remote=>true do
         button.btn 新增公司
     /form.form-horizontal.order_search

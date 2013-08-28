@@ -1,3 +1,4 @@
+#encoding:utf-8
 class CarTypeRatesController < ApplicationController
   # GET /car_type_rates
   # GET /car_type_rates.json
@@ -46,7 +47,7 @@ class CarTypeRatesController < ApplicationController
 
     respond_to do |format|
       if @car_type_rate.save
-        format.html { redirect_to @car_type_rate, notice: 'Car type rate was successfully created.' }
+        format.html { redirect_to @car_type_rate, notice: '车型价格生成成功！' }
         format.json { render json: @car_type_rate, status: :created, location: @car_type_rate }
       else
         format.html { render action: "new" }
