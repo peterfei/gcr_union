@@ -283,6 +283,7 @@ ActiveRecord::Schema.define(:version => 20130820074020) do
     t.string  "district_code"
     t.string  "district_name"
     t.string  "status"
+    t.integer "suburbs"
     t.integer "city_id"
   end
 

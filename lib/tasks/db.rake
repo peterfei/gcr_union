@@ -173,9 +173,30 @@ namespace :db do
     Coupon.destroy_all
   end
 
+  desc "加载cms数据"
+  task :cms => :environment do |task|
+    puts task.comment
+
+    Cms::Site.destroy_all
+    site = Cms::Site.create!(
+      identifier:  "zucheqq-admin",
+      label:       "zucheqq",
+      hostname:    "admin.zucheqq.com",
+      path:        "",
+      locale:      "zh-CN",
+      is_mirrored: false,
+    )
+
+    site.snippets.create!(
+      label: '租车服务条款',
+      identifier: "agreement",
+      content: "请往下看\n"+('.<br>'*100)+'好孩子 <img style="width: 22px;" src="http://www.emoji-cheat-sheet.com/graphics/emojis/laughing.png"></img>'
+    )
+  end
+
   desc "准备所有数据"
   task :all => [:create_database, :load_data, :car_type,
                 :car_model, :car_type_rate, :city, :railway,
-                :airport, :coupon, :storage, 'city:sz']
+                :airport, :coupon, :storage, :cms, 'city:sz']
 
 end
