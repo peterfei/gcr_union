@@ -77,6 +77,7 @@ class LocationsController < ApplicationController
         format.html { redirect_to @location, notice: '门店信息建立成功.' }
         format.json { render json: @location, status: :created, location: @location }
       else
+        format.js {render 'new'}
         format.html { render action: "new" }
         format.json { render json: @location.errors, status: :unprocessable_entity }
       end

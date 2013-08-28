@@ -34,11 +34,11 @@ module UserSessionsHelper
 	def logout
 		session[:user_id] = nil
 		current_user= nil
-	end
+  end
 
 	def need_sign_in
 		unless login?
-			redirect_to 'user_sessions/new', :notice => '请登录'
+			redirect_to 'user_sessions/new'
 		end
 	end
 

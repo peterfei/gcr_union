@@ -14,7 +14,7 @@ class CarsController < ApplicationController
 
   # GET /cars/1
   # GET /cars/1.json
-  def show
+  def show 
     @car = Car.find(params[:id])
 
     respond_to do |format|
@@ -45,12 +45,12 @@ class CarsController < ApplicationController
   # POST /cars.json
   def create
     cars_params=params[:cars].map{|c| c.merge!(params[:car])}
-
-    respond_to do |format|
-      if @cars=Car.create(cars_params)
+    @cars =Car.create(cars_params)
+    respond_to do |format|  
+      if  @cars.map{|c| c.errors.full_messages}==[[]]
         format.js {render 'index'}
       else
-        format.js {render 'new'}
+        format.js {render 'error_msg'}
       end
     end
   end
