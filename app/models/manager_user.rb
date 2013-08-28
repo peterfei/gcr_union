@@ -1,6 +1,6 @@
 # coding: utf-8
 class ManagerUser < ActiveRecord::Base
-  attr_accessible :login_name, :manager_user_type, :password_digest,:password,:origin,:role
+  attr_accessible :login_name, :manager_user_type, :password_digest,:password,:origin,:role,:company_id
   has_secure_password  
   belongs_to :company ,:class_name=>'Company',:foreign_key=>:id
   ROLES = [['运营中心','admin'],  ['呼叫中心','call_center'],['加盟商', 'oprator' ]]
