@@ -1,4 +1,5 @@
 = simple_form_for @driver, html: { class: 'form-horizontal'}, wrapper:'bootstrap' ,remote:true ,validate:true do |f|
+    h4.header 驾驶员维护
     .span12.row-fluid
       .span4
         = f.input :company_id, :label=>'所属公司', :placeholder=>"请选择" do 
@@ -30,8 +31,9 @@
         = f.input :status, :collection => Driver.status_list, :input_html => { :placeholder => '请选择' }  do 
           =text_field_tag 'drivers[][status]'
     .wdj_bordertop
-      .wdj_btnwidth
-        .span1=link_to '返回',drivers_path,remote:true,class:"btn"
-        .span1.offset= f.submit :class =>'btn btn-primary', :value => '保存'
+      .wdj_btnwidth 
+        .btn-group
+        =link_to '返回',drivers_path,remote:true,class:"btn btn-small"
+        = f.submit :class =>'btn btn-small', :value => '保存'
       
 
