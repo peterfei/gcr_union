@@ -50,7 +50,7 @@
       dl.dl-horizontal
         .span4
             dt  所属门店
-            dd = @reservation.location
+            dd = @reservation.pickup_location
         .span4
             dt 车牌号
             dd=@reservation.car.car_tag rescue '暂无' 
