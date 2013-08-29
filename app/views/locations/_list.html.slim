@@ -1,6 +1,7 @@
 - @locations.each do |location|
   tr class="location_#{location.id}"
-    td=location.city.try(:city_name)
+    td=location.city.try(:city_name) 
+    td= location.district
     td= location.location_name
     td= location.address
     td= location.phone
