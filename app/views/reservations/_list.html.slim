@@ -1,10 +1,11 @@
-td = reservation.confirmation
-td = reservation.customer.customer_name 
-td = reservation.created_at.to_s(:db)
+td = reservation.confirmation 
+td = reservation.base_rate_code 
+td = reservation.customer.customer_name  
+td = reservation.reservation_person_phone
 td = reservation.pickup_date
-td = reservation.down_address||reservation.up_address
+/td = reservation.down_address||reservation.up_address
+td = reservation.car_type ||reservation.car_model
 td = reservation.status_text 
-td = reservation.car_type 
-td = reservation.base_rate_code
+td = reservation.created_at.to_s(:db)
 td class="opr_#{reservation.id}"
   =render :partial => 'list_opr',:locals=>{:reservation=>reservation}
