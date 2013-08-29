@@ -3,20 +3,18 @@ class Company < ActiveRecord::Base
   attr_accessible :address, :created_at,:manager_user_id ,:updated_at, :comp_des, :company_full_name, :company_name, :email, :fax, :link_man, :link_man_phone, :logo_url, :phone, :reg_money, :status, :taxpayer_code, :city_id, :district_id
 
   #mount_uploader :logo_url, CompanyLogoUploader
-
-  self.primary_key = :id
   has_many :drivers
   has_many :locations
+  has_many :manager_users
   belongs_to :city
   belongs_to :district
-  has_many :manager_users ,:class_name=>'ManagerUser',:foreign_key=>:id
-  
-  validates :company_name              , :presence => { :message => '请输入公司简称' }
-  validates :company_full_name              , :presence => { :message => '请输入公司全称' }
-  validates :reg_money              , :presence => { :message => '请输入注册资金' }
-  validates :taxpayer_code              , :presence => { :message => '请输入营业执照' }
+
+  validates :company_name,      :presence => { :message => '请输入公司简称' }
+  validates :company_full_name, :presence => { :message => '请输入公司全称' }
+  validates :reg_money,         :presence => { :message => '请输入注册资金' }
+  validates :taxpayer_code,     :presence => { :message => '请输入营业执照' }
   #before_destroy :company_with_locations? 
-  
+
   #加盟商状态
   def self.status_list
     [['启用',0],['停用',1],['审核',2]]
@@ -32,7 +30,7 @@ class Company < ActiveRecord::Base
 
   def to_s
     company_name
-  end  
+  end
   def destroy 
      if locations.count==0 
        super 
