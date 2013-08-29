@@ -50,8 +50,9 @@ class DriversController < ApplicationController
     #@driver = Driver.new(drivers_params)
     respond_to do |format|
       #if @driver.save 
-      begin
-        Driver.create!(drivers_params)  
+      begin 
+
+        Driver.create!(drivers_params)   
         @search = Driver.search(params[:search])
         @drivers=@search.page params[:page]
         format.js {render 'index'}
