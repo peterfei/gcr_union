@@ -77,6 +77,7 @@ class Reservation < ActiveRecord::Base
   before_save :compute_price
   before_create :generate_confirmation
   def compute_price
+    return if base_rate_code.rate_code == 'ZJ'
     price = car_type_rate.base_rate
     price += Settings.en_driver_prices if special_requirements.include?(:en_driver)
     price += Settings.wait_card_prices if special_requirements.include?(:waiting_card)

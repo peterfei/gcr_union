@@ -1,7 +1,7 @@
 tr class="driver_#{driver.id}"
   td= driver.driver_name
   td= driver.driver_phone
-  /td= driver.company.try(:company_name)
+  td= driver.company.try(:company_name)
   td=  driver.location.try(:location_name)
   td= driver.status_text
   td
