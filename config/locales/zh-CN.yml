@@ -221,6 +221,8 @@ zh-CN:
       year: 年
   errors: &errors
     format: ! '%{attribute} %{message}'
+    attribute:
+      car_tag: "车牌号"
     messages:
       accepted: 必须是可被接受的
       blank: 不能为空字符

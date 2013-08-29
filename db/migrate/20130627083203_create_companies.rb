@@ -17,8 +17,6 @@ class CreateCompanies < ActiveRecord::Migration
 
       t.references :city
       t.references :district
-      t.references :manager_user
-
       t.timestamps
     end
   end

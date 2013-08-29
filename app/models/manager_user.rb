@@ -19,10 +19,11 @@ class ManagerUser < ActiveRecord::Base
       end
     end
   end
-  before_save do  |user|
-    if user.role=='oprator'
-      o=Company.create  
-      user.company_id = o.id 
+  before_save do  |user|  
+    if user.role=='oprator'  
+        o=Company.new
+        o.save(validate: false)  
+        user.company_id = o.id  
     end
   end
   def to_s  

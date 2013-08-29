@@ -57,7 +57,7 @@ class CompaniesController < ApplicationController
     if params[:company].present?
       params[:company][:status] = 0
       params[:company][:created_at] = Time.now
-      params[:company][:manager_user_id] = current_user.id
+      #params[:company][:manager_user_id] = current_user.id
     end
     
     @company = Company.new(params[:company])
