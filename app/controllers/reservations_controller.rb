@@ -65,12 +65,12 @@ class ReservationsController < ApplicationController
   # PUT /reservations/1.json
   def update
     @reservation = Reservation.find(params[:id])
-
-    respond_to do |format|
+    respond_to do |format| 
       if @reservation.update_attributes(params[:reservation])
         format.html { redirect_to @reservation, notice: 'Reservation was successfully updated.' }
         format.json { head :no_content }
-      else
+      else 
+        format.js {render 'new'}
         format.html { render action: "edit" }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
