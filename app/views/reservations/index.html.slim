@@ -7,14 +7,15 @@
           table.table.table-condensed
             thead
               tr
-                th 编号
-                th 订车人
-                th 预订时间
-                th 用车时间
-                th 用车地点
-                th 订单状态
-                th 预约车型 
+                th 编号 
                 th 业务类型
+                th 订车人 
+                th 联系电话
+                th 用车时间
+                /th 用车地点
+                th 预约车型 
+                th 订单状态
+                th 建立时间
                 th 操作
             tbody
               -@reservations.each_with_index do |reservation,index|

@@ -13,12 +13,16 @@ class Driver < ActiveRecord::Base
   enumerize :driver_allowed ,in:[:A,:B]
 
   validates :location_id, :presence => {message: '门店不能为空'}
-  validates :company_id, :presence => {message: '所属公司不能为空'}
+  #validates :company_id, :presence => {message: '所属公司不能为空'}
   validates :driver_name, :presence => {message: '驾驶员姓名不能为空'}
   validates :driver_phone, :presence => {message: '驾驶员手机不能为空'}
   validates :driver_allowed, :presence => {message: '驾驶员准驾车型不能为空'}
   validates :driver_year, :presence => {message: '驾驶员驾龄不能为空'}
-  validates :born, :presence => {message: '籍贯不能为空'}
+  validates :born, :presence => {message: '籍贯不能为空'} 
+  before_save :company_belong
+  def company_belong  
+    write_attribute :company_id,location.company_id
+  end
   #[:status].each do |m|
   #  define_method(m) { Hash[self.class.send "#{m}_list"].invert[read_attribute(m)] }
   #end

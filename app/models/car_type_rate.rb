@@ -3,7 +3,7 @@ class CarTypeRate < ActiveRecord::Base
     :car_type_id, :base_rate_code_id
 
   extend Enumerize
-
+  default_scope ->{order (' car_type_id ')}
   serialize :prices_included, Array
   enumerize :prices_included, in: [:oil, :insure, :driver], multiple: true
 

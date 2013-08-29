@@ -1,35 +1,48 @@
 = simple_form_for @driver, html: { class: 'form-horizontal'}, wrapper:'bootstrap' ,remote:true ,validate:true do |f|
     h4.header 驾驶员维护
-    .span12.row-fluid
-      /.span4
-        = f.input :company_id, :label=>'所属公司', :placeholder=>"请选择" do 
-          =text_field_tag 'drivers[][company_id]'
-      .span4
-        = f.input :location_id, :label=>'所属门店', :placeholder=>"请选择",input_html:{:id=>"location_id"} do 
-          =text_field_tag 'drivers[][location_id]'
-    .driver  
-      .span12.row-fluid
+    .span12
+    -if @driver.new_record?
+      .row-fluid
         .span4
-          = f.input :driver_name, :label=>'驾驶员姓名' do 
-            =text_field_tag 'drivers[][driver_name]'
+          = f.input :location_id, :label=>'所属门店', :placeholder=>"请选择",input_html:{:id=>"location_id"} do 
+            =text_field_tag 'drivers[][location_id]'
+      .driver  
+        .row-fluid
+          .span4
+            = f.input :driver_name, :label=>'驾驶员姓名' do 
+              =text_field_tag 'drivers[][driver_name]'
+          .span4
+            = f.input :driver_phone, :label=>'驾驶员手机' do 
+              =text_field_tag 'drivers[][driver_phone]'
+        .row-fluid
+          .span4 
+            = f.input :driver_allowed,:label=>"准驾车型" ,input_html:{name:"drivers[][driver_allowed]"},:allow_blank=>false
+          .span4 
+            = f.input :driver_year,:label=>"驾龄" do 
+              =text_field_tag 'drivers[][driver_year]'
+        .row-fluid
+          .span4
+            = f.input :born, :label=>'籍贯' do 
+              =text_field_tag 'drivers[][born]'
+        i.icon-plus
+    -else
+      .row-fluid
         .span4
-          = f.input :driver_phone, :label=>'驾驶员手机' do 
-            =text_field_tag 'drivers[][driver_phone]'
-      .span12.row-fluid
-        .span4 
-          = f.input :driver_allowed,:label=>"准驾车型" ,input_html:{name:"drivers[][driver_allowed]"},:allow_blank=>false
-        .span4 
-          = f.input :driver_year,:label=>"驾龄" do 
-            =text_field_tag 'drivers[][driver_year]'
-      .span12.row-fluid
-        .span4
-          = f.input :born, :label=>'籍贯' do 
-            =text_field_tag 'drivers[][born]'
-      i.icon-plus
-    /.span12.row-fluid
-      .span6
-        = f.input :status, :collection => Driver.status_list, :input_html => { :placeholder => '请选择' }  do 
-          =text_field_tag 'drivers[][status]'
+          = f.association :location, :label=>'所属门店', :placeholder=>"请选择" 
+      .driver  
+        .row-fluid
+          .span4
+            = f.input :driver_name, :label=>'驾驶员姓名'
+          .span4
+            = f.input :driver_phone, :label=>'驾驶员手机' 
+        .row-fluid
+          .span4 
+            = f.input :driver_allowed,:label=>"准驾车型",:allow_blank=>false
+          .span4 
+            = f.input :driver_year,:label=>"驾龄"
+        .row-fluid
+          .span4
+            = f.input :born, :label=>'籍贯' 
     .wdj_bordertop
       .wdj_btnwidth 
         .btn-group
