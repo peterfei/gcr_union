@@ -10,7 +10,7 @@ class Reservation < ActiveRecord::Base
     :invoice_title, :pickup_district_id, :return_district_id,
     :passenger_num, :airport_id, :railway_id, :airline, :coupon_id,
     :send_status, :car_id, :train_number, :car_model_id,
-    :return_location_id, :pickup_location_id
+    :return_location_id, :pickup_location_id,:company_id
 
   default_scope ->{order("created_at DESC")}
   extend Enumerize
