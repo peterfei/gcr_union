@@ -3,7 +3,7 @@
     button type="button" class="close" data-dismiss="modal" aria-hidden="true" &times;
     h3 分配车辆
   .modal-body
-    =f.association :location,:input_html=>{:id=>"location_id"},:as=>:string,:placeholder=>"请选择"
+    =f.association :pickup_location,:input_html=>{:id=>"location_id"},:as=>:string,:placeholder=>"请选择"
     =f.association :car,:input_html=>{:id=>"car_id"},:as=>:string,:placeholder=>"请选择" ,:validate=>{:presence=>true}
     =f.association :driver,:input_html=>{:id=>"driver_id"},:as=>:string,:placeholder=>"请选择",:validate=>{:presence=>true}
   .modal-footer

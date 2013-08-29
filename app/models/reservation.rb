@@ -31,7 +31,7 @@ class Reservation < ActiveRecord::Base
   belongs_to :customer
   belongs_to :company
   belongs_to :driver
-  belongs_to :location
+  #belongs_to :location
   belongs_to :coupon
   belongs_to :base_rate_code
 
@@ -70,6 +70,10 @@ class Reservation < ActiveRecord::Base
 
   def pickup_district_id
     read_attribute(:pickup_district_id)||read_attribute(:return_district_id)
+  end  
+
+  def pickup_location_id
+    read_attribute(:pickup_location_id)||read_attribute(:return_location_id)
   end
   before_save :compute_price
   before_create :generate_confirmation
