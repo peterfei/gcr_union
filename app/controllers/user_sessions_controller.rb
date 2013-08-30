@@ -10,7 +10,12 @@ class UserSessionsController < ApplicationController
 
   def create 
     user = ManagerUser.find_by_login_name(params[:login]) 
-    logger.info "UserSessionsController::#{user.to_json}"
+    logger.info "UserSessionsController::#{user.to_json}"  
+    if user.role=='oprator' && user.company.status==1
+      flash[:error] = "该账号已停用，登录失败" 
+      redirect_to root_path 
+      return 
+    end
     if user && user.authenticate(params[:password])
       login_as user 
       redirect_to reservations_path
