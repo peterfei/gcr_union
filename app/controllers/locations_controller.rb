@@ -77,12 +77,11 @@ class LocationsController < ApplicationController
     @location = Location.new(params[:location])
     
     respond_to do |format|
-      if @location.save!
+      if @location.save
         format.js
         format.html { redirect_to @location, notice: '门店信息建立成功.' }
         format.json { render json: @location, status: :created, location: @location }
       else 
-        logger.info "errors:">>@location.errors
         format.js {render 'new'}
         format.html { render action: "new" }
         format.json { render json: @location.errors, status: :unprocessable_entity }
