@@ -15,7 +15,7 @@ class Driver < ActiveRecord::Base
   validates :location_id, :presence => {message: '门店不能为空'}
   #validates :company_id, :presence => {message: '所属公司不能为空'}
   validates :driver_name, :presence => {message: '驾驶员姓名不能为空'}
-  validates :driver_phone, :presence => {message: '驾驶员手机不能为空'}
+  validates :driver_phone, :presence => {message: '驾驶员手机不能为空'},uniqueness: {message:"该手机号已占用"}
   validates :driver_allowed, :presence => {message: '驾驶员准驾车型不能为空'}
   validates :driver_year, :presence => {message: '驾驶员驾龄不能为空'}
   validates :born, :presence => {message: '籍贯不能为空'} 

@@ -52,22 +52,14 @@ class DriversController < ApplicationController
   def create 
     drivers_params=params[:drivers].map{|c|c} 
     logger.info "------#{drivers_params}"
-    #@driver = Driver.new(drivers_params)
+    @drivers = Driver.create(drivers_params)
     respond_to do |format|
       #if @driver.save 
-      begin 
-
-        Driver.create!(drivers_params)   
-        @search = Driver.search(params[:search])
-        @drivers=@search.page params[:page]
-        format.js {render 'index'}
-        #format.html { redirect_to @driver, notice: '驾驶员添加成功' }
-        format.json { render json: @driver, status: :created, location: @driver }
-      rescue 
-        format.js{render 'new'}
-        format.html { render action: "new" }
-        format.json { render json: @driver.errors, status: :unprocessable_entity }
-      end
+       if @drivers.map{|c| c.errors.full_messages}==[[]] 
+         format.js {render 'index'}
+       else 
+         format.js {render 'error_msg'}
+       end
     end
   end
 

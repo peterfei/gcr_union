@@ -12,7 +12,7 @@ class Location < ActiveRecord::Base
   has_many   :car_types
   has_many   :self_drive_prices
 
-  validates :location_name,   presence: { message: '请输入门店名称' }
+  validates :location_name,   presence: { message: '请输入门店名称' },uniqueness: {message:"该门店名称已占用"}
   validates :phone,           presence: { message: '请输入门店手机号码' } 
   validates_length_of :phone, :is => 11, :message => '手机号不合法，请输入合法的手机号码', :if => Proc.new{|o| !o.phone.blank?}
   
