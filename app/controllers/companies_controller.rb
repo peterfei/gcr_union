@@ -10,9 +10,14 @@ class CompaniesController < ApplicationController
     #  format.html # index.html.erb
     #  format.json { render json: @companies }
     #end
+    if current_user.role=='oprator' 
+      @where = "#{current_user.company_id}" 
+      @search = Location.search(params[:search]).where(:company_id=>@where)
+    else 
+      @search = Location.search(params[:search])
+    end
 
-
-    @search = Company.search(params[:search])
+    #@search = Company.search(params[:search])
     @companies=@search.page params[:page]
 
     respond_to do |format|
