@@ -38,7 +38,8 @@ module UserSessionsHelper
 
 	def need_sign_in
 		unless login?
-			redirect_to 'user_sessions/new'
+			redirect_to  new_user_session_path
+
 		end
 	end
 
