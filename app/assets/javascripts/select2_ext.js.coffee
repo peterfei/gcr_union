@@ -65,6 +65,7 @@ $.fn.extend
             city_id_equals: $('#pickup_city').val()
             district_id_equals: $('#pickup_district').val()
             location_name_contains: term
+            status_equals: 1
           }
           page: page
   car_info_select2: () ->
@@ -99,6 +100,7 @@ $.fn.extend
         return {}=
           search: {
             company_name_contains: term
+            status_equals: 0
           }
           page: page
 
