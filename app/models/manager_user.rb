@@ -20,7 +20,7 @@ class ManagerUser < ActiveRecord::Base
     end
   end
   before_save do  |user|  
-    if user.role=='oprator'  
+    if user.role=='oprator' and user.company_id==nil 
         o=Company.new
         o.save(validate: false)  
         user.company_id = o.id  
