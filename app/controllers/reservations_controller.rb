@@ -4,9 +4,11 @@ class ReservationsController < ApplicationController
   # GET /reservations.json
   def index  
     if current_user.role=='oprator' 
-        @where = "#{current_user.company_id}"
+      @where = current_user.company.locations.pluck(:id) 
+      @search = Reservation.search(params[:search]).where("location_id in (?)",@where) 
+    else  
+      @search = Reservation.search(params[:search]) 
     end
-    @search = Reservation.search(params[:search]).where(:company_id=>@where)
     @reservations= @search.page params[:page]
     respond_to do |format| 
       format.js
