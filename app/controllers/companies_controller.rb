@@ -12,9 +12,9 @@ class CompaniesController < ApplicationController
     #end
     if current_user.role=='oprator' 
       @where = "#{current_user.company_id}" 
-      @search = Location.search(params[:search]).where(:company_id=>@where)
+      @search = Company.search(params[:search]).where(:id=>@where)
     else 
-      @search = Location.search(params[:search])
+      @search = Company.search(params[:search])
     end
 
     #@search = Company.search(params[:search])
