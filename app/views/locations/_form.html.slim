@@ -44,15 +44,16 @@
     .row-fluid
       .span4
         =f.input :is24, as: :boolean, :label=>'24小时营业'
-  .span12
+  /.span12
     .row-fluid
       .span6.form-inline
-
         = f.input :rate_code_list,value_method: ->(a){a.first}, :as=>:check_boxes, :label=>'业务范围'
   .span12
     .row-fluid
       .span6.form-inline
         = f.input :status, :collection => Location.status_list, :input_html => { :placeholder => '请选择营业状态' }
-  .span12
-    .span1= link_to '返回',locations_path, :remote=>true, class:"btn"
-    .span1.offset= f.submit :class =>'btn btn-primary', :value => '保存', :id=>"locationOfSaveBtn"
+  .btn-group
+    .wdj_bordertop
+      .wdj_btnwidth 
+        = link_to '返回',locations_path, :remote=>true, class:"btn btn-small"
+        = f.submit :class =>'btn btn-small', :value => '保存', :id=>"locationOfSaveBtn"
