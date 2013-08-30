@@ -2,8 +2,13 @@
 class DriversController < ApplicationController
   # GET /drivers
   # GET /drivers.json
-  def index
-    @search = Driver.search(params[:search])
+  def index 
+    if current_user.role=='oprator' 
+      @where = "#{current_user.company_id}" 
+      @search = Driver.search(params[:search]).where(:company_id=>@where)
+    else 
+      @search = Driver.search(params[:search])
+    end 
     @drivers=@search.page params[:page]
     #@drivers=initialize_grid(@search.page params[:page])
     respond_to do |format|

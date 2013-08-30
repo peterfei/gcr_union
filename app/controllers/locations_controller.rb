@@ -2,8 +2,13 @@
 class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
-  def index
-    @search = Location.search(params[:search])
+  def index 
+    if current_user.role=='oprator' 
+      @where = "#{current_user.company_id}" 
+      @search = Location.search(params[:search]).where(:company_id=>@where)
+    else 
+      @search = Location.search(params[:search])
+    end
     @locations=@search.page params[:page]
 
     respond_to do |format|
