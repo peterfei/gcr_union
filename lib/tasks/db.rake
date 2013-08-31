@@ -190,7 +190,21 @@ namespace :db do
     site.snippets.create!(
       label: '租车服务条款',
       identifier: "agreement",
-      content: "请往下看\n"+('.<br>'*100)+'好孩子 <img style="width: 22px;" src="http://www.emoji-cheat-sheet.com/graphics/emojis/laughing.png"></img>'
+      content: "尊敬的客户你好！欢迎你来到车联天下租车！为了你的用车方便，也考虑到你的旅途劳累，如果你需要代驾业务，请授权我公司从代驾公司为你办理代驾司机业务，如果你同意请同意本条款，预祝你用车愉快！"
+    )
+
+    site.snippets.create!(
+      label: 'android和iso客户端',
+      identifier: "mobile-client",
+      content: '<div class="wdj_middle_main_left_dvservice">
+  <div class="wdj_middle_main_tit">
+    <a href="#"></a><span>酒后代驾 / Driver Service</span>
+  </div>
+  <div class="wdj_middle_main_left_dvservice_main">
+    <a class="wdj_iphone_icon"></a>
+    <a class="wdj_android_icon" href=></a>
+  </div>
+</div>'
     )
   end
 
