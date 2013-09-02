@@ -191,7 +191,7 @@ namespace :db do
       label: '页面布局底部',
       identifier: "footer",
       content: '<div class="wdj_foot"><p>版权所有：车联天下&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;技术支持：荣益信息科技
-p © 2011-2013 zuchecheng.com. All Rights Reserved.粤ICP备********号</p><!--底部公共部分结束--></div>'
+ © 2011-2013 www.zucheqq.com. All Rights Reserved.陕ICP备12002321号-10</p></div>'
     )
     site.snippets.create!(
       label: '租车服务条款',
