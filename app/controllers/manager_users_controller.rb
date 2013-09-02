@@ -51,7 +51,8 @@ class ManagerUsersController < ApplicationController
       if @manager_user.save
         format.html { redirect_to @manager_user, notice: 'Manager user was successfully created.' }
         format.json { render json: @manager_user, status: :created, location: @manager_user }
-      else
+      else 
+        format.js{render "new"}
         format.html { render action: "new" }
         format.json { render json: @manager_user.errors, status: :unprocessable_entity }
       end
