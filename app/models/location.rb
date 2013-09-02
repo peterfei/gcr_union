@@ -30,7 +30,11 @@ class Location < ActiveRecord::Base
   def to_s
     location_name
   end
-
+  def destroy  
+    unless drivers.count==0 or cars.count==0 
+      super
+    end
+  end
   def self.status_list
     [['营业中',1],['暂停营业',0]]
   end
@@ -73,9 +77,5 @@ class Location < ActiveRecord::Base
   def is24_text
     (Location.is24_list.find { |t,k|  k == self.is24.to_i } or []).first
   end 
-  def destroy 
-    if drivers.count==0 or cars.count==0 
-      super
-    end
-  end
+  
 end
