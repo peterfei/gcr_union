@@ -1,12 +1,17 @@
 zh-CN:
   enumerize:
+    pay_mode:
+      online: '在线支付'
+      driver: '司机代收'
+      location: '门店支付'
+      membership: '会员卡支付'
     sex:
       male: '男'
       female: '女'
     car:
       status:
         enable: '待租'
-        disable: '在租' 
+        disable: '在租'
     user:
       status:
         enable: '正常'
@@ -113,6 +118,8 @@ zh-CN:
         prices_included: '价格包含'
         car_type: '车型'
         base_rate_code: '业务类型'
+
+        pay_mode: '支付方式'
   views:
     pagination:
       first: "&laquo; 首页"
