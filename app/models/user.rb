@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   enumerize :status, in: [:enable,:disable], default: :enable
   has_secure_password
   has_one :customer
-  accepts_nested_attributes_for :customer
+  accepts_nested_attributes_for :customer 
+  default_scope  -> {order("created_at desc")}
   def customer
     super || build_customer
   end

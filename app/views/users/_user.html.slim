@@ -1,7 +1,8 @@
 tr class="user_#{user.id}"
   td = user.username 
   td = user.phone 
-  td = user.email  
+  td = user.email   
+  td = l(user.created_at,format: :long)
   td = user.status_text||'正常'
   td  
     =link_to '查看',user_path(user),class:'btn btn-small',remote:true 
