@@ -66,7 +66,7 @@ class ManagerUsersController < ApplicationController
     if params[:manager_user][:password].present?
        params[:manager_user].delete(:password)
     end
-    respond_to do |format|
+    respond_to do |format| 
       if @manager_user.update_attributes(params[:manager_user])
         format.html { redirect_to @manager_user, notice: 'Manager user was successfully updated.' }
         format.json { head :no_content }

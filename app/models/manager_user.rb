@@ -6,7 +6,7 @@ class ManagerUser < ActiveRecord::Base
   ROLES = [['运营中心','admin'], ['呼叫中心','call_center'], ['加盟商', 'oprator']] 
 
   validates :login_name,presence:true  
-  validates :password,presence:true 
+  validates :password,presence:true ,on: :create
   validates :company_id,presence:true, if:Proc.new{|p| p.role=='oprator'}
   def self.manager_user_type_list
     [['个人',0],['企业',1]]
