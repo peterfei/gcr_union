@@ -1,0 +1,7 @@
+zh-CN:
+  activerecord:
+    models:
+      reservation: "订单信息"
+    attributes:
+      reservation:
+        car_tag: "车牌号"
