@@ -9,7 +9,7 @@ class Reservation < ActiveRecord::Base
     :pickup_city_id, :return_city_id, :base_rate_code_id, :car_type_id,
     :invoice_title, :pickup_district_id, :return_district_id,
     :passenger_num, :airport_id, :railway_id, :airline, :coupon_id,
-    :send_status, :car_id, :train_number, :car_model_id,
+    :send_status, :car_id, :train_number, :car_model_id, :pay_mode,
     :return_location_id, :pickup_location_id,:company_id,:driver_id
 
   default_scope ->{order("created_at DESC")}
@@ -22,6 +22,8 @@ class Reservation < ActiveRecord::Base
 
   enumerize :status, in: [:unconfirm, :pending, :waitexec, :hascar, :execing, :done , :canceled],
     default: :unconfirm, predicates: true
+
+  enumerize :pay_mode, in: [:online, :driver], default: :online
 
   # mount_uploader :attachment, AttachmentUploader
 
