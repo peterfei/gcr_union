@@ -1,6 +1,6 @@
 class SelfDrivePrice < ActiveRecord::Base
   attr_accessible :car_model_id, :location_id, :date, :flag, :rate
-  attr_accessible :date, :flag, :rate
+  attr_accessible :prepayment, :overtime, :overdistance
   belongs_to :car_model
   belongs_to :location
   extend Enumerize
@@ -12,11 +12,13 @@ class SelfDrivePrice < ActiveRecord::Base
           car_model_id: params[:car_model_id])
   }
   scope :custome_prices, ->{ where(flag: 'custome')  }
-  scope :weekday_prices, ->{ find_by_flag('weekday') }
   scope :weekend_prices, ->{ find_by_flag('weekend') }
 
   class << self
     include SelfDrivePricesHelper
+    def weekday_prices
+      find_by_flag('weekday')
+    end
 
     def range
       range = {}

@@ -18,6 +18,12 @@
       = link_to '#', class: 'custome_prices_plus' do
         i.icon-plus
       br
+  = f.input '' ,label: '预授权' do
+    = text_field_tag :prepayment, @self_drive_prices.try(:weekday_prices).try(:prepayment)
+  = f.input '' ,label: '超小时费' do
+    = text_field_tag :overtime, @self_drive_prices.try(:weekday_prices).try(:overtime)
+  = f.input '' ,label: '超公里费' do
+    = text_field_tag :overdistance, @self_drive_prices.try(:weekday_prices).try(:overdistance)
   div.wdj_bordertop
     .wdj_btnwidth
       .span1= f.submit :value => '提交', class: 'btn btn-primary'

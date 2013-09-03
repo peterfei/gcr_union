@@ -65,7 +65,10 @@ class SelfDrivePricesController < ApplicationController
       prices << SelfDrivePrice.new(car_model_id: id,
                                    location_id: location_id,
                                    rate: weekday_prices,
-                                   flag: :weekday)
+                                   flag: :weekday,
+                                   prepayment: params[:prepayment],
+                                   overtime: params[:overtime],
+                                   overdistance: params[:overdistance])
       prices << SelfDrivePrice.new(car_model_id: id,
                                    location_id: location_id,
                                    rate: weekend_prices,
