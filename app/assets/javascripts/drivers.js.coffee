@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
-  $('#drivers__location_id').select2()
+  #$('#drivers__location_id').select2()
   $('#main').on 'click','.driver i', ->
     _div = $(@).parent()
     _div.clone().insertAfter(_div)
