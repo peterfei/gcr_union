@@ -2,15 +2,14 @@
 class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
-  def index 
+  def index  
     if current_user.role=='oprator' 
       @where = "#{current_user.company_id}" 
       @search = Location.search(params[:search]).where(:company_id=>@where)
     else 
       @search = Location.search(params[:search])
     end
-    @locations=@search.page params[:page]
-
+    @locations=@search.page params[:page] 
     respond_to do |format|
       format.js
       format.html # index.html.erb
@@ -32,8 +31,12 @@ class LocationsController < ApplicationController
 
   # GET /locations/new
   # GET /locations/new.json
-  def new
-    @location = Location.new
+  def new 
+    if current_user.role=='oprator'  
+      @location = Location.new(company_id:current_user.company_id) 
+    else
+      @location = Location.new
+    end
     #默认营业时间
     @start_time_hour = '08'
     @start_time_min = '30'

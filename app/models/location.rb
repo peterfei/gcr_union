@@ -27,7 +27,7 @@ class Location < ActiveRecord::Base
   serialize :rate_code_list, Array
   enumerize :rate_code_list, in: {'日租'=>0,'时租'=>1,'接机'=>2,'送机'=>3,'自定路线'=>4}, multiple: true
 
-  def to_s
+  def to_s 
     location_name
   end
   def destroy  
