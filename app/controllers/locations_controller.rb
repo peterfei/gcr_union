@@ -21,7 +21,13 @@ class LocationsController < ApplicationController
   # GET /locations/1.json
   def show
     @location = Location.find(params[:id])
+    start_time = @location.start_time
+    end_time = @location.end_time
 
+    @start_time_hour = start_time.split(':')[0]
+    @start_time_min = start_time.split(':')[1]
+    @end_time_hour = end_time.split(':')[0]
+    @end_time_min = end_time.split(':')[1]
     respond_to do |format|
       #format.html # show.html.erb
       format.js
@@ -95,7 +101,14 @@ class LocationsController < ApplicationController
   # PUT /locations/1
   # PUT /locations/1.json
   def update
-    @location = Location.find(params[:id])
+    @location = Location.find(params[:id]) 
+    start_time = @location.start_time
+    end_time = @location.end_time
+
+    @start_time_hour = start_time.split(':')[0]
+    @start_time_min = start_time.split(':')[1]
+    @end_time_hour = end_time.split(':')[0]
+    @end_time_min = end_time.split(':')[1]
     respond_to do |format|
       start_time = "#{params[:start_time_hour]}:#{params[:start_time_min]}"
       end_time = "#{params[:end_time_hour]}:#{params[:end_time_min]}"
