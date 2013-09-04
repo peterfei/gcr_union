@@ -1,27 +1,30 @@
 = simple_form_for @reservation, :html => {:class => 'form-horizontal' },wrapper: 'bootstrap',:remote=>true do |f|
   .span12
     .row-fluid 
-      .span4
+      .span5
         =f.association :base_rate_code,label:"业务类型",disabled:true  
-      .span4
-        = f.input :confirmation, :label=>'订单编号' ,disabled:true
-      .span4 
-        =f.association :car_type ,disabled:true,label:"所选车型"
+      .span5
+        = f.input :confirmation, :label=>'订单编号' ,disabled:true 
+  .span12
+    .row-fluid
+      .span5 
+        =f.association :car_type ,disabled:true,label:"所选车型" 
+      .span5
+        = f.association :pickup_city, :label=>'上车城市'
   .span12.row-fluid 
-    .span4
-      = f.association :pickup_city, :label=>'上车城市'
-    .span4
+    .span5
       = f.association :return_city, :label=>'下车城市'
-    .span4
+    .span5
       = f.input :reservation_person_phone, :label=>'订车人电话'
   -case @reservation.base_rate_code.rate_code 
   -when 'JJ','SJ','JHC','SHC'
     .span12.row-fluid  
-      .span4 
+      .span5 
         =f.input :airline
-      .span4
+      .span5
         =f.input :airport_id,as: :string,label:"机场"
-      .span4
+    .span12.row-fluid
+      .span5
         = render 'start_time'
       /.span4
         = f.input :source_code, :label=>'来源' ,as: :string
