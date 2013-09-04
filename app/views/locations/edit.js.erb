@@ -1,2 +1,5 @@
 $('.row.location_all').html('<%=j(render('form'))%>');
-$('body').init_components();
+$('body').init_components(); 
+<%if current_user.role=='oprator'%> 
+  $('#location_company_id').select2('readonly',true);
+<%end%>
