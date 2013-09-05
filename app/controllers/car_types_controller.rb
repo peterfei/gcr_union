@@ -27,7 +27,7 @@ class CarTypesController < ApplicationController
   # GET /car_types/new.json
   def new
     @car_type = CarType.new
-    BaseRateCode.where("rate_code != 'ZJ'").each do |rate_code|
+    BaseRateCode.dj.each do |rate_code|
       car_type_rates = @car_type.car_type_rates.build do |c|
         c.base_rate_code_id = rate_code.id
         c.base_rate         = 0
@@ -72,7 +72,7 @@ class CarTypesController < ApplicationController
 
     respond_to do |format|
       if @car_type.update_attributes(params[:car_type])
-        format.html { redirect_to @car_type, notice: 'Car type was successfully updated.' }
+        format.html { redirect_to car_types_path, notice: 'Car type was successfully updated.' }
         format.json { head :no_content }
         format.js { render 'show' }
       else
