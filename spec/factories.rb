@@ -10,9 +10,14 @@ FactoryGirl.define do
     pickup_date  "2013-07-07 00:00:00"
     return_date  "2013-07-07 00:00:00"
     passenger_num 1
-    status 2 
-    base_rate_code_id 98 
-    car_type_id 1
+    status "waitexec" 
+    base_rate_code_id 1 
+    car_type_id 1 
+    company_id 1 
+    use_day 1
+    use_hour 1 
+    car_id 1
+    driver_id 1
   end 
   factory :city do  
     city_name "深圳" 
