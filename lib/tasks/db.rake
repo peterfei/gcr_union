@@ -129,10 +129,10 @@ namespace :db do
 
     CarTypeRate.destroy_all
     sample = -> {
-      [CarType.all.sample.id, BaseRateCode.all.sample.id]
+      [CarType.all.sample.id, BaseRateCode.dj.sample.id]
     }
     collestions=[]
-    (CarType.count * BaseRateCode.count).times do
+    (CarType.count * BaseRateCode.dj.count).times do
 
       new = sample.call
       while collestions.include? new
