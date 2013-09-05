@@ -15,5 +15,14 @@ class Car < ActiveRecord::Base
 
   def to_s
     car_tag
-  end
+  end 
+
+  def self.available  car_type_id,seat
+    where(seat: seat,car_type_id:car_type_id)
+  end 
+  #search_method :seat_equals
+  #def self.seat_equals   str 
+  #    
+
+  #end
 end

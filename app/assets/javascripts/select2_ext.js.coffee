@@ -78,6 +78,7 @@ $.fn.extend
             location_id_equals: $('#location_id').val()
             status_equals:'enable'
             car_tag_contains: term
+            seat_equals:$('#reservation_seat').val()
           }
           page: page
   driver_info_select2: () ->
@@ -90,6 +91,7 @@ $.fn.extend
             location_id_equals: $('#location_id').val()
             status_equals: 'enable'
             driver_name_contains: term
+            driver_allowed_contains: $('#reservation_seat').val()
           }
           page: page
   company_info_select2: () ->
