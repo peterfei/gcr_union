@@ -30,8 +30,9 @@
         i.icon-plus
     -else
       .row-fluid
-        .span4
-          = f.association :location, :label=>'所属门店', :placeholder=>"请选择" 
+        .span4 
+          = f.input :location_id, :label=>'所属门店', :placeholder=>"请选择",input_html:{:id=>"location_id"} do 
+          /= f.association :location, :label=>'所属门店', :placeholder=>"请选择" 
       .driver  
         .row-fluid
           .span4
