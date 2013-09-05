@@ -62,8 +62,8 @@ class ManagerUsersController < ApplicationController
   # PUT /manager_users/1
   # PUT /manager_users/1.json
   def update
-    @manager_user = ManagerUser.find(params[:id])
-    if params[:manager_user][:password].present?
+    @manager_user = ManagerUser.find(params[:id]) 
+    unless params[:manager_user][:password].present?
        params[:manager_user].delete(:password)
     end
     respond_to do |format| 

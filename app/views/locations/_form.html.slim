@@ -52,8 +52,9 @@
     .row-fluid
       .span6.form-inline
         = f.input :status, :collection => Location.status_list, :input_html => { :placeholder => '请选择营业状态' }
-  .btn-group
+  .span12
     .wdj_bordertop
-      .wdj_btnwidth 
-        = link_to '返回',locations_path, :remote=>true, class:"btn btn-small"
-        = f.submit :class =>'btn btn-small', :value => '保存', :id=>"locationOfSaveBtn"
+      .wdj_btnwidth  
+        .btn-group
+          = link_to '返回',locations_path, :remote=>true, class:"btn btn-small"
+          = f.submit :class =>'btn btn-small', :value => '保存', :id=>"locationOfSaveBtn"

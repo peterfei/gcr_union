@@ -5,7 +5,9 @@
       .row-fluid
         .span4
           = f.input :location_id, :label=>'所属门店', :placeholder=>"请选择",input_html:{:id=>"location_id"} do 
-            =text_field_tag 'drivers[][location_id]'
+            =text_field_tag 'drivers[][location_id]' 
+        .span4 
+          = f.input :driver_allowed,:label=>"准驾车型" ,input_html:{name:"drivers[][driver_allowed]",id:"drivers[][driver_allowed]"},:include_blank=>false,:placeholder=>"请选择"
       .driver  
         .row-fluid
           .span4
@@ -16,19 +18,21 @@
               =text_field_tag 'drivers[][driver_phone]'
         .row-fluid
           .span4 
-            = f.input :driver_allowed,:label=>"准驾车型" ,input_html:{name:"drivers[][driver_allowed]",id:"drivers[][driver_allowed]"},:allow_blank=>false
+            
+            = f.input :born, :label=>'籍贯' do 
+              =text_field_tag 'drivers[][born]'
           .span4 
             = f.input :driver_year,:label=>"驾龄" do 
               =text_field_tag 'drivers[][driver_year]'
         .row-fluid
           .span4
-            = f.input :born, :label=>'籍贯' do 
-              =text_field_tag 'drivers[][born]'
+            
         i.icon-plus
     -else
       .row-fluid
-        .span4
-          = f.association :location, :label=>'所属门店', :placeholder=>"请选择" 
+        .span4 
+          = f.input :location_id, :label=>'所属门店', :placeholder=>"请选择",input_html:{:id=>"location_id"}
+          /= f.association :location, :label=>'所属门店', :placeholder=>"请选择" 
       .driver  
         .row-fluid
           .span4
@@ -48,6 +52,4 @@
         .btn-group
         =link_to '返回',drivers_path,remote:true,class:"btn btn-small"
         = f.submit :class =>'btn btn-small', :value => '保存'
-      
 
-            = f.input :driver_allowed,:label=>"准驾车型" ,input_html:{name:"drivers[][driver_allowed]"},:allow_blank=>false

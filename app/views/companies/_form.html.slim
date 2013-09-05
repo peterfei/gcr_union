@@ -4,34 +4,34 @@ link href="/assets/validation.css?body=1" media="screen" rel="stylesheet" type="
     h4.header 注册信息
     .row-fluid
       .span5
-        = f.input :company_name, :label=>"公司简称",:input_html=>{:maxlength=>10,:tip=>"*必填,请输入公司简称,不能超过10个字符"}
+        = f.input :company_name, :label=>"公司简称"
       .span5
-        = f.input :company_full_name, :label=>'公司全称',:input_html=>{:maxlength=>20,:tip=>"*必填,请输入公司全称,不能超过20个字符"}
+        = f.input :company_full_name, :label=>'公司全称'
   .span12
     .row-fluid
       .span5
-        = f.input :taxpayer_code, :label=>'营业执照',:input_html=>{:maxlength=>11,:tip=>"*必填,请输入营业执照."}
+        = f.input :taxpayer_code, :label=>'营业执照'
       .span5
-        = f.input :reg_money, :label=>'注册资金(万元)',:input_html=>{:maxlength=>11,:tip=>"*必填,请输入注册资金."}
+        = f.input :reg_money, :label=>'注册资金(万元)'
   .span12
     h4.header 公司资料
     .row-fluid
       .span5
         = f.input :link_man, :label=>'联系人',:input_html=>{:maxlength=>10,:tip=>"请输入联系人姓名,可以为空"}
       .span5
-        = f.input :link_man_phone, :label=>'联系人电话',:input_html=>{:maxlength=>11,:tip=>"请输入联系人电话,如:18888888888,可以为空"}
+        = f.input :link_man_phone, :label=>'联系人电话'
   .span12
     .row-fluid
       .span5
-        = f.input :phone, :label=>'公司电话',:input_html=>{:maxlength=>11,:tip=>"请输入公司电话,如:029-8888888,可以为空"}
+        = f.input :phone, :label=>'公司电话'
       .span5
-        = f.input :fax, :label=>'传真号码',:input_html=>{:maxlength=>11,:tip=>"请输入传真号码,如:029-8888888,可以为空"}
+        = f.input :fax, :label=>'传真号码'
   .span12
     .row-fluid
       .span5
-        = f.input :email, :label=>'电子邮箱',:input_html=>{:maxlength=>20,:tip=>"请输入电子邮箱,如:029@rongyitech.com,可以为空"}
+        = f.input :email, :label=>'电子邮箱'
       .span5
-        = f.association :city, :label=>'城市', :input_html=>{:id=>"pickup_city"}, :as=>:string, :placeholder=>"请选择"
+        = f.association :city, :label=>'城市', :as=>:string, :placeholder=>"请选择"
   .span12
     .row-fluid
       .span5

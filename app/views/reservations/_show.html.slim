@@ -75,7 +75,7 @@
             dd = @reservation.return_date  
         .span5 
             dt 特殊乘客
-            dd = @reservation.special_passenger.map(&:text)  
+            dd = @reservation.special_passenger.map(&:text).join(',')  
   .row-fluid
     .span12.wdj_bordertop
       .wdj_btnwidth
