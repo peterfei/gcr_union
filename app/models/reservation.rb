@@ -51,7 +51,8 @@ class Reservation < ActiveRecord::Base
   validates :driver_id, :presence => {message: '请选择司机'},:if=>Proc.new{|r| r.status=='waitexec'}
   validates :use_day, :presence => {message: '用车天数不能为空'},
                       numericality: true,
-                      :if => Proc.new { |r| r.base_rate_code.rate_code=='RZ' }
+                      :if => Proc.new { |r|
+                        r.base_rate_code.rate_code=='RZ' }
   validates :use_hour, :presence => {message: '用车时长不能为空'},
                       numericality: true,
                       :if => Proc.new { |r| r.base_rate_code.rate_code=='SZ' }

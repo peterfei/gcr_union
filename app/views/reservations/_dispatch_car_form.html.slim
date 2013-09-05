@@ -2,10 +2,13 @@
   .modal-header
     button type="button" class="close" data-dismiss="modal" aria-hidden="true" &times;
     h3 分配车辆
-  .modal-body
+  .modal-body 
+    =f.association :car_type,label_method: :type_name_seat ,disabled:true
     =f.association :pickup_location,:input_html=>{:id=>"location_id"},:as=>:string,:placeholder=>"请选择",:label=>"门店"
     =f.association :car,:input_html=>{:id=>"car_id"},:as=>:string,:placeholder=>"请选择" ,:validate=>{:presence=>true}
-    =f.association :driver,:input_html=>{:id=>"driver_id"},:as=>:string,:placeholder=>"请选择",:validate=>{:presence=>true}
+    =f.association :driver,:input_html=>{:id=>"driver_id"},:as=>:string,:placeholder=>"请选择",:validate=>{:presence=>true} 
+    =f.hidden_field "car_type_id",value:f.object.car_type_id
+    =f.hidden_field "seat",value:f.object.car_type.persons||0
   .modal-footer
     button class="btn" data-dismiss="modal" aria-hidden="true" 取消
     =f.button :submit,"确认",class:"btn btn-primary"

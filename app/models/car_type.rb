@@ -11,5 +11,9 @@ class CarType < ActiveRecord::Base
 
   def to_s
     car_type_name
+  end  
+
+  def type_name_seat 
+      "#{car_type_name} - #{persons}座"
   end
 end

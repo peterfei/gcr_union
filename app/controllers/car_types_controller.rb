@@ -6,7 +6,9 @@ class CarTypesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @car_types }
+      format.json { render json: @car_types } 
+
+      #format.json { render_select2 @cars, text:'car_tag'}
       format.js
     end
   end

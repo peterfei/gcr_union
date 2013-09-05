@@ -2,7 +2,8 @@
 class DriversController < ApplicationController
   # GET /drivers
   # GET /drivers.json
-  def index 
+  def index   
+    
     if current_user.role=='oprator' 
       @where = "#{current_user.company_id}" 
       @search = Driver.search(params[:search]).where(:company_id=>@where)
