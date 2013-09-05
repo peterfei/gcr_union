@@ -10,7 +10,7 @@ class Driver < ActiveRecord::Base
   #end
   extend Enumerize
   enumerize :status, in: [:enable,:disable], default: :enable
-  enumerize :driver_allowed ,in:[:A,:B]
+  enumerize :driver_allowed ,in:[:A1,:A2,:B1,:B2,:C1,:C2]
 
   validates :location_id, :presence => {message: '门店不能为空'}
   #validates :company_id, :presence => {message: '所属公司不能为空'}
