@@ -1,9 +1,29 @@
-=simple_form_for @car_type,:html => { :multipart => true }, :remote => true do |f|
-  /= f.input :car_type_code, :label => '车型编码'
+=simple_form_for @car_type,:html => { :multipart => true },wrapper: 'bootstrap' do |f|
+
   = f.input :car_type_name, :label => '车型名称'
   = f.input :persons, :label => '座位数',as: :string
   = f.input :big_package, :label => '大行李',as: :string
   = f.input :small_package, :label => '小行李',as: :string
   = f.input :description, :label => '描述'
   = f.input :image, :as => :file, :label => '车型图片'
+
+  -collection = []
+  ul class="nav nav-tabs" id="myTab"
+    = f.fields_for :car_type_rates do |c|
+      -collection << c
+      li
+        a href="##{c.object.base_rate_code_id}" data-toggle="tab" =c.object.base_rate_code.to_s
+
+  .tab-content
+    -collection.each do |c|
+      .tab-pane id=c.object.base_rate_code_id
+        =c.hidden_field :base_rate_code_id
+        =c.input :base_rate
+        =c.input :xdis_rate
+        =c.input :xhour
+        =c.input :prices_included
+  .clearfix
+
   = f.submit :value => '提交',class: 'btn btn-primary'
+coffee:
+  $('#myTab a:first').tab('show');

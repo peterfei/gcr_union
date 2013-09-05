@@ -7,6 +7,7 @@ class CarTypeRate < ActiveRecord::Base
   serialize :prices_included, Array
   enumerize :prices_included, in: [:oil, :insure, :driver], multiple: true
 
+
   def prices_included_text
     prices_included.map(&:text).join('/')
   end

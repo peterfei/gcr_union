@@ -27,6 +27,15 @@ class CarTypesController < ApplicationController
   # GET /car_types/new.json
   def new
     @car_type = CarType.new
+    BaseRateCode.where("rate_code != 'ZJ'").each do |rate_code|
+      car_type_rates = @car_type.car_type_rates.build do |c|
+        c.base_rate_code_id = rate_code.id
+        c.base_rate         = 0
+        c.xdis_rate         = 0
+        c.xhour             = 0
+        c.prices_included   = [:oil, :insure, :driver]
+      end
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,7 +55,7 @@ class CarTypesController < ApplicationController
 
     respond_to do |format|
       if @car_type.save
-        format.html { redirect_to @car_type, notice: 'Car type was successfully created.' }
+        format.html { redirect_to car_types_path }
         format.json { render json: @car_type, status: :created, location: @car_type }
       else
         format.html { render action: "new" }
@@ -82,7 +91,7 @@ class CarTypesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to car_types_url }
       format.json { head :no_content }
-      format.js 
+      format.js { redirect_to car_types_path }
     end
   end
 end
