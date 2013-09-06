@@ -1,30 +1,19 @@
--self_drive_price = @self_drive_prices.try(:first)
--car_model_id     = self_drive_price.car_model_id rescue nil
--url              = "/self_drive_prices/#{car_model_id}"
-= simple_form_for car_model_id ? self_drive_price : @self_drive_price, url: url, remote: false, html: {class: 'form-horizontal'},wrapper: 'bootstrap' do |f|
-  = f.association :location, placeholder: '请选择所属门店', label: '所属门店'
-  = f.association :car_model, label: '车辆型号', value: self_drive_price.try(:car_model_id), readonly: @self_drive_prices, as: 'string'
+= simple_form_for @self_drive_price do |f|
+  - if @self_drive_price.errors.any?
+    #error_explanation
+      h2= "#{pluralize(@self_drive_price.errors.count, "error")} prohibited this self_drive_price from being saved:"
+      ul
+        - @self_drive_price.errors.full_messages.each do |msg|
+          li= msg
 
-  = f.input '' ,label: '周内价' do
-    = text_field_tag :weekday_prices, @self_drive_prices.try(:weekday_rate)
+  = f.association :location
+  = f.input :car_model_id do
+    =text_field_tag 'car_model_ids'
 
-  = f.input '' ,label: '周末价' do
-    = text_field_tag :weekend_prices, @self_drive_prices.try(:weekend_rate)
+  = f.input :weekday
+  = f.input :weekend
+  = f.input :prepayment
+  = f.input :overtime
+  = f.input :overdistance
 
-  = f.input '' ,label: '自定价格' do
-    -(@self_drive_prices.range rescue [nil]).each  do |range,prices|
-      = text_field_tag :'date_range[]',range, class: 'custome_date_range'
-      = text_field_tag :'custome_prices[]', prices, class: 'span2'
-      = link_to '#', class: 'custome_prices_plus' do
-        i.icon-plus
-      br
-  = f.input '' ,label: '预授权' do
-    = text_field_tag :prepayment, @self_drive_prices.try(:weekday_prices).try(:prepayment)
-  = f.input '' ,label: '超小时费' do
-    = text_field_tag :overtime, @self_drive_prices.try(:weekday_prices).try(:overtime)
-  = f.input '' ,label: '超公里费' do
-    = text_field_tag :overdistance, @self_drive_prices.try(:weekday_prices).try(:overdistance)
-  div.wdj_bordertop
-    .wdj_btnwidth
-      .span1= f.submit :value => '提交', class: 'btn btn-primary'
-      .span1.offset= link_to '返回', self_drive_prices_path, remote: true, class: 'btn'
+  = f.submit '保存'

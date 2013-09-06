@@ -120,6 +120,14 @@ zh-CN:
         base_rate_code: '业务类型'
 
         pay_mode: '支付方式'
+
+        car_model: '车辆品牌'
+        weekday: '周内价格'
+        weekend: '周末价格'
+        prepayment: '预授权'
+        overtime: '超小时费'
+        overdistance: '超公里费'
+
   views:
     pagination:
       first: "&laquo; 首页"

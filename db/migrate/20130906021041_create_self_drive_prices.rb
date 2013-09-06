@@ -1,11 +1,14 @@
 class CreateSelfDrivePrices < ActiveRecord::Migration
   def change
+    drop_table :self_drive_prices
     create_table :self_drive_prices do |t|
-      t.date :date
-      t.decimal :rate
+      t.decimal :weekday
+      t.decimal :weekend
       t.references :car_model
       t.references :location
-      t.string :flag
+      t.decimal :prepayment
+      t.decimal :overtime
+      t.decimal :overdistance
 
       t.timestamps
     end
