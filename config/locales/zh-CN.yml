@@ -132,6 +132,8 @@ zh-CN:
         car_tag_equals: "车牌号"
       driver:
         driver_name_equals: "驾驶员姓名"
+      location:
+        location_name_equals: "门店名称"
   views:
     pagination:
       first: "&laquo; 首页"
