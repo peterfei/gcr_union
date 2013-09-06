@@ -122,6 +122,8 @@ class Reservation < ActiveRecord::Base
     when 'cancel'
       update_attribute :status,:canceled
     end
-  end
+  end 
+
+  
 end
 

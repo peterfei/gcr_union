@@ -120,6 +120,14 @@ zh-CN:
         base_rate_code: '业务类型'
 
         pay_mode: '支付方式'
+  meta_search:
+    equals: ""
+    predicates:
+      equals: "%{attribute}"
+    attributes:
+      reservation:
+        reservation_person_phone_equals: "用车人电话"
+        confirmation_equals: "编号"
   views:
     pagination:
       first: "&laquo; 首页"
