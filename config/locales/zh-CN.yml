@@ -128,6 +128,10 @@ zh-CN:
       reservation:
         reservation_person_phone_equals: "用车人电话"
         confirmation_equals: "编号"
+      car:
+        car_tag_equals: "车牌号"
+      driver:
+        driver_name_equals: "驾驶员姓名"
   views:
     pagination:
       first: "&laquo; 首页"

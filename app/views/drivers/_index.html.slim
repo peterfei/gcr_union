@@ -1,6 +1,6 @@
 .row.location_all
   .span12
-    h4.header 驾驶员查询
+    =render 'search'
     -if can? :create,Driver
       =link_to new_driver_path ,:remote=>true do 
         button.btn 新增驾驶员
