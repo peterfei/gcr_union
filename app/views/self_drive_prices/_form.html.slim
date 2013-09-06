@@ -12,6 +12,12 @@
 
   = f.input :weekday
   = f.input :weekend
+  = f.fields_for :custom_prices do |c|
+    =c.label '自定价格'
+    div
+      =c.input_field :range, class: 'date-range'
+      =c.input_field :price, class: 'span2'
+      i.icon-plus
   = f.input :prepayment
   = f.input :overtime
   = f.input :overdistance

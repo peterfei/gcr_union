@@ -35,7 +35,7 @@ jQuery ->
     language: 'zh-CN'
     autoclose: true
 
-  $('#main').on 'focus', '.custome_date_range', ->
+  $('#main').on 'focus', '.date-range', ->
     $(@).daterangepicker
       format: 'YYYY/MM/DD'
   # 导航

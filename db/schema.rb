@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130906021041) do
+ActiveRecord::Schema.define(:version => 20130906055842) do
 
   create_table "airports", :force => true do |t|
     t.string  "name"
@@ -243,6 +243,16 @@ ActiveRecord::Schema.define(:version => 20130906021041) do
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
   end
+
+  create_table "custom_prices", :force => true do |t|
+    t.string   "range"
+    t.decimal  "price",               :precision => 10, :scale => 0
+    t.integer  "self_drive_price_id"
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
+  end
+
+  add_index "custom_prices", ["self_drive_price_id"], :name => "index_custom_prices_on_self_drive_price_id"
 
   create_table "customers", :force => true do |t|
     t.string   "customer_code"

@@ -26,6 +26,7 @@ class SelfDrivePricesController < ApplicationController
   # GET /self_drive_prices/new.json
   def new
     @self_drive_price = SelfDrivePrice.new
+    @self_drive_price.custom_prices.build
 
     respond_to do |format|
       format.html # new.html.erb
