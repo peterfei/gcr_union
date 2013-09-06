@@ -1,0 +1,14 @@
+= simple_form_for @search  ,  :html => {:class => 'form-horizontal' },wrapper: 'bootstrap',validate:false do |f|
+  fieldset
+    #legend
+      legend 订单信息 
+      .row-fluid
+        .span5=f.input :reservation_person_phone_equals,input_html:{class:"search-query"}
+        .span5=f.input :confirmation_equals,input_html:{class:"search-query"}
+      .row-fluid
+        .span5 = f.input :status_equals,collection:Reservation.status.options,placeholder:"全部",input_html:{class:"search-query"}
+        .span5
+          =f.input :base_rate_code_id_equals,collection:BaseRateCode.all,placeholder:"全部",input_html:{class:"search-query"}
+      .control-group
+        .controls
+          =f.submit value:"查询",class: "btn btn-small"
