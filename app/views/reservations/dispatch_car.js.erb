@@ -5,10 +5,13 @@ $("#myModal").modal('show');
 $('#myModal').on('shown', function (e) {
   $(_html).last().appendTo('#myModal');
   $('#location_id').location_select2();
-  $('#car_id').car_info_select2();
-  $('#driver_id').driver_info_select2();
+  $('#car_id').car_info_select2().select2('readonly',true);
+  $('#driver_id').driver_info_select2().select2('readonly',true);
 })
 <%else%>
   $(".order_<%=@reservation.id%>").html("<%=j(render :partial=>'list',:locals=>{:reservation=>@reservation})%>");
 $("#myModal").modal('hide');
-<%-end%>
+<%-end%> 
+$("#location_id").on('change',function(){
+   $("#car_id,#driver_id").select2('readonly',false);
+});
