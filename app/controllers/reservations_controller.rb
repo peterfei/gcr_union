@@ -112,6 +112,8 @@ class ReservationsController < ApplicationController
   #分配车辆牌照 
   def dispatch_car  
     @reservation = Reservation.find(params[:id])
+    #hot_fix delete seat in reservations
+    params[:reservation].delete('seat')
     respond_to do |format|  
     $o =false
      if request.put?  
