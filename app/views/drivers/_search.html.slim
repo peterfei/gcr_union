@@ -5,7 +5,7 @@
       .row-fluid
         .span5=f.input :driver_name_equals,input_html:{class:"search-query"}
         .span5
-          =f.input :status_equals,collection:Driver.status.options,placeholder:"全部",input_html:{class:"search-query"}
+          =f.input :status_equals,collection:Driver.status.options,placeholder:"全部",input_html:{class:"search-query"},label:"司机状态"
       .control-group
         .controls
           =f.submit value:"查询",class: "btn btn-small"
