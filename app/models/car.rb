@@ -24,5 +24,9 @@ class Car < ActiveRecord::Base
   #def self.seat_equals   str 
   #    
 
-  #end
+  #end 
+  before_save :car_type_wr
+  def car_type_wr 
+    write_attribute :car_type_id,car_model.car_type_id
+  end
 end
