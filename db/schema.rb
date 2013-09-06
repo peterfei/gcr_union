@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130820074020) do
+ActiveRecord::Schema.define(:version => 20130903054055) do
 
   create_table "airports", :force => true do |t|
     t.string  "name"
@@ -230,6 +230,7 @@ ActiveRecord::Schema.define(:version => 20130820074020) do
     t.integer  "status"
     t.integer  "city_id"
     t.integer  "district_id"
+    t.integer  "manager_user_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end
@@ -396,6 +397,7 @@ ActiveRecord::Schema.define(:version => 20130820074020) do
     t.integer  "coupon_id"
     t.datetime "created_at",                                              :null => false
     t.datetime "updated_at",                                              :null => false
+    t.string   "pay_mode"
   end
 
   add_index "reservations", ["base_rate_code_id"], :name => "index_reservations_on_base_rate_code_id"
@@ -417,6 +419,9 @@ ActiveRecord::Schema.define(:version => 20130820074020) do
     t.string   "flag"
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
+    t.decimal  "prepayment",   :precision => 10, :scale => 0
+    t.decimal  "overtime",     :precision => 10, :scale => 0
+    t.decimal  "overdistance", :precision => 10, :scale => 0
   end
 
   add_index "self_drive_prices", ["car_model_id"], :name => "index_self_drive_prices_on_car_model_id"
