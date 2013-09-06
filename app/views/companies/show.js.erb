@@ -1,1 +1,3 @@
-$('.row.location_all').html('<%=j(render 'show',:locals => {:result=>@result})%>');
+$('.row.location_all').html('<%=j(render 'form',:locals => {:result=>@result})%>');
+$('#company_form input').attr('disabled',true);
+$('#companyOfSaveBtn').hide();

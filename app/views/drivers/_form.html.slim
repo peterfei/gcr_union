@@ -31,7 +31,7 @@
     -else
       .row-fluid
         .span4 
-          = f.input :location_id, :label=>'所属门店', :placeholder=>"请选择",input_html:{:id=>"location_id"} do 
+          = f.input :location_id, :label=>'所属门店', :placeholder=>"请选择",input_html:{:id=>"location_id"}
           /= f.association :location, :label=>'所属门店', :placeholder=>"请选择" 
       .driver  
         .row-fluid

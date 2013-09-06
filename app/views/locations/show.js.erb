@@ -1,1 +1,5 @@
-$('.row.location_all').html('<%=j(render 'show')%>');
+$('.row.location_all').html('<%=j(render 'form')%>'); 
+$('body').init_components(); 
+$('#location_form input').attr('disabled',true);  
+$('#location_form select').select2('readonly',true); 
+$('#locationOfSaveBtn').hide();

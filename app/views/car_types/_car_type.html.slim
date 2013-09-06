@@ -13,3 +13,4 @@ tr
     .btn-group
       = link_to '显示', car_type, remote: true, class: 'btn btn-small'
       = link_to '编辑', edit_car_type_path(car_type), remote: true, class: 'btn btn-small'
+      = link_to '删除', car_type_path(car_type), class: 'btn btn-small', confirm: '确认删除吗', method: 'delete'

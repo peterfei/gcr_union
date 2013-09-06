@@ -1,5 +1,12 @@
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
+
+  config.wrappers :inline, :tag => 'span', :class => 'control-group', :error_class => 'error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label_text, :wrap_with => { :tag => :span, class: 'text' }
+    b.use :input
+  end
   config.wrappers :bootstrap, :tag => 'div', :class => 'control-group', :error_class => 'error' do |b|
     b.use :html5
     b.use :placeholder

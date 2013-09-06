@@ -10,7 +10,7 @@ class Driver < ActiveRecord::Base
   #end
   extend Enumerize
   enumerize :status, in: [:enable,:disable], default: :enable
-  enumerize :driver_allowed ,in:[:A,:B]
+  enumerize :driver_allowed ,in:[:A1,:A2,:B1,:B2,:C1,:C2]
 
   validates :location_id, :presence => {message: '门店不能为空'}
   #validates :company_id, :presence => {message: '所属公司不能为空'}
@@ -22,6 +22,19 @@ class Driver < ActiveRecord::Base
   before_save :company_belong
   def company_belong  
     write_attribute :company_id,location.company_id
+  end  
+  search_method :driver_allowed_contains
+  def self.driver_allowed_contains  str  
+        if str.to_i<7 
+          str ="C"  
+        elsif str.to_i>7 and str.to_i<11
+          str=  "B"  
+        else
+            str="A"
+        end
+      h = {"B"=>%w/C B/,"A"=>%w/A B C/,"C"=>%w/C/}
+      query =h[str].map{|m| "driver_allowed like '%#{m}%'"}.join(" or ") 
+      where(query)
   end
   #[:status].each do |m|
   #  define_method(m) { Hash[self.class.send "#{m}_list"].invert[read_attribute(m)] }

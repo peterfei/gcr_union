@@ -1,5 +1,5 @@
 .control-group.select.optional.disabled
-  label.select.optional.control-label= label rescue '下车地点：'
+  label.select.optional.control-label= label rescue '下车地点'
   .controls
     =fields_for @reservation do |f|
       =f.text_field :return_city_id,class:'input-small return_city',id:"return_city"
