@@ -108,7 +108,10 @@ zh-CN:
         status: '状态'
         sex: '性别'
 
-        location: '选择门店'
+        car_model_id_equals: '车辆品牌'
+        car_model_id: '车辆品牌'
+        location_id_equals: '门店'
+        location: '门店'
         car: '选择车辆'
         driver: '选择司机'
 

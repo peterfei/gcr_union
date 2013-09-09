@@ -14,7 +14,7 @@ $.fn.extend
     @select2
       allowClear: true
       placeholder: options.placeholder || '请选择'
-      width: options.width || 222
+      width: 222
       multiple: options.multiple || false
       initSelection: (element, callback) ->
         id = element.val()
