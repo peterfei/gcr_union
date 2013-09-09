@@ -3,7 +3,7 @@
     .container
       .row.cars
         .span12
-          h4.header = yield :head
+          h4.header = %Q/#{I18n.t("activemodel.#{params[:controller].singularize}")}信息/
           #main
             = yield
 =parent_layout 'application'

@@ -3,12 +3,11 @@ module ApplicationHelper
   # render json for select2,index and show included
   #
   # render_select2 object, extra_attr1, extra_attr2, id: id_method, text: name_method
-  #   
+  #
   #   respond_to do |format|
   #     format.html
   #     format.json { render_select2 @city, text: 'city_name' }
   #   end
-
   def render_select2(*args)
     render json: data_select2(*args)
   end

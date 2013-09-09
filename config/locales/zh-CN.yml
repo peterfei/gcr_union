@@ -350,6 +350,17 @@ zh-CN:
     pm: 下午
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
+    reservation: '订单'
+    car: '车辆'
+    company: '公司'
+    location: '门店'
+    driver: '司机'
+    car_model: '车辆品牌'
+    car_type: '车型'
+    manager_user: '管理用户'
+    user: '客户信息'
+    self_drive_price: '自驾价格'
+    car_type_rate: '车型价格'
     errors:
       <<: *errors
   activerecord:
