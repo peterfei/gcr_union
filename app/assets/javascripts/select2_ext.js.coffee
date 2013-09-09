@@ -12,9 +12,10 @@ $.fn.extend
   lazy_select2: (options) ->
     options = $.extend { page_size: 15 }, options
     @select2
+      allowClear: true
+      placeholder: options.placeholder || '请选择'
       width: options.width || 222
       multiple: options.multiple || false
-      allowClear: true
       initSelection: (element, callback) ->
         id = element.val()
         if id != '' and id != null
@@ -128,4 +129,5 @@ $.fn.extend
 
     $('#car_model_ids').car_model_select2()
     $('#self_drive_price_car_model_id').car_model_select2(false)
+    $('#search_car_model_id_equals').car_model_select2(false)
     $('#search_location_id_equals').location_select2()

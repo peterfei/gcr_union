@@ -1,6 +1,7 @@
-=simple_form_for @search, remote: true do |f|
-  =f.input :location_id_equals, label: '门店'
-  =f.submit '查看', class: 'btn btn-primary'
+=simple_form_for @search, remote: true, class: 'form-search', wrapper: 'inline' do |f|
+  =f.input :location_id_equals, label: '门店', required: false
+  =f.input :car_model_id_equals, label: '门店', required: false
+  =f.submit '查看', class: 'btn'
 -if can? :create,SelfDrivePrice
   = link_to new_self_drive_price_path, remote: true do
     button.btn
