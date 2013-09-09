@@ -78,7 +78,7 @@ $.fn.extend
             location_id_equals: $('#location_id').val()
             status_equals:'enable'
             car_tag_contains: term
-            seat_equals:$('#reservation_seat').val()
+            #seat_equals:$('#reservation_seat').val()
           }
           page: page
   driver_info_select2: () ->

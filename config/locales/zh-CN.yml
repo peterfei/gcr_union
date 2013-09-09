@@ -120,13 +120,27 @@ zh-CN:
         base_rate_code: '业务类型'
 
         pay_mode: '支付方式'
-
         car_model: '车辆品牌'
         weekday: '周内价格'
         weekend: '周末价格'
         prepayment: '预授权'
         overtime: '超小时费'
         overdistance: '超公里费'
+
+  meta_search:
+    equals: ""
+    predicates:
+      equals: "%{attribute}"
+    attributes:
+      reservation:
+        reservation_person_phone_equals: "用车人电话"
+        confirmation_equals: "编号"
+      car:
+        car_tag_equals: "车牌号"
+      driver:
+        driver_name_equals: "驾驶员姓名"
+      location:
+        location_name_equals: "门店名称"
 
   views:
     pagination:

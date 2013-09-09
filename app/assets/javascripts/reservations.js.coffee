@@ -12,3 +12,4 @@ jQuery ->
   $('#driver_id').driver_info_select2()
   $('#location_id').location_select2()
   $('#car_id').car_info_select2()
+  

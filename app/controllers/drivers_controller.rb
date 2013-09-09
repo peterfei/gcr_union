@@ -57,7 +57,8 @@ class DriversController < ApplicationController
     respond_to do |format|
       #if @driver.save 
        if @drivers.map{|c| c.errors.full_messages}==[[]] 
-         format.js {render 'index'}
+         
+         format.js
        else 
          format.js {render 'error_msg'}
        end

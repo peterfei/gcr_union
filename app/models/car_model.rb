@@ -1,7 +1,7 @@
 # coding: utf-8
 class CarModel < ActiveRecord::Base
   attr_accessible :car_model, :car_model_atmt, :car_model_code, :car_model_img_url, :car_model_name, :car_model_package, :car_model_size, :car_model_type, :car_type_code, :status, :car_type_id
-
+  default_scope ->{order('created_at desc')}
  # mount_uploader :car_model_img_url, CompanyLogoUploader
 
   mount_uploader :car_model_img_url, AttachmentUploader

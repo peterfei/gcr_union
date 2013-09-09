@@ -1,0 +1,11 @@
+= simple_form_for @search  ,  :html => {:class => 'form-horizontal' },wrapper: 'bootstrap',validate:false do |f|
+  fieldset
+    #legend
+      legend 车辆信息 
+      .row-fluid
+        .span5=f.input :car_tag_equals,input_html:{class:"search-query"}
+        .span5
+          =f.input :status_equals,collection:Car.status.options,placeholder:"全部",input_html:{class:"search-query"},label:"车辆状态"
+      .control-group
+        .controls
+          =f.submit value:"查询",class: "btn btn-small"

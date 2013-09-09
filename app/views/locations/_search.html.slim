@@ -1,0 +1,11 @@
+= simple_form_for @search  ,  :html => {:class => 'form-horizontal' },wrapper: 'bootstrap',validate:false do |f|
+  fieldset
+    #legend
+      legend 门店信息 
+      .row-fluid
+        .span5=f.input :location_name_equals,input_html:{class:"search-query"}
+        .span5
+          =f.input :status_equals,collection:Location.status_list,placeholder:"全部",input_html:{class:"search-query"},label:"门店状态"
+      .control-group
+        .controls
+          =f.submit value:"查询",class: "btn btn-small"

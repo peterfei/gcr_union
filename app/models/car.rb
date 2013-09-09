@@ -18,11 +18,15 @@ class Car < ActiveRecord::Base
   end 
 
   def self.available  car_type_id,seat
-    where(seat: seat,car_type_id:car_type_id)
+    where(car_type_id:car_type_id)
   end 
   #search_method :seat_equals
   #def self.seat_equals   str 
   #    
 
-  #end
+  #end 
+  before_save :car_type_wr
+  def car_type_wr 
+    write_attribute :car_type_id,car_model.car_type_id
+  end
 end

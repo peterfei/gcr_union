@@ -1,8 +1,8 @@
 = simple_form_for @car, remote: true, html: {class: 'form-horizontal'},wrapper:'bootstrap' do |f| 
   = f.input :location_id, :label=>'所属门店', :placeholder=>"请选择所属门店",input_html:{:id=>"location_id"} 
   /= f.association :location, :placeholder => '请选择所属门店', :label=>'所属门店'
-  = f.association :car_type, :placeholder => '请选择车辆品牌', :label=>'车辆品牌'
-  = f.association :car_model, :placeholder => '请选择车辆型号', :label=>'车辆型号'
+  /= f.association :car_type, :placeholder => '请选择车辆型号', :label=>'车辆型号'
+  = f.association :car_model, :placeholder => '请选择车辆品牌', :label=>'车辆品牌'
   -if @car.new_record?
     .record
       = f.input :car_tag, :label=>'车牌号码' do

@@ -53,7 +53,7 @@ class CarsController < ApplicationController
     @cars =Car.create(cars_params)
     respond_to do |format|  
       if  @cars.map{|c| c.errors.full_messages}==[[]]
-        format.js {render 'index'} 
+        format.js  
       else
         format.js {render 'error_msg'}
       end
