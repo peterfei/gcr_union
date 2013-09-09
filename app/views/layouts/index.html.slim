@@ -1,0 +1,9 @@
+.page
+  .page-container
+    .container
+      .row.cars
+        .span12
+          h4.header = yield :head
+          #main
+            = yield
+=parent_layout 'application'

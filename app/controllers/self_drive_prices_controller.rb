@@ -1,80 +1,86 @@
 class SelfDrivePricesController < ApplicationController
-  skip_load_resource
+  # GET /self_drive_prices
+  # GET /self_drive_prices.json
+  layout 'index'
   def index
     @search = SelfDrivePrice.search(params[:search])
-    @self_drive_prices = @search.page params[:page]
+    @self_drive_prices=@search.page params[:page]
+
     respond_to do |format|
-      format.js
       format.html # index.html.erb
       format.json { render json: @self_drive_prices }
+      format.js
     end
   end
 
+  # GET /self_drive_prices/1
+  # GET /self_drive_prices/1.json
   def show
-    @self_drive_prices = SelfDrivePrice.for(
-      location_id: params[:location_id],
-      car_model_id: params[:id]
-    )
+    @self_drive_price = SelfDrivePrice.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @self_drive_price }
+    end
   end
 
+  # GET /self_drive_prices/new
+  # GET /self_drive_prices/new.json
   def new
     @self_drive_price = SelfDrivePrice.new
-  end
+    @self_drive_price.custom_prices.build
 
-  def edit
-    @self_drive_prices = SelfDrivePrice.for(
-      location_id: params[:location_id],
-      car_model_id: params[:id]
-    )
     respond_to do |format|
+      format.html # new.html.erb
       format.js
-      format.html # index.html.erb
     end
   end
 
-  def update
-    SelfDrivePrice.for(params[:self_drive_price]).destroy_all
-    respond_to do |format|
-      if SelfDrivePrice.import _create
-        format.html { redirect_to self_drive_prices_path }
-      else
-        format.js {render 'new'}
-      end
-    end
+  # GET /self_drive_prices/1/edit
+  def edit
+    @self_drive_price = SelfDrivePrice.find(params[:id])
   end
 
   # POST /self_drive_prices
   # POST /self_drive_prices.json
   def create
-    SelfDrivePrice.for(params[:self_drive_price]).destroy_all
+    prices_params=params[:car_model_ids].split(',').map{|c| {car_model_id: c}.merge!(params[:self_drive_price])}
+
+    self_drive_prices = SelfDrivePrice.create(prices_params)
     respond_to do |format|
-      if SelfDrivePrice.import _create
-        format.html { redirect_to self_drive_prices_path }
+      if self_drive_prices.map(&:errors).empty?
+        format.html { redirect_to self_drive_prices_path, notice: 'Self drive price was successfully created.' }
       else
-        format.js {render 'new'}
+        format.html { redirect_to self_drive_prices_path, notice: self_drive_prices.map{|s|s.errors.messages.values}.flatten.join(',') }
       end
     end
   end
-  private
-  def _create
-    prices = []
-    location_id = params[:self_drive_price][:location_id]
-    params[:self_drive_price][:car_model_id].split(',').each do |id|
-      weekday_prices = params[:weekday_prices]
-      weekend_prices = params[:weekend_prices]
-      prices << SelfDrivePrice.new(car_model_id: id,
-                                   location_id: location_id,
-                                   rate: weekday_prices,
-                                   flag: :weekday,
-                                   prepayment: params[:prepayment],
-                                   overtime: params[:overtime],
-                                   overdistance: params[:overdistance])
-      prices << SelfDrivePrice.new(car_model_id: id,
-                                   location_id: location_id,
-                                   rate: weekend_prices,
-                                   flag: :weekend)
-      prices += SelfDrivePrice.range_insert(params.merge(car_model_id: id))
+
+  # PUT /self_drive_prices/1
+  # PUT /self_drive_prices/1.json
+  def update
+    @self_drive_price = SelfDrivePrice.find(params[:id])
+
+    respond_to do |format|
+      if @self_drive_price.update_attributes(params[:self_drive_price])
+        format.html { redirect_to @self_drive_price, notice: 'Self drive price was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @self_drive_price.errors, status: :unprocessable_entity }
+      end
     end
-    prices
+  end
+
+  # DELETE /self_drive_prices/1
+  # DELETE /self_drive_prices/1.json
+  def destroy
+    @self_drive_price = SelfDrivePrice.find(params[:id])
+    @self_drive_price.destroy
+
+    respond_to do |format|
+      format.html { redirect_to self_drive_prices_url }
+      format.json { head :no_content }
+    end
   end
 end
