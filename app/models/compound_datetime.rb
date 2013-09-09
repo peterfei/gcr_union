@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CompoundDatetime
   def self.from_datetime(datetime)
     new.tap do |result|

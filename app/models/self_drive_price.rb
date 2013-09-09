@@ -1,4 +1,4 @@
-#encoding:utf-8
+# encoding: utf-8
 class SelfDrivePrice < ActiveRecord::Base
   attr_accessible :car_model_id, :location_id, :date, :flag, :rate
   attr_accessible :prepayment, :overtime, :overdistance
