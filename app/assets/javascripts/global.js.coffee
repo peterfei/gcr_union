@@ -28,7 +28,7 @@ jQuery ->
   #$("a[rel=tooltip]").tooltip()
   # 初始化页面中的 select
   $('body').init_components()
-  $('.alert').delay(1000).slideUp()
+  # $('.alert').delay(2000).slideUp()
 
   $('.datepicker').datepicker
     format: 'yyyy-mm-dd'

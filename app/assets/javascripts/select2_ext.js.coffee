@@ -127,5 +127,5 @@ $.fn.extend
     $('#company_id,#drivers__company_id').company_info_select2()
 
     $('#car_model_ids').car_model_select2()
-    $('#car_model_show').car_model_select2()
-    $('#location_show').location_select2()
+    $('#self_drive_price_car_model_id').car_model_select2(false)
+    $('#search_location_id_equals').location_select2()

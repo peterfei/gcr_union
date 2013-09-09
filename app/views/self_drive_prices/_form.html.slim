@@ -1,4 +1,4 @@
-= simple_form_for @self_drive_price do |f|
+= simple_form_for @self_drive_price, validate: true do |f|
   - if @self_drive_price.errors.any?
     #error_explanation
       h2= "#{pluralize(@self_drive_price.errors.count, "error")} prohibited this self_drive_price from being saved:"
@@ -6,18 +6,20 @@
         - @self_drive_price.errors.full_messages.each do |msg|
           li= msg
 
-  = f.association :location
-  = f.input :car_model_id do
-    =text_field_tag 'car_model_ids'
+  = f.association :location, readonly: !@self_drive_price.new_record?
+  -if @self_drive_price.new_record?
+    = f.input :car_model_id do
+      =text_field_tag 'car_model_ids'
+  -else
+    = f.input :car_model_id, readonly: !@self_drive_price.new_record?
 
   = f.input :weekday
   = f.input :weekend
-  = f.fields_for :custom_prices do |c|
-    =c.label '自定价格'
-    div
-      =c.input_field :range, class: 'date-range'
-      =c.input_field :price, class: 'span2'
-      i.icon-plus
+  = f.label '自定价格'
+  div
+    = f.fields_for :custom_prices do |builder|
+      =render 'custom_price_fields', :f => builder
+    =link_to_add_fields "增加", f, :custom_prices
   = f.input :prepayment
   = f.input :overtime
   = f.input :overdistance

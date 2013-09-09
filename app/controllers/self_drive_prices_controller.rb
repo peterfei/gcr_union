@@ -1,8 +1,10 @@
 class SelfDrivePricesController < ApplicationController
   # GET /self_drive_prices
   # GET /self_drive_prices.json
+  layout 'index'
   def index
-    @self_drive_prices = SelfDrivePrice.all
+    @search = SelfDrivePrice.search(params[:search])
+    @self_drive_prices=@search.page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,11 +46,12 @@ class SelfDrivePricesController < ApplicationController
   def create
     prices_params=params[:car_model_ids].split(',').map{|c| {car_model_id: c}.merge!(params[:self_drive_price])}
 
+    self_drive_prices = SelfDrivePrice.create(prices_params)
     respond_to do |format|
-      if SelfDrivePrice.create(prices_params)
+      if self_drive_prices.map(&:errors).empty?
         format.html { redirect_to self_drive_prices_path, notice: 'Self drive price was successfully created.' }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to self_drive_prices_path, notice: self_drive_prices.map{|s|s.errors.messages.values}.flatten.join(',') }
       end
     end
   end
