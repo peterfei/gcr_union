@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CarTypeRate < ActiveRecord::Base
   attr_accessible :base_rate, :xdis_rate, :xhour, :prices_included,
     :car_type_id, :base_rate_code_id
