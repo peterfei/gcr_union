@@ -1,60 +1,59 @@
--if @search.present?
-  = simple_form_for @location, html: { class: 'form-horizontal',id: 'location_form'}, validate: false, wrapper: 'bootstrap', remote: true do |f|
-    input type='hidden' id='acto' value='#{params[:action]}'
-    .span12
-      .row-fluid
-        .span4
-          = f.input :location_name, :label=>'门店名称'
-        .span4
-          = f.input :phone
-    .span12
-      .row-fluid
-        .span4
-          =f.association :company,:placeholder=>"请选择所属公司",:allow_blank=>false,:label=>"所属公司"
-        .span4.form-inline
-          = f.association :city, :label=>'城市', :input_html=>{:id=>"pickup_city"}, :as=>:string,:placeholder=>"请选择"
+= simple_form_for @location, html: { class: 'form-horizontal',id: 'location_form'}, validate: false, wrapper: 'bootstrap', remote: true do |f|
+  input type='hidden' id='acto' value='#{params[:action]}'
+  .span12
+    .row-fluid
+      .span4
+        = f.input :location_name, :label=>'门店名称'
+      .span4
+        = f.input :phone
+  .span12
+    .row-fluid
+      .span4
+        =f.association :company,:placeholder=>"请选择所属公司",:allow_blank=>false,:label=>"所属公司"
+      .span4.form-inline
+        = f.association :city, :label=>'城市', :input_html=>{:id=>"pickup_city"}, :as=>:string,:placeholder=>"请选择"
 
-    .span12
-      .row-fluid
-        .span4 tip='*必填,请选择门店所在城市区域'
-          = f.association :district, :label=>'区域', :input_html=>{:id=>"pickup_district"}, :as=>:string,:placeholder=>"请选择"
-        .span4
-          = f.input :address, :label=>'街道'
-    .span12
-      h4.header 负责人信息
-      .row-fluid
-        .span4
-          = f.input :principal, :label=>'负责人'
-        .span4
-          = f.input :principal_phone, :label=>'负责人电话'
-    .span12
-      h4.header 营业信息
-      .row-fluid
-        .span4.form-inline id="yysjj"
-          |营业时间
-          = select_tag 'start_time_hour' , options_for_select(Location.hour_list,:selected=>@start_time_hour),:style=>"width:80px;", :label=>'营业时间'
-          = select_tag 'start_time_min' , options_for_select(Location.minute_list,:selected=>@start_time_min),:style=>"width:80px;"
-          /= f.input :start_time,as: :string, :label=>'营业时间', input_html:{class:"datepicker"}
-        .span4 style="width:10px;"
-          |至
-        .span4 id="yysjend"
-          = select_tag 'end_time_hour' , options_for_select(Location.hour_list,:selected=>@end_time_hour),:style=>"width:80px;"
-          = select_tag 'end_time_min' , options_for_select(Location.minute_list,:selected=>@end_time_min),:style=>"width:80px;"
-    .span12
-      .row-fluid
-        .span4
-          =f.input :is24, as: :boolean, :label=>'24小时营业'
-    /.span12
-      .row-fluid
-        .span6.form-inline
-          = f.input :rate_code_list,value_method: ->(a){a.first}, :as=>:check_boxes, :label=>'业务范围'
-    .span12
-      .row-fluid
-        .span6.form-inline
-          = f.input :status, :collection => Location.status_list, :input_html => { :placeholder => '请选择营业状态' }
-    .span12
-      .wdj_bordertop
-        .wdj_btnwidth  
-          .btn-group
-            = link_to '返回',locations_path, :remote=>true, class:"btn btn-small"
-            = f.submit :class =>'btn btn-small', :value => '保存', :id=>"locationOfSaveBtn"
+  .span12
+    .row-fluid
+      .span4 tip='*必填,请选择门店所在城市区域'
+        = f.association :district, :label=>'区域', :input_html=>{:id=>"pickup_district"}, :as=>:string,:placeholder=>"请选择"
+      .span4
+        = f.input :address, :label=>'街道'
+  .span12
+    h4.header 负责人信息
+    .row-fluid
+      .span4
+        = f.input :principal, :label=>'负责人'
+      .span4
+        = f.input :principal_phone, :label=>'负责人电话'
+  .span12
+    h4.header 营业信息
+    .row-fluid
+      .span4.form-inline id="yysjj"
+        |营业时间
+        = select_tag 'start_time_hour' , options_for_select(Location.hour_list,:selected=>@start_time_hour),:style=>"width:80px;", :label=>'营业时间'
+        = select_tag 'start_time_min' , options_for_select(Location.minute_list,:selected=>@start_time_min),:style=>"width:80px;"
+        /= f.input :start_time,as: :string, :label=>'营业时间', input_html:{class:"datepicker"}
+      .span4 style="width:10px;"
+        |至
+      .span4 id="yysjend"
+        = select_tag 'end_time_hour' , options_for_select(Location.hour_list,:selected=>@end_time_hour),:style=>"width:80px;"
+        = select_tag 'end_time_min' , options_for_select(Location.minute_list,:selected=>@end_time_min),:style=>"width:80px;"
+  .span12
+    .row-fluid
+      .span4
+        =f.input :is24, as: :boolean, :label=>'24小时营业'
+  /.span12
+    .row-fluid
+      .span6.form-inline
+        = f.input :rate_code_list,value_method: ->(a){a.first}, :as=>:check_boxes, :label=>'业务范围'
+  .span12
+    .row-fluid
+      .span6.form-inline
+        = f.input :status, :collection => Location.status_list, :input_html => { :placeholder => '请选择营业状态' }
+  .span12
+    .wdj_bordertop
+      .wdj_btnwidth  
+        .btn-group
+          = link_to '返回',locations_path, :remote=>true, class:"btn btn-small"
+          = f.submit :class =>'btn btn-small', :value => '保存', :id=>"locationOfSaveBtn"
