@@ -1,6 +1,6 @@
 .row.location_all
   .span12
-    =render 'search'
+    /=render 'search'
     -if can? :create,Location
       =link_to new_location_path(), :remote=>true do
         button.btn 新增门店
