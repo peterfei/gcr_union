@@ -28,14 +28,14 @@ jQuery ->
   #$("a[rel=tooltip]").tooltip()
   # 初始化页面中的 select
   $('body').init_components()
-  $('.alert').delay(1000).slideUp()
+  # $('.alert').delay(2000).slideUp()
 
   $('.datepicker').datepicker
     format: 'yyyy-mm-dd'
     language: 'zh-CN'
     autoclose: true
 
-  $('#main').on 'focus', '.custome_date_range', ->
+  $('#main').on 'focus', '.date-range', ->
     $(@).daterangepicker
       format: 'YYYY/MM/DD'
   # 导航

@@ -2,7 +2,7 @@
 class CarsController < ApplicationController 
   # GET /cars
   # GET /cars.json
-  def index  
+  def index
     if current_user.role=='oprator' 
       @where = current_user.company.locations.pluck(:id) 
       @search = Car.search(params[:search]).where("location_id in (?)",@where) 

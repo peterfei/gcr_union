@@ -108,7 +108,10 @@ zh-CN:
         status: '状态'
         sex: '性别'
 
-        location: '选择门店'
+        car_model_id_equals: '车辆品牌'
+        car_model_id: '车辆品牌'
+        location_id_equals: '门店'
+        location: '门店'
         car: '选择车辆'
         driver: '选择司机'
 
@@ -120,6 +123,13 @@ zh-CN:
         base_rate_code: '业务类型'
 
         pay_mode: '支付方式'
+        car_model: '车辆品牌'
+        weekday: '周内价格'
+        weekend: '周末价格'
+        prepayment: '预授权'
+        overtime: '超小时费'
+        overdistance: '超公里费'
+
   meta_search:
     equals: ""
     predicates:
@@ -134,6 +144,7 @@ zh-CN:
         driver_name_equals: "驾驶员姓名"
       location:
         location_name_equals: "门店名称"
+
   views:
     pagination:
       first: "&laquo; 首页"
@@ -339,6 +350,17 @@ zh-CN:
     pm: 下午
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
+    reservation: '订单'
+    car: '车辆'
+    company: '公司'
+    location: '门店'
+    driver: '司机'
+    car_model: '车辆品牌'
+    car_type: '车型'
+    manager_user: '管理用户'
+    user: '客户信息'
+    self_drive_price: '自驾价格'
+    car_type_rate: '车型价格'
     errors:
       <<: *errors
   activerecord:

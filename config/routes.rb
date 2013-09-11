@@ -1,5 +1,8 @@
 GcrUnion::Application.routes.draw do 
   
+  resources :self_drive_prices
+
+
   # Make sure this routeset is defined last
   #ComfortableMexicanSofa::Routing.content(:path => '/', :sitemap => false)
 

@@ -1,13 +1,5 @@
-.page
-  .page-container
-    .container#main
-      /= render_cell :com_select ,:show,:show => Location.all 
-      = render 'index'
-          /! table
-          /! 分页
-          .pagination.pagination-centered
-            =paginate @drivers,theme:"bootstrap"
-      /! row
-    /! container
-/! page
-
+= render 'index'
+    /! table
+    /! 分页
+    .pagination.pagination-centered
+      =paginate @drivers,theme:"bootstrap"

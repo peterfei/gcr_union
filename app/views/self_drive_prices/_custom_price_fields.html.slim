@@ -1,0 +1,5 @@
+.field
+  =f.input_field :range, class: 'date-range'
+  =f.input_field :price, class: 'span2'
+  =f.hidden_field :_destroy
+  = link_to_function "删除", "remove_fields(this)"

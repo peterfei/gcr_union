@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Weekday:
+  = @self_drive_price.weekday
+%p
+  %b Weekend:
+  = @self_drive_price.weekend
+%p
+  %b Car model:
+  = @self_drive_price.car_model
+%p
+  %b Location:
+  = @self_drive_price.location
+%p
+  %b Prepayment:
+  = @self_drive_price.prepayment
+%p
+  %b Overtime:
+  = @self_drive_price.overtime
+%p
+  %b Overdistance:
+  = @self_drive_price.overdistance
+
+= link_to 'Edit', edit_self_drive_price_path(@self_drive_price)
+\|
+= link_to 'Back', self_drive_prices_path

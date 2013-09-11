@@ -1,7 +1,6 @@
 = simple_form_for @search  ,  :html => {:class => 'form-horizontal' },wrapper: 'bootstrap',validate:false do |f|
   fieldset
     #legend
-      legend 订单信息 
       .row-fluid
         .span5=f.input :reservation_person_phone_equals,input_html:{class:"search-query"}
         .span5=f.input :confirmation_equals,input_html:{class:"search-query"}
