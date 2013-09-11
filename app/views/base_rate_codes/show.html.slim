@@ -1,18 +1,2 @@
-p#notice = notice
+=render 'form'
 
-p
-  strong Rate code:
-  = @base_rate_code.rate_code
-p
-  strong Rate code name:
-  = @base_rate_code.rate_code_name
-p
-  strong Base hour:
-  = @base_rate_code.base_hour
-p
-  strong Base km:
-  = @base_rate_code.base_km
-
-= link_to 'Edit', edit_base_rate_code_path(@base_rate_code)
-'|
-= link_to 'Back', base_rate_codes_path
