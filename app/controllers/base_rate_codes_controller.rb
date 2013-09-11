@@ -60,7 +60,7 @@ class BaseRateCodesController < ApplicationController
 
     respond_to do |format|
       if @base_rate_code.update_attributes(params[:base_rate_code])
-        format.html { redirect_to @base_rate_code, notice: 'Base rate code was successfully updated.' }
+        format.html { redirect_to @base_rate_code }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
