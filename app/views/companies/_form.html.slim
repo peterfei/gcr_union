@@ -1,7 +1,6 @@
 link href="/assets/validation.css?body=1" media="screen" rel="stylesheet" type="text/css"
 = simple_form_for @company,:validate=>true, html: { class: 'form-horizontal',:id=>"company_form"}, wrapper:'bootstrap' ,remote:true do |f|
   .span12
-    h4.header 注册信息
     .row-fluid
       .span5
         = f.input :company_name, :label=>"公司简称"
