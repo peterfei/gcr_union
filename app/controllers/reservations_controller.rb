@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
   def index  
     if current_user.role=='oprator' 
       @where = current_user.company.locations.pluck(:id) 
-      @search = Reservation.search(params[:search]).where("pickup_location_id in (?)",@where) 
+      @search = Reservation.search(params[:search]).where("pickup_location_id in (?) ",@where) 
     else  
       @search = Reservation.search(params[:search]) 
     end
