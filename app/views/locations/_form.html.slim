@@ -1,7 +1,6 @@
 = simple_form_for @location, html: { class: 'form-horizontal',id: 'location_form'}, validate: false, wrapper: 'bootstrap', remote: true do |f|
   input type='hidden' id='acto' value='#{params[:action]}'
   .span12
-    h4.header 门店信息
     .row-fluid
       .span4
         = f.input :location_name, :label=>'门店名称'
