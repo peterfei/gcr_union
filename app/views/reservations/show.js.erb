@@ -1,4 +1,4 @@
-$('#main').html('<%=j(javascript_include_tag('reservations')+render("form"))%>');
+$('#main').html('<%=j(javascript_include_tag('application')+render("form"))%>');
 $('#edit_reservation_<%=@reservation.id%> input').attr("disabled",true); 
 $('#edit_reservation_<%=@reservation.id%> textarea').attr("disabled",true); 
 $('#edit_reservation_<%=@reservation.id%> select').select2('readonly',true); 
