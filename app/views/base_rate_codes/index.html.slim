@@ -1,14 +1,10 @@
-h1 Listing base_rate_codes
-
-table
+table.table.table-bordered.table-hover
   tr
-    th Rate code
-    th Rate code name
-    th Base hour
-    th Base km
-    th
-    th
-    th
+    th 业务类型代码
+    th 业务类型
+    th 小时基数
+    th 公里基数
+    th 操作
 
   - @base_rate_codes.each do |base_rate_code|
     tr
@@ -16,10 +12,9 @@ table
       td = base_rate_code.rate_code_name
       td = base_rate_code.base_hour
       td = base_rate_code.base_km
-      td = link_to 'Show', base_rate_code
-      td = link_to 'Edit', edit_base_rate_code_path(base_rate_code)
-      td = link_to 'Destroy', base_rate_code, :confirm => 'Are you sure?', :method => :delete
+      td 
+        .btn-group
+          = link_to '查看', base_rate_code,class: 'btn btn-small'
+          = link_to '编辑', edit_base_rate_code_path(base_rate_code),class: 'btn btn-small'
+          = link_to '删除', base_rate_code, :confirm => 'Are you sure?', :method => :delete,class: 'btn btn-small'
 
-br
-
-= link_to 'New Base rate code', new_base_rate_code_path

@@ -1,6 +1,5 @@
 class CreateSelfDrivePrices < ActiveRecord::Migration
   def change
-    drop_table :self_drive_prices
     create_table :self_drive_prices do |t|
       t.decimal :weekday
       t.decimal :weekend

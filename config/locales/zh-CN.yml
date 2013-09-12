@@ -361,6 +361,7 @@ zh-CN:
     user: '客户信息'
     self_drive_price: '自驾价格'
     car_type_rate: '车型价格'
+    base_rate_code: "业务类型"
     errors:
       <<: *errors
   activerecord:
