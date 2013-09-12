@@ -75,7 +75,7 @@ class CompaniesController < ApplicationController
         format.js {render 'index'}
         format.json { render json: @company, status: :created, location: @company }
       else
-        format.html { render action: "new" }
+        format.js { render action: "new" }
         format.json { render json: @company.errors, status: :unprocessable_entity }
       end
     end
