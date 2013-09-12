@@ -3,13 +3,13 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index
-    if current_user.role=='oprator' 
-      @where = current_user.company.locations.pluck(:id) 
-      @search = Car.search(params[:search]).where("location_id in (?)",@where) 
-    else
       @search = Car.search(params[:search]) 
-    end  
-    @cars = @search.page params[:page]
+    if current_user.role=='oprator'  
+      @where = current_user.company.locations.pluck(:id) 
+      @cars = @search.where("location_id in (?)",@where).page params[:page]
+    else
+      @cars=@search.page params[:page]
+    end
     respond_to do |format|
       format.js
       format.html # index.html.erb 
