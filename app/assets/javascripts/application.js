@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.remotipart
-//= require select2
 //= require bootstrap
 //= require rails.validations
 //= require rails.validations.simple_form
