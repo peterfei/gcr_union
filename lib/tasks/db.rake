@@ -200,6 +200,22 @@ namespace :db do
     )
 
     site.snippets.create!(
+      label: '预定成功短信模板',
+      identifier: "cms-template",
+      content: %q{
+<% case reservation.rate_code %>
+<% when "RZ","SZ" %>
+<%= "您的订单生成成功，订单号：#{reservation}，业务：#{reservation.base_rate_code}，城市：#{reservation.pickup_city}，车型：#{reservation.car_type}，上车时间：#{reservation.pickup_date}，详情请访问网站查询。" -%>
+<% when "JJ","SJ" %>
+<%= "您的订单生成成功，订单号：#{reservation}，业务：#{reservation.base_rate_code}，城市：#{reservation.pickup_city}，机场：#{reservation.airport}，航班号：#{reservation.airline}，车型：#{reservation.car_type}，用车时间：#{reservation.pickup_date}，详情请访问网站查询。" -%>
+<% when "JHC","SHC" %>
+<%= "您的订单生成成功，订单号：#{reservation}，业务：#{reservation.base_rate_code}，城市：#{reservation.pickup_city}，车站：#{reservation.railway}，车次：#{reservation.train_number}，车型：#{reservation.car_type}，用车时间：#{reservation.pickup_date}，详情请访问网站查询。" -%>
+<% when "DDD" %>
+<%= "您的订单生成成功，订单号：#{reservation}，业务：#{reservation.base_rate_code}，城市：#{reservation.pickup_city}，车型：#{reservation.car_type}，开始时间：#{reservation.pickup_date}，结束时间：#{reservation.return_date}，详情请访问网站查询。" -%>
+<% end %>
+}
+    )
+    site.snippets.create!(
       label: 'android和iso客户端',
       identifier: "mobile-client",
       content: '<div class="wdj_middle_main_left_dvservice">
