@@ -62,4 +62,5 @@ gem 'cells'
 gem "activerecord-import", "~> 0.3.1"
 gem "wice_grid", '3.2.1'
 gem 'comfortable_mexican_sofa','1.8.0'
-gem 'tinymce-rails'
+gem 'tinymce-rails' 
+gem 'activeresource'

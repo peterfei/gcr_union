@@ -2,7 +2,7 @@
 class ReservationsController < ApplicationController 
   # GET /reservations
   # GET /reservations.json
-  def index  
+  def index   
     @search = Reservation.search(params[:search]) 
     if current_user.role=='oprator'  
       @where = current_user.company.locations.pluck(:id) 
@@ -112,7 +112,8 @@ class ReservationsController < ApplicationController
   #分配车辆牌照 
   def dispatch_car  
     @reservation = Reservation.find(params[:id])
-    #hot_fix delete seat in reservations
+    #hot_fix delete seat in reservation 
+   
     respond_to do |format|  
     $o =false
      if request.put?  
@@ -120,7 +121,10 @@ class ReservationsController < ApplicationController
          params[:reservation].delete('seat')
         $o = @reservation.update_attributes(params[:reservation])   
         @reservation.car.update_attribute(:status,'disable')  
-        @reservation.driver.update_attribute(:status,'disable')
+        @reservation.driver.update_attribute(:status,'disable') 
+        #同步入crs-admin 数据库
+        _hash={:rate_code=>(@reservation.base_rate_code.rate_code rescue nil),:car_model_name=>(@reservation.car_model.car_model_name rescue nil),:car_type_name=>(@reservation.car_type.car_type_name rescue nil),:reservation_person=>(@reservation.customer.customer_name rescue nil)}
+        CrsAdmin::Reservation.create(@reservation.attributes.merge(_hash))
         @reservation.flow("waitexec")
       #  SmsApi.send_sms_message(@reservation.reservation_person_phone,"已为您的订单#{@reservation.confirmation}分配好车辆和司机,车牌号:#{@reservation.car.car_tag}")
      end 

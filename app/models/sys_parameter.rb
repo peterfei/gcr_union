@@ -1,3 +1,4 @@
+#encoding:utf-8
 class SysParameter < ActiveRecord::Base
   attr_accessible :para_desc, :para_name, :para_value ,:para_id
   self.table_name = "sys_parameters"

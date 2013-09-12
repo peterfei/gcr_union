@@ -1,3 +1,4 @@
+# encoding: utf-8
 class SelfDrivePrice < ActiveRecord::Base
   belongs_to :car_model
   belongs_to :location
