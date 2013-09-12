@@ -52,7 +52,7 @@ class CarsController < ApplicationController
     cars_params=params[:cars].map{|c| c.merge!(params[:car])}
     @cars =Car.create(cars_params)
     respond_to do |format|  
-      if  @cars.map{|c| c.errors.full_messages}==[[]]
+      if  @cars.map{|c| c.errors.full_messages}.include? [[]]
         format.js  
       else
         format.js {render 'error_msg'}
