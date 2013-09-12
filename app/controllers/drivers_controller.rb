@@ -56,7 +56,7 @@ class DriversController < ApplicationController
     @drivers = Driver.create(drivers_params)
     respond_to do |format|
       #if @driver.save 
-       if @drivers.map{|c| c.errors.full_messages}.include? [[]] 
+       unless @drivers.map{|c| c.errors.full_messages}.include? [[]] 
          
          format.js
        else 
