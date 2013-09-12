@@ -1,4 +1,3 @@
-link href="/assets/validation.css?body=1" media="screen" rel="stylesheet" type="text/css"
 = simple_form_for @company,:validate=>true, html: { class: 'form-horizontal',:id=>"company_form"}, wrapper:'bootstrap' ,remote:true do |f|
   .span12
     .row-fluid
@@ -16,7 +15,7 @@ link href="/assets/validation.css?body=1" media="screen" rel="stylesheet" type="
     h4.header 公司资料
     .row-fluid
       .span5
-        = f.input :link_man, :label=>'联系人',:input_html=>{:maxlength=>10,:tip=>"请输入联系人姓名,可以为空"}
+        = f.input :link_man, :label=>'联系人'
       .span5
         = f.input :link_man_phone, :label=>'联系人电话'
   .span12
@@ -36,7 +35,7 @@ link href="/assets/validation.css?body=1" media="screen" rel="stylesheet" type="
       .span5
         = f.association :district, :label=>'区域', :input_html=>{:id=>"pickup_district"}, :as=>:string, :placeholder=>"请选择"
       .span5
-        = f.input :address, :label=>'街道',:input_html=>{:tip=>"街道详细地址,可以为空"}
+        = f.input :address, :label=>'街道'
   //.span12
     .row-fluid
       .span4
