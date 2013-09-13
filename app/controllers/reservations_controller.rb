@@ -121,7 +121,9 @@ class ReservationsController < ApplicationController
          params[:reservation].delete('seat')
         $o = @reservation.update_attributes(params[:reservation])   
         @reservation.car.update_attribute(:status,'disable')  
-        @reservation.driver.update_attribute(:status,'disable') 
+        unless @reservation.base_rate_code.rate_code=='ZJ'
+          @reservation.driver.update_attribute(:status,'disable') 
+        end
         #同步入crs-admin 数据库 
         #_hash={:rate_code=>(@reservation.base_rate_code.rate_code rescue nil),:car_model_name=>(@reservation.car_model.car_model_name rescue nil),:car_type_name=>(@reservation.car_type.car_type_name rescue nil),:reservation_person=>(@reservation.customer.customer_name rescue nil),:xdis_rate=>(@reservation.car_type_rate.xdis_rate rescue nil),:xhour=>(@reservation.car_type_rate.xhour rescue nil),:hour_free=>(@reservation.base_rate_code.base_hour rescue nil),:dis_free=>(@reservation.base_rate_code.base_km rescue nil)}
         #_hash={:rate_code=>(@reservation.base_rate_code.rate_code rescue nil),:car_model_name=>(@reservation.car_model.car_model_name rescue nil),:car_type_name=>(@reservation.car_type.car_type_name rescue nil),:reservation_person=>(@reservation.customer.customer_name rescue nil)}
@@ -146,7 +148,10 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id]) 
     @reservation.flow("execing")  
     @reservation.car.update_attribute(:status,'enable')
-    @reservation.driver.update_attribute(:status,'enable')
+
+    unless @reservation.base_rate_code.rate_code=='ZJ'
+      @reservation.driver.update_attribute(:status,'enable')
+    end
     respond_to do |format| 
       format.js{render 'execing.js.erb'}
       #format.html { redirect_to reservations_url, notice: '订单执行成功.' }

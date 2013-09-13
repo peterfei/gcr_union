@@ -5,8 +5,8 @@ $("#myModal").modal('show');
 $('#myModal').on('shown', function (e) {
   $(_html).last().appendTo('#myModal');
   $('#location_id').location_select2();
-  $('#car_id').car_info_select2().select2('readonly',true);
-  $('#driver_id').driver_info_select2().select2('readonly',true);
+  $('#car_id').car_info_select2().select2('readonly',false);
+  $('#driver_id').driver_info_select2().select2('readonly',false);
 })
 <%else%>
   $(".order_<%=@reservation.id%>").html("<%=j(render :partial=>'list',:locals=>{:reservation=>@reservation})%>");
