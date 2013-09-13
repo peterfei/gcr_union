@@ -62,7 +62,9 @@ class Reservation < ActiveRecord::Base
       'SZ' => '小时'
     }.fetch base_rate_code.rate_code,'趟'
   end
-
+  #def car_type_id 
+  #   car_type_id||car_model.car_type.car_type_id
+  #end
   def car_type_rate
     CarTypeRate.find_by_base_rate_code_id_and_car_type_id base_rate_code_id,car_type_id
   end
