@@ -126,6 +126,9 @@ class Reservation < ActiveRecord::Base
     end
   end 
 
+  def self_drive_price
+    SelfDrivePrice.find_by_car_model_id_and_location_id car_model_id, pickup_location_id
+  end
   
 end
 
