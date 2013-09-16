@@ -118,14 +118,15 @@ class ReservationsController < ApplicationController
     $o =false
      if request.put?  
 
-         params[:reservation].delete('seat')
         $o = @reservation.update_attributes(params[:reservation])   
         @reservation.car.update_attribute(:status,'disable')  
-        unless @reservation.base_rate_code.rate_code=='ZJ'
+        unless @reservation.base_rate_code.rate_code=='ZJ' 
+          params[:reservation].delete('seat')
           @reservation.driver.update_attribute(:status,'disable') 
         end
         #同步入crs-admin 数据库 
-        _hash={:rate_code=>(@reservation.base_rate_code.rate_code rescue nil),:car_model_name=>(@reservation.car_model.car_model_name rescue nil),:car_type_name=>(@reservation.car_type.car_type_name rescue nil),:reservation_person=>(@reservation.customer.customer_name rescue nil),:xdis_rate=>(@reservation.car_type_rate.xdis_rate rescue nil),:xhour=>(@reservation.car_type_rate.xhour rescue nil),:hour_free=>(@reservation.base_rate_code.base_hour rescue nil),:dis_free=>(@reservation.base_rate_code.base_km rescue nil)} 
+        _hash={:rate_code=>(@reservation.base_rate_code.rate_code rescue nil),:car_model_name=>(@reservation.car_model.car_model_name rescue nil),:car_type_name=>(@reservation.car_type.car_type_name rescue nil),:reservation_person=>(@reservation.customer.customer_name rescue nil),:xdis_rate=>(@reservation.car_type_rate.xdis_rate rescue @reservation.self_drive_price.overdistance),:xhour=>(@reservation.car_type_rate.xhour rescue @reservation.self_drive_price.overtime),:hour_free=>(@reservation.base_rate_code.base_hour rescue nil),:dis_free=>(@reservation.base_rate_code.base_km rescue nil),:reservation_person_phone=>(@reservation.customer.user.phone rescue nil)}
+        #_hash={:rate_code=>(@reservation.base_rate_code.rate_code rescue nil),:car_model_name=>(@reservation.car_model.car_model_name rescue nil),:car_type_name=>(@reservation.car_type.car_type_name rescue nil),:reservation_person=>(@reservation.customer.customer_name rescue nil),:xdis_rate=>(@reservation.car_type_rate.xdis_rate rescue nil),:xhour=>(@reservation.car_type_rate.xhour rescue nil),:hour_free=>(@reservation.base_rate_code.base_hour rescue nil),:dis_free=>(@reservation.base_rate_code.base_km rescue nil)} 
         CrsAdmin::Reservation.create(@reservation.attributes.merge(_hash))
         @reservation.flow("waitexec")
       #  SmsApi.send_sms_message(@reservation.reservation_person_phone,"已为您的订单#{@reservation.confirmation}分配好车辆和司机,车牌号:#{@reservation.car.car_tag}")

@@ -48,7 +48,7 @@ class Reservation < ActiveRecord::Base
   belongs_to :railway
 
   validates :car_id, :presence => {message: '请选择车辆'},:if=>Proc.new{|r| r.status=='waitexec'}
-  validates :driver_id, :presence => {message: '请选择司机'},:if=>Proc.new{|r| r.status=='waitexec'}
+  #validates :driver_id, :presence => {message: '请选择司机'},:if=>Proc.new{|r| r.status=='waitexec'}
   validates :use_day, :presence => {message: '用车天数不能为空'},
                       numericality: true,
                       :if => Proc.new { |r|
@@ -126,9 +126,6 @@ class Reservation < ActiveRecord::Base
     end
   end 
 
-  def self_drive_price
-    SelfDrivePrice.find_by_car_model_id_and_location_id car_model_id, pickup_location_id
-  end
   
 end
 

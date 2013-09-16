@@ -7,7 +7,7 @@
     =f.association :pickup_location,:input_html=>{:id=>"location_id"},:as=>:string,:placeholder=>"请选择",:label=>"门店"
     =f.association :car,:input_html=>{:id=>"car_id"},:as=>:string,:placeholder=>"请选择" ,:validate=>{:presence=>true}
     -unless @reservation.base_rate_code.rate_code=='ZJ'
-      =f.association :driver,:input_html=>{:id=>"driver_id"},:as=>:string,:placeholder=>"请选择",:validate=>{:presence=>true} 
+      =f.association :driver,:input_html=>{:id=>"driver_id"},:as=>:string,:placeholder=>"请选择" 
       =f.hidden_field "car_type_id",value:f.object.car_type_id
       =f.hidden_field "seat",value:f.object.car_type.try(:persons)||0
   .modal-footer
