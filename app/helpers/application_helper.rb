@@ -46,5 +46,13 @@ module ApplicationHelper
       render(association.to_s.singularize + "_fields", :f => builder)
     end
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
+  end  
+
+  def coupon_tag coupon=nil
+    if coupon
+      "<span class='red'>-#{coupon.denomination}</span>"
+    else
+      '无'
+    end
   end
 end
