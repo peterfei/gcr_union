@@ -123,7 +123,7 @@
         label.select.optional.control-label=label rescue '基本费用'
         .controls
           .input-appentd
-            =text_field_tag 'base_rate',number_to_currency(@reservation.car_type_rate.base_rate) rescue @reservation.total_price,disabled:true
+            =text_field_tag 'base_rate',(number_to_currency(@reservation.car_type_rate.base_rate) rescue @reservation.total_price),disabled:true
       .span5
         label.select.optional.control-label=label rescue '英文司机'
         .controls

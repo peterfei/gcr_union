@@ -55,7 +55,15 @@ class Reservation < ActiveRecord::Base
                         r.base_rate_code.rate_code=='RZ' }
   validates :use_hour, :presence => {message: '用车时长不能为空'},
                       numericality: true,
-                      :if => Proc.new { |r| r.base_rate_code.rate_code=='SZ' }
+                      :if => Proc.new { |r| r.base_rate_code.rate_code=='SZ' } 
+  def rate_code
+    @rate_code ||= base_rate_code.rate_code
+  end 
+
+  def rate_code= rate_code
+    @rate_code=rate_code
+  end 
+
   def unit
     {
       'RZ' => '天',
