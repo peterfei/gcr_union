@@ -82,19 +82,26 @@ class Reservation < ActiveRecord::Base
   before_save :compute_price
   before_create :generate_confirmation
   def compute_price
-    return if base_rate_code.rate_code == 'ZJ'
-    price = car_type_rate.base_rate
-    price += Settings.en_driver_prices if special_requirements.include?(:en_driver)
-    price += Settings.wait_card_prices if special_requirements.include?(:waiting_card)
+    if rate_code == 'ZJ'
+      price = CarModel.in(start_date: pickup_date.to_s,
+                          end_date: return_date.to_s,
+                          location: pickup_location_id).find(car_model_id).total_price
+      price += 100 if special_requirements.include?('GPS导航')
+      price += 100 if special_requirements.include?('儿童座椅')
 
-    if base_rate_code.rate_code=='RZ'
-      price += use_day * car_type_rate.base_rate
-    elsif base_rate_code.rate_code=='SZ'
-      price += use_hour * car_type_rate.base_rate
+    else
+      price = car_type_rate.base_rate
+
+      if rate_code=='RZ'
+        price = use_day * car_type_rate.base_rate
+      elsif rate_code=='SZ'
+        price = use_hour * car_type_rate.base_rate
+      end
+
+      price += Settings.en_driver_prices if special_requirements.include?(:en_driver)
+      price += Settings.wait_card_prices if special_requirements.include?(:waiting_card)
+      price -= coupon.denomination if coupon
     end
-
-    price -= coupon.denomination if coupon
-
     write_attribute :total_price, price
   end
 
