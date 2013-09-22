@@ -111,10 +111,6 @@ class Reservation < ActiveRecord::Base
     end
     write_attribute :total_price, price
   end
-
-  def generate_confirmation
-    write_attribute :confirmation, "#{base_rate_code.rate_code}#{Time.now.strftime('%Y%m%d%H%M%S%L')}"
-  end
   #订单状态流转
   def flow(status)
     case status
@@ -130,6 +126,10 @@ class Reservation < ActiveRecord::Base
       update_attribute :status,:canceled
     end
   end
+  def generate_confirmation
+    write_attribute :confirmation, "#{base_rate_code.rate_code}#{Time.now.strftime('%Y%m%d%H%M%S%L')}"
+  end
+  
   composed_of :pickup_date,
     :class_name => 'CompoundDatetime',
     :mapping => [ %w(pickup_date datetime) ],
