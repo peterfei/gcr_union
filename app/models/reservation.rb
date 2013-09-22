@@ -115,6 +115,15 @@ class Reservation < ActiveRecord::Base
   def generate_confirmation
     write_attribute :confirmation, "#{base_rate_code.rate_code}#{Time.now.strftime('%Y%m%d%H%M%S%L')}"
   end
+  
+  composed_of :pickup_date,
+    :class_name => 'CompoundDatetime',
+    :mapping => [ %w(pickup_date datetime) ],
+    :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
+  composed_of :return_date,
+    :class_name => 'CompoundDatetime',
+    :mapping => [ %w(return_date datetime) ],
+    :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
   #订单状态流转
   def flow(status)
     case status
@@ -129,16 +138,7 @@ class Reservation < ActiveRecord::Base
     when 'cancel'
       update_attribute :status,:canceled
     end
-  end
-  composed_of :pickup_date,
-    :class_name => 'CompoundDatetime',
-    :mapping => [ %w(pickup_date datetime) ],
-    :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
-  composed_of :return_date,
-    :class_name => 'CompoundDatetime',
-    :mapping => [ %w(return_date datetime) ],
-    :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
-   
+  end 
 
   
 end
