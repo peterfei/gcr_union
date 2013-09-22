@@ -1,4 +1,5 @@
-#encoding:utf-8
+#coding:utf-8
+#
 class Reservation < ActiveRecord::Base
   attr_accessible :confirmation, :pickup_date,
     :reservation_person_phone, :return_date, :source_code,
