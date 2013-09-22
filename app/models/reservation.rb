@@ -139,7 +139,13 @@ class Reservation < ActiveRecord::Base
     :mapping => [ %w(return_date datetime) ],
     :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
    
-
+  def self_drive_price
+    SelfDrivePrice.find_by_car_model_id_and_location_id car_model_id, pickup_location_id
+  end
+  
+  #def reservation_person_phone
+  #  read_attribute(:reservation_person_phone)||self.customer.user.phone
+  #end
   
 end
 
