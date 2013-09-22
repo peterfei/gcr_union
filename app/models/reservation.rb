@@ -1,5 +1,4 @@
-#coding:utf-8
-#
+#encoding:utf-8
 class Reservation < ActiveRecord::Base
   attr_accessible :confirmation, :pickup_date,
     :reservation_person_phone, :return_date, :source_code,
@@ -12,7 +11,6 @@ class Reservation < ActiveRecord::Base
     :passenger_num, :airport_id, :railway_id, :airline, :coupon_id,
     :send_status, :car_id, :train_number, :car_model_id, :pay_mode,
     :return_location_id, :pickup_location_id,:company_id,:driver_id
-
   default_scope ->{order("created_at DESC")}
   extend Enumerize
 
@@ -126,6 +124,8 @@ class Reservation < ActiveRecord::Base
     :class_name => 'CompoundDatetime',
     :mapping => [ %w(return_date datetime) ],
     :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
+   
+
   #订单状态流转
   def flow(status)
     case status
@@ -140,8 +140,6 @@ class Reservation < ActiveRecord::Base
     when 'cancel'
       update_attribute :status,:canceled
     end
-  end 
-
-  
+  end
 end
 
