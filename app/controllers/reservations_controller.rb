@@ -121,7 +121,7 @@ class ReservationsController < ApplicationController
        unless @reservation.base_rate_code.rate_code=='ZJ' 
          @reservation.driver.update_attribute(:status,'disable')  rescue nil
        end
-        @reservation.car.update_attribute(:status,'disable')  rescue nil
+        @reservation.car.update_attribute(:status,'disable')  rescue nil 
         #同步入crs-admin 数据库 
         if current_user.role=='oprator'   
           @dispicher_ip =  current_user.company.dispicher_ip rescue nil
