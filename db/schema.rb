@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130918014908) do
+ActiveRecord::Schema.define(:version => 20130923033245) do
 
   create_table "airports", :force => true do |t|
     t.string  "name"
@@ -230,9 +230,9 @@ ActiveRecord::Schema.define(:version => 20130918014908) do
     t.integer  "status"
     t.integer  "city_id"
     t.integer  "district_id"
-    t.integer  "manager_user_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "dispicher_ip"
   end
 
   create_table "coupons", :force => true do |t|
@@ -331,9 +331,9 @@ ActiveRecord::Schema.define(:version => 20130918014908) do
     t.integer  "city_id"
     t.integer  "district_id"
     t.integer  "company_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "last_order_id",   :default => 0
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "last_order_id"
   end
 
   create_table "manager_users", :force => true do |t|
