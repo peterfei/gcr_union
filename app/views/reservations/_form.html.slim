@@ -113,11 +113,14 @@
   .span12.row-fluid
     .span5.form-inline 
       = f.input :special_passenger, :label=>'特殊乘客', as: 'check_boxes',:input_html=>{:class=>"checkbox inline"}
-    .span5.form-inline
+    /.span5.form-inline
       =f.input :special_requirements,label:"特殊要求",as: :check_boxes 
   .span12.row-fluid
     .span5=f.input :remark,as: :text ,input_html:{rows:3}
-   
+  .span12
+    h4.header 增值服务 
+    /.span5=@reservation.special_requirements.map(&:text).join('/')||无
+    .span12=f.input :special_requirements,label_method: special_requirements_text, as: 'check_boxes', item_wrapper_class: 'inline'
   .span12
     h4.header 结算信息 
     .row-fluid 

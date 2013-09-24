@@ -17,8 +17,11 @@ class Reservation < ActiveRecord::Base
   serialize :special_passenger, Array
   serialize :special_requirements, Array
   enumerize :special_passenger, in: [:old, :patient, :baby, :pregnant, :foreign, :leader], multiple: true
-  enumerize :special_requirements, in: [:en_driver, :waiting_card], multiple: true
 
+  enumerize :special_requirements, in: %w/GPS导航 儿童座椅 英文驾驶员 举牌等候/, multiple: true
+  #enumerize :special_requirements, in: [:en_driver, :waiting_card], multiple: true 
+  #自驾代理
+  #delegate :special_requirements_self, to: :special_requirements
   enumerize :status, in: [:unconfirm, :pending, :waitexec, :hascar, :execing, :done , :canceled],
     default: :unconfirm, predicates: true
 
