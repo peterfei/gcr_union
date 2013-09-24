@@ -50,7 +50,7 @@ module ApplicationHelper
 
   def coupon_tag coupon=nil
     if coupon
-      "<span class='red'>-#{coupon.denomination}</span>"
+      "-#{coupon.denomination}"
     else
       '无'
     end
