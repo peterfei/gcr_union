@@ -54,5 +54,15 @@ module ApplicationHelper
     else
       '无'
     end
+  end 
+
+  #未处理订单
+  def order_count    
+    if current_user.role=='oprator'
+      @where = current_user.company.locations.pluck(:id) 
+      Reservation.where("pickup_location_id in (?) ",@where).where(:status=>:waitexec).count  
+    else 
+      Reservation.where(:status=>:waitexec).count  
+    end
   end
 end

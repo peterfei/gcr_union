@@ -3,7 +3,9 @@
     <%-if current_user.role=='oprator' or current_user.role=='admin' or current_user.role=='call_center'%> 
 
           <li class=" menu-btn-order"><a href="#" class="call_center"></a></li>
-        <li class="<%= active reservations_path%> menu-btn-order"><a href="<%=reservations_path%>" class="order_one"></a></li>
+          <li class="<%= active reservations_path%> menu-btn-order"><a href="<%=reservations_path%>" class="order_one">
+              <span class="badge pull-right"><%=order_count%></span> 
+          </a></li>
 
         <li class="<%= active companies_path%> menu-btn-pickup"><a href="<%=companies_path%>" class="pickup_car_one"></a></li> 
 <li class="<%= active locations_path%> menu-btn-customers menu_item">
