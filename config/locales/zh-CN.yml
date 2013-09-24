@@ -362,6 +362,7 @@ zh-CN:
     self_drive_price: '自驾价格'
     car_type_rate: '车型价格'
     base_rate_code: "业务类型"
+    sys_parameter: "系统参数"
     errors:
       <<: *errors
   activerecord:

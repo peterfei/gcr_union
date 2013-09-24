@@ -1,23 +1,20 @@
-h1 Listing sys_parameters
-
 table
   tr
-    th Para name
-    th Para value
-    th Para desc
+    th 参数名称 
+    th 参数值
+    th 参数描述
     th
-    th
-    th
-
   - @sys_parameters.each do |sys_parameter|
     tr
       td = sys_parameter.para_name
       td = sys_parameter.para_value
       td = sys_parameter.para_desc
-      td = link_to 'Show', sys_parameter
-      td = link_to 'Edit', edit_sys_parameter_path(sys_parameter)
-      td = link_to 'Destroy', sys_parameter, :confirm => 'Are you sure?', :method => :delete
+      td 
+        .btn-group 
+          = link_to '显示', sys_parameter,class:"btn btn-small"
+          = link_to '编辑', edit_sys_parameter_path(sys_parameter),class:"btn btn-small"
+          = link_to '删除', sys_parameter, :confirm => 'Are you sure?', :method => :delete,class:"btn btn-small"
 
 br
 
-= link_to 'New Sys parameter', new_sys_parameter_path
+= link_to '新建', new_sys_parameter_path,class:"btn btn-small"
