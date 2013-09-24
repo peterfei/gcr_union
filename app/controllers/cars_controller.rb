@@ -82,8 +82,12 @@ class CarsController < ApplicationController
   def destroy
     @car = Car.find(params[:id])
 
-    respond_to do |format|
-      @car.update_attribute(:status, 'disable')
+    respond_to do |format| 
+      if @car.status =='enable'
+        @car.update_attribute(:status, 'disable')
+      else 
+        @car.update_attribute(:status, 'enable')
+      end
       format.html { redirect_to cars_url }
       format.js
       format.json { head :no_content }
