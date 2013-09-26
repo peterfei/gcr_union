@@ -40,12 +40,13 @@
     .row-fluid
       .span4
         = f.input :status, :collection => Company.status_list || @company.status, :placeholder=>"请选择"
-  //.span12
-    h4.header 公司介绍
-    .row-fluid
-      .span5
-        = f.input :logo_url,as: :file, :label=>'公司图标'
-    .row-fluid
+  -if  current_user.role=='admin'
+    .span12
+      h4.header 公司分配企业IP
+      .row-fluid
+        .span5
+          = f.input :dispicher_ip, :label=>'公司分配企业IP'
+    /.row-fluid
       .span5
         = f.input :comp_des,as: :text, :label=>'公司介绍'
   .span12.wdj_bordertop

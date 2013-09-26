@@ -16,7 +16,8 @@
       =f.input_field :car_tag
       span 颜色
       =f.input_field :color
-    =f.input :seat ,input_html:{:name=>"car[seat]"},as: :string,label:"座位数"
+    =f.input :seat ,input_html:{:name=>"car[seat]"},as: :string,label:"座位数" 
+    =f.input :status
   div.wdj_bordertop
     .wdj_btnwidth
       = link_to '返回', cars_path, remote: true, class: 'btn btn-small'

@@ -4,4 +4,5 @@ $('#edit_reservation_<%=@reservation.id%> input').attr("disabled",true);
 $('#edit_reservation_<%=@reservation.id%> textarea').attr("disabled",true); 
 $('#edit_reservation_<%=@reservation.id%> select').select2('readonly',true); 
 $('#edit_reservation_<%=@reservation.id%> select').attr('readonly',true); 
+$('#edit_reservation_<%=@reservation.id%> input:checkbox:checked').parent('label').css('color','red').css('font-size','18px'); 
 $('#order_sb').hide(); 

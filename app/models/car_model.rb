@@ -98,5 +98,18 @@ class CarModel < ActiveRecord::Base
 
   def to_s
     car_model_name
+  end  
+
+  def self.car_model_atmt_list  
+    %w/MT AT AMT/
+    .zip ['手动','自动','手/自一体']
   end
+  [:car_model_atmt].each do |name|   
+    if /atmt$/ =~ name
+      define_method "#{name}_text" do  
+        return Hash[self.class.send "#{name}_list"][read_attribute(name.to_sym)]
+      end 
+    end
+  end
+  
 end

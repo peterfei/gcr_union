@@ -1,9 +1,13 @@
+-if driver.status=='disable'
+  -color = 'warning'
+-else
+  -color = 'success'
 tr class="driver_#{driver.id}"
   td= driver.driver_name
   td= driver.driver_phone
   td= driver.company.try(:company_name)
   td=  driver.location.try(:location_name)
-  td= driver.status_text
+  td class="label label-#{color}"= driver.status_text
   td
     = link_to '查看', driver_path(driver),remote:true, class: 'btn btn-small'
     -if can? :update,driver

@@ -79,6 +79,7 @@ $.fn.extend
             location_id_equals: $('#location_id').val()
             status_equals:'enable'
             car_tag_contains: term
+            car_type_id_equals: $("#reservation_car_type_id").val()
             #seat_equals:$('#reservation_seat').val()
           }
           page: page

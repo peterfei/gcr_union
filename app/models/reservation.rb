@@ -11,7 +11,6 @@ class Reservation < ActiveRecord::Base
     :passenger_num, :airport_id, :railway_id, :airline, :coupon_id,
     :send_status, :car_id, :train_number, :car_model_id, :pay_mode,
     :return_location_id, :pickup_location_id,:company_id,:driver_id
-
   default_scope ->{order("created_at DESC")}
   extend Enumerize
 
@@ -112,19 +111,6 @@ class Reservation < ActiveRecord::Base
     end
     write_attribute :total_price, price
   end
-
-  def generate_confirmation
-    write_attribute :confirmation, "#{base_rate_code.rate_code}#{Time.now.strftime('%Y%m%d%H%M%S%L')}"
-  end
-
-  composed_of :pickup_date,
-    :class_name => 'CompoundDatetime',
-    :mapping => [ %w(pickup_date datetime) ],
-    :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
-  composed_of :return_date,
-    :class_name => 'CompoundDatetime',
-    :mapping => [ %w(return_date datetime) ],
-    :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
   #订单状态流转
   def flow(status)
     case status
@@ -139,8 +125,27 @@ class Reservation < ActiveRecord::Base
     when 'cancel'
       update_attribute :status,:canceled
     end
-  end 
-
+  end
+  def generate_confirmation
+    write_attribute :confirmation, "#{base_rate_code.rate_code}#{Time.now.strftime('%Y%m%d%H%M%S%L')}"
+  end
+  
+  composed_of :pickup_date,
+    :class_name => 'CompoundDatetime',
+    :mapping => [ %w(pickup_date datetime) ],
+    :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
+  composed_of :return_date,
+    :class_name => 'CompoundDatetime',
+    :mapping => [ %w(return_date datetime) ],
+    :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
+   
+  def self_drive_price
+    SelfDrivePrice.find_by_car_model_id_and_location_id car_model_id, pickup_location_id
+  end
+  
+  #def reservation_person_phone
+  #  read_attribute(:reservation_person_phone)||self.customer.user.phone
+  #end
   
 end
 
