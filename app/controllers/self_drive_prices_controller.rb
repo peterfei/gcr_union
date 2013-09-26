@@ -1,4 +1,5 @@
 class SelfDrivePricesController < ApplicationController
+  before_filter :resize_range, only: [:update, :create]
   # GET /self_drive_prices
   # GET /self_drive_prices.json
   layout 'index'
@@ -83,4 +84,24 @@ class SelfDrivePricesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  private
+  def resize_range
+    custom_prices = params[:self_drive_price][:custom_prices_attributes]
+
+    available=custom_prices.select{|key,value|value['_destroy']=='false'}
+    a = available.map{|key,value|Range.new *value['range'].split('-').map(&:to_date)}
+    all = a.map(&:to_a).flatten.uniq.sort
+    a.reverse.each_with_index do |r,i|
+      leave = (all - r.to_a)
+      a[i] = all - leave
+      all = leave
+    end
+    available.each do |key,value|
+      range = a.pop
+      range = "#{range.first.strftime('%Y/%m/%d')} - #{range.last.strftime('%Y/%m/%d')}"
+      params[:self_drive_price][:custom_prices_attributes][key]['range']=range
+    end
+  rescue
+  end
+
 end
