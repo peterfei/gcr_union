@@ -232,7 +232,7 @@ namespace :db do
   </div>
   <div class="wdj_middle_main_left_dvservice_main">
     <a class="wdj_iphone_icon"></a>
-    <a class="wdj_android_icon" href= '<%= info[:url] %>'</a></a> ></a>
+    <a class="wdj_android_icon" href= "<%= info[:url] %>"</a></a> ></a>
   </div>
 </div>'
     )
