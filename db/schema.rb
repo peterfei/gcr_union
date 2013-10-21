@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130923033245) do
+ActiveRecord::Schema.define(:version => 20130924062540) do
 
   create_table "airports", :force => true do |t|
     t.string  "name"
@@ -214,6 +214,16 @@ ActiveRecord::Schema.define(:version => 20130923033245) do
   add_index "cms_snippets", ["site_id", "identifier"], :name => "index_cms_snippets_on_site_id_and_identifier", :unique => true
   add_index "cms_snippets", ["site_id", "position"], :name => "index_cms_snippets_on_site_id_and_position"
 
+  create_table "comments", :force => true do |t|
+    t.integer  "reservation_id"
+    t.text     "text"
+    t.integer  "score"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "comments", ["reservation_id"], :name => "index_comments_on_reservation_id"
+
   create_table "companies", :force => true do |t|
     t.string   "company_name"
     t.string   "company_full_name"
@@ -331,9 +341,9 @@ ActiveRecord::Schema.define(:version => 20130923033245) do
     t.integer  "city_id"
     t.integer  "district_id"
     t.integer  "company_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.integer  "last_order_id"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "last_order_id",   :default => 0
   end
 
   create_table "manager_users", :force => true do |t|

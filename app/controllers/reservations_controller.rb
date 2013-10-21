@@ -131,7 +131,8 @@ class ReservationsController < ApplicationController
             CrsAdmin::Reservation.create(@reservation.attributes.merge(_hash))
           end
         end
-        
+        #订单分配后，给加盟商发送预定成功信息
+        @reservation.sms
         @reservation.flow("waitexec")
       #  SmsApi.send_sms_message(@reservation.reservation_person_phone,"已为您的订单#{@reservation.confirmation}分配好车辆和司机,车牌号:#{@reservation.car.car_tag}")
      end 
