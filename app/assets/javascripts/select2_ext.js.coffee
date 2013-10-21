@@ -93,7 +93,7 @@ $.fn.extend
             location_id_equals: $('#location_id').val()
             status_equals: 'enable'
             driver_name_contains: term
-            driver_allowed_contains: $('#reservation_seat').val()
+            #driver_allowed_contains: $('#reservation_seat').val()
           }
           page: page
   company_info_select2: () ->

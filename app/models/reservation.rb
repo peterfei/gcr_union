@@ -149,6 +149,13 @@ class Reservation < ActiveRecord::Base
   #def reservation_person_phone
   #  read_attribute(:reservation_person_phone)||self.customer.user.phone
   #end
-  
+  def sms 
+    view = ActionView::Base.new(ActionController::Base.view_paths, {})
+    template = view.render(inline: "#{Cms::Snippet.find_by_identifier('cms-template').content}", locals: {reservation: self})
+    SmsApi.send_sms_message(self.pickup_location.principal_phone ,template,'荣宜科技')
+  end
+  def to_s 
+    confirmation
+  end
 end
 
