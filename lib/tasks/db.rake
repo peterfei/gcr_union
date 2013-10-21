@@ -221,15 +221,26 @@ namespace :db do
     site.snippets.create!(
       label: 'android和iso客户端',
       identifier: "mobile-client",
-      content: '<div class="wdj_middle_main_left_dvservice">
+      content: '<% begin %>
+<% info = eval(cms_snippet_content("client-update-info")) %>
+<% rescue Exception => exc %>
+<% info = {url: ""} %>
+<% end %>
+<div class="wdj_middle_main_left_dvservice">
   <div class="wdj_middle_main_tit">
     <a href="#"></a><span>酒后代驾 / Driver Service</span>
   </div>
   <div class="wdj_middle_main_left_dvservice_main">
     <a class="wdj_iphone_icon"></a>
-    <a class="wdj_android_icon" href=></a>
+    <a class="wdj_android_icon" href= "<%= info[:url] %>"</a></a> ></a>
   </div>
 </div>'
+    )
+
+    site.snippets.create!(
+      label: '客户端更新信息',
+      identifier: "client-update-info",
+      content: "{version: '1.0', description: 'android client', url: '#'}"
     )
   end
 
