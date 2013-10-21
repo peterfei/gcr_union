@@ -1,6 +1,6 @@
 td = reservation.confirmation 
 td = reservation.base_rate_code 
-td = reservation.customer.customer_name  
+td = reservation.customer.customer_name  rescue nil
 td = reservation.reservation_person_phone|| (reservation.customer.user.phone rescue nil)
 td = reservation.pickup_date
 /td = reservation.down_address||reservation.up_address
