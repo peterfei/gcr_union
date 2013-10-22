@@ -15,7 +15,7 @@ class DriversController < ApplicationController
     respond_to do |format|
       format.js
       format.html # index.html.erb
-      format.json { render_select2 @drivers, text:'driver_name'}
+      format.json { render_select2 @drivers,'driver_phone','driver_allowed', text:'driver_name'}
     end
   end
 
@@ -27,7 +27,7 @@ class DriversController < ApplicationController
     respond_to do |format|
       #format.html # show.html.erb
       format.js
-      format.json { render_select2 @driver, text: 'driver_name' }
+      format.json { render_select2 @driver, 'driver_phone','driver_allowed',text: 'driver_name' }
     end
   end
 

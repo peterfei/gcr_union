@@ -35,6 +35,60 @@ $.fn.extend
           return {} =
             results: data.results
             more: more
+  lazy_select2_driver: (options) ->
+    options = $.extend { page_size: 15 }, options
+    @select2
+      allowClear: true
+      placeholder: options.placeholder || '请选择'
+      formatResult:(item)-> item.text+"|"+item.driver_phone+"|"+"准驾开型:"+item.driver_allowed
+      width: 222
+      multiple: options.multiple || false
+      initSelection: (element, callback) ->
+        id = element.val()
+        if id != '' and id != null
+          $.ajax
+            url: options.init(id)
+            dataType: 'json'
+            success: (data) ->
+              callback(data)
+      ajax:
+        url: options.url
+        dataType: 'json'
+        quietMillis: 100
+        data: (term, page) ->
+          options.params(term, page)
+        results: (data, page) ->
+          more = (page * options.page_size) < data.total
+          return {} =
+            results: data.results
+            more: more
+  lazy_select2_car: (options) ->
+    options = $.extend { page_size: 15 }, options
+    @select2
+      allowClear: true
+      placeholder: options.placeholder || '请选择'
+      formatResult:(item)-> item.text+"|"+"品牌:"+item.car_model_name
+      width: 222
+      multiple: options.multiple || false
+      initSelection: (element, callback) ->
+        id = element.val()
+        if id != '' and id != null
+          $.ajax
+            url: options.init(id)
+            dataType: 'json'
+            success: (data) ->
+              callback(data)
+      ajax:
+        url: options.url
+        dataType: 'json'
+        quietMillis: 100
+        data: (term, page) ->
+          options.params(term, page)
+        results: (data, page) ->
+          more = (page * options.page_size) < data.total
+          return {} =
+            results: data.results
+            more: more
   pickup_city_select2: () ->
     @lazy_select2
       url: -> '/cities'
@@ -70,7 +124,7 @@ $.fn.extend
           }
           page: page
   car_info_select2: () ->
-    @lazy_select2
+    @lazy_select2_car
       url: -> '/cars'
       init: (id) -> '/cars/' + id
       params: (term, page) ->
@@ -84,7 +138,7 @@ $.fn.extend
           }
           page: page
   driver_info_select2: () ->
-    @lazy_select2
+    @lazy_select2_driver
       url: -> '/drivers'
       init: (id) -> '/drivers/' + id
       params: (term, page) ->

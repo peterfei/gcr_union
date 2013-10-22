@@ -13,7 +13,7 @@ class CarsController < ApplicationController
     respond_to do |format|
       format.js
       format.html # index.html.erb 
-      format.json { render_select2 @cars, text:'car_tag'}
+      format.json { render_select2 @cars,'car_model_name', text:'car_tag'}
     end
   end
 
