@@ -1,7 +1,7 @@
 GcrUnion::Application.routes.draw do 
   
   resources :self_drive_prices
-
+  #resources :comments
 
   # Make sure this routeset is defined last
   #ComfortableMexicanSofa::Routing.content(:path => '/', :sitemap => false)
@@ -31,7 +31,8 @@ GcrUnion::Application.routes.draw do
       match 'dispatch_car' ,:on=>:member 
       match 'execing' ,:on=>:member 
       match 'done' ,:on=>:member 
-      match 'cancel' ,:on=>:member
+      match 'cancel' ,:on=>:member 
+      resource :comments
   end
   resources :cars, path_names: { destroy: 'disable' }
   resources :locations

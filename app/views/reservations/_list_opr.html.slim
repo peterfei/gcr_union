@@ -1,5 +1,7 @@
 .btn-group
   =link_to '查看',reservation_path(reservation.id),:remote=>true,class:'btn btn-small' 
+  -if reservation.status=='done' and reservation.comment
+    =link_to '评价',reservation_comments_path(reservation),:remote=>true,class:'btn btn-small' 
   -if can? :update,reservation
     -unless reservation.status=="execing" or reservation.status=="done" or reservation.status=='canceled'
       =link_to '编辑', edit_reservation_path(reservation.id),:remote=>true,class:'btn btn-small'

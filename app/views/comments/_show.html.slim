@@ -1,0 +1,13 @@
+/.modal-header
+  button type="button" class="close" data-dismiss="modal" aria-hidden="true" &times;
+  h3 评价
+.modal-body
+  span 评分：
+  span class="badge" =@comment.score
+  div
+    span 评价：
+    div
+      blockquote
+        = @comment.text
+  /=f.button :submit,"确认",class: 'btn-primary'
+  

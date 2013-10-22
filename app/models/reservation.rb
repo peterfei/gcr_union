@@ -48,7 +48,7 @@ class Reservation < ActiveRecord::Base
 
   belongs_to :airport
   belongs_to :railway
-
+  has_one :comment
   validates :car_id, :presence => {message: '请选择车辆'},:if=>Proc.new{|r| r.status=='waitexec'}
   #validates :driver_id, :presence => {message: '请选择司机'},:if=>Proc.new{|r| r.status=='waitexec'}
   validates :use_day, :presence => {message: '用车天数不能为空'},
