@@ -21,7 +21,9 @@ class ReservationsController < ApplicationController
   # GET /reservations/1.json
   def show
     @reservation = Reservation.find(params[:id])
-
+    if @reservation.rate_code=='ZJ'
+      @reservation= SelfDriving.find(params[:id])
+    end
     respond_to do |format| 
       format.js
       #format.html # show.html.erb

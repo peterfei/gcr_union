@@ -10,13 +10,13 @@ td = reservation.car_type ||reservation.car_model
 -elsif reservation.status=='done' 
   -color = "success" 
 -elsif reservation.status=='waitexec'
-  -color = "primary" 
+  -color = "important" 
 -elsif reservation.status=='hascar'
   -color = "info" 
 -elsif reservation.status=='execing'
   -color = "warning"
 -elsif reservation.status=='canceled'
-  -color = "danger"
+  -color = "inverse"
 td class="label label-#{color}"= reservation.status_text 
 td = l(reservation.created_at,format: :long)
 td class="opr_#{reservation.id}"
