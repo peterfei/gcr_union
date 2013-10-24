@@ -182,7 +182,7 @@ class ReservationsController < ApplicationController
       @reservation= SelfDriving.find(params[:id])
     end
     respond_to do |format| 
-      format.html{render :layout=>false}
+      format.html{render :layout=>'print'}
     end
   end
 end
