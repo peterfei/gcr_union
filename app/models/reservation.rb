@@ -35,6 +35,7 @@ class Reservation < ActiveRecord::Base
   belongs_to :customer
   belongs_to :company
   belongs_to :driver
+  accepts_nested_attributes_for :driver
   #belongs_to :location
   belongs_to :coupon
   belongs_to :base_rate_code
