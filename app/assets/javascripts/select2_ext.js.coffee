@@ -40,7 +40,7 @@ $.fn.extend
     @select2
       allowClear: true
       placeholder: options.placeholder || '请选择'
-      formatResult:(item)-> item.text+"|"+item.driver_phone+"|"+"准驾开型:"+item.driver_allowed
+      formatResult:(item)-> item.text+"|"+item.driver_phone+"|"+item.driver_allowed
       width: 222
       multiple: options.multiple || false
       initSelection: (element, callback) ->
@@ -67,7 +67,7 @@ $.fn.extend
     @select2
       allowClear: true
       placeholder: options.placeholder || '请选择'
-      formatResult:(item)-> item.text+"|"+"品牌:"+item.car_model_name
+      formatResult:(item)-> item.text+"|"+item.car_model_name
       width: 222
       multiple: options.multiple || false
       initSelection: (element, callback) ->
@@ -133,7 +133,7 @@ $.fn.extend
             location_id_equals: $('#location_id').val()
             status_equals:'enable'
             car_tag_contains: term
-            car_type_id_equals: $("#reservation_car_type_id").val()
+            #car_type_id_equals: $("#reservation_car_type_id").val()
             #seat_equals:$('#reservation_seat').val()
           }
           page: page

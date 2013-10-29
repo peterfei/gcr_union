@@ -174,5 +174,15 @@ class ReservationsController < ApplicationController
       format.js{render 'execing.js.erb'}
       #format.html { redirect_to reservations_url, notice: '订单执行成功.' }
     end
+  end 
+
+  def print
+    @reservation = Reservation.find(params[:id]) 
+    if @reservation.rate_code=='ZJ'
+      @reservation= SelfDriving.find(params[:id])
+    end
+    respond_to do |format| 
+      format.html{render :layout=>'print'}
+    end
   end
 end

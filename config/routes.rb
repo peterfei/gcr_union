@@ -32,7 +32,8 @@ GcrUnion::Application.routes.draw do
       match 'execing' ,:on=>:member 
       match 'done' ,:on=>:member 
       match 'cancel' ,:on=>:member 
-      resource :comments
+      resource :comments 
+      match 'print',:on=>:member
   end
   resources :cars, path_names: { destroy: 'disable' }
   resources :locations

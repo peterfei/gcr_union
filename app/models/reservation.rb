@@ -35,6 +35,7 @@ class Reservation < ActiveRecord::Base
   belongs_to :customer
   belongs_to :company
   belongs_to :driver
+  accepts_nested_attributes_for :driver
   #belongs_to :location
   belongs_to :coupon
   belongs_to :base_rate_code
@@ -152,7 +153,7 @@ class Reservation < ActiveRecord::Base
   def sms 
     view = ActionView::Base.new(ActionController::Base.view_paths, {})
     template = view.render(inline: "#{Cms::Snippet.find_by_identifier('cms-template').content}", locals: {reservation: self})
-    SmsApi.send_sms_message(self.pickup_location.principal_phone ,template,'荣宜科技')
+    SmsApi.send_sms_message(self.pickup_location.principal_phone ,template,'荣益科技')
   end
   def to_s 
     confirmation
