@@ -3,7 +3,7 @@
   /= f.simple_fields_for :car_type_rates do |b|
     =b.association :city,:label=>"城市"
   = label_tag '城市' 
-  =text_field_tag 'pickup_city'
+  =text_field_tag 'pickup_city',get_city_id(@car_type.id)
   = f.input :car_type_name, :label => '车型名称'
   = f.input :persons, :label => '座位数',as: :string
   = f.input :big_package, :label => '大行李',as: :string
