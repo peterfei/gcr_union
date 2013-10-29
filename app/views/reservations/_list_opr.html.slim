@@ -16,6 +16,8 @@
     -if reservation.status=='hascar' or reservation.status=='execing'
       -if reservation.rate_code=='ZJ'
         =link_to '打印自驾单',print_reservation_path(reservation.id),class:"btn btn-small",target:'_blank' 
+      -else 
+        =link_to '打印代驾单',print_reservation_path(reservation.id),class:"btn btn-small",target:'_blank' 
       -if reservation.status=="hascar"
         =link_to '执行',execing_reservation_path(reservation.id),:remote=>true ,class:"btn btn-small"
       -if reservation.status=="execing"
