@@ -15,5 +15,7 @@ class CarType < ActiveRecord::Base
 
   def type_name_seat
     "#{car_type_name} - #{persons}座"
-  end
+  end 
+  
+  
 end
