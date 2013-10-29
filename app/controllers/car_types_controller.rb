@@ -52,7 +52,8 @@ class CarTypesController < ApplicationController
 
   # POST /car_types
   # POST /car_types.json
-  def create
+  def create 
+    
     @car_type = CarType.new(params[:car_type])
 
     respond_to do |format|
@@ -71,7 +72,11 @@ class CarTypesController < ApplicationController
   # PUT /car_types/1.json
   def update
     @car_type = CarType.find(params[:id])
-
+    city_id = params[:pickup_city]
+    #params[:car_type][:car_type_rates_attributes].each do |e,v|
+    #  v.merge(:city_id=>city_id) 
+    #end 
+    params[:car_type][:car_type_rates_attributes] = params[:car_type][:car_type_rates_attributes].map{|k,v| v.merge(:city_id=>city_id)}
     respond_to do |format|
       if @car_type.update_attributes(params[:car_type])
         format.html { redirect_to car_types_path, notice: 'Car type was successfully updated.' }

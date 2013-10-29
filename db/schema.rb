@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130924062540) do
+ActiveRecord::Schema.define(:version => 20131029063206) do
 
   create_table "airports", :force => true do |t|
     t.string  "name"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20130924062540) do
     t.integer  "base_rate_code_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.integer  "city_id"
   end
 
   add_index "car_type_rates", ["base_rate_code_id"], :name => "index_car_type_rates_on_base_rate_code_id"
