@@ -35,6 +35,7 @@ class Reservation < ActiveRecord::Base
   belongs_to :customer
   belongs_to :company
   belongs_to :driver
+  belongs_to :base_rate_code
   accepts_nested_attributes_for :driver
   #belongs_to :location
   belongs_to :coupon
@@ -157,6 +158,27 @@ class Reservation < ActiveRecord::Base
   end
   def to_s 
     confirmation
+  end 
+
+  def starting_point
+    if rate_code == 'JJ'
+      "#{pickup_city} #{airport}"
+    elsif rate_code == 'JHC'
+      "#{pickup_city} #{railway}"
+    else
+      "#{pickup_city} #{pickup_district} #{up_address} #{up_construction}"
+    end
   end
+
+  def destination
+    if rate_code == 'SJ'
+      "#{return_city} #{airport}"
+    elsif rate_code == 'SHC'
+      "#{return_city} #{railway}"
+    else
+      "#{return_city} #{return_district} #{down_address} #{down_construction}"
+    end
+  end
+
 end
 
