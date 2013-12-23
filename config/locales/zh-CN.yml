@@ -363,6 +363,7 @@ zh-CN:
     car_type_rate: '车型价格'
     base_rate_code: "业务类型"
     sys_parameter: "系统参数"
+    welcome: '欢迎'
     errors:
       <<: *errors
   activerecord:
