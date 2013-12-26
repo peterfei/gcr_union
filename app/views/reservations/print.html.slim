@@ -48,7 +48,9 @@
         td colspan="2" = @reservation.compute_price
       tr
         td 客户建议
-        td colspan="7"
+        td colspan="5"
+        td 支付方式
+        td = @reservation.pay_mode_text
       tr
         td 客户签字
         td colspan="7"
@@ -127,9 +129,11 @@
         td = (@reservation.special_requirements.include? :waiting_card) ? number_to_currency(Settings.wait_card_prices) : '无'
       tr
         td 车辆满意度
-        td colspan="7"
+        td colspan="5"
           | 满意
           input name="bike" type="checkbox"
+        td 支付方式
+        td = @reservation.pay_mode_text
       tr
         td 客户建议
         td colspan="2"
