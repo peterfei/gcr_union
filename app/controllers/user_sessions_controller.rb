@@ -19,11 +19,17 @@ class UserSessionsController < ApplicationController
         return 
       end
       login_as user 
-      redirect_to reservations_path
+      respond_to do |format| 
+        format.html {redirect_to reservations_path}# index.html.erb
+        format.json { render json: user }
+      end
     else
-        flash.now[:error] = "登陆失败,请重新登陆" 
+      flash.now[:error] = "登陆失败,请重新登陆" 
+      respond_to do |format| 
+        format.html {redirect_to root_path}# index.html.erb
+        format.json { render json:  -1}
+      end
         #render 'new'
-        redirect_to root_path
         #format.html {redirect_to :back}
     end
   end
