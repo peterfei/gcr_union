@@ -28,11 +28,23 @@ SysParameter.create([
   {para_id:9,para_name:'MAIL_TIMEOUT',para_value:'25000',para_desc:''}
 ])
 
-
+ManagerUser.destroy_all
 ManagerUser.new(
   login_name:'admin',
   password: 'admin',
   role:'admin'
 ).save validate:false
 
+City.destroy_all
+city = City.create(city_code: 518000,
+                   city_name: '深圳市',
+                   pinyin: 'shen zhen',
+                   status: 1)
+District.destroy_all
+District.create(district_name: '罗湖区', city_id: city.id, status: 1)
+District.create(district_name: '福田区', city_id: city.id, status: 1)
+District.create(district_name: '南山区', city_id: city.id, status: 1)
+District.create(district_name: '宝安区', city_id: city.id, status: 1)
+District.create(district_name: '龙岗区', city_id: city.id, status: 1)
+District.create(district_name: '盐田区', city_id: city.id, status: 1)
 
