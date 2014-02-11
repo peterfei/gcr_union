@@ -1,0 +1,13 @@
+table.table.table-hover
+  thead
+    tr
+      th 最近订单
+      th 分配到(门店)
+      th 时间
+  tbody
+    -@reservations.each do |r|
+      -location = r.pickup_location
+      tr
+        td =link_to r, reservation_path(r), remote: true
+        td =location ? link_to(location, location_path(location), remote: true) : '未分配'
+        td =r.created_at.strftime('%Y-%m-%d %H:%M')
