@@ -48,11 +48,11 @@ namespace :db do
     open Rails.root.join('lib','tasks','sql','district.sql') do |f|
       ActiveRecord::Base.connection.execute(f.read)
     end
+    City.destroy_all(
+      City.arel_table[:city_name].not_in_all(%w/北京市 大连市 深圳市 西安市/)
+    )
   end
 
-  task 'city:sz' => :environment do |task|
-    City.destroy_all(City.arel_table[:city_name].not_eq('深圳市'))
-  end
 
   desc "准备门店数据"
   task :location => :environment do |task|
@@ -247,6 +247,6 @@ namespace :db do
   desc "准备所有数据"
   task :all => [:create_database, :load_data, :car_type,
                 :car_model, :car_type_rate, :city, :railway,
-                :airport, :coupon, :storage, :cms, 'city:sz']
+                :airport, :coupon, :storage, :cms]
 
 end
