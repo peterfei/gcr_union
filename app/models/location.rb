@@ -15,26 +15,23 @@ class Location < ActiveRecord::Base
   has_many  :car_models, through: :self_drive_prices
   validates :location_name,   presence: { message: '请输入门店名称' },uniqueness: {message:"该门店名称已占用"}
   validates :address,   presence: { message: '请输入街道名称' }
-  validates :phone,           presence: { message: '请输入门店手机号码' } 
-  validates :phone,           presence: { message: '请输入门店手机号码' } 
-  validates_length_of :phone, :is => 11, :message => '手机号不合法，请输入合法的手机号码', :if => Proc.new{|o| !o.phone.blank?}
-
+  validates :phone,           presence: { message: '请输入门店手机号码' }
+  validates :phone,           presence: { message: '请输入门店手机号码' }
   validates :company_id,      presence: { message: '请输入所属公司' }
   validates :city_id,         presence: { message: '请输入门店所在城市' }
   validates :district_id,     presence: { message: '请输入门店所在城市区域' }
   validates :principal,       presence: { message: '请输入门店联系人姓名' }
-  validates :principal_phone, presence: { message: '请输入门店联系人手机号码' } 
-  validates_length_of :principal_phone, :is => 11, :message => '手机号不合法，请输入合法的手机号码', :if => Proc.new{|o| !o.phone.blank?}
+  validates :principal_phone, presence: { message: '请输入门店联系人手机号码' }
   validates :status,          presence: { message: '请输入门店工作状态' }
 
   extend Enumerize
   serialize :rate_code_list, Array
   enumerize :rate_code_list, in: {'日租'=>0,'时租'=>1,'接机'=>2,'送机'=>3,'自定路线'=>4}, multiple: true
 
-  def to_s 
+  def to_s
     location_name
   end
-  def destroy  
+  def destroy
     unless drivers.count==0 or cars.count==0 
       super
     end
