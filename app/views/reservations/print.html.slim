@@ -1,12 +1,8 @@
 .print
   -if @reservation.rate_code=='ZJ'
     span.title_top
-      h3 自驾打印单
+      h3 租车单
     table align="center" border="0"
-      tr align="right"
-        td 打印日期: 2013-10-23
-      tr align="left"
-        td 14:30
     table align="center" border="1px" style="border-collapse:collapse"
       tr
         td 业务类型
@@ -27,7 +23,7 @@
         td 取车城市
         td = @reservation.pickup_city
         td 取车门店
-        td colspan="2"=@reservation.pickup_district
+        td colspan="2"=@reservation.pickup_location
         td 取车时间
         td colspan="2"=@reservation.pickup_date
       tr
@@ -51,21 +47,17 @@
         td 费用合计
         td colspan="2" = @reservation.compute_price
       tr
-        td 司机满意度
-        td colspan="3"
-          input name="bike" type="checkbox"
-          | 满意
         td 客户建议
-        td colspan="3"
+        td colspan="5"
+        td 支付方式
+        td = @reservation.pay_mode_text
       tr
         td 客户签字
         td colspan="7"
   -else 
+    span.title_top
+      h3 租车单
     table align="center" border="0"
-      tr align="right"
-        td 打印日期: 2013-10-23
-      tr align="left"
-        td 14:30
     table align="center" border="1px" style="border-collapse:collapse"
       tr
         td 业务类型
@@ -99,7 +91,7 @@
         td 车牌号码
         td = @reservation.car
         td 特殊乘客
-        td colspan="2"
+        td colspan="2" = @reservation.special_passenger.map(&:text).join(' ')
         td 车站名称
         td colspan="2"=@reservation.railway
       tr
@@ -111,45 +103,42 @@
         td colspan="2"
       tr
         td 上车地点
-        td colspan="3"=@reservation.pickup_district
+        td colspan="3"=@reservation.starting_point||@reservation.airport
         td 下车地点
-        td colspan="3" =@reservation.return_district
+        td colspan="3" =@reservation.destination||@reservation.airport
       tr
         td 乘车人
         td = @reservation.passenger
         td 联系电话
         td colspan="2" = @reservation.passenger_phone
         td 乘车人数
-        td colspan="2" = @reservation.passenger_num
+        td colspan="2" = @reservation.passenger_num||0
       tr
         td 备注
         td colspan="4" = @reservation.remark
         td 费用说明
-        td colspan="2"
+        td colspan="2" ="含#{@reservation.base_rate_code.base_hour}小时#{@reservation.base_rate_code.base_km}公里"
       tr
         td 基本费用
-        td
+        td = "#{@reservation.car_type_rate.base_rate}元/#{@reservation.unit}"
         td 英文司机
-        td
+        td=(@reservation.special_requirements.include? :en_driver) ? number_to_currency(Settings.en_driver_prices) : '无'
         td 代码优惠
-        td
+        td="#{@reservation.coupon.denomination rescue 0}元"||'无'
         td 举牌等候
-        td
+        td = (@reservation.special_requirements.include? :waiting_card) ? number_to_currency(Settings.wait_card_prices) : '无'
       tr
-        td 司机满意度
-        td colspan="3"
-          input name="bike" type="checkbox"
-          | 满意
         td 车辆满意度
-        td colspan="3"
-          input name="bike" type="checkbox"
+        td colspan="5"
           | 满意
           input name="bike" type="checkbox"
+        td 支付方式
+        td = @reservation.pay_mode_text
       tr
         td 客户建议
         td colspan="2"
         td 费用合计
-        td
+        td = "#{@reservation.compute_price}元"
         td 客户签字
         td colspan="2"
-      
+

@@ -174,6 +174,9 @@
     dt 费用合计
     dd=number_to_currency @reservation.compute_price
     .clear 
+.span12
+  h4 支付方式
+  =f.input :pay_mode, as: 'radio_buttons', item_wrapper_class: 'inline'
 .span12.row-fluid
   h4 发票信息
   .span5
