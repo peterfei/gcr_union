@@ -11,8 +11,8 @@ class Company < ActiveRecord::Base
 
   validates :company_name,      :presence => { :message => '请输入公司简称' }
   validates :company_full_name, :presence => { :message => '请输入公司全称' },uniqueness: {message:"该公司名称已占用"}
-  validates :reg_money,         :presence => { :message => '请输入注册资金' }
-  validates :taxpayer_code,     :presence => { :message => '请输入营业执照' }
+  # validates :reg_money,         :presence => { :message => '请输入注册资金' }
+  # validates :taxpayer_code,     :presence => { :message => '请输入营业执照' }
   #before_destroy :company_with_locations? 
 
   #加盟商状态
