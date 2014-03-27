@@ -184,5 +184,6 @@ $.fn.extend
 
     $('#car_model_ids').car_model_select2()
     $('#self_drive_price_car_model_id').car_model_select2(false)
+    $('#self_drive_price_location_id').location_select2()
     $('#search_car_model_id_equals').car_model_select2(false)
     $('#search_location_id_equals').location_select2()
