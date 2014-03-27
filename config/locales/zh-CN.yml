@@ -369,3 +369,9 @@ zh-CN:
   activerecord:
     errors:
       <<: *errors
+    attributes:
+      car:
+        car_tag: '车牌号'
+        alt_car_tag: '备用车牌号'
+        color: '颜色'
+        seat: '座位数'

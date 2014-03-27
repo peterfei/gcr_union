@@ -21,7 +21,6 @@ end
 gem 'jquery-rails','2.2.0'
 gem 'kaminari'
 gem 'slim-rails'
-gem 'mini_magick'
 gem 'ruby-pinyin'
 
 group :development, :test do

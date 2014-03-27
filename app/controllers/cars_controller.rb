@@ -51,9 +51,9 @@ class CarsController < ApplicationController
   def create
     cars_params=params[:cars].map{|c| c.merge!(params[:car])}
     @cars =Car.create(cars_params)
-    respond_to do |format|  
-      unless  @cars.map{|c| c.errors.full_messages}.include? [[]]
-        format.js  
+    respond_to do |format|
+      if @cars.map{|c| c.errors.messages}.all?(&:empty?)
+        format.js
       else
         format.js {render 'error_msg'}
       end

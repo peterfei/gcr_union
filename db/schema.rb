@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131029063206) do
+ActiveRecord::Schema.define(:version => 20140327071047) do
 
   create_table "airports", :force => true do |t|
     t.string  "name"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20131029063206) do
     t.integer  "driver_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "alt_car_tag"
   end
 
   create_table "cities", :force => true do |t|
@@ -241,6 +242,7 @@ ActiveRecord::Schema.define(:version => 20131029063206) do
     t.integer  "status"
     t.integer  "city_id"
     t.integer  "district_id"
+    t.integer  "manager_user_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "dispicher_ip"
@@ -357,6 +359,16 @@ ActiveRecord::Schema.define(:version => 20131029063206) do
     t.string   "role"
     t.integer  "company_id"
   end
+
+  create_table "payment_records", :force => true do |t|
+    t.decimal  "amount",         :precision => 10, :scale => 0
+    t.string   "payment_type"
+    t.integer  "reservation_id"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+  end
+
+  add_index "payment_records", ["reservation_id"], :name => "index_payment_records_on_reservation_id"
 
   create_table "phone_validates", :force => true do |t|
     t.string   "phone_number"
