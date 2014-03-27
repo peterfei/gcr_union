@@ -77,6 +77,9 @@ class Location < ActiveRecord::Base
 
   def is24_text
     (Location.is24_list.find { |t,k|  k == self.is24.to_i } or []).first
-  end 
-  
+  end
+
+  def display_name
+    "#{self.company}-#{self.location_name}"
+  end
 end

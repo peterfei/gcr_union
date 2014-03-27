@@ -3,9 +3,9 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index  
-    @search = Location.search(params[:search])
-    if current_user.role=='oprator'  
-      @where = "#{current_user.company_id}" 
+    @search = Location.includes(:company).search(params[:search])
+    if current_user.role=='oprator'
+      @where = "#{current_user.company_id}"
       @locations=@search.where(:company_id=>@where).page params[:page] 
     else
       @locations=@search.page params[:page]
@@ -13,7 +13,7 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.js
       format.html # index.html.erb
-      format.json { render_select2 @locations, text:'location_name'}
+      format.json { render_select2 @locations, text: :display_name}
     end
   end
 

@@ -1,5 +1,6 @@
 table.table.table-bordered.table-hover
   tr
+    th 城市
     th 基本费用
     th 超小时费
     th 超公里费
@@ -9,3 +10,6 @@ table.table.table-bordered.table-hover
     th 操作
 
   = render @car_type_rates
+.pagination.pagination-centered
+  =paginate @car_type_rates, theme: "bootstrap"
+

@@ -360,7 +360,7 @@ zh-CN:
     manager_user: '管理用户'
     user: '客户信息'
     self_drive_price: '自驾价格'
-    car_type_rate: '车型价格'
+    car_type_rate: '代驾价格'
     base_rate_code: "业务类型"
     sys_parameter: "系统参数"
     welcome: '欢迎'

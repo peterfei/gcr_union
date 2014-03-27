@@ -18,7 +18,7 @@
       .span4 tip='*必填,请选择门店所在城市区域'
         = f.association :district, :label=>'区域', :input_html=>{:id=>"pickup_district"}, :as=>:string,:placeholder=>"请选择"
       .span4
-        = f.input :address, :label=>'街道'
+        = f.input :address, :label=>'地址'
   .span12
     h4.header 负责人信息
     .row-fluid
