@@ -6,6 +6,8 @@
           .span5=f.input :car_tag_equals,input_html:{class:"search-query"}
           .span5
             =f.input :status_equals,collection:Car.status.options,placeholder:"全部",input_html:{class:"search-query"},label:"车辆状态"
+          .span5=f.input :car_model_contains,input_html:{class:"search-query"}
+          .span5=f.input :location_equals,input_html:{class:"search-query"}
         .control-group
           .controls
             =f.submit value:"查询",class: "btn btn-small"
