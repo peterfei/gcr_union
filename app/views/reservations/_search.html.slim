@@ -1,4 +1,4 @@
-= simple_form_for @search  ,  :html => {:class => 'form-horizontal' },wrapper: 'bootstrap',validate:false do |f|
+= simple_form_for @search, defaults: {required: false}, :html => {:class => 'form-horizontal' }, wrapper: 'bootstrap' do |f|
   fieldset
     #legend
       .row-fluid
