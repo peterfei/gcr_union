@@ -1,178 +1,176 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><%= content_for?(:title) ? yield(:title) : "车联天下管理平台" %></title>
-    <%= csrf_meta_tags %>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><%= content_for?(:title) ? yield(:title) : "车联天下管理平台" %></title>
+<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag "application", :media => "all" %>
-  </head>
-  <body>
-    <div class="view_all">
-      <div class="head" >
-
-        
-          <%-if current_user.role=='oprator'%> 
-              <div class="logo">
-                  <%= image_tag 'logo_jm.png' %>
-              </div>
-              <%= render '/layouts/menubar' %> 
-              <div class="user_infor">
-                  <span class="uesr_name"><%=current_user.login_name%>,欢迎您！<%=link_to '注销',signout_path%> </span>
-                  <span>车联天下管理平台</span>
-              </div>
-          <%-elsif current_user.role=='call_center'%> 
-              <div class="logo">
-                  <%= image_tag 'logo_home.png' %>
-              </div>
-              <%= render '/layouts/menubar' %> 
-              <div class="user_infor">
-                  <span class="uesr_name"><%=current_user.login_name%>,欢迎您！<%=link_to '注销',root_path%> </span>
-                  <span>车联天下管理平台</span>
-              </div> 
-          <%-else%>
-              <div class="logo">
-                  <%= image_tag 'logo_home.png' %>
-              </div>
-              <%= render '/layouts/menubar' %> 
-              <div class="user_infor">
-                  <span class="uesr_name"><a href ="<%=manager_users_path%>" target="_blank"><%=current_user.login_name%>,欢迎您！</a><%=link_to '注销',signout_path%> </span>
-                  <span>车联天下管理平台</span>
-              </div>
-        <%-end%>
-        
-
-        <div class="clr"></div>
-      </div><!-- head_home -->
-
-      <div class="alert-messages">
-        <%= render '/layouts/messages' %>
-      </div>
-   
-
-      <div >
-        <%= yield %> 
-        <%=render :partial => 'shared/modal'%>
-      </div><!-- .home_content -->
-
-      <%= render '/layouts/confirm_modal'%>
-    </div><!-- .view_all -->
-    
-    <div id="msg_win" >
-      <div class="icos">
-        <a id="msg_min" title="" href="javascript:void 0">_</a>
-        <a id="msg_close" title="x" href="javascript:void 0">x</a></div>
-      <div id="msg_title">订单提醒</div>
-      <div id="msg_content">
-        <ul>
-        </ul>
-      </div>
-      <div id="msg_bottom"></div>
-  </div> 
-
-  <%-if current_user.role=='oprator'%> 
-      <div class="foot">
-          <p>版权所有(C)2009-2013 车联天下管理平台</p>
-      </div>
-  <%-else%> 
-      <div class="foot">
-          <p>版权所有(C)2009-2013 车联天下管理平台</p>
-      </div>
+<%= stylesheet_link_tag "application", :media => "all" %>
+</head>
+<body>
+<div class="view_all">
+  <div class="head">
+    <%-if current_user.role=='oprator'%> 
+      <div class="logo">
+      <%= image_tag 'logo_jm.png' %>
+    </div>
+    <%= render '/layouts/menubar' %>
+    <div class="user_infor">
+      <span class="uesr_name"><%=current_user.login_name%>,欢迎您！<%=link_to '注销',signout_path%> </span>
+      <span>车联天下管理平台</span>
+    </div>
+  <%-elsif current_user.role=='call_center'%> 
+      <div class="logo">
+      <%= image_tag 'logo_home.png' %>
+    </div>
+    <%= render '/layouts/menubar' %> 
+    <div class="user_infor">
+      <span class="uesr_name"><%=current_user.login_name%>,欢迎您！<%=link_to '注销',root_path%> </span>
+      <span>车联天下管理平台</span>
+    </div> 
+  <%-else%>
+      <div class="logo">
+      <%= image_tag 'logo_home.png' %>
+    </div>
+    <%= render '/layouts/menubar' %> 
+    <div class="user_infor">
+      <span class="uesr_name"><a href ="<%=manager_users_path%>" target="_blank"><%=current_user.login_name%>,欢迎您！</a><%=link_to '注销',signout_path%> </span>
+      <span>车联天下管理平台</span>
+    </div>
   <%-end%>
-    <%= javascript_include_tag "application" %>
-    <!-- 自动激活菜单 -->
-    <script type="text/javascript">
 
-    var Message={
-        set: function() {//最小化与恢复状态切换
-          var set=this.minbtn.status == 1?[0,1,'block',this.char[0],'最小化']:[1,0,'none',this.char[1],'恢复'];
-          this.minbtn.status=set[0];
-          this.win.style.borderBottomWidth=set[1];
-          this.content.style.display =set[2];
-          this.minbtn.innerHTML =set[3]
-          this.minbtn.title = set[4];
-          this.win.style.top = this.getY().top;
-        },
-        close: function() {//关闭
-          this.win.style.display = 'none';
-          window.onscroll = null;
-        },
-        setOpacity: function(x) {//设置透明度
-          var v = x >= 100 ? '': 'Alpha(opacity=' + x + ')';
-          this.win.style.visibility = x<=0?'hidden':'visible';//IE有绝对或相对定位内容不随父透明度变化的bug
-          this.win.style.filter = v;
-          this.win.style.opacity = x / 100;
-        },
-        show: function() {//渐显
-          clearInterval(this.timer2);
-          var me = this,fx = this.fx(0, 100, 0.1),t = 0;
-          this.timer2 = setInterval(function() {
-            t = fx();
-            me.setOpacity(t[0]);
-            if (t[1] == 0) {clearInterval(me.timer2)  }
-          },6);//10 to 6
-        },
-        fx: function(a, b, c) {//缓冲计算
-          var cMath = Math[(a - b) > 0 ? "floor": "ceil"],c = c || 0.1;
-          return function() {return [a += cMath((b - a) * c), a - b]}
-        },
-        getY: function() {//计算移动坐标
-          var d = document,b = document.body, e = document.documentElement;
-          var s = Math.max(b.scrollTop, e.scrollTop);
-          var h = /BackCompat/i.test(document.compatMode)?b.clientHeight:e.clientHeight;
-          var h2 = this.win.offsetHeight;
-          return {foot: s + h + h2 + 2+'px',top: s + h - h2 - 2+'px'}
-        },
-        moveTo: function(y) {//移动动画
+
+    <div class="clr"></div>
+  </div><!-- head_home -->
+
+  <div class="alert-messages">
+    <%= render '/layouts/messages' %>
+  </div>
+
+
+  <div >
+    <%= yield %> 
+    <%=render :partial => 'shared/modal'%>
+  </div><!-- .home_content -->
+
+  <%= render '/layouts/confirm_modal'%>
+</div><!-- .view_all -->
+
+<div id="msg_win" >
+  <div class="icos">
+    <a id="msg_min" title="" href="javascript:void 0">_</a>
+    <a id="msg_close" title="x" href="javascript:void 0">x</a></div>
+  <div id="msg_title">订单提醒</div>
+  <div id="msg_content">
+    <ul>
+    </ul>
+  </div>
+  <div id="msg_bottom"></div>
+</div> 
+
+<%-if current_user.role=='oprator'%> 
+  <div class="foot">
+  <p>版权所有(C)2009-2013 车联天下管理平台</p>
+</div>
+  <%-else%> 
+  <div class="foot">
+  <p>版权所有(C)2009-2013 车联天下管理平台</p>
+</div>
+  <%-end%>
+<%= javascript_include_tag "application" %>
+<!-- 自动激活菜单 -->
+<script type="text/javascript">
+
+var Message={
+set: function() {//最小化与恢复状态切换
+       var set=this.minbtn.status == 1?[0,1,'block',this.char[0],'最小化']:[1,0,'none',this.char[1],'恢复'];
+       this.minbtn.status=set[0];
+       this.win.style.borderBottomWidth=set[1];
+       this.content.style.display =set[2];
+       this.minbtn.innerHTML =set[3]
+         this.minbtn.title = set[4];
+       this.win.style.top = this.getY().top;
+     },
+close: function() {//关闭
+         this.win.style.display = 'none';
+         window.onscroll = null;
+       },
+setOpacity: function(x) {//设置透明度
+              var v = x >= 100 ? '': 'Alpha(opacity=' + x + ')';
+                  this.win.style.visibility = x<=0?'hidden':'visible';//IE有绝对或相对定位内容不随父透明度变化的bug
+                  this.win.style.filter = v;
+                  this.win.style.opacity = x / 100;
+                  },
+show: function() {//渐显
+clearInterval(this.timer2);
+var me = this,fx = this.fx(0, 100, 0.1),t = 0;
+this.timer2 = setInterval(function() {
+  t = fx();
+  me.setOpacity(t[0]);
+  if (t[1] == 0) {clearInterval(me.timer2)  }
+  },6);//10 to 6
+},
+fx: function(a, b, c) {//缓冲计算
+var cMath = Math[(a - b) > 0 ? "floor": "ceil"],c = c || 0.1;
+return function() {return [a += cMath((b - a) * c), a - b]}
+},
+getY: function() {//计算移动坐标
+var d = document,b = document.body, e = document.documentElement;
+var s = Math.max(b.scrollTop, e.scrollTop);
+var h = /BackCompat/i.test(document.compatMode)?b.clientHeight:e.clientHeight;
+var h2 = this.win.offsetHeight;
+return {foot: s + h + h2 + 2+'px',top: s + h - h2 - 2+'px'}
+      },
+moveTo: function(y) {//移动动画
           clearInterval(this.timer);
           var me = this,a = parseInt(this.win.style.top)||0;
           var fx = this.fx(a, parseInt(y));
           var t = 0 ;
           this.timer = setInterval(function() {
-            t = fx();
-            me.win.style.top = t[0]+'px';
-            if (t[1] == 0) {
+              t = fx();
+              me.win.style.top = t[0]+'px';
+              if (t[1] == 0) {
               clearInterval(me.timer);
               me.bind();
-            }
-          },6);//10 to 6
+              }
+              },6);//10 to 6
         },
-        bind:function (){//绑定窗口滚动条与大小变化事件
-          var me=this,st,rt;
-          window.onscroll = function() {
-            clearTimeout(st);
-            clearTimeout(me.timer2);
-            me.setOpacity(0);
-            st = setTimeout(function() {
-              me.win.style.top = me.getY().top;
-              me.show();
-            },100);//600 mod 100
-          };
-          window.onresize = function (){
-            clearTimeout(rt);
-            rt = setTimeout(function() {me.win.style.top = me.getY().top},100);
-          }
-        },
-        init: function() {//创建HTML
-          function $(id) {return document.getElementById(id)};
-          this.win=$('msg_win');
-          var set={minbtn: 'msg_min',closebtn: 'msg_close',title: 'msg_title',content: 'msg_content'};
-          for (var Id in set) {this[Id] = $(set[Id])};
-          var me = this;
-          this.minbtn.onclick = function() {me.set();this.blur()};
-          this.closebtn.onclick = function() {me.close()};
-          this.char=navigator.userAgent.toLowerCase().indexOf('firefox')+1?['_','::','×']:['0','2','r'];//FF不支持webdings字体
-          this.minbtn.innerHTML=this.char[0];
-          this.closebtn.innerHTML=this.char[2];
-          setTimeout(function() {//初始化最先位置
+bind:function (){//绑定窗口滚动条与大小变化事件
+       var me=this,st,rt;
+       window.onscroll = function() {
+         clearTimeout(st);
+         clearTimeout(me.timer2);
+         me.setOpacity(0);
+         st = setTimeout(function() {
+             me.win.style.top = me.getY().top;
+             me.show();
+             },100);//600 mod 100
+       };
+       window.onresize = function (){
+         clearTimeout(rt);
+         rt = setTimeout(function() {me.win.style.top = me.getY().top},100);
+       }
+     },
+init: function() {//创建HTML
+        function $(id) {return document.getElementById(id)};
+        this.win=$('msg_win');
+        var set={minbtn: 'msg_min',closebtn: 'msg_close',title: 'msg_title',content: 'msg_content'};
+        for (var Id in set) {this[Id] = $(set[Id])};
+        var me = this;
+        this.minbtn.onclick = function() {me.set();this.blur()};
+        this.closebtn.onclick = function() {me.close()};
+        this.char=navigator.userAgent.toLowerCase().indexOf('firefox')+1?['_','::','×']:['0','2','r'];//FF不支持webdings字体
+        this.minbtn.innerHTML=this.char[0];
+        this.closebtn.innerHTML=this.char[2];
+        setTimeout(function() {//初始化最先位置
             me.win.style.display = 'block';
             me.win.style.top = me.getY().foot;
             me.moveTo(me.getY().top);
-          },0);
-          return this;
-        }
-        };
-        
-    </script>
-  </body>
+            },0);
+        return this;
+      }
+};
+
+</script>
+</body>
 </html>

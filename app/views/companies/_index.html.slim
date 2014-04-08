@@ -4,24 +4,6 @@
     -if can? :create,Company
       =link_to new_company_path(), :remote=>true do
         button.btn 新增公司
-    /form.form-horizontal.order_search
-      .row-fluid
-        .span11
-          .span4
-            .control-group
-              label.control-label for=""
-              .controls
-                input id="" type="text"
-          .span4
-            .control-group
-              label.control-label for=""
-              .controls
-                input id="" type="text"
-        .span1
-          .save_button.search_button
-            .btn.btn-primary 查询
-      /! row-fluid
-    /! form-horizontal
     table.table.table-striped.sortable.table-hover
       thead
         tr 
