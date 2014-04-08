@@ -1,5 +1,6 @@
 .row.location_all
   .span12
+    =render 'search'
     -if can? :create,Company
       =link_to new_company_path(), :remote=>true do
         button.btn 新增公司
