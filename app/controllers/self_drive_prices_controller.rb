@@ -45,15 +45,20 @@ class SelfDrivePricesController < ApplicationController
   # POST /self_drive_prices
   # POST /self_drive_prices.json
   def create
+    params[:car_model_ids]
     prices_params=params[:car_model_ids].split(',').map{|c| {car_model_id: c}.merge!(params[:self_drive_price])}
 
     self_drive_prices = SelfDrivePrice.create(prices_params)
     respond_to do |format|
-      if self_drive_prices.map(&:errors).empty?
-        format.html { redirect_to self_drive_prices_path, notice: 'Self drive price was successfully created.' }
-      else
-        format.html { redirect_to self_drive_prices_path, notice: self_drive_prices.map{|s|s.errors.messages.values}.flatten.join(',') }
-      end
+      format.html{
+        if params[:car_model_ids].blank?
+          redirect_to self_drive_prices_path, notice: '车辆品牌不能为空'
+        elsif self_drive_prices.map(&:errors).empty?
+          redirect_to self_drive_prices_path, notice: '自驾价格创建成功'
+        else
+          redirect_to self_drive_prices_path, notice: self_drive_prices.map{|s|s.errors.messages.values}.flatten.join(',')
+        end
+      }
     end
   end
 
