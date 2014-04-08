@@ -45,7 +45,6 @@ class SelfDrivePricesController < ApplicationController
   # POST /self_drive_prices
   # POST /self_drive_prices.json
   def create
-    params[:car_model_ids]
     prices_params=params[:car_model_ids].split(',').map{|c| {car_model_id: c}.merge!(params[:self_drive_price])}
 
     self_drive_prices = SelfDrivePrice.create(prices_params)
