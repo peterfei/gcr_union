@@ -1,0 +1,25 @@
+p
+  b 周内价格:
+  = @self_drive_price.weekday
+p
+  b 周末价格:
+  = @self_drive_price.weekend
+p
+  b 车型:
+  = @self_drive_price.car_model
+p
+  b 门店:
+  = @self_drive_price.location
+p
+  b 预授权:
+  = @self_drive_price.prepayment
+p
+  b 超小时费:
+  = @self_drive_price.overtime
+p
+  b 超公里费:
+  = @self_drive_price.overdistance
+
+= link_to '编辑', edit_self_drive_price_path(@self_drive_price)
+\|
+= link_to '返回', self_drive_prices_path
