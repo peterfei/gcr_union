@@ -44,7 +44,7 @@ class SysParametersController < ApplicationController
 
     respond_to do |format|
       if @sys_parameter.save
-        format.html { redirect_to @sys_parameter, notice: 'Sys parameter was successfully created.' }
+        format.html { redirect_to @sys_parameter, notice: '系统参数创建成功' }
         format.json { render json: @sys_parameter, status: :created, location: @sys_parameter }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class SysParametersController < ApplicationController
 
     respond_to do |format|
       if @sys_parameter.update_attributes(params[:sys_parameter])
-        format.html { redirect_to @sys_parameter, notice: 'Sys parameter was successfully updated.' }
+        format.html { redirect_to @sys_parameter, notice: '系统参数更新成功' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
