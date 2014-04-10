@@ -370,6 +370,13 @@ zh-CN:
     errors:
       <<: *errors
     attributes:
+      driver:
+        location_id: '门店'
+        driver_name: '驾驶员姓名'
+        driver_phone: '驾驶员手机'
+        driver_year: '驾龄'
+        born: '籍贯'
+        driver_allowed: '准驾车型'
       car:
         car_tag: '车牌号'
         alt_car_tag: '备用车牌号'
