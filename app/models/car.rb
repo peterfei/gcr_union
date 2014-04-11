@@ -21,7 +21,7 @@ class Car < ActiveRecord::Base
   def car_model_name
     car_model.car_model_name
   end
-  def self.available  car_type_id,seat
+  def self.available car_type_id,seat
     where(car_type_id:car_type_id)
   end
 

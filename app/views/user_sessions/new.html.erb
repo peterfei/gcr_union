@@ -1,37 +1,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>车联天下管理平台</title>
-
-  <%= stylesheet_link_tag "application", :media => "all" %>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>车联天下管理平台</title>
+<%= stylesheet_link_tag "application", :media => "all" %>
 </head>
 <link type="text/css" rel="stylesheet" media="all" href="/assets/login.css?body=1">
 <style>
 
 
-    .form-horizontal .control-label {
-        width: 60px;
-    }
+.form-horizontal .control-label {
+  width: 60px;
+}
 
 </style>
 <script>
-    function fleshVerify(){
-
-        var timenow = new Date().getTime();
-        document.getElementById('verifyImg').src= '/captcha?action=captcha&i='+timenow;
-    }
+function fleshVerify(){
+  var timenow = new Date().getTime();
+  document.getElementById('verifyImg').src= '/captcha?action=captcha&i='+timenow;
+}
 
 </script>
 <body style="background:none; background-color:#e7f3ff; ">
 <div class="login_all">
   <div class="login_all_content"> 
-   
+
     <div class="login_mask">
       <div class="login_all_left">
         <div class="login_header">
 
-            <%= image_tag('logo.png') %>
+          <%= image_tag('logo.png') %>
           <div class="clr"></div>
         </div>
         <div class="car_mate"></div>
@@ -47,27 +45,27 @@
             </div>
             <%= simple_form_for '', :url => user_sessions_path,wrapper:'bootstrap',style:{margin:'0 0 0 0'} do |f| %>
               <h4>用户登陆</h4>
-                <div class="form-horizontal">
-                  <%= f.input :login, :required => false, :autofocus => true,label:'用户名' %>
-                  <%= f.input :password, :required => false %>
-                </div>
+            <div class="form-horizontal">
+              <%= f.input :login, :required => false, :autofocus => true,label:'用户名' %>
+              <%= f.input :password, :required => false %>
+            </div>
 
-                
 
-                <div class="login_form_botton">
-                  <%= f.button :submit, "" ,:class=>'login_button'%>
-                  <button class="reset_button"  tabindex="3" type="reset"></button>
-                </div>
 
-            <% end %>
+            <div class="login_form_botton">
+              <%= f.button :submit, "" ,:class=>'login_button'%>
+              <button class="reset_button"  tabindex="3" type="reset"></button>
+            </div>
+
+          <% end %>
           </div>
           <div class="login_text_bottom"></div>
 
         </div>
       </div>
     </div>
- <div style="text-align:center;">后台管理推荐使用火狐浏览器，<a
-href="http://firefox.com.cn/download/" target="_blank">点击下载</a></div>
+    <div style="text-align:center;">后台管理推荐使用火狐浏览器，<a
+        href="http://firefox.com.cn/download/" target="_blank">点击下载</a></div>
   </div>
 
 </div>

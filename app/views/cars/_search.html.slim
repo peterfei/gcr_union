@@ -6,8 +6,14 @@
           .span5=f.input :car_tag_equals,input_html:{class:"search-query"}
           .span5
             =f.input :status_equals,collection:Car.status.options,placeholder:"全部",input_html:{class:"search-query"},label:"车辆状态"
-          /.span5=f.association :car_model_car_model_equals,input_html:{class:"search-query"}
-          /.span5=f.input :location_equals,input_html:{class:"search-query"}
+        .row-fluid
+          .span5
+            =f.input :location_id_equals, input_html:{class: "pickup_location"}
+          .span5
+            =f.input :car_model_id_equals
+        .row-fluid
+          .span5
+            =f.input :location_company_id_equals, input_html:{id: "company_id"}, label: '所属公司'
         .control-group
           .controls
             =f.submit value:"查询",class: "btn btn-small"
