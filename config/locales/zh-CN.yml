@@ -358,7 +358,7 @@ zh-CN:
     car_model: '车辆品牌'
     car_type: '车型'
     manager_user: '管理用户'
-    user: '客户信息'
+    user: '客户'
     self_drive_price: '自驾价格'
     car_type_rate: '代驾价格'
     base_rate_code: "业务类型"
