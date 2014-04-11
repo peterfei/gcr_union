@@ -1,2 +1,14 @@
-=render 'form'
-
+table.table
+  tbody
+    tr
+      td style='width: 200px;' 业务类型
+      td= @base_rate_code.rate_code
+    tr
+      td 业务类型名称
+      td= @base_rate_code
+    tr
+      td 小时基数
+      td= @base_rate_code.base_hour
+    tr
+      td 公里基数
+      td= @base_rate_code.base_km
