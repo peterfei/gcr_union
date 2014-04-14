@@ -68,7 +68,7 @@ class SelfDrivePricesController < ApplicationController
 
     respond_to do |format|
       if @self_drive_price.update_attributes(params[:self_drive_price])
-        format.html { redirect_to @self_drive_price, notice: 'Self drive price was successfully updated.' }
+        format.html { redirect_to @self_drive_price, notice: '自驾价格更新成功' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
