@@ -12,9 +12,7 @@ table.table.table-bordered.table-hover
       td = base_rate_code.rate_code_name
       td = base_rate_code.base_hour
       td = base_rate_code.base_km
-      td 
+      td
         .btn-group
           = link_to '查看', base_rate_code,class: 'btn btn-small'
           = link_to '编辑', edit_base_rate_code_path(base_rate_code),class: 'btn btn-small'
-          = link_to '删除', base_rate_code, :confirm => '确定删除?', :method => :delete,class: 'btn btn-small'
-
