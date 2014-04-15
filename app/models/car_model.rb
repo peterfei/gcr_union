@@ -15,7 +15,7 @@ class CarModel < ActiveRecord::Base
   validates :car_model_name, presence: true
   validates :car_model, presence: true
   validates :car_type_id, presence: true
-  validates :car_model_img_url, presence: true
+  # validates :car_model_img_url, presence: true
 
   class << self
     def without_prices
