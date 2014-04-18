@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def index
     @search = User.search params[:search]
     @users = @search.page params[:page]
-  end 
+  end
 
   def new
     @user = User.new 
