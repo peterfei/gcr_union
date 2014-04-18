@@ -51,11 +51,11 @@ class SelfDrivePricesController < ApplicationController
     respond_to do |format|
       format.html{
         if params[:car_model_ids].blank?
-          redirect_to self_drive_prices_path, notice: '车辆品牌不能为空'
+          redirect_to new_self_drive_price_path, notice: '车辆品牌不能为空'
         elsif self_drive_prices.map(&:errors).empty?
           redirect_to self_drive_prices_path, notice: '自驾价格创建成功'
         else
-          redirect_to self_drive_prices_path, notice: self_drive_prices.map{|s|s.errors.messages.values}.flatten.join(',')
+          redirect_to new_self_drive_price_path, notice: self_drive_prices.map{|s|s.errors.messages.values}.flatten.join(',')
         end
       }
     end

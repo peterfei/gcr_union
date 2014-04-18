@@ -12,7 +12,7 @@ class SelfDrivePrice < ActiveRecord::Base
   validates :car_model_id, presence: true, uniqueness: { scope: :location_id,
                                                          message: "门店中的车辆品牌只能有一种价格" }
 
-  validates :location, presence: {message: '门店不能为空'}
+  validates :location_id, presence: {message: '门店不能为空'}
   validates :weekday,  presence: {message: '周内价格不能为空'}
   validates :weekend,  presence: {message: '周内价格不能为空'}
 end
