@@ -1,8 +1,8 @@
 $('#main').html('<%=j(render("form"))%>');
-$('body').init_components(); 
-$('#edit_reservation_<%=@reservation.id%> input').attr("disabled",true); 
-$('#edit_reservation_<%=@reservation.id%> textarea').attr("disabled",true); 
-$('#edit_reservation_<%=@reservation.id%> select').select2('readonly',true); 
-$('#edit_reservation_<%=@reservation.id%> select').attr('readonly',true); 
-$('#edit_reservation_<%=@reservation.id%> input:checkbox:checked').parent('label').css('color','red').css('font-size','18px'); 
-$('#order_sb').hide(); 
+$('body').init_components();
+$('input').prop("disabled",true);
+$('input.select2-offscreen').prop("disabled",true);
+$('textarea').prop("disabled",true);
+$('select').select2('readonly',true);
+$('input:checkbox:checked').parent('label').css('color','red').css('font-size','18px');
+$('#order_sb').hide();
