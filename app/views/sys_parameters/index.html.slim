@@ -9,11 +9,11 @@ table
       td = sys_parameter.para_name
       td = sys_parameter.para_value
       td = sys_parameter.para_desc
-      td 
-        .btn-group 
+      td
+        .btn-group
           = link_to '显示', sys_parameter,class:"btn btn-small"
           = link_to '编辑', edit_sys_parameter_path(sys_parameter),class:"btn btn-small"
-          = link_to '删除', sys_parameter, :confirm => '是否确认?', :method => :delete,class:"btn btn-small"
+          = link_to '删除', sys_parameter, :confirm => '确认删除', :method => :delete,class:"btn btn-small"
 
 br
 
