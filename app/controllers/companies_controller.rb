@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
   def index
     if current_user.role=='oprator'
       @where = "#{current_user.company_id}"
-      @search = Company.search(params[:search]).where(:id=>@where)
+      @search = Company.where(:id=>@where).search(params[:search])
     else
       @search = Company.search(params[:search])
     end
