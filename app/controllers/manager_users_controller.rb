@@ -2,9 +2,9 @@ class ManagerUsersController < ApplicationController
   # GET /manager_users
   # GET /manager_users.json
   def index
-    @manager_users = ManagerUser.all
-
-    respond_to do |format| 
+    @search = ManagerUser.search(params[:search])
+    @manager_users = @search.page params[:page]
+    respond_to do |format|
       format.js
       format.html # index.html.erb
       format.json { render json: @manager_users }

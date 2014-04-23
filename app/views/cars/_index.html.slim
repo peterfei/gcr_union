@@ -15,7 +15,6 @@ table.table.table-bordered
   tbody
     = render @cars
 -if @cars.kind_of? ActiveRecord::Relation
-  .pagination.pagination-centered
-    =paginate @cars, :theme => 'bootstrap', remote: true
+  = render partial: 'shared/pagination', locals: {collection: @cars}
 -else
   = link_to '返回', cars_path, remote: true

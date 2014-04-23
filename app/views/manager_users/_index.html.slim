@@ -1,8 +1,9 @@
+= link_to '新建帐号', new_manager_user_path,remote:true,class:"btn"
 table.table.table-condensed
   tr
     th 帐号
-    th 用户类型 
-    th 角色权限 
+    th 用户类型
+    th 角色权限
     th 所属公司
     th colspan='2' 操作
   tbody
@@ -10,13 +11,10 @@ table.table.table-condensed
     tr
       td = manager_user.login_name
       td = manager_user.manager_user_type_text
-      td = manager_user.role_text 
+      td = manager_user.role_text
       td = manager_user.company
       td colspan=2  
         .btn-group
           = link_to '显示', manager_user,class:"btn btn-small",remote:true
           = link_to '编辑', edit_manager_user_path(manager_user),class:"btn btn-small",remote:true
           = link_to '删除', manager_user, :confirm => '确定要删除吗?', :method => :delete,class:"btn btn-small"
-br
-
-= link_to '新建帐号', new_manager_user_path,remote:true,class:"btn"
