@@ -19,6 +19,7 @@ class ManagerUsersController < ApplicationController
     respond_to do |format| 
       format.js
       format.json { render json: @manager_user }
+      format.html
     end
   end
 
@@ -37,8 +38,9 @@ class ManagerUsersController < ApplicationController
   # GET /manager_users/1/edit
   def edit
     @manager_user = ManagerUser.find(params[:id]) 
-    respond_to do |format| 
+    respond_to do |format|
       format.js
+      format.html
     end
   end
 
@@ -49,7 +51,7 @@ class ManagerUsersController < ApplicationController
 
     respond_to do |format|
       if @manager_user.save
-        format.html { redirect_to @manager_user, notice: 'Manager user was successfully created.' }
+        format.html { redirect_to @manager_user, notice: '管理用户创建成功.' }
         format.json { render json: @manager_user, status: :created, location: @manager_user }
       else 
         format.js{render "new"}
@@ -68,7 +70,7 @@ class ManagerUsersController < ApplicationController
     end
     respond_to do |format| 
       if @manager_user.update_attributes(params[:manager_user])
-        format.html { redirect_to @manager_user, notice: 'Manager user was successfully updated.' }
+        format.html { redirect_to @manager_user, notice: '管理用户更新成功.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
