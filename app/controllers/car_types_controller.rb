@@ -7,7 +7,7 @@ class CarTypesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @car_types }
+      format.json { render_select2 @car_types }
       format.js
     end
   end
@@ -19,7 +19,7 @@ class CarTypesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @car_type }
+      format.json { render_select2 @car_type }
       format.js
     end
   end

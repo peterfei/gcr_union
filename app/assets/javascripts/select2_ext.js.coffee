@@ -89,6 +89,16 @@ $.fn.extend
           return {} =
             results: data.results
             more: more
+  car_type_select2: ->
+    @lazy_select2
+      url: -> '/car_types'
+      init: (id) -> '/car_types/' + id
+      params: (term, page) ->
+        return {}=
+          search: {
+            car_type_name_contains: term
+          }
+          page: page
   pickup_city_select2: () ->
     @lazy_select2
       url: -> '/cities'
@@ -187,3 +197,5 @@ $.fn.extend
     $('#self_drive_price_location_id').location_select2()
     $('#search_car_model_id_equals').car_model_select2(false)
     $('#search_location_id_equals').location_select2()
+
+    $('.car_type_select').car_type_select2()
