@@ -6,6 +6,9 @@
           .span5=f.input :driver_name_equals,input_html:{class:"search-query"}
           .span5
             =f.input :status_equals,collection:Driver.status.options,placeholder:"全部",input_html:{class:"search-query"},label:"司机状态"
+        .row-fluid
+          .span5=f.input :company_id_equals, input_html: {id:"company_id"}, label: '所属公司'
+          .span5=f.input :location_id_equals, input_html: {id:"location_id"}, label: '所属门店'
         .control-group
           .controls
             =f.submit value:"查询",class: "btn btn-small"
