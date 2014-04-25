@@ -24,10 +24,10 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @result = 0
-    respond_to do |format| 
+    respond_to do |format|
       format.html # show.html.erb
       format.js
-      format.json { render json: @company }
+      format.json { render_select2 @company }
     end
   end
 
