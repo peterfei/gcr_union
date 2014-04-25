@@ -3,7 +3,7 @@ class CarTypesController < ApplicationController
   # GET /car_types.json
   def index
     @search = CarType.includes(:car_type_rates).search(params[:search])
-    @car_types = @search.page params[:page]
+    @car_types = @search.group('car_types.id').page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
