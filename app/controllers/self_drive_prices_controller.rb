@@ -4,7 +4,7 @@ class SelfDrivePricesController < ApplicationController
   # GET /self_drive_prices.json
   layout 'index'
   def index
-    @search = SelfDrivePrice.search(params[:search])
+    @search = SelfDrivePrice.includes(:location).search(params[:search])
     @self_drive_prices=@search.page params[:page]
 
     respond_to do |format|

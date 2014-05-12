@@ -1,5 +1,6 @@
 -path = edit_self_drive_price_path(self_drive_price)
 tr class="self_drive_price_#{self_drive_price.id}"
+  td =self_drive_price.location.city
   td =self_drive_price.location
   td =self_drive_price.car_model
   td =link_to self_drive_price.weekday, path, remote: true
