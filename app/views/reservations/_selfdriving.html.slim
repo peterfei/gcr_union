@@ -4,22 +4,22 @@
   h4 基本信息
   .row-fluid 
     .span5
-      =f.association :base_rate_code,label:"业务类型",disabled:true  
+      =f.association :base_rate_code,label:"业务类型",disabled:true
     .span5
-      = f.input :confirmation, :label=>'订单编号' ,disabled:true 
+      = f.input :confirmation, :label=>'订单编号' ,disabled:true
 .span12
   
-.span12.row-fluid 
+.span12.row-fluid
   .span5
     = f.association :pickup_city, :label=>'取车城市'
-  .span5 
+  .span5
     = f.association :return_city, :label=>'还车城市'
-.span12.row-fluid 
+.span12.row-fluid
   .span5
     = f.association :pickup_location, :label=>'取车门店'
-  .span5 
+  .span5
     = f.association :return_location, :label=>'还车门店'
-.span12.row-fluid 
+.span12.row-fluid
   .span5
     =render 'start_time',label:"取车时间"
   .span5
@@ -37,41 +37,31 @@
     .span5
       =f.input :car_id,input_html:{id:"car_id"} ,label:'车牌号码'
 .span12
-  h4 增值服务 
+  h4 增值服务
   .span12=f.input :special_requirements,label_method: special_requirements_text, as: 'check_boxes', item_wrapper_class: 'inline'
 .span12
-  h4 结算信息 
-  .row-fluid 
+  h4 结算信息
+  .row-fluid
     .span5
       label.select.optional.control-label=label rescue '基本费用'
       .controls
         .input-appentd
           =text_field_tag 'base_rate',(number_to_currency(@reservation.car_type_rate.base_rate) rescue @reservation.total_price),disabled:true
     .span5
-      /=f.deposit
-      label.select.optional.control-label=label rescue '预售权'
-      .controls
-        .input-appentd
-          =text_field_tag 'special_requirements',@reservation.self_drive_price.prepayment
+      =f.input :self_driving_prepayment, label: '预授权'
 .span12
   .row-fluid
     .span5
-      label.select.optional.control-label=label rescue '超小时价'
-      .controls
-        .input-appentd
-          =text_field_tag 'special_requirements',@reservation.self_drive_price.overtime rescue nil
+      =f.input :self_driving_overtime, label: '超小时价'
     .span5
-      label.select.optional.control-label=label rescue '超公里价'
-      .controls
-        .input-appentd
-          =text_field_tag 'special_requirements',@reservation.self_drive_price.overdistance rescue nil
-.span12 
-  .row-fluid 
+      =f.input :self_driving_overdistance, label: '超公里价'
+.span12
+  .row-fluid
     .span5
       label.select.optional.control-label=label rescue '代码优惠'
       .controls
         .input-appentd
-          ==text_field_tag 'special_requirements',coupon_tag(@reservation.coupon),disabled:true 
+          ==text_field_tag 'special_requirements',coupon_tag(@reservation.coupon),disabled:true
     .span5
       label.select.optional.control-label=label rescue '费用合计' 
       .controls

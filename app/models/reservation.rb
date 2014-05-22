@@ -10,7 +10,9 @@ class Reservation < ActiveRecord::Base
     :invoice_title, :pickup_district_id, :return_district_id,
     :passenger_num, :airport_id, :railway_id, :airline, :coupon_id,
     :send_status, :car_id, :train_number, :car_model_id, :pay_mode,
-    :return_location_id, :pickup_location_id,:company_id,:driver_id,:customer_id, :driver_attributes
+    :return_location_id, :pickup_location_id,:company_id,:driver_id,
+    :customer_id, :driver_attributes,
+    :self_driving_prepayment, :self_driving_overtime, :self_driving_overdistance
   default_scope ->{order("created_at DESC")}
   extend Enumerize
 
@@ -91,15 +93,10 @@ class Reservation < ActiveRecord::Base
   def pickup_location_id
     read_attribute(:pickup_location_id)||read_attribute(:return_location_id)
   end
-  before_save :compute_price
+  # before_save :compute_price
   before_create :generate_confirmation
   def compute_price
     if rate_code == 'ZJ'
-      price = CarModel.in(start_date: pickup_date.to_s,
-                          end_date: return_date.to_s,
-                          location: pickup_location_id).find(car_model_id).total_price
-      price += 100 if special_requirements.include?('GPS导航')
-      price += 100 if special_requirements.include?('儿童座椅')
 
     else
       price = car_type_rate.base_rate
