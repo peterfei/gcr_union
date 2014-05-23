@@ -45,7 +45,7 @@ class ValueAddedServicesController < ApplicationController
 
     respond_to do |format|
       if @value_added_service.save
-        format.html { redirect_to @value_added_service, notice: 'ValueAddedService was successfully created.' }
+        format.html { redirect_to @value_added_service, notice: '增值服务创建成功' }
         format.json { render json: @value_added_service, status: :created, location: @value_added_service }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class ValueAddedServicesController < ApplicationController
 
     respond_to do |format|
       if @value_added_service.update_attributes(params[:value_added_service])
-        format.html { redirect_to @value_added_service, notice: 'ValueAddedService was successfully updated.' }
+        format.html { redirect_to @value_added_service, notice: '增值服务更新成功' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
