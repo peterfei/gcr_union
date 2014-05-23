@@ -1,5 +1,4 @@
 GcrUnion::Application.routes.draw do 
-  
   resources :self_drive_prices
   #resources :comments
 
@@ -7,10 +6,9 @@ GcrUnion::Application.routes.draw do
   #ComfortableMexicanSofa::Routing.content(:path => '/', :sitemap => false)
 
   ComfortableMexicanSofa::Routing.admin(:path => '/cms-admin')
-  #  
   #  # Make sure this routeset is defined last
   #ComfortableMexicanSofa::Routing.content(:path => '/', :sitemap => false)
-  resources :call_centers
+  resources :value_added_services
   resources :railways
   resources :airports
   resources :manager_users
@@ -27,18 +25,18 @@ GcrUnion::Application.routes.draw do
   resources :coupons
   resources :self_drive_prices
   resources :reservations do
-      match 'dispatch_location' ,:on=>:member
-      match 'dispatch_car' ,:on=>:member 
-      match 'execing' ,:on=>:member 
-      match 'done' ,:on=>:member 
-      match 'cancel' ,:on=>:member 
-      resource :comments 
-      match 'print',:on=>:member
+    match 'dispatch_location' ,:on=>:member
+    match 'dispatch_car' ,:on=>:member
+    match 'execing' ,:on=>:member
+    match 'done' ,:on=>:member
+    match 'cancel' ,:on=>:member
+    resource :comments
+    match 'print',:on=>:member
   end
   resources :cars, path_names: { destroy: 'disable' }
   resources :locations
-  resources :companies 
-  resources :users 
+  resources :companies
+  resources :users
   match 'users/change_user_status/:id'=>"users#change_user_status",:as=>"change_user_status"
   match 'drivers/change_status/:id' => 'drivers#change_status',:as=>'change_status'
   match 'companies/alter_status/:id' => 'companies#alter_status',:as=>'alter_status'

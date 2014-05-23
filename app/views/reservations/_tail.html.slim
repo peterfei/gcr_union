@@ -125,7 +125,10 @@
 .span12
   h4 增值服务 
   /.span5=@reservation.special_requirements.map(&:text).join('/')||无
-  .span12=f.input :special_requirements,label_method: special_requirements_text, as: 'check_boxes', item_wrapper_class: 'inline'
+  .span12
+    =(f.input :special_requirements,collection: @reservation.value_added_services_collection,
+      as: 'check_boxes', item_wrapper_class: 'inline',
+      checked: @reservation.special_requirements)
 .span12
   h4 结算信息 
   .row-fluid 

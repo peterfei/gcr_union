@@ -38,7 +38,10 @@
       =f.input :car_id,input_html:{id:"car_id"} ,label:'车牌号码'
 .span12
   h4 增值服务
-  .span12=f.input :special_requirements,label_method: special_requirements_text, as: 'check_boxes', item_wrapper_class: 'inline'
+  .span12
+    =(f.input :special_requirements,collection: @reservation.value_added_services_collection,
+      as: 'check_boxes', item_wrapper_class: 'inline',
+      checked: @reservation.special_requirements)
 .span12
   h4 结算信息
   .row-fluid

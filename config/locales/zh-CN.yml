@@ -1,5 +1,12 @@
 zh-CN:
   enumerize:
+    value_added_service:
+      status:
+        enable: '启用'
+        disable: '停用'
+    _type:
+      reservation: '代价'
+      self_driving: '自驾'
     pay_mode:
       online: '在线支付'
       driver: '司机代收'
@@ -350,6 +357,7 @@ zh-CN:
     pm: 下午
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
+    value_added_service: '增值服务'
     reservation: '订单'
     car: '车辆'
     company: '公司'
@@ -370,6 +378,11 @@ zh-CN:
     errors:
       <<: *errors
     attributes:
+      value_added_service:
+        _type: '类别'
+        name: '名称'
+        price: '价格'
+        status: '状态'
       driver:
         location_id: '门店'
         driver_name: '驾驶员姓名'

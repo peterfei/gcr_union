@@ -20,10 +20,6 @@ class Reservation < ActiveRecord::Base
   serialize :special_requirements, Array
   enumerize :special_passenger, in: [:old, :patient, :baby, :pregnant, :foreign, :leader], multiple: true
 
-  #enumerize :special_requirements, in: %w/英文驾驶员 举牌等候/, multiple: true
-  enumerize :special_requirements, in: [:en_driver, :waiting_card], multiple: true 
-  #自驾代理
-  #delegate :special_requirements_self, to: :special_requirements
   enumerize :status, in: [:unconfirm, :pending, :waitexec, :hascar, :execing, :done , :canceled],
     default: :unconfirm, predicates: true
 
@@ -61,14 +57,33 @@ class Reservation < ActiveRecord::Base
                         r.base_rate_code.rate_code=='RZ' }
   validates :use_hour, :presence => {message: '用车时长不能为空'},
                       numericality: true,
-                      :if => Proc.new { |r| r.base_rate_code.rate_code=='SZ' } 
+                      :if => Proc.new { |r| r.base_rate_code.rate_code=='SZ' }
+
+  def value_added_services
+    Hash[special_requirements.reject(&:blank?).map{|s|s.split('#')}]
+  end
+  def value_added_services_text
+    ValueAddedService.where(id: value_added_services.keys).map(&:name).join('/')
+  end
+  def value_added_services_collection
+    ValueAddedService.where(_type: rate_code == 'ZJ' ? 'self_driving' : 'reservation')
+      .select{|v| v.status.enable? || value_added_services.has_key?(v.id.to_s)}
+      .map do |v|
+        price = value_added_services[v.id.to_s] || v.price
+        ["#{v.name}(¥#{price})", "#{v.id}##{price}"]
+      end
+  end
+  def value_added_servies_price
+    value_added_services.inject(0){|sum, v| sum += v.last.to_f }
+  end
+
   def rate_code
     @rate_code ||= base_rate_code.rate_code
-  end 
+  end
 
   def rate_code= rate_code
     @rate_code=rate_code
-  end 
+  end
 
   def unit
     {

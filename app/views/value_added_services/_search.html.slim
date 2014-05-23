@@ -1,0 +1,8 @@
+= simple_form_for @search, defaults: {required: false}, :html => {:class => 'form-horizontal' }, wrapper: 'bootstrap' do |f|
+  fieldset
+    #legend
+      .row-fluid
+        .span5=f.input :_type_equals, collection: ValueAddedService._type.options, include_blank: '全部'
+      .control-group
+        .controls
+          =f.submit value:"查询",class: "btn btn-small"
