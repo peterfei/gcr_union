@@ -5,7 +5,7 @@ zh-CN:
         enable: '启用'
         disable: '停用'
     _type:
-      reservation: '代价'
+      reservation: '代驾'
       self_driving: '自驾'
     pay_mode:
       online: '在线支付'
