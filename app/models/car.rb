@@ -6,7 +6,8 @@ class Car < ActiveRecord::Base
 
   validates :seat, presence: true
   validates :car_tag, presence: { message: '不能为空' }, uniqueness: {message:"已占用"}
-  # validates :color,   format: { message: '不能为空且只允许为字符' ,:with => /^[^0-9.,]+$/}
+  validates :location_id, presence: true
+  validates :car_model_id, presence: true
 
   extend Enumerize
   enumerize :status, in: [:enable,:disable], default: :enable

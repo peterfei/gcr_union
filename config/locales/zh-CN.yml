@@ -264,7 +264,7 @@ zh-CN:
       car_tag: "车牌号"
     messages:
       accepted: 必须是可被接受的
-      blank: 不能为空字符
+      blank: 不能为空
       confirmation: 与确认值不匹配
       empty: 不能留空
       equal_to: 必须等于 %{count}
@@ -395,3 +395,5 @@ zh-CN:
         alt_car_tag: '备用车牌号'
         color: '颜色'
         seat: '座位数'
+        location_id: '门店'
+        car_model_id: '品牌'
