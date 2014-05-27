@@ -30,7 +30,7 @@
     h4.header 营业信息
     .row-fluid
       .span4.form-inline id="yysjj"
-        |营业时间
+        '营业时间
         = select_tag 'start_time_hour' , options_for_select(Location.hour_list,:selected=>@start_time_hour),:style=>"width:80px;", :label=>'营业时间'
         = select_tag 'start_time_min' , options_for_select(Location.minute_list,:selected=>@start_time_min),:style=>"width:80px;"
         /= f.input :start_time,as: :string, :label=>'营业时间', input_html:{class:"datepicker"}
@@ -53,7 +53,12 @@
         = f.input :status, :collection => Location.status_list, :input_html => { :placeholder => '请选择营业状态' }
   .span12
     .wdj_bordertop
-      .wdj_btnwidth  
+      .wdj_btnwidth
         .btn-group
-          = link_to '返回',locations_path, :remote=>true, class:"btn btn-small"
           = f.submit :class =>'btn btn-small', :value => '保存', :id=>"locationOfSaveBtn"
+          = link_to '返回', locations_path, class:"btn btn-small"
+
+-if current_user.role=='oprator'
+  coffee:
+    jQuery ->
+      $('#location_company_id').select2('readonly',true);

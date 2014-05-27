@@ -1,4 +1,0 @@
-$('.page-container').html('');
-<%-@reservations.each do |reservation|%>
-  $('.page-container').append('<%=j(render :partial=>"list",:locals=>{:reservation=>reservation})%>');
-<%end%>

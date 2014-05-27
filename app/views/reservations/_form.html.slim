@@ -1,4 +1,4 @@
-= simple_form_for @reservation,url:reservation_path, :html => {:class => 'form-horizontal' },wrapper: 'bootstrap',:remote=>true do |f|
+= simple_form_for @reservation, url: reservation_path, :html => {:class => 'form-horizontal' }, wrapper: 'bootstrap',:remote=>true do |f|
   -unless @reservation.rate_code=='ZJ'
     = render 'tail',:f=>f
   -else

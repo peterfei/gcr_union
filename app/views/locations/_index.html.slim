@@ -1,18 +1,18 @@
 .row.location_all
   .span12
     =render 'search'
-    -if can? :create,Location
-      =link_to new_location_path(), :remote=>true do
+    -if can? :create, Location
+      =link_to new_location_path do
         button.btn 新增门店
     table.table.table-condensed
       thead
         tr
-          th 城市 
+          th 城市
           th 区域
           th 门店名称
           th 地址
           th 门店电话
-          th 负责人 
+          th 负责人
           th 所属公司
           th 状态
           th 操作

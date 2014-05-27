@@ -1,0 +1,9 @@
+= render 'form'
+coffee:
+  jQuery ->
+    $('input').prop("disabled",true);
+    $('input.select2-offscreen').prop("disabled",true);
+    $('textarea').prop("disabled",true);
+    $('select').select2('readonly',true);
+    $('input:checkbox:checked').parent('label').css('color','red').css('font-size','18px');
+    $('#order_sb').hide();

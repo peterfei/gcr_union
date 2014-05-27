@@ -105,7 +105,7 @@ class Reservation < ActiveRecord::Base
 
   def pickup_district_id
     read_attribute(:pickup_district_id)||read_attribute(:return_district_id)
-  end  
+  end
 
   def pickup_location_id
     read_attribute(:pickup_location_id)||read_attribute(:return_location_id)

@@ -13,6 +13,6 @@ tr
   /td = car_model.status_text
   td
     .btn-group
-      = link_to '显示', car_model,class:"btn btn-small",remote:true
-      = link_to '编辑', edit_car_model_path(car_model),class:"btn btn-small",remote:true
+      = link_to '显示', car_model,class:"btn btn-small"
+      = link_to '编辑', edit_car_model_path(car_model),class:"btn btn-small"
       = link_to '删除', car_model, :confirm => '确定要删除吗?', :method => :delete,class:"btn btn-small"

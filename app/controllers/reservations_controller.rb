@@ -1,5 +1,5 @@
 #encoding:utf-8
-class ReservationsController < ApplicationController 
+class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
@@ -26,7 +26,7 @@ class ReservationsController < ApplicationController
     end
     respond_to do |format| 
       format.js
-      #format.html # show.html.erb
+      format.html
       format.json { render json: @reservation }
     end
   end
@@ -35,7 +35,6 @@ class ReservationsController < ApplicationController
   # GET /reservations/new.json
   def new
     @reservation = Reservation.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @reservation }
@@ -44,10 +43,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/1/edit
   def edit
-    @reservation = Reservation.find(params[:id])  
-    respond_to do |format| 
-      format.js
-    end
+    @reservation = Reservation.find(params[:id])
   end
 
   # POST /reservations

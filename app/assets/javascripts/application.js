@@ -18,7 +18,6 @@
 //= require rails.validations.simple_form
 //= require_tree ../../../vendor/assets/javascripts/
 //= require_tree .
-//
 
 function remove_fields(link) {
   $(link).prev("input[type=hidden]").val("1");
