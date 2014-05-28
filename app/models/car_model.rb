@@ -6,6 +6,8 @@ class CarModel < ActiveRecord::Base
     :car_type_id
 
   #mount_uploader :car_model_img_url, CompanyLogoUploader
+  extend Enumerize
+  enumerize :status, in: {enable: 'Y', disable: 'N'}, default: :enable, scope: true
 
   belongs_to :car_type
   has_many   :cars
