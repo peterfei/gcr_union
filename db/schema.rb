@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140327071047) do
+ActiveRecord::Schema.define(:version => 20140526024356) do
 
   create_table "airports", :force => true do |t|
     t.string  "name"
@@ -242,7 +242,6 @@ ActiveRecord::Schema.define(:version => 20140327071047) do
     t.integer  "status"
     t.integer  "city_id"
     t.integer  "district_id"
-    t.integer  "manager_user_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "dispicher_ip"
@@ -360,16 +359,6 @@ ActiveRecord::Schema.define(:version => 20140327071047) do
     t.integer  "company_id"
   end
 
-  create_table "payment_records", :force => true do |t|
-    t.decimal  "amount",         :precision => 10, :scale => 0
-    t.string   "payment_type"
-    t.integer  "reservation_id"
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
-  end
-
-  add_index "payment_records", ["reservation_id"], :name => "index_payment_records_on_reservation_id"
-
   create_table "phone_validates", :force => true do |t|
     t.string   "phone_number"
     t.string   "validate_code"
@@ -394,7 +383,7 @@ ActiveRecord::Schema.define(:version => 20140327071047) do
     t.datetime "return_date"
     t.integer  "passenger_num"
     t.string   "status"
-    t.decimal  "total_price",              :precision => 10, :scale => 0
+    t.decimal  "total_price",               :precision => 10, :scale => 0
     t.integer  "send_status"
     t.string   "invoice_title"
     t.string   "send_address"
@@ -429,9 +418,15 @@ ActiveRecord::Schema.define(:version => 20140327071047) do
     t.integer  "airport_id"
     t.integer  "railway_id"
     t.integer  "coupon_id"
-    t.datetime "created_at",                                              :null => false
-    t.datetime "updated_at",                                              :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
     t.string   "pay_mode"
+    t.decimal  "self_driving_prepayment",   :precision => 10, :scale => 0
+    t.decimal  "self_driving_overtime",     :precision => 10, :scale => 0
+    t.decimal  "self_driving_overdistance", :precision => 10, :scale => 0
+    t.decimal  "reservation_base_rate",     :precision => 10, :scale => 0
+    t.decimal  "reservation_xdis_rate",     :precision => 10, :scale => 0
+    t.decimal  "reservation_xhour",         :precision => 10, :scale => 0
   end
 
   add_index "reservations", ["base_rate_code_id"], :name => "index_reservations_on_base_rate_code_id"
@@ -506,5 +501,14 @@ ActiveRecord::Schema.define(:version => 20140327071047) do
 
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
   add_index "users", ["uuid"], :name => "index_users_on_uuid", :unique => true
+
+  create_table "value_added_services", :force => true do |t|
+    t.string   "name"
+    t.string   "status"
+    t.string   "_type"
+    t.decimal  "price",      :precision => 10, :scale => 0
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
 
 end

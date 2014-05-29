@@ -3,11 +3,11 @@
     -if @driver.new_record?
       .row-fluid
         .span4
-          = f.input :location_id, :label=>'所属门店', :placeholder=>"请选择",input_html:{:id=>"location_id"} do 
-            =text_field_tag 'drivers[][location_id]' 
-        .span4 
+          = f.input :location_id, :label=>'所属门店', :placeholder=>"请选择",input_html:{:id=>"location_id"} do
+            =text_field_tag 'drivers[][location_id]'
+        .span4
           = f.input :driver_allowed,:label=>"准驾车型" ,input_html:{name:"drivers[][driver_allowed]",id:"drivers[][driver_allowed]"},:include_blank=>false,:placeholder=>"请选择"
-      .driver  
+      .driver
         .row-fluid
           .span4
             = f.input :driver_name, :label=>'驾驶员姓名' do 
@@ -16,41 +16,39 @@
             = f.input :driver_phone, :label=>'驾驶员手机' do 
               =text_field_tag 'drivers[][driver_phone]'
         .row-fluid
-          .span4 
-            
+          .span4
             = f.input :born, :label=>'籍贯' do 
               =text_field_tag 'drivers[][born]'
-          .span4 
-            = f.input :driver_year,:label=>"驾龄" do 
+          .span4
+            = f.input :driver_year,:label=>"驾龄" do
               =text_field_tag 'drivers[][driver_year]'
         .row-fluid
           .span4
-            
         i.icon-plus
     -else
       .row-fluid
-        .span4 
+        .span4
           = f.input :location_id, :label=>'所属门店', :placeholder=>"请选择",input_html:{:id=>"location_id"}
-          /= f.association :location, :label=>'所属门店', :placeholder=>"请选择" 
-      .driver  
+          /= f.association :location, :label=>'所属门店', :placeholder=>"请选择"
+      .driver
         .row-fluid
           .span4
             = f.input :driver_name, :label=>'驾驶员姓名'
           .span4
-            = f.input :driver_phone, :label=>'驾驶员手机' 
+            = f.input :driver_phone, :label=>'驾驶员手机'
         .row-fluid
-          .span4 
+          .span4
             = f.input :driver_allowed,:label=>"准驾车型",:allow_blank=>false
-          .span4 
+          .span4
             = f.input :driver_year,:label=>"驾龄"
         .row-fluid
           .span4
-            = f.input :born, :label=>'籍贯' 
+            = f.input :born, :label=>'籍贯'
           .span4
             =f.input :status ,:label=>"状态"
     .wdj_bordertop
-      .wdj_btnwidth 
+      .wdj_btnwidth
         .btn-group
-        =link_to '返回',drivers_path,remote:true,class:"btn btn-small"
+        =link_to '返回', drivers_path, class:"btn btn-small"
         = f.submit :class =>'btn btn-small', :value => '保存'
 

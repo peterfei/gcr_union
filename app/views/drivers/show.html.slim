@@ -1,0 +1,9 @@
+.page
+  .page.container
+    .container#main
+      = render 'form'
+coffee:
+  jQuery ->
+    $('input').attr('disabled',true);
+    $('select').select2('readonly',true);
+    $('.wdj_btnwidth input').hide();

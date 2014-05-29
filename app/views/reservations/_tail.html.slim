@@ -123,12 +123,11 @@
   .span5
     =f.input :car_id,input_html:{id:"car_id"} ,label:'车牌号码'
 .span12
-  h4 增值服务 
-  /.span5=@reservation.special_requirements.map(&:text).join('/')||无
+  h4 增值服务
   .span12
     =(f.input :special_requirements,collection: @reservation.value_added_services_collection,
       as: 'check_boxes', item_wrapper_class: 'inline',
-      checked: @reservation.special_requirements)
+      checked: @reservation.special_requirements, disabled: true)
 .span12
   h4 结算信息 
   .row-fluid 
@@ -136,30 +135,20 @@
       label.select.optional.control-label=label rescue '基本费用'
       .controls
         .input-appentd
-          =text_field_tag 'base_rate',(number_to_currency(@reservation.car_type_rate.base_rate) rescue @reservation.total_price),disabled:true
-    .span5
-      label.select.optional.control-label=label rescue '英文司机'
-      .controls
-        .input-appentd
-          =text_field_tag 'special_requirements',(@reservation.special_requirements.include? :en_driver) ? number_to_currency(Settings.en_driver_prices) : '无',disabled:true 
-.span12 
-  .row-fluid 
+          =text_field_tag 'base_rate',number_to_currency(@reservation.reservation_base_rate) ,disabled: true
+.span12
+  .row-fluid
     .span5
       label.select.optional.control-label=label rescue '代码优惠'
       .controls
         .input-appentd
-          ==text_field_tag 'special_requirements',coupon_tag(@reservation.coupon),disabled:true 
-    .span5
-      label.select.optional.control-label=label rescue '举牌等候' 
-      .controls
-        .input-appentd
-          ==text_field_tag 'special_requirements',(@reservation.special_requirements.include? :waiting_card) ? number_to_currency(Settings.wait_card_prices) : '无',disabled:true
-    .clear 
+          ==text_field_tag 'special_requirements',coupon_tag(@reservation.coupon), disabled:true
+    .clear
 .span12
   .row-fluid
     .span5 
-      label.select.optional.control-label=label rescue '费用说明' 
-      -if @reservation.base_rate_code.rate_code=='SZ' 
+      label.select.optional.control-label=label rescue '费用说明'
+      -if @reservation.base_rate_code.rate_code=='SZ'
         .controls
           .input-appentd
             ==text_field_tag 'special_requirements',"#{car_type_rate.xhour}元/小时,#{car_type_rate.xdis_rate}元/公里",disabled:true
@@ -168,11 +157,10 @@
           .input-appentd
             ==text_field_tag 'special_requirements',"含#{base_rate_code.base_hour}小时#{base_rate_code.base_km}公里",disabled:true
     .span5
-      label.select.optional.control-label=label rescue '费用合计' 
+      label.select.optional.control-label=label rescue '费用合计'
       .controls
         .input-appentd
-          ==text_field_tag 'compute_price',@reservation.compute_price
-      /=f.input :compute_price,label:"费用合计",disabled:true    
+          =text_field_tag 'compute_price',number_to_currency(@reservation.total_price), disabled: true
   /dl
     dt 费用合计
     dd=number_to_currency @reservation.compute_price

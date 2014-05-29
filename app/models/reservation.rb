@@ -12,7 +12,9 @@ class Reservation < ActiveRecord::Base
     :send_status, :car_id, :train_number, :car_model_id, :pay_mode,
     :return_location_id, :pickup_location_id,:company_id,:driver_id,
     :customer_id, :driver_attributes,
-    :self_driving_prepayment, :self_driving_overtime, :self_driving_overdistance
+    :self_driving_prepayment, :self_driving_overtime, :self_driving_overdistance,
+    :reservation_base_rate, :reservation_xdis_rate, :reservation_xhour
+
   default_scope ->{order("created_at DESC")}
   extend Enumerize
 
@@ -103,7 +105,7 @@ class Reservation < ActiveRecord::Base
 
   def pickup_district_id
     read_attribute(:pickup_district_id)||read_attribute(:return_district_id)
-  end  
+  end
 
   def pickup_location_id
     read_attribute(:pickup_location_id)||read_attribute(:return_location_id)

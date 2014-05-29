@@ -3,9 +3,10 @@
     fieldset
       #legend
         .row-fluid
-          .span5=f.input :location_name_equals,input_html:{class:"search-query"}
           .span5
-            =f.input :status_equals,collection:Location.status_list,placeholder:"全部",input_html:{class:"search-query"},label:"门店状态"
+            =f.input :location_name_contains, input_html: {class:"search-query"}, label:"名称"
+          .span5
+            =f.input :status_equals, collection: [["启用", 1], ["停用", 0]], placeholder:"全部", label:"状态"
         .control-group
           .controls
             =f.submit value:"查询",class: "btn btn-small"

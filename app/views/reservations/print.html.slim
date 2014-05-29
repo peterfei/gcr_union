@@ -9,7 +9,6 @@
         td = @reservation.base_rate_code
         td 订单编号
         td colspan="2" =@reservation.confirmation
-          
         td 车辆品牌
         td colspan="2"=@reservation.car_model.car_model_name
       tr
@@ -34,18 +33,18 @@
         td 还车时间
         td colspan="2" = @reservation.return_date
       td 预授权
-      td = @reservation.self_drive_price.prepayment
+      td = @reservation.self_driving_prepayment
       td 超小时费
-      td = @reservation.self_drive_price.overtime
+      td = @reservation.self_driving_overtime
       td 超公里费
-      td = @reservation.self_drive_price.overdistance
+      td = @reservation.self_driving_overdistance
       td 代码优惠
       td = coupon_tag(@reservation.coupon)
       tr
         td 增值服务
-        td colspan="4"
+        td colspan="4" = @reservation.value_added_services_text
         td 费用合计
-        td colspan="2" = @reservation.compute_price
+        td colspan="2" = @reservation.total_price
       tr
         td 客户建议
         td colspan="5"
@@ -100,7 +99,7 @@
         td 联系电话
         td colspan="2"=@reservation.driver.driver_phone
         td 增值服务
-        td colspan="2"
+        td colspan="2"= @reservation.value_added_services_text
       tr
         td 上车地点
         td colspan="3"=@reservation.starting_point||@reservation.airport
@@ -121,12 +120,9 @@
       tr
         td 基本费用
         td = "#{@reservation.car_type_rate.base_rate}元/#{@reservation.unit}"
-        td 英文司机
-        td=(@reservation.special_requirements.include? :en_driver) ? number_to_currency(Settings.en_driver_prices) : '无'
         td 代码优惠
         td="#{@reservation.coupon.denomination rescue 0}元"||'无'
-        td 举牌等候
-        td = (@reservation.special_requirements.include? :waiting_card) ? number_to_currency(Settings.wait_card_prices) : '无'
+
       tr
         td 车辆满意度
         td colspan="5"
@@ -138,7 +134,7 @@
         td 客户建议
         td colspan="2"
         td 费用合计
-        td = "#{@reservation.compute_price}元"
+        td = "#{@reservation.total_price}元"
         td 客户签字
         td colspan="2"
 

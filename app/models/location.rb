@@ -28,6 +28,8 @@ class Location < ActiveRecord::Base
   serialize :rate_code_list, Array
   enumerize :rate_code_list, in: {'日租'=>0,'时租'=>1,'接机'=>2,'送机'=>3,'自定路线'=>4}, multiple: true
 
+  enumerize :status, in: {enable: 1, disable: 0}, default: :enable, scope: true
+
   def to_s
     location_name
   end
@@ -35,9 +37,6 @@ class Location < ActiveRecord::Base
     unless drivers.count==0 or cars.count==0 
       super
     end
-  end
-  def self.status_list
-    [['营业中',1],['暂停营业',0]]
   end
 
   def self.is24_list
@@ -65,10 +64,6 @@ class Location < ActiveRecord::Base
       m_list[min] = min
     end
     m_list
-  end
-
-  def status_text
-    (Location.status_list.find { |t,k|  k == self.status.to_i } or []).first
   end
 
   def rate_code_list_text

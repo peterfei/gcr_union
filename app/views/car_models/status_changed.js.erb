@@ -1,0 +1,3 @@
+var replacement = $("<%=j render @car_model%>");
+$('#car_model_<%= @car_model.id%>').replaceWith(replacement);
+replacement.addClass('success');

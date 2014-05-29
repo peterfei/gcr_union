@@ -1,11 +1,11 @@
 =render 'search'
 -if can? :create,Car
-  = link_to '/cars/new', remote: true do
+  = link_to '/cars/new' do
     button.btn
       | 新增
 table.table.table-bordered
-  thead 
-    tr  
+  thead
+    tr
       th 所属公司
       th 所属门店
       th 品牌车型

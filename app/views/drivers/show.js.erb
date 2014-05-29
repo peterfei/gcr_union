@@ -1,5 +1,5 @@
 $('#main').html('<%=j(render 'form')%>');
-$('body').init_components(); 
+$('body').init_components();
 $('#edit_driver_<%=@driver.id%> input').attr('disabled',true);  
 $('#edit_driver_<%=@driver.id%> select').select2('readonly',true); 
 $('.wdj_btnwidth input').hide();

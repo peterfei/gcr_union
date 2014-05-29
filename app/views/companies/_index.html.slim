@@ -2,7 +2,7 @@
   .span12
     =render 'search'
     -if can? :create,Company
-      =link_to new_company_path(), :remote=>true do
+      =link_to new_company_path do
         button.btn 新增公司
     table.table.table-striped.sortable.table-hover
       thead

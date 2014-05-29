@@ -16,5 +16,5 @@
     tbody
       -@reservations.each_with_index do |reservation,index|
         tr class="order_#{reservation.id}"
-          =render :partial => 'list',:locals=>{:reservation=>reservation}
+          =render :partial => 'list', :locals=>{:reservation=>reservation}
 =render partial: 'shared/pagination', locals: {collection: @reservations}

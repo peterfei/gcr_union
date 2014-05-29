@@ -51,6 +51,6 @@
         = f.input :comp_des,as: :text, :label=>'公司介绍'
   .span12.wdj_bordertop
     .wdj_btnwidth
-      .span1= link_to '返回',companies_path,:remote=>true, class:"btn"
-      .span1.offset= f.submit :class =>'btn btn-primary', :value => '保存', :id=>"companyOfSaveBtn"
+      .span1= f.submit :class =>'btn btn-primary', :value => '保存', :id=>"companyOfSaveBtn"
+      .span1= link_to '返回', companies_path, class:"btn"
 

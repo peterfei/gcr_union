@@ -1,18 +1,12 @@
-tr
-  /td = car_model.car_model_code
+tr id="car_model_#{car_model.id}"
   td = car_model.car_model_name
   td = car_model.car_model
-  /td=image_tag car_model.car_model_img_url.url(:thumb) if car_model.car_model_img_url? 
   td = car_model.car_type
-  /td = car_model.car_model_type
-  //td = car_model.car_model_img_url
-  /td = image_tag car_model.car_model_img_url.url(:thumb) if car_model.car_model_img_url?
-  /td = car_model.car_model_package
   td = car_model.car_model_size
   td = car_model.car_model_atmt_text
-  /td = car_model.status_text
+  td = car_model.status_text
   td
     .btn-group
-      = link_to '显示', car_model,class:"btn btn-small",remote:true
-      = link_to '编辑', edit_car_model_path(car_model),class:"btn btn-small",remote:true
-      = link_to '删除', car_model, :confirm => '确定要删除吗?', :method => :delete,class:"btn btn-small"
+      = link_to '显示', car_model,class:"btn btn-small"
+      /= link_to '编辑', edit_car_model_path(car_model),class:"btn btn-small"
+      = link_to  ->{car_model.status.enable? ? '停用':'启用'}.call, car_model, class: 'btn btn-small', method: 'delete', remote: true

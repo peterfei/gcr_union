@@ -1,0 +1,16 @@
+tr class="location_#{location.id}"
+  td= location.city.try(:city_name)
+  td= location.district
+  td= location.location_name
+  td= location.address
+  td= location.phone
+  td tip='负责人电话:#{location.phone}'
+    =location.principal
+  td =location.company
+  td= location.status_text
+  td
+    .btn-group
+      = link_to '查看',location_path(location), class:'btn btn-small'
+      -if can? :update,location
+        = link_to '修改', edit_location_path(location), class:"btn btn-small"
+        = link_to  ->{location.status.enable? ? '停用':'启用'}.call, location, class: 'btn btn-small', method: 'delete', remote: true

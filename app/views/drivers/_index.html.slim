@@ -1,8 +1,8 @@
 .row.location_all
   .span12
     =render 'search'
-    -if can? :create,Driver
-      =link_to new_driver_path ,:remote=>true do 
+    -if can? :create, Driver
+      =link_to new_driver_path do
         button.btn 新增驾驶员
     table.table.table-condensed
       thead
@@ -14,5 +14,4 @@
           th 状态
           th 操作
         tbody
-        //=render :partial => 'list'
         = render @drivers
