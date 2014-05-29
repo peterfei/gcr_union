@@ -134,18 +134,13 @@ class LocationsController < ApplicationController
   # DELETE /locations/1.json
   def destroy
     @location = Location.find(params[:id])
-    
-    respond_to do |format| 
-      if @location.destroy 
-        format.js
-        #format.html { redirect_to locations_url }
-        format.json { head :no_content } 
-      else 
-        @error= "该门店有车辆或司机，不能删除!"  
-        flash[:error] = @error
-        format.js
-      end
-      
+
+    @location.status = @location.status.enable? ? :disable : :enable
+    @location.save
+
+    respond_to do |format|
+      format.html { redirect_to locations_url }
+      format.js { render 'status_changed' }
     end
   end
 end

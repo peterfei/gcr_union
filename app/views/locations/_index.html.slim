@@ -17,8 +17,8 @@
           th 状态
           th 操作
         tbody
-        -if @locations.present?
-          =render :partial => 'list'
+        -if @locations.any?
+          =render @locations
         -else
           tr
             td colspan='10' style='text_align:center'

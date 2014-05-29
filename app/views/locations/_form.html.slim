@@ -3,7 +3,7 @@
   .span12
     .row-fluid
       .span4
-        = f.input :location_name, :label=>'门店名称'
+        = f.input :location_name, :label=>'门店名称', readonly: !f.object.new_record?
       .span4
         = f.input :phone, label: '门店电话'
   .span12
@@ -43,14 +43,10 @@
     .row-fluid
       .span4
         =f.input :is24, as: :boolean, :label=>'24小时营业'
-  /.span12
-    .row-fluid
-      .span6.form-inline
-        = f.input :rate_code_list,value_method: ->(a){a.first}, :as=>:check_boxes, :label=>'业务范围'
   .span12
     .row-fluid
       .span6.form-inline
-        = f.input :status, :collection => Location.status_list, :input_html => { :placeholder => '请选择营业状态' }
+        = f.input :status, :placeholder => '请选择营业状态'
   .span12
     .wdj_bordertop
       .wdj_btnwidth
