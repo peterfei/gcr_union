@@ -1,15 +1,15 @@
 p#notice = notice
 
 p
-  strong Para name:
+  strong 参数名称:
   = @sys_parameter.para_name
 p
-  strong Para value:
+  strong 参数值:
   = @sys_parameter.para_value
 p
-  strong Para desc:
+  strong 参数描述:
   = @sys_parameter.para_desc
 
-= link_to 'Edit', edit_sys_parameter_path(@sys_parameter)
+= link_to '编辑', edit_sys_parameter_path(@sys_parameter)
 '|
-= link_to 'Back', sys_parameters_path
+= link_to '返回', sys_parameters_path

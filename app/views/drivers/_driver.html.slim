@@ -1,13 +1,17 @@
+-if driver.status=='disable'
+  -color = 'warning'
+-else
+  -color = 'success'
 tr class="driver_#{driver.id}"
   td= driver.driver_name
   td= driver.driver_phone
   td= driver.company.try(:company_name)
   td=  driver.location.try(:location_name)
-  td= driver.status_text
+  td class="label label-#{color}"= driver.status_text
   td
-    = link_to '查看', driver_path(driver),remote:true, class: 'btn btn-small'
-    -if can? :update,driver
-      = link_to '修改', edit_driver_path(driver),remote:true, class: 'btn btn-small'
+    = link_to '查看', driver_path(driver), class: 'btn btn-small'
+    -if can? :update, driver
+      = link_to '修改', edit_driver_path(driver), class: 'btn btn-small'
       -if driver.status_text=='在租'
         =link_to '待租', change_status_path(driver), data:{confirm:"确定要待租吗？"},remote:true, class: 'btn btn-small'
       -else

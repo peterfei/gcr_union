@@ -97,9 +97,9 @@ SimpleForm.setup do |config|
 
   config.label_text = lambda do |label, required|
     if required.present?
-      "<strong class=\"red\">*</strong> #{label}："
+      "<strong class=\"red\">*</strong> #{label}"
     else
-      "#{label}："
+      "#{label}"
     end
   end
   # You can define the class to use on all labels. Default is nil.

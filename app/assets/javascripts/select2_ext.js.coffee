@@ -35,6 +35,70 @@ $.fn.extend
           return {} =
             results: data.results
             more: more
+  lazy_select2_driver: (options) ->
+    options = $.extend { page_size: 15 }, options
+    @select2
+      allowClear: true
+      placeholder: options.placeholder || '请选择'
+      formatResult:(item)-> item.text+"|"+item.driver_phone+"|"+item.driver_allowed
+      width: 222
+      multiple: options.multiple || false
+      initSelection: (element, callback) ->
+        id = element.val()
+        if id != '' and id != null
+          $.ajax
+            url: options.init(id)
+            dataType: 'json'
+            success: (data) ->
+              callback(data)
+      ajax:
+        url: options.url
+        dataType: 'json'
+        quietMillis: 100
+        data: (term, page) ->
+          options.params(term, page)
+        results: (data, page) ->
+          more = (page * options.page_size) < data.total
+          return {} =
+            results: data.results
+            more: more
+  lazy_select2_car: (options) ->
+    options = $.extend { page_size: 15 }, options
+    @select2
+      allowClear: true
+      placeholder: options.placeholder || '请选择'
+      formatResult:(item)-> item.text+"|"+item.car_model_name
+      width: 222
+      multiple: options.multiple || false
+      initSelection: (element, callback) ->
+        id = element.val()
+        if id != '' and id != null
+          $.ajax
+            url: options.init(id)
+            dataType: 'json'
+            success: (data) ->
+              callback(data)
+      ajax:
+        url: options.url
+        dataType: 'json'
+        quietMillis: 100
+        data: (term, page) ->
+          options.params(term, page)
+        results: (data, page) ->
+          more = (page * options.page_size) < data.total
+          return {} =
+            results: data.results
+            more: more
+  car_type_select2: ->
+    @lazy_select2
+      url: -> '/car_types'
+      init: (id) -> '/car_types/' + id
+      params: (term, page) ->
+        return {}=
+          search: {
+            car_type_name_contains: term
+          }
+          page: page
   pickup_city_select2: () ->
     @lazy_select2
       url: -> '/cities'
@@ -64,13 +128,14 @@ $.fn.extend
         return {}=
           search: {
             city_id_equals: $('#pickup_city').val()
+            company_id_equals: $('#company_id').val()
             district_id_equals: $('#pickup_district').val()
             location_name_contains: term
             status_equals: 1
           }
           page: page
   car_info_select2: () ->
-    @lazy_select2
+    @lazy_select2_car
       url: -> '/cars'
       init: (id) -> '/cars/' + id
       params: (term, page) ->
@@ -79,11 +144,12 @@ $.fn.extend
             location_id_equals: $('#location_id').val()
             status_equals:'enable'
             car_tag_contains: term
+            #car_type_id_equals: $("#reservation_car_type_id").val()
             #seat_equals:$('#reservation_seat').val()
           }
           page: page
   driver_info_select2: () ->
-    @lazy_select2
+    @lazy_select2_driver
       url: -> '/drivers'
       init: (id) -> '/drivers/' + id
       params: (term, page) ->
@@ -92,7 +158,7 @@ $.fn.extend
             location_id_equals: $('#location_id').val()
             status_equals: 'enable'
             driver_name_contains: term
-            driver_allowed_contains: $('#reservation_seat').val()
+            #driver_allowed_contains: $('#reservation_seat').val()
           }
           page: page
   company_info_select2: () ->
@@ -129,5 +195,8 @@ $.fn.extend
 
     $('#car_model_ids').car_model_select2()
     $('#self_drive_price_car_model_id').car_model_select2(false)
+    $('#self_drive_price_location_id').location_select2()
     $('#search_car_model_id_equals').car_model_select2(false)
     $('#search_location_id_equals').location_select2()
+
+    $('.car_type_select').car_type_select2()

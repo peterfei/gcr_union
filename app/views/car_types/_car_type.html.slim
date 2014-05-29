@@ -1,4 +1,5 @@
 tr
+  td = car_type.car_type_rates.first.city
   td = car_type.id
   td = car_type
   td = car_type.description
@@ -11,6 +12,6 @@ tr
   /td =
   td
     .btn-group
-      = link_to '显示', car_type, remote: true, class: 'btn btn-small'
-      = link_to '编辑', edit_car_type_path(car_type), remote: true, class: 'btn btn-small'
+      = link_to '显示', car_type, class: 'btn btn-small'
+      = link_to '编辑', edit_car_type_path(car_type), class: 'btn btn-small'
       = link_to '删除', car_type_path(car_type), class: 'btn btn-small', confirm: '确认删除吗', method: 'delete'

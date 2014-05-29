@@ -2,10 +2,10 @@
 class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
-  def index  
-    @search = Location.search(params[:search])
-    if current_user.role=='oprator'  
-      @where = "#{current_user.company_id}" 
+  def index
+    @search = Location.includes(:company).search(params[:search])
+    if current_user.role=='oprator'
+      @where = "#{current_user.company_id}"
       @locations=@search.where(:company_id=>@where).page params[:page] 
     else
       @locations=@search.page params[:page]
@@ -13,7 +13,7 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.js
       format.html # index.html.erb
-      format.json { render_select2 @locations, text:'location_name'}
+      format.json { render_select2 @locations, text: :display_name}
     end
   end
 
@@ -29,7 +29,7 @@ class LocationsController < ApplicationController
     @end_time_hour = end_time.split(':')[0]
     @end_time_min = end_time.split(':')[1]
     respond_to do |format|
-      #format.html # show.html.erb
+      format.html # show.html.erb
       format.js
       format.json { render_select2 @location, text: 'location_name' }
     end
@@ -37,8 +37,8 @@ class LocationsController < ApplicationController
 
   # GET /locations/new
   # GET /locations/new.json
-  def new 
-    if current_user.role=='oprator'  
+  def new
+    if current_user.role=='oprator'
       @location = Location.new(company_id:current_user.company_id) 
     else
       @location = Location.new
@@ -51,7 +51,7 @@ class LocationsController < ApplicationController
     @location.status = 1
 
     respond_to do |format|
-      #format.html # new.html.erb
+      format.html # new.html.erb
       format.js
       format.json { render json: @location }
     end
@@ -69,6 +69,7 @@ class LocationsController < ApplicationController
     @end_time_min = end_time.split(':')[1]
 
     respond_to do |format|
+      format.html
       format.js # new.html.erb
       format.json { render json: @location }
     end
@@ -133,18 +134,13 @@ class LocationsController < ApplicationController
   # DELETE /locations/1.json
   def destroy
     @location = Location.find(params[:id])
-    
-    respond_to do |format| 
-      if @location.destroy 
-        format.js
-        #format.html { redirect_to locations_url }
-        format.json { head :no_content } 
-      else 
-        @error= "该门店有车辆或司机，不能删除!"  
-        flash[:error] = @error
-        format.js
-      end
-      
+
+    @location.status = @location.status.enable? ? :disable : :enable
+    @location.save
+
+    respond_to do |format|
+      format.html { redirect_to locations_url }
+      format.js { render 'status_changed' }
     end
   end
 end

@@ -1,0 +1,10 @@
+tr
+  td = value_added_service.name
+  td = value_added_service.price
+  td = value_added_service._type_text
+  td = value_added_service.status_text
+  td
+    .btn-group
+      = link_to '显示', value_added_service, class: 'btn btn-small'
+      = link_to '编辑', edit_value_added_service_path(value_added_service), class: 'btn btn-small'
+      = link_to  ->{value_added_service.status.enable? ? '停用':'启用'}.call, value_added_service_path(value_added_service), class: 'btn btn-small', method: 'delete'

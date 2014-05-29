@@ -1,5 +1,11 @@
 zh-CN:
   enumerize:
+    status:
+      enable: '启用'
+      disable: '停用'
+    _type:
+      reservation: '代驾'
+      self_driving: '自驾'
     pay_mode:
       online: '在线支付'
       driver: '司机代收'
@@ -257,7 +263,7 @@ zh-CN:
       car_tag: "车牌号"
     messages:
       accepted: 必须是可被接受的
-      blank: 不能为空字符
+      blank: 不能为空
       confirmation: 与确认值不匹配
       empty: 不能留空
       equal_to: 必须等于 %{count}
@@ -350,6 +356,7 @@ zh-CN:
     pm: 下午
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
+    value_added_service: '增值服务'
     reservation: '订单'
     car: '车辆'
     company: '公司'
@@ -358,12 +365,34 @@ zh-CN:
     car_model: '车辆品牌'
     car_type: '车型'
     manager_user: '管理用户'
-    user: '客户信息'
+    user: '客户'
     self_drive_price: '自驾价格'
-    car_type_rate: '车型价格'
+    car_type_rate: '代驾价格'
     base_rate_code: "业务类型"
+    sys_parameter: "系统参数"
+    welcome: '欢迎'
     errors:
       <<: *errors
   activerecord:
     errors:
       <<: *errors
+    attributes:
+      value_added_service:
+        _type: '类别'
+        name: '名称'
+        price: '价格'
+        status: '状态'
+      driver:
+        location_id: '门店'
+        driver_name: '驾驶员姓名'
+        driver_phone: '驾驶员手机'
+        driver_year: '驾龄'
+        born: '籍贯'
+        driver_allowed: '准驾车型'
+      car:
+        car_tag: '车牌号'
+        alt_car_tag: '备用车牌号'
+        color: '颜色'
+        seat: '座位数'
+        location_id: '门店'
+        car_model_id: '品牌'

@@ -13,7 +13,7 @@ class CarsController < ApplicationController
     respond_to do |format|
       format.js
       format.html # index.html.erb 
-      format.json { render_select2 @cars, text:'car_tag'}
+      format.json { render_select2 @cars,'car_model_name', text:'car_tag'}
     end
   end
 
@@ -51,9 +51,9 @@ class CarsController < ApplicationController
   def create
     cars_params=params[:cars].map{|c| c.merge!(params[:car])}
     @cars =Car.create(cars_params)
-    respond_to do |format|  
-      unless  @cars.map{|c| c.errors.full_messages}.include? [[]]
-        format.js  
+    respond_to do |format|
+      if @cars.map{|c| c.errors.messages}.all?(&:empty?)
+        format.js
       else
         format.js {render 'error_msg'}
       end
@@ -82,8 +82,12 @@ class CarsController < ApplicationController
   def destroy
     @car = Car.find(params[:id])
 
-    respond_to do |format|
-      @car.update_attribute(:status, 'disable')
+    respond_to do |format| 
+      if @car.status =='enable'
+        @car.update_attribute(:status, 'disable')
+      else 
+        @car.update_attribute(:status, 'enable')
+      end
       format.html { redirect_to cars_url }
       format.js
       format.json { head :no_content }

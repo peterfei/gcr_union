@@ -48,11 +48,11 @@ namespace :db do
     open Rails.root.join('lib','tasks','sql','district.sql') do |f|
       ActiveRecord::Base.connection.execute(f.read)
     end
+    City.destroy_all(
+      City.arel_table[:city_name].not_in_all(%w/北京市 大连市 深圳市 西安市/)
+    )
   end
 
-  task 'city:sz' => :environment do |task|
-    City.destroy_all(City.arel_table[:city_name].not_eq('深圳市'))
-  end
 
   desc "准备门店数据"
   task :location => :environment do |task|
@@ -214,28 +214,39 @@ namespace :db do
 <%= "您的订单生成成功，订单号：#{reservation}，业务：#{reservation.base_rate_code}，城市：#{reservation.pickup_city}，车型：#{reservation.car_type}，开始时间：#{reservation.pickup_date}，结束时间：#{reservation.return_date}，详情请访问网站查询。" -%>
 <% when "ZJ" %>
 <%= "您的订单生成成功，订单号：#{reservation}，业务：#{reservation.base_rate_code}，城市：#{reservation.pickup_city}，车
-型：#{reservation.car_model}，取车门店：{reservation.pickup_location},还车门店：{reservation.return_location},开始时间：#{reservation.pickup_date}，结束时间：#{reservation.return_date}，详情请访问网站查询。" -%>
+型：#{reservation.car_model}，取车门店：#{reservation.pickup_location},还车门店：#{reservation.return_location},开始时间：#{reservation.pickup_date}，结束时间：#{reservation.return_date}，详情请访问网站查询。" -%>
 <% end %>
 }
     )
     site.snippets.create!(
       label: 'android和iso客户端',
       identifier: "mobile-client",
-      content: '<div class="wdj_middle_main_left_dvservice">
+      content: '<% begin %>
+<% info = eval(cms_snippet_content("client-update-info")) %>
+<% rescue Exception => exc %>
+<% info = {url: ""} %>
+<% end %>
+<div class="wdj_middle_main_left_dvservice">
   <div class="wdj_middle_main_tit">
     <a href="#"></a><span>酒后代驾 / Driver Service</span>
   </div>
   <div class="wdj_middle_main_left_dvservice_main">
     <a class="wdj_iphone_icon"></a>
-    <a class="wdj_android_icon" href=></a>
+    <a class="wdj_android_icon" href= "<%= info[:url] %>"</a></a> ></a>
   </div>
 </div>'
+    )
+
+    site.snippets.create!(
+      label: '客户端更新信息',
+      identifier: "client-update-info",
+      content: "{version: '1.0', description: 'android client', url: '#'}"
     )
   end
 
   desc "准备所有数据"
   task :all => [:create_database, :load_data, :car_type,
                 :car_model, :car_type_rate, :city, :railway,
-                :airport, :coupon, :storage, :cms, 'city:sz']
+                :airport, :coupon, :storage, :cms]
 
 end

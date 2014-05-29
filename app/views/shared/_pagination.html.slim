@@ -1,0 +1,9 @@
+.pagination.pagination-centered
+  | 共有
+  strong= collection.total_count
+  | 条记录, 当前第
+  = collection.current_page
+  | 页，共
+  strong= collection.total_pages
+  | 页
+  =paginate collection, theme:"bootstrap"

@@ -1,0 +1,11 @@
+= simple_form_for [@reservation ,@comment], remote: true, wrapper: 'bootstrap' do |f|
+  - if @comment.errors.any?
+    #error_explanation
+      h2= "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
+      ul
+        - @comment.errors.full_messages.each do |msg|
+          li= msg
+
+  = f.input :score, label: '评分'
+  = f.input :text, input_html: {:style => "width: 516px; height: 93px"}, label: '评价'
+  = f.submit 'Save', class: 'btn btn-primary'

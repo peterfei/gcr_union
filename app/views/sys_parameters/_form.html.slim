@@ -1,10 +1,7 @@
 = simple_form_for(@sys_parameter) do |f|
-  = f.error_notification
-
   .form-inputs
-    = f.input :para_name
-    = f.input :para_value
-    = f.input :para_desc
+    = f.input :para_name,label:"参数名称"
+    = f.input :para_value,label:"参数值"
+    = f.input :para_desc,label:"参数描述"
+    = f.button :submit,value:"提交"
 
-  .form-actions
-    = f.button :submit

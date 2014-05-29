@@ -1,0 +1,17 @@
+-if @search.present?
+  = simple_form_for @search, defaults: {required: false}, :html => {:class => 'form-horizontal' },wrapper: 'bootstrap' do |f|
+    fieldset
+      #legend
+        .row-fluid
+          .span5
+            =f.input :company_name_contains,input_html:{class:"search-query"}, label:"公司名称"
+          .span5
+            =f.input :link_man_contains, input_html:{class:"search-query"}, label:"联系人"
+        .row-fluid
+          .span5
+            =f.input :manager_users_login_name_contains, input_html:{class:"search-query"}, label:"所属帐号"
+          .span5
+            =f.input :status_equals ,collection: Company.status_list,placeholder:"全部",input_html:{class:"search-query"}, label:"公司状态"
+        .control-group
+          .controls
+            =f.submit value:"查询",class: "btn btn-small"

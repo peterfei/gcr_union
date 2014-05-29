@@ -4,20 +4,12 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    #@companies = Company.all
-    #
-    #respond_to do |format|
-    #  format.html # index.html.erb
-    #  format.json { render json: @companies }
-    #end
-    if current_user.role=='oprator' 
-      @where = "#{current_user.company_id}" 
-      @search = Company.search(params[:search]).where(:id=>@where)
-    else 
+    if current_user.role=='oprator'
+      @where = "#{current_user.company_id}"
+      @search = Company.where(:id=>@where).search(params[:search])
+    else
       @search = Company.search(params[:search])
     end
-
-    #@search = Company.search(params[:search])
     @companies=@search.page params[:page]
 
     respond_to do |format|
@@ -32,10 +24,10 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @result = 0
-    respond_to do |format| 
+    respond_to do |format|
       format.html # show.html.erb
       format.js
-      format.json { render json: @company }
+      format.json { render_select2 @company }
     end
   end
 

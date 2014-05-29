@@ -2,8 +2,7 @@
 class DriversController < ApplicationController
   # GET /drivers
   # GET /drivers.json
-  def index   
-    
+  def index
     @search = Driver.search(params[:search])
     if current_user.role=='oprator' 
       @where = "#{current_user.company_id}" 
@@ -15,7 +14,7 @@ class DriversController < ApplicationController
     respond_to do |format|
       format.js
       format.html # index.html.erb
-      format.json { render_select2 @drivers, text:'driver_name'}
+      format.json { render_select2 @drivers,'driver_phone','driver_allowed', text:'driver_name'}
     end
   end
 
@@ -25,9 +24,9 @@ class DriversController < ApplicationController
     @driver = Driver.find(params[:id])
 
     respond_to do |format|
-      #format.html # show.html.erb
+      format.html # show.html.erb
       format.js
-      format.json { render_select2 @driver, text: 'driver_name' }
+      format.json { render_select2 @driver, 'driver_phone','driver_allowed',text: 'driver_name' }
     end
   end
 
@@ -50,18 +49,18 @@ class DriversController < ApplicationController
 
   # POST /drivers
   # POST /drivers.json
-  def create 
-    drivers_params=params[:drivers].map{|c|c} 
+  def create
+    driver = params[:drivers].first
+    drivers_params=params[:drivers].map{|d| driver.merge(d)}
     logger.info "------#{drivers_params}"
     @drivers = Driver.create(drivers_params)
     respond_to do |format|
-      #if @driver.save 
-       unless @drivers.map{|c| c.errors.full_messages}.include? [[]] 
-         
-         format.js
-       else 
-         format.js {render 'error_msg'}
-       end
+      if @drivers.map{|c| c.errors.messages}.all?(&:empty?)
+        flash[:success] = '司机新建成功'
+        format.js
+      else
+        format.js {render 'error_msg'}
+      end
     end
   end
 

@@ -5,18 +5,21 @@
   = f.association :car_model, :placeholder => '请选择车辆品牌', :label=>'车辆品牌'
   -if @car.new_record?
     .record
-      = f.input :car_tag, :label=>'车牌号码' do
+      = f.input '', :label=>'车牌号码' do
         =text_field_tag 'cars[][car_tag]'
-        span 颜色
-        =text_field_tag 'cars[][color]' 
-      =f.input :seat ,input_html:{:name=>"cars[][seat]"},as: :string,label:"座位数"
+        span 备用车牌
+        =text_field_tag 'cars[][alt_car_tag]'
+      = f.input '', :label=>'颜色' do
+        =text_field_tag 'cars[][color]'
+        span 座位数
+        =text_field_tag 'cars[][seat]'
       i.icon-plus
   -else
-    = f.input :car_tag, :label=>'车牌号码' do
-      =f.input_field :car_tag
-      span 颜色
-      =f.input_field :color
-    =f.input :seat ,input_html:{:name=>"car[seat]"},as: :string,label:"座位数"
+    =f.input :car_tag
+    =f.input :alt_car_tag
+    =f.input :color
+    =f.input :seat, label:"座位数"
+    =f.input :status
   div.wdj_bordertop
     .wdj_btnwidth
       = link_to '返回', cars_path, remote: true, class: 'btn btn-small'

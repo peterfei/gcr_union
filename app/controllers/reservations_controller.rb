@@ -1,16 +1,16 @@
 #encoding:utf-8
-class ReservationsController < ApplicationController 
+class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
-  def index   
-    @search = Reservation.search(params[:search]) 
-    if current_user.role=='oprator'  
-      @where = current_user.company.locations.pluck(:id) 
-      @reservations= @search.where("pickup_location_id in (?) ",@where).page params[:page] 
+  def index
+    @search = Reservation.search(params[:search])
+    if current_user.role=='oprator'
+      @where = current_user.company.locations.pluck(:id)
+      @reservations= @search.where("pickup_location_id in (?) ",@where).page params[:page]
     else
       @reservations= @search.page params[:page]
     end
-    respond_to do |format| 
+    respond_to do |format|
       format.js
       format.html # index.html.erb
       format.json { render json: @reservations }
@@ -21,10 +21,12 @@ class ReservationsController < ApplicationController
   # GET /reservations/1.json
   def show
     @reservation = Reservation.find(params[:id])
-
+    if @reservation.rate_code=='ZJ'
+      @reservation= SelfDriving.find(params[:id])
+    end
     respond_to do |format| 
       format.js
-      #format.html # show.html.erb
+      format.html
       format.json { render json: @reservation }
     end
   end
@@ -33,7 +35,6 @@ class ReservationsController < ApplicationController
   # GET /reservations/new.json
   def new
     @reservation = Reservation.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @reservation }
@@ -42,10 +43,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/1/edit
   def edit
-    @reservation = Reservation.find(params[:id])  
-    respond_to do |format| 
-      format.js
-    end
+    @reservation = Reservation.find(params[:id])
   end
 
   # POST /reservations
@@ -113,21 +111,26 @@ class ReservationsController < ApplicationController
   def dispatch_car  
     @reservation = Reservation.find(params[:id])
     #hot_fix delete seat in reservation 
-   
     respond_to do |format|  
     $o =false
-     if request.put?  
-
-        $o = @reservation.update_attributes(params[:reservation])   
-        @reservation.car.update_attribute(:status,'disable')  
-        unless @reservation.base_rate_code.rate_code=='ZJ' 
-          params[:reservation].delete('seat')
-          @reservation.driver.update_attribute(:status,'disable') 
-        end
+     if request.put?   
+       params[:reservation].delete('seat')
+       $o = @reservation.update_attributes(params[:reservation])   
+       unless @reservation.base_rate_code.rate_code=='ZJ' 
+         @reservation.driver.update_attribute(:status,'disable')  rescue nil
+       end
+        @reservation.car.update_attribute(:status,'disable')  rescue nil 
         #同步入crs-admin 数据库 
-        _hash={:rate_code=>(@reservation.base_rate_code.rate_code rescue nil),:car_model_name=>(@reservation.car_model.car_model_name rescue nil),:car_type_name=>(@reservation.car_type.car_type_name rescue nil),:reservation_person=>(@reservation.customer.customer_name rescue nil),:xdis_rate=>(@reservation.car_type_rate.xdis_rate rescue @reservation.self_drive_price.overdistance),:xhour=>(@reservation.car_type_rate.xhour rescue @reservation.self_drive_price.overtime),:hour_free=>(@reservation.base_rate_code.base_hour rescue nil),:dis_free=>(@reservation.base_rate_code.base_km rescue nil),:reservation_person_phone=>(@reservation.customer.user.phone rescue nil)}
-        #_hash={:rate_code=>(@reservation.base_rate_code.rate_code rescue nil),:car_model_name=>(@reservation.car_model.car_model_name rescue nil),:car_type_name=>(@reservation.car_type.car_type_name rescue nil),:reservation_person=>(@reservation.customer.customer_name rescue nil),:xdis_rate=>(@reservation.car_type_rate.xdis_rate rescue nil),:xhour=>(@reservation.car_type_rate.xhour rescue nil),:hour_free=>(@reservation.base_rate_code.base_hour rescue nil),:dis_free=>(@reservation.base_rate_code.base_km rescue nil)} 
-        CrsAdmin::Reservation.create(@reservation.attributes.merge(_hash))
+        if current_user.role=='oprator'   
+          @dispicher_ip =  current_user.company.dispicher_ip rescue nil
+          if @dispicher_ip.present?  
+            _hash={:rate_code=>(@reservation.base_rate_code.rate_code rescue nil),:car_model_name=>(@reservation.car_model.car_model_name rescue nil),:car_type_name=>(@reservation.car_type.car_type_name rescue nil),:reservation_person=>(@reservation.customer.customer_name rescue nil),:xdis_rate=>(@reservation.car_type_rate.xdis_rate rescue @reservation.self_drive_price.overdistance),:xhour=>(@reservation.car_type_rate.xhour rescue @reservation.self_drive_price.overtime rescue nil),:hour_free=>(@reservation.base_rate_code.base_hour rescue nil),:dis_free=>(@reservation.base_rate_code.base_km rescue nil),:reservation_person_phone=>(@reservation.customer.user.phone rescue nil)}
+            CrsAdmin::Reservation.site= @dispicher_ip
+            CrsAdmin::Reservation.create(@reservation.attributes.merge(_hash))
+          end
+        end
+        #订单分配后，给加盟商发送预定成功信息
+        @reservation.sms
         @reservation.flow("waitexec")
       #  SmsApi.send_sms_message(@reservation.reservation_person_phone,"已为您的订单#{@reservation.confirmation}分配好车辆和司机,车牌号:#{@reservation.car.car_tag}")
      end 
@@ -166,6 +169,16 @@ class ReservationsController < ApplicationController
     respond_to do |format| 
       format.js{render 'execing.js.erb'}
       #format.html { redirect_to reservations_url, notice: '订单执行成功.' }
+    end
+  end 
+
+  def print
+    @reservation = Reservation.find(params[:id]) 
+    if @reservation.rate_code=='ZJ'
+      @reservation= SelfDriving.find(params[:id])
+    end
+    respond_to do |format| 
+      format.html{render :layout=>'print'}
     end
   end
 end

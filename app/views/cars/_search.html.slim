@@ -1,11 +1,19 @@
 -if @search.present?
-  = simple_form_for @search  ,  :html => {:class => 'form-horizontal' },wrapper: 'bootstrap',validate:false do |f|
+  = simple_form_for @search, defaults: {required: false}, :html => {:class => 'form-horizontal' },wrapper: 'bootstrap' do |f|
     fieldset
       #legend
         .row-fluid
           .span5=f.input :car_tag_equals,input_html:{class:"search-query"}
           .span5
             =f.input :status_equals,collection:Car.status.options,placeholder:"全部",input_html:{class:"search-query"},label:"车辆状态"
+        .row-fluid
+          .span5
+            =f.input :location_company_id_equals, input_html:{id: "company_id"}, label: '所属公司'
+          .span5
+            =f.input :car_model_id_equals
+        .row-fluid
+          .span5
+            =f.input :location_id_equals, input_html:{class: "pickup_location"}
         .control-group
           .controls
             =f.submit value:"查询",class: "btn btn-small"

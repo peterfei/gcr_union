@@ -2,7 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
-  $('.hide').hide
-  $('#manager_user_role').on "change", () ->
+  if $('#manager_user_role').val() == 'oprator'
+    $('.hide').show()
+  $('body').on "change", '#manager_user_role', ->
     if $(@).val()=='oprator'
       $('.hide').show()
+    else
+      $('.hide').hide()

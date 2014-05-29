@@ -1,0 +1,3 @@
+var replacement = $("<%=j render @location%>");
+$('.location_<%= @location.id%>').replaceWith(replacement);
+replacement.addClass('success');

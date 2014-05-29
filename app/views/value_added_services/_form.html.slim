@@ -1,0 +1,8 @@
+=simple_form_for @value_added_service,:html => { :multipart => true },wrapper: 'bootstrap' do |f|
+  = f.input :name
+  = f.input :_type
+  = f.input :price
+  = f.input :status
+  .clearfix
+
+  = f.submit :value => '提交',class: 'btn btn-primary'

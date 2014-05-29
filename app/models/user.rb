@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
     uniqueness: { case_sensitive: false }
 
 
-  before_save { |user| user.email = email.downcase }
+  before_save { |user| user.email = email.try(:downcase) }
 
   def to_json(options={})
     options[:except] ||= [:id, :password_digest]

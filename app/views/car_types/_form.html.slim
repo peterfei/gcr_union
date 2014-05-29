@@ -1,5 +1,9 @@
 =simple_form_for @car_type,:html => { :multipart => true },wrapper: 'bootstrap' do |f|
 
+  /= f.simple_fields_for :car_type_rates do |b|
+    =b.association :city,:label=>"城市"
+  = label_tag '城市'
+  =text_field_tag 'pickup_city',get_city_id(@car_type.id)
   = f.input :car_type_name, :label => '车型名称'
   = f.input :persons, :label => '座位数',as: :string
   = f.input :big_package, :label => '大行李',as: :string
@@ -9,14 +13,14 @@
 
   -collection = []
   ul class="nav nav-tabs" id="myTab"
-    = f.fields_for :car_type_rates do |c|
+    = f.simple_fields_for :car_type_rates do |c|
       -collection << c
       li
         a href="##{c.object.base_rate_code_id}" data-toggle="tab" =c.object.base_rate_code.to_s
 
   .tab-content
     -collection.each do |c|
-      .tab-pane id=c.object.base_rate_code_id
+      .tab-pane id=c.object.base_rate_code_id 
         =c.hidden_field :base_rate_code_id
         =c.input :base_rate
         =c.input :xdis_rate

@@ -5,12 +5,12 @@
         = f.input :company_name, :label=>"公司简称"
       .span5
         = f.input :company_full_name, :label=>'公司全称'
-  .span12
-    .row-fluid
-      .span5
-        = f.input :taxpayer_code, :label=>'营业执照'
-      .span5
-        = f.input :reg_money, :label=>'注册资金(万元)'
+  /.span12
+  /  .row-fluid
+  /    .span5
+  /      = f.input :taxpayer_code, :label=>'营业执照'
+  /    .span5
+  /      = f.input :reg_money, :label=>'注册资金(万元)'
   .span12
     h4.header 公司资料
     .row-fluid
@@ -29,7 +29,7 @@
       .span5
         = f.input :email, :label=>'电子邮箱'
       .span5
-        = f.association :city, :label=>'城市', :as=>:string, :placeholder=>"请选择"
+        = f.association :city, :label=>'城市', :as=>:string, :input_html=>{:id=>"pickup_city"}, :placeholder=>"请选择"
   .span12
     .row-fluid
       .span5
@@ -40,16 +40,17 @@
     .row-fluid
       .span4
         = f.input :status, :collection => Company.status_list || @company.status, :placeholder=>"请选择"
-  //.span12
-    h4.header 公司介绍
-    .row-fluid
-      .span5
-        = f.input :logo_url,as: :file, :label=>'公司图标'
-    .row-fluid
+  -if  current_user.role=='admin'
+    .span12
+      h4.header 公司分配企业IP
+      .row-fluid
+        .span5
+          = f.input :dispicher_ip, :label=>'公司分配企业IP'
+    /.row-fluid
       .span5
         = f.input :comp_des,as: :text, :label=>'公司介绍'
   .span12.wdj_bordertop
     .wdj_btnwidth
-      .span1= link_to '返回',companies_path,:remote=>true, class:"btn"
-      .span1.offset= f.submit :class =>'btn btn-primary', :value => '保存', :id=>"companyOfSaveBtn"
+      .span1= f.submit :class =>'btn btn-primary', :value => '保存', :id=>"companyOfSaveBtn"
+      .span1= link_to '返回', companies_path, class:"btn"
 

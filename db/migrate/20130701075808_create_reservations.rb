@@ -33,6 +33,10 @@ class CreateReservations < ActiveRecord::Migration
       t.string   :passenger
       t.string   :passenger_phone
 
+      t.decimal :self_driving_prepayment
+      t.decimal :self_driving_overtime
+      t.decimal :self_driving_overdistance
+
       t.references :car_type
       t.references :car_model
       t.references :car

@@ -1,7 +1,0 @@
-$('#main').html('<%=j(render("form"))%>');
-$('body').init_components(); 
-$('#edit_reservation_<%=@reservation.id%> input').attr("disabled",true); 
-$('#edit_reservation_<%=@reservation.id%> textarea').attr("disabled",true); 
-$('#edit_reservation_<%=@reservation.id%> select').select2('readonly',true); 
-$('#edit_reservation_<%=@reservation.id%> select').attr('readonly',true); 
-$('#order_sb').hide(); 

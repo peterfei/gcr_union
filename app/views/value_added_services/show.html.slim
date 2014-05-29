@@ -1,0 +1,16 @@
+p
+  strong 名称:
+  = @value_added_service.name
+p
+  strong 类别:
+  = @value_added_service._type_text
+p
+  strong 价格:
+  = @value_added_service.price
+p
+  strong 状态:
+  = @value_added_service.status_text
+
+= link_to '编辑', edit_value_added_service_path(@value_added_service)
+|  | 
+= link_to '返回', value_added_services_path

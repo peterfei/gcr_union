@@ -2,55 +2,59 @@
   <ul>
     <%-if current_user.role=='oprator' or current_user.role=='admin' or current_user.role=='call_center'%> 
 
-          <li class=" menu-btn-order"><a href="#" class="call_center"></a></li>
-        <li class="<%= active reservations_path%> menu-btn-order"><a href="<%=reservations_path%>" class="order_one"></a></li>
+      <li class=" menu-btn-order"><a href="#" class="call_center"></a></li>
+    <li class="<%= active reservations_path%> menu-btn-order"><a href="<%=reservations_path%>" class="order_one">
+      <span class="badge pull-right"><%=order_count%></span> 
+    </a></li>
 
-        <li class="<%= active companies_path%> menu-btn-pickup"><a href="<%=companies_path%>" class="pickup_car_one"></a></li> 
-<li class="<%= active locations_path%> menu-btn-customers menu_item">
-      <a href="<%=locations_path%>" class="client_one"></a>
-      
-  </li> 
+    <li class="<%= active companies_path%> menu-btn-pickup"><a href="<%=companies_path%>" class="pickup_car_one"></a></li> 
+    <li class="<%= active locations_path%> menu-btn-customers menu_item">
+    <a href="<%=locations_path%>" class="client_one"></a>
+
+    </li> 
 
     <li class="<%= active cars_path%> menu-btn-returning"><a href="<%=cars_path%>" class="car_pay"></a></li>
     <li class="<%= active drivers_path%> menu-btn-matching"><a href="<%=drivers_path%>" class="driver_one"></a></li> 
 
     <%-unless current_user.role=='call_center' or current_user.role=='oprator'%>
       <li class="<%= active manager_users_path%> platform menu_item">
-        <a href="#" class="platform"></a>
-        <div class="menu_navigation">
-        <div class="mav_top"></div>
-        <ul class="menu_sub">
-          <li class=""> 
+    <a href="#" class="platform"></a>
+    <div class="menu_navigation">
+      <div class="mav_top"></div>
+      <ul class="menu_sub">
+        <li class=""> 
 
-            <a class="menu_sub_last" href="<%=manager_users_path%>">账号权限</a>
-          </li>
-          <li class="menu_sub_last">
-            <a class="menu_sub_last" href="<%=car_models_path%>">品牌维护</a>
-          </li>          
-          <li class="menu_sub_last">
-            <a class="menu_sub_last" href="<%=car_types_path%>">车型维护</a>
-
-          </li>  
-          <li class="menu_sub_last">
-            <a class="menu_sub_last" href="<%=base_rate_codes_path%>">业务类型维护</a>
-          </li>
-          <li class="menu_sub_last">
-            <a class="menu_sub_last" href="<%=users_path%>">客户信息维护</a>
-          </li> 
-          <!--li class="menu_sub_last">
+        <a class="menu_sub_last" href="<%=manager_users_path%>">账号权限</a>
+        </li>
+        <li class="menu_sub_last">
+        <a class="menu_sub_last" href="<%=car_models_path%>">自驾品牌维护</a>
+        </li>
+        <li class="menu_sub_last">
+        <a class="menu_sub_last" href="<%=base_rate_codes_path%>">业务类型维护</a>
+        </li>
+        <li class="menu_sub_last">
+        <a class="menu_sub_last" href="<%=users_path%>">客户信息维护</a>
+        </li>
+        <!--li class="menu_sub_last">
             <a class="menu_sub_last" href="<%=cms_admin_path%>">前台CMS维护</a>
-          </li--> 
-          <li class="menu_sub_last">
-            <a class="menu_sub_last" href="<%=self_drive_prices_path%>">自驾价格维护</a>
-          </li> 
-          <li class="menu_sub_last">
-            <a class="menu_sub_last" href="<%=car_type_rates_path%>">车型价格维护</a>
-          </li>
-        </ul>
-        <div class="mav_bottom"></div>
-      </div>
-      </li> 
-        <%end%>
-        <%end%>
+        </li-->
+        <li class="menu_sub_last">
+        <a class="menu_sub_last" href="<%=self_drive_prices_path%>">自驾价格维护</a>
+        </li>
+        <li class="menu_sub_last">
+        <a class="menu_sub_last" href="<%=car_types_path%>">代驾价格维护</a>
+        </li>
+        <li class="menu_sub_last">
+        <a class="menu_sub_last" href="<%=value_added_services_path%>">增值服务维护</a>
+        </li>
+        <li class="menu_sub_last">
+        <a class="menu_sub_last" href="<%=sys_parameters_path%>">系统参数维护</a>
+        </li>
+      </ul>
+      <div class="mav_bottom"></div>
+    </div>
+    </li> 
+  <%end%>
+  <%end%>
   </ul>
 </div><!-- .menu -->

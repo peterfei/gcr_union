@@ -329,7 +329,6 @@ input[type="button"] { display:inline-block;background: none;border: 0;cursor: p
 .layer_list table{ border:none; border-top:1px solid #c8c8c8; margin-bottom:0px;}
 .layer_list .table td { padding:0px;  text-align: center;  vertical-align: middle;  border-top: 1px solid #eaeaea; line-height:40px;}
 .layer_list .table td.first_one{ background-color:#f9f9f9;}
-.checkbox{ padding-left:0;}
 input[type="checkbox"]{ margin:4px 0 0 0; margin:0px 0 0 0;}
 
 .row-fluid .span6{ width:77%;}
@@ -463,7 +462,7 @@ vertical-align: middle;
 }
 
 
-.alert-messages { padding-left:15px; margin-bottom: 0px; margin-top:1px; margin-bottom:-10px; }
+.alert-messages { padding-left:15px; margin-bottom: 0px; margin-top:0px; }
 .alert-messages .alert { margin-bottom: 0px; }
 
 #costdisplay{ overflow-x:auto; }

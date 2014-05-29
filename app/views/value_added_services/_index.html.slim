@@ -1,0 +1,12 @@
+=render 'search'
+= link_to new_value_added_service_path do
+  button.btn
+    | 新增
+table.table.table-bordered.table-hover
+  tr
+    th 名称
+    th 价格
+    th 类别
+    th 状态
+    th 操作
+  = render @value_added_services

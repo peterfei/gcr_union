@@ -1,0 +1,14 @@
+= simple_form_for @search, defaults: {required: false}, :html => {:class => 'form-horizontal' }, wrapper: 'bootstrap' do |f|
+  fieldset
+    #legend
+      .row-fluid
+        .span5=f.input :car_model_name_contains, label: '品牌车型'
+        .span5=f.input :car_model_contains, label: '品牌'
+      .row-fluid
+        .span5=f.input :car_model_size_equals, label: '排量'
+        .span5=f.input :car_model_atmt_equals, label: '档位', collection: CarModel.car_model_atmt_list, label_method: :last, value_method: :first, include_blank: '全部'
+      .row-fluid
+        .span5=f.input :car_type_id_equals, label: '车型', input_html: {class: 'car_type_select'}
+      .control-group
+        .controls
+          =f.submit value:"查询",class: "btn btn-small"

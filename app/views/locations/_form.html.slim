@@ -3,9 +3,9 @@
   .span12
     .row-fluid
       .span4
-        = f.input :location_name, :label=>'门店名称'
+        = f.input :location_name, :label=>'门店名称', readonly: !f.object.new_record?
       .span4
-        = f.input :phone
+        = f.input :phone, label: '门店电话'
   .span12
     .row-fluid
       .span4
@@ -18,7 +18,7 @@
       .span4 tip='*必填,请选择门店所在城市区域'
         = f.association :district, :label=>'区域', :input_html=>{:id=>"pickup_district"}, :as=>:string,:placeholder=>"请选择"
       .span4
-        = f.input :address, :label=>'街道'
+        = f.input :address, :label=>'地址'
   .span12
     h4.header 负责人信息
     .row-fluid
@@ -30,7 +30,7 @@
     h4.header 营业信息
     .row-fluid
       .span4.form-inline id="yysjj"
-        |营业时间
+        '营业时间
         = select_tag 'start_time_hour' , options_for_select(Location.hour_list,:selected=>@start_time_hour),:style=>"width:80px;", :label=>'营业时间'
         = select_tag 'start_time_min' , options_for_select(Location.minute_list,:selected=>@start_time_min),:style=>"width:80px;"
         /= f.input :start_time,as: :string, :label=>'营业时间', input_html:{class:"datepicker"}
@@ -43,17 +43,18 @@
     .row-fluid
       .span4
         =f.input :is24, as: :boolean, :label=>'24小时营业'
-  /.span12
-    .row-fluid
-      .span6.form-inline
-        = f.input :rate_code_list,value_method: ->(a){a.first}, :as=>:check_boxes, :label=>'业务范围'
   .span12
     .row-fluid
       .span6.form-inline
-        = f.input :status, :collection => Location.status_list, :input_html => { :placeholder => '请选择营业状态' }
+        = f.input :status, :placeholder => '请选择营业状态'
   .span12
     .wdj_bordertop
-      .wdj_btnwidth  
+      .wdj_btnwidth
         .btn-group
-          = link_to '返回',locations_path, :remote=>true, class:"btn btn-small"
           = f.submit :class =>'btn btn-small', :value => '保存', :id=>"locationOfSaveBtn"
+          = link_to '返回', locations_path, class:"btn btn-small"
+
+-if current_user.role=='oprator'
+  coffee:
+    jQuery ->
+      $('#location_company_id').select2('readonly',true);

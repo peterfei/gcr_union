@@ -1,5 +1,2 @@
 = render 'index'
-    /! table
-    /! 分页
-    .pagination.pagination-centered
-      =paginate @drivers,theme:"bootstrap"
+= render partial: 'shared/pagination', locals: {collection: @drivers}

@@ -6,11 +6,18 @@ class CarModel < ActiveRecord::Base
     :car_type_id
 
   #mount_uploader :car_model_img_url, CompanyLogoUploader
+  extend Enumerize
+  enumerize :status, in: {enable: 'Y', disable: 'N'}, default: :enable, scope: true
 
   belongs_to :car_type
   has_many   :cars
   has_many   :self_drive_prices
   has_many   :locations, through: :self_drive_prices
+
+  validates :car_model_name, presence: true
+  validates :car_model, presence: true
+  validates :car_type_id, presence: true
+  # validates :car_model_img_url, presence: true
 
   class << self
     def without_prices
@@ -99,4 +106,17 @@ class CarModel < ActiveRecord::Base
   def to_s
     car_model_name
   end
+
+  def self.car_model_atmt_list
+    %w/MT AT AMT/
+    .zip ['手动','自动','手/自一体']
+  end
+  [:car_model_atmt].each do |name|
+    if /atmt$/ =~ name
+      define_method "#{name}_text" do
+        return Hash[self.class.send "#{name}_list"][read_attribute(name.to_sym)]
+      end 
+    end
+  end
+  
 end

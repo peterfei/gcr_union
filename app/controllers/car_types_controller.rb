@@ -2,13 +2,12 @@ class CarTypesController < ApplicationController
   # GET /car_types
   # GET /car_types.json
   def index
-    @car_types = CarType.all
+    @search = CarType.includes(:car_type_rates).search(params[:search])
+    @car_types = @search.group('car_types.id').page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @car_types } 
-
-      #format.json { render_select2 @cars, text:'car_tag'}
+      format.json { render_select2 @car_types }
       format.js
     end
   end
@@ -20,7 +19,7 @@ class CarTypesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @car_type }
+      format.json { render_select2 @car_type }
       format.js
     end
   end
@@ -53,6 +52,8 @@ class CarTypesController < ApplicationController
   # POST /car_types
   # POST /car_types.json
   def create
+    city_id = params[:pickup_city]
+    params[:car_type][:car_type_rates_attributes] = params[:car_type][:car_type_rates_attributes].map{|k,v| v.merge(:city_id=>city_id)}
     @car_type = CarType.new(params[:car_type])
 
     respond_to do |format|
@@ -71,7 +72,8 @@ class CarTypesController < ApplicationController
   # PUT /car_types/1.json
   def update
     @car_type = CarType.find(params[:id])
-
+    city_id = params[:pickup_city]
+    params[:car_type][:car_type_rates_attributes] = params[:car_type][:car_type_rates_attributes].map{|k,v| v.merge(:city_id=>city_id)}
     respond_to do |format|
       if @car_type.update_attributes(params[:car_type])
         format.html { redirect_to car_types_path, notice: 'Car type was successfully updated.' }

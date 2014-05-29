@@ -1,9 +1,10 @@
 class SelfDrivePricesController < ApplicationController
+  before_filter :resize_range, only: [:update, :create]
   # GET /self_drive_prices
   # GET /self_drive_prices.json
   layout 'index'
   def index
-    @search = SelfDrivePrice.search(params[:search])
+    @search = SelfDrivePrice.includes(:location).search(params[:search])
     @self_drive_prices=@search.page params[:page]
 
     respond_to do |format|
@@ -48,11 +49,15 @@ class SelfDrivePricesController < ApplicationController
 
     self_drive_prices = SelfDrivePrice.create(prices_params)
     respond_to do |format|
-      if self_drive_prices.map(&:errors).empty?
-        format.html { redirect_to self_drive_prices_path, notice: 'Self drive price was successfully created.' }
-      else
-        format.html { redirect_to self_drive_prices_path, notice: self_drive_prices.map{|s|s.errors.messages.values}.flatten.join(',') }
-      end
+      format.html{
+        if params[:car_model_ids].blank?
+          redirect_to new_self_drive_price_path, notice: '车辆品牌不能为空'
+        elsif self_drive_prices.map(&:errors).empty?
+          redirect_to self_drive_prices_path, notice: '自驾价格创建成功'
+        else
+          redirect_to new_self_drive_price_path, notice: self_drive_prices.map{|s|s.errors.messages.values}.flatten.join(',')
+        end
+      }
     end
   end
 
@@ -63,7 +68,7 @@ class SelfDrivePricesController < ApplicationController
 
     respond_to do |format|
       if @self_drive_price.update_attributes(params[:self_drive_price])
-        format.html { redirect_to @self_drive_price, notice: 'Self drive price was successfully updated.' }
+        format.html { redirect_to @self_drive_price, notice: '自驾价格更新成功' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -83,4 +88,24 @@ class SelfDrivePricesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  private
+  def resize_range
+    custom_prices = params[:self_drive_price][:custom_prices_attributes]
+
+    available=custom_prices.select{|key,value|value['_destroy']=='false'}
+    a = available.map{|key,value|Range.new *value['range'].split('-').map(&:to_date)}
+    all = a.map(&:to_a).flatten.uniq.sort
+    a.reverse.each_with_index do |r,i|
+      leave = (all - r.to_a)
+      a[i] = all - leave
+      all = leave
+    end
+    available.each do |key,value|
+      range = a.pop
+      range = "#{range.first.strftime('%Y/%m/%d')} - #{range.last.strftime('%Y/%m/%d')}"
+      params[:self_drive_price][:custom_prices_attributes][key]['range']=range
+    end
+  rescue
+  end
+
 end

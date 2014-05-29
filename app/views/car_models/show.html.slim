@@ -1,0 +1,38 @@
+dl.dl-horizontal
+  dt 车型编码 
+  dd
+    = @car_model.car_model_code
+dl.dl-horizontal
+  dt 车型名称 
+  dd= @car_model.car_model_name
+dl.dl-horizontal
+  dt 车辆品牌 
+  dd 
+    = @car_model.car_model 
+dl.dl-horizontal
+  dt 车型品牌 
+  dd
+    = @car_model.car_model_type 
+dl.dl-horizontal 
+  dt 车型类型
+  dd
+  /= @car_model.car_type_code
+dl.dl-horizontal
+  dt 车辆品牌图片
+  /=image_tag @car_model.car_model_img_url.url(:thumb) if @car_model.car_model_img_url?
+dl.dl-horizontal
+  dt 品牌箱数
+  dd= @car_model.car_model_package
+dl.dl-horizontal
+  dt 品牌排量
+  dd= @car_model.car_model_size
+dl.dl-horizontal
+  dt 品牌变速类型
+  dd= @car_model.car_model_atmt
+dl.dl-horizontal
+  dt 状态
+  dd
+    /= @car_model.status_text
+.btn-group
+  = link_to '编辑', edit_car_model_path(@car_model),class:"btn btn-small",remote:true
+  = link_to '返回', car_models_path, class:"btn btn-small"

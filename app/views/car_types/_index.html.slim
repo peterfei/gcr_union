@@ -1,8 +1,10 @@
-= link_to new_car_type_path, remote: true do
+=render 'search'
+= link_to new_car_type_path do
   button.btn
     | 新增
 table.table.table-bordered.table-hover
   tr
+    th 城市
     th 车型编码
     th 车型名称
     th 描述

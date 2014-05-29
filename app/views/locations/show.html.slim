@@ -1,0 +1,6 @@
+= render 'form'
+coffee:
+  jQuery ->
+    $('#location_form input').attr('disabled',true);  
+    $('#location_form select').select2('readonly',true); 
+    $('#locationOfSaveBtn').hide();

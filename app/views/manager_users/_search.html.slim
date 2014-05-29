@@ -1,0 +1,11 @@
+= simple_form_for @search, defaults: {required: false}, :html => {:class => 'form-horizontal' }, wrapper: 'bootstrap' do |f|
+  fieldset
+    #legend
+      .row-fluid
+        .span5=f.input :login_name_contains, label: '用户名'
+        .span5=f.input :role_equals, label: '角色权限', collection: ManagerUser::ROLES, include_blank: '全部'
+      .row-fluid
+        .span5=f.input :company_id_equals, label: '所属公司', input_html: {id: 'company_id'}
+      .control-group
+        .controls
+          =f.submit value:"查询",class: "btn btn-small"

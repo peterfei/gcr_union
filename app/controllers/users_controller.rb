@@ -1,11 +1,11 @@
 #encoding:utf-8
 class UsersController < ApplicationController
   before_filter :need_sign_in, :only => [:show, :edit, :update]
-  
+
   def index
-      @search = User.search params[:search]
-      @users = @search.page params[:page]
-  end 
+    @search = User.search params[:search]
+    @users = @search.page params[:page]
+  end
 
   def new
     @user = User.new 
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id] 
     unless params[:user][:password].present?  
-       params[:user].delete params[:user][:password]
+      params[:user].delete params[:user][:password]
     end
     respond_to do |format| 
       if @user.update_attributes(params[:user]) 
@@ -57,18 +57,18 @@ class UsersController < ApplicationController
       else
         flash.now[:error]='用户数据更新失败'
       end
-      
+
       format.js
     end
-  end 
-  def change_user_status  
-    @user = User.find params[:id] 
-    respond_to do |format|  
-      if @user.status=='disable'  
+  end
+  def change_user_status
+    @user = User.find params[:id]
+    respond_to do |format|
+      if @user.status.disable?
         @user.update_attribute(:status,:enable)
-      else  
+      else
         @user.update_attribute(:status,:disable)
-      end 
+      end
       format.js
     end
   end

@@ -4,8 +4,9 @@ class Customer < ActiveRecord::Base
   belongs_to :user
   extend Enumerize
   enumerize :sex, in: [:male, :female], default: :male
+  enumerize :identity_type_name, in: [:id], default: :id
 
-  def to_s  
-    customer_name 
+  def to_s
+    customer_name
   end
 end

@@ -9,6 +9,9 @@ class CarType < ActiveRecord::Base
   has_many :car_type_rates, :dependent => :destroy
   accepts_nested_attributes_for :car_type_rates
 
+  validates :car_type_name, presence: true
+  validates :image, presence: {message: '未选择文件'}
+
   def to_s
     car_type_name
   end

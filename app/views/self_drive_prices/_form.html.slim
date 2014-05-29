@@ -6,7 +6,7 @@
         - @self_drive_price.errors.full_messages.each do |msg|
           li= msg
 
-  = f.association :location, readonly: !@self_drive_price.new_record?
+  = f.input :location_id, readonly: !@self_drive_price.new_record?, label: '门店'
   -if @self_drive_price.new_record?
     = f.input :car_model_id do
       =text_field_tag 'car_model_ids'

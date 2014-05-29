@@ -1,7 +1,3 @@
-=simple_form_for @search, remote: true, class: 'form-search', wrapper: 'inline' do |f|
-  =f.input :location_id_equals, required: false
-  =f.input :car_model_id_equals, required: false
-  =f.submit '查看', class: 'btn'
 -if can? :create,SelfDrivePrice
   = link_to new_self_drive_price_path, remote: true do
     button.btn
@@ -9,12 +5,11 @@
 table#show_prices.table
   thead
     tr
+      th 城市
       th 门店
       th 品牌
       th 周内价格
       th 周末价格
       th 自定价格
+      th 操作
   =render @self_drive_prices
-.pagination.pagination-centered
-  =paginate @self_drive_prices, theme: "bootstrap"
-
