@@ -77,7 +77,7 @@ task :deploy => :environment do
 
     to :launch do
       # queue "touch #{deploy_to}/tmp/restart.txt"
-      #queue "service httpd restart"
+      queue "service httpd restart"
 	  #queue "script/delayed_job restart"
     end
   end
