@@ -4,7 +4,6 @@ class Car < ActiveRecord::Base
     :location_id, :car_type_id, :car_model_id, :driver_id,
     :seat, :alt_car_tag
 
-  validates :seat, presence: true
   validates :car_tag, presence: { message: '不能为空' }, uniqueness: {message:"已占用"}
   validates :location_id, presence: true
   validates :car_model_id, presence: true

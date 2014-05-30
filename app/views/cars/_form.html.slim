@@ -5,7 +5,7 @@
   = f.association :car_model, :placeholder => '请选择车辆品牌', :label=>'车辆品牌'
   -if @car.new_record?
     .record
-      = f.input '', :label=>'车牌号码' do
+      = f.input '', :label=>'* 车牌号码' do
         =text_field_tag 'cars[][car_tag]'
         span 备用车牌
         =text_field_tag 'cars[][alt_car_tag]'
