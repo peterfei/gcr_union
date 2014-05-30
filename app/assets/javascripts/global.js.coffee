@@ -48,8 +48,3 @@ jQuery ->
     $(this).find("> .menu_navigation").slideDown 100
   ), ->
     $(this).find("> .menu_navigation").slideUp 100
-
-  $(".sub_menu_item").hover (->
-    $(this).find("> .sub_menu_navigation").slideDown 100
-  ), ->
-    $(this).find("> .sub_menu_navigation").slideUp 100
