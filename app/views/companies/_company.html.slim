@@ -18,4 +18,4 @@ tr class="company_#{company.id}"
     = link_to '查看', company_path(company), class: 'btn btn-small'
     -if can? :update,company
       = link_to '修改', edit_company_path(company),remote:true, class: 'btn btn-small'
-      = link_to  '删除',company, method: :delete, data: {  confirm: "确定要删除吗?"},:remote=>true ,class:"btn btn-small"
+      /= link_to  '删除',company, method: :delete, data: {  confirm: "确定要删除吗?"},:remote=>true ,class:"btn btn-small"
