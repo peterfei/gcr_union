@@ -85,7 +85,6 @@ class LocationsController < ApplicationController
       params[:location][:end_time] = end_time
     end
     @location = Location.new(params[:location])
-    
     respond_to do |format|
       if @location.save
         format.js
@@ -119,10 +118,9 @@ class LocationsController < ApplicationController
       end 
 
       if @location.update_attributes(params[:location])
-        format.js
+        format.html { redirect_to @location }
         format.json { head :no_content }
-      else 
-
+      else
         format.js{render 'new'}
         format.html { redirect_to edit_location_path(params[:id]) }
         format.json { render json: @location.errors, status: :unprocessable_entity }

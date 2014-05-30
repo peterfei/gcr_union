@@ -56,18 +56,17 @@ class CompaniesController < ApplicationController
       params[:company][:created_at] = Time.now
       #params[:company][:manager_user_id] = current_user.id
     end
-    
     @company = Company.new(params[:company])
     @result = 0
     respond_to do |format|
-      if @company.save 
+      if @company.save
         @search = Company.search(params[:search])
         @companies=@search.page params[:page]
         @result = 1
-        format.js {render 'index'}
+        format.html { redirect_to companies_path, notice: '公司信息创建成功.' }
         format.json { render json: @company, status: :created, location: @company }
       else
-        format.js { render action: "new" }
+        format.html { render "new" }
         format.json { render json: @company.errors, status: :unprocessable_entity }
       end
     end
@@ -86,8 +85,7 @@ class CompaniesController < ApplicationController
         @search = Company.search(params[:search])
         @companies=@search.page params[:page]
         @result = 1
-        #format.html { redirect_to @company, notice: '公司信息更新成功.' }
-        format.js {render "index"}
+        format.html { redirect_to @company, notice: '公司信息更新成功.' }
         format.json { head :no_content }
       else
         format.html { redirect_to edit_company_path(params[:id]) }

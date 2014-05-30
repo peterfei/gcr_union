@@ -29,7 +29,7 @@ class CarTypesController < ApplicationController
   def new
     @car_type = CarType.new
     BaseRateCode.dj.each do |rate_code|
-      car_type_rates = @car_type.car_type_rates.build do |c|
+      @car_type.car_type_rates.build do |c|
         c.base_rate_code_id = rate_code.id
         c.base_rate         = 0
         c.xdis_rate         = 0
@@ -76,7 +76,7 @@ class CarTypesController < ApplicationController
     params[:car_type][:car_type_rates_attributes] = params[:car_type][:car_type_rates_attributes].map{|k,v| v.merge(:city_id=>city_id)}
     respond_to do |format|
       if @car_type.update_attributes(params[:car_type])
-        format.html { redirect_to car_types_path, notice: 'Car type was successfully updated.' }
+        format.html { redirect_to car_types_path, notice: '更新成功' }
         format.json { head :no_content }
         format.js { render 'show' }
       else
