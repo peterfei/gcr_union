@@ -52,7 +52,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(params[:reservation])
 
     respond_to do |format|
-      if @reservation.save 
+      if @reservation.save
         format.js
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render json: @reservation, status: :created, location: @reservation }

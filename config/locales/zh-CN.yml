@@ -27,6 +27,10 @@ zh-CN:
         enable: '待租'
         disable: '在租'
     reservation:
+      request_from:
+        weixin: '微信'
+        web: '网页'
+        android_web: '安卓客户端'
       special_passenger:
         old: "老人"
         patient: "病人"
@@ -363,7 +367,7 @@ zh-CN:
     location: '门店'
     driver: '司机'
     car_model: '车辆品牌'
-    car_type: '车型'
+    car_type: '代驾价格'
     manager_user: '管理用户'
     user: '客户'
     self_drive_price: '自驾价格'

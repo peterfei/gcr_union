@@ -1,23 +1,23 @@
-td = reservation.confirmation 
-td = reservation.base_rate_code 
+td = reservation.confirmation
+td = reservation.base_rate_code
 td = reservation.customer.customer_name  rescue nil
 td = reservation.reservation_person_phone|| (reservation.customer.user.phone rescue nil)
 td = reservation.pickup_date
-/td = reservation.down_address||reservation.up_address
 td = reservation.car_type ||reservation.car_model
 -if reservation.status=='pending'
   -color = "default"
--elsif reservation.status=='done' 
-  -color = "success" 
+-elsif reservation.status=='done'
+  -color = "success"
 -elsif reservation.status=='waitexec'
-  -color = "important" 
+  -color = "important"
 -elsif reservation.status=='hascar'
-  -color = "info" 
+  -color = "info"
 -elsif reservation.status=='execing'
   -color = "warning"
 -elsif reservation.status=='canceled'
   -color = "inverse"
 td class="label label-#{color}"= reservation.status_text 
 td = l(reservation.created_at,format: :long)
+td = reservation.request_from_text
 td class="opr_#{reservation.id}"
   =render :partial => 'list_opr',:locals=>{:reservation=>reservation}

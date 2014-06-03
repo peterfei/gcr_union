@@ -13,7 +13,7 @@ class Reservation < ActiveRecord::Base
     :return_location_id, :pickup_location_id,:company_id,:driver_id,
     :customer_id, :driver_attributes,
     :self_driving_prepayment, :self_driving_overtime, :self_driving_overdistance,
-    :reservation_base_rate, :reservation_xdis_rate, :reservation_xhour
+    :reservation_base_rate, :reservation_xdis_rate, :reservation_xhour, :request_from
 
   default_scope ->{order("created_at DESC")}
   extend Enumerize
@@ -26,6 +26,7 @@ class Reservation < ActiveRecord::Base
     default: :unconfirm, predicates: true
 
   enumerize :pay_mode, in: [:online, :driver], default: :online
+  enumerize :request_from, in: [:wexin, :android_client, :web], default: :web
 
   # mount_uploader :attachment, AttachmentUploader
 

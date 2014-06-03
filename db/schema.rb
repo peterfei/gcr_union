@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140526024356) do
+ActiveRecord::Schema.define(:version => 20140602024356) do
 
   create_table "airports", :force => true do |t|
     t.string  "name"
@@ -427,6 +427,7 @@ ActiveRecord::Schema.define(:version => 20140526024356) do
     t.decimal  "reservation_base_rate",     :precision => 10, :scale => 0
     t.decimal  "reservation_xdis_rate",     :precision => 10, :scale => 0
     t.decimal  "reservation_xhour",         :precision => 10, :scale => 0
+    t.string   "request_from"
   end
 
   add_index "reservations", ["base_rate_code_id"], :name => "index_reservations_on_base_rate_code_id"
