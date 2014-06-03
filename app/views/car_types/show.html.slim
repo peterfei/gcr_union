@@ -20,6 +20,6 @@ p
   strong 车型图片:
   =image_tag @car_type.image.url(:thumb) if @car_type.image
 
-= link_to '编辑', edit_car_type_path(@car_type), remote: true
+= link_to '编辑', edit_car_type_path(@car_type)
 '|
 = link_to '返回', car_types_path, remote: true

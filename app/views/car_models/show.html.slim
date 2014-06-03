@@ -34,5 +34,5 @@ dl.dl-horizontal
   dd
     /= @car_model.status_text
 .btn-group
-  = link_to '编辑', edit_car_model_path(@car_model),class:"btn btn-small",remote:true
+  /= link_to '编辑', edit_car_model_path(@car_model),class:"btn btn-small",remote:true
   = link_to '返回', car_models_path, class:"btn btn-small"
