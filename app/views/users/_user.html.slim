@@ -5,8 +5,8 @@ tr class="user_#{user.id}"
   td = l(user.created_at,format: :long)
   td = user.status_text||'正常'
   td  
-    =link_to '查看',user_path(user),class:'btn btn-small',remote:true 
-    =link_to '编辑',edit_user_path(user),class:'btn btn-small',remote:true  
+    =link_to '查看',user_path(user),class:'btn btn-small'
+    =link_to '编辑',edit_user_path(user),class:'btn btn-small'
     -if user.status_was =="enable"
       =link_to '锁定',change_user_status_path(user),class:'btn btn-small',remote:true 
     -else
