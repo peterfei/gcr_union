@@ -1,4 +1,4 @@
-= simple_form_for @location, html: { class: 'form-horizontal',id: 'location_form'}, validate: false, wrapper: 'bootstrap', remote: true do |f|
+= simple_form_for @location, html: { class: 'form-horizontal',id: 'location_form'}, validate: false, wrapper: 'bootstrap' do |f|
   input type='hidden' id='acto' value='#{params[:action]}'
   .span12
     .row-fluid

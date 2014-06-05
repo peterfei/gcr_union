@@ -50,11 +50,9 @@ class CarModelsController < ApplicationController
       if @car_model.save
         @search = CarModel.search(params[:search])
         @car_models = @search.page params[:page]
-        #format.html { redirect_to @car_model, notice: 'Car model was successfully created.' }
-        format.js {render 'index'}
+        format.html { redirect_to @car_model, notice: '车辆品牌新建成功' }
         format.json { render json: @car_model, status: :created, location: @car_model }
       else
-        format.js{render 'index'}
         format.html { render action: "new" }
         format.json { render json: @car_model.errors, status: :unprocessable_entity }
       end

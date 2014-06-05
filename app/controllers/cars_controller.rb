@@ -64,12 +64,11 @@ class CarsController < ApplicationController
   # PUT /cars/1.json
   def update
     @car = Car.find(params[:id])
-    respond_to do |format|  
+    respond_to do |format|
       if @car.update_attributes(params[:car])
-        format.html { redirect_to @car, notice: '车辆信息更新成功.' }
+        format.js
         format.json { head :no_content } 
-        format.js 
-      else 
+      else
         format.js {render 'new'}
         format.html { render action: "edit" }
         format.json { render json: @car.errors, status: :unprocessable_entity }
