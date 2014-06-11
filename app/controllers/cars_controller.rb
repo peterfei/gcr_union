@@ -96,7 +96,7 @@ class CarsController < ApplicationController
     if request.post?
       begin
         Car.import(params[:file])
-        redirect_to cars_path, notice: "Products imported."
+        redirect_to cars_path, notice: "车辆信息导入成功."
       rescue => e
         redirect_to cars_path, notice: e
       end

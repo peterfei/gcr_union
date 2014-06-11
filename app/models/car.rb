@@ -31,13 +31,21 @@ class Car < ActiveRecord::Base
   end
 
   def self.import(file)
+    _header = {
+      '*所属门店' => 'location_id',
+      '*车辆品牌' => 'car_model_id',
+      '*车牌号码' => 'car_tag',
+      '备用车牌'  => 'alt_car_tag',
+      '颜色'      => 'color',
+      '座位数'    => 'seat'
+    }
     spreadsheet = open_spreadsheet(file)
-    header = spreadsheet.row(1)
+    header = spreadsheet.row(1).map{|h|_header[h]}
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      product = find_by_id(row["id"]) || new
-      product.attributes = row.to_hash.slice(*accessible_attributes)
-      product.save!
+      car = find_by_id(row["id"]) || new
+      car.attributes = row.to_hash.slice(*accessible_attributes)
+      raise "第#{i-1}条记录导入失败: #{car.errors.full_messages.join(',')}" unless car.save
     end
   end
 
