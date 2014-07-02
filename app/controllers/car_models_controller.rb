@@ -65,7 +65,7 @@ class CarModelsController < ApplicationController
     @car_model = CarModel.find(params[:id])
 
     respond_to do |format|
-      if @car_model.update_attributes(params[:car_model]) 
+      if @car_model.update_attributes(params[:car_model])
         format.html { redirect_to @car_model, notice: 'Car model was successfully updated.' }
         format.json { head :no_content }
       else
