@@ -3,8 +3,8 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index
-      @search = Car.search(params[:search]) 
-    if current_user.role=='oprator'  
+      @search = Car.includes(:location, :car_model).search(params[:search])
+    if current_user.role=='oprator'
       @where = current_user.company.locations.pluck(:id) 
       @cars = @search.where("location_id in (?)",@where).page params[:page]
     else
@@ -19,12 +19,12 @@ class CarsController < ApplicationController
 
   # GET /cars/1
   # GET /cars/1.json
-  def show 
+  def show
     @car = Car.find(params[:id])
 
     respond_to do |format|
       format.js
-      format.html # show.html.erb 
+      format.html # show.html.erb
       format.json { render_select2 @car, text: 'car_tag' }
     end
   end
@@ -81,15 +81,25 @@ class CarsController < ApplicationController
   def destroy
     @car = Car.find(params[:id])
 
-    respond_to do |format| 
+    respond_to do |format|
       if @car.status =='enable'
         @car.update_attribute(:status, 'disable')
-      else 
+      else
         @car.update_attribute(:status, 'enable')
       end
       format.html { redirect_to cars_url }
       format.js
       format.json { head :no_content }
+    end
+  end
+  def import
+    if request.post?
+      begin
+        Car.import(params[:file])
+        redirect_to cars_path, notice: "车辆信息导入成功."
+      rescue => e
+        redirect_to cars_path, notice: e
+      end
     end
   end
 end

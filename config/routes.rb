@@ -33,7 +33,9 @@ GcrUnion::Application.routes.draw do
     resource :comments
     match 'print',:on=>:member
   end
-  resources :cars, path_names: { destroy: 'disable' }
+  resources :cars, path_names: { destroy: 'disable' } do
+    collection { match :import }
+  end
   resources :locations
   resources :companies
   resources :users

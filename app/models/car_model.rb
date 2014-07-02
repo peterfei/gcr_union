@@ -18,6 +18,7 @@ class CarModel < ActiveRecord::Base
   validates :car_model, presence: true
   validates :car_type_id, presence: true
   # validates :car_model_img_url, presence: true
+  mount_uploader :car_model_img_url, AttachmentUploader
 
   class << self
     def without_prices

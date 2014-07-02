@@ -1,0 +1,4 @@
+=link_to '模板下载', '/download/cars.xlsx'
+= form_tag import_cars_path, multipart: true, class: 'import-form form form-inline' do
+  = file_field_tag :file
+  = submit_tag "导入", class: 'btn'
