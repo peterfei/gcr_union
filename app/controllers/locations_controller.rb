@@ -7,6 +7,8 @@ class LocationsController < ApplicationController
     if current_user.role=='oprator'
       @where = "#{current_user.company_id}"
       @locations=@search.where(:company_id=>@where).page params[:page] 
+    elsif current_user.role=='distributor'
+    @locations = Location.where("company_id in (?)", current_user.permission.split(',').map(&:to_i)).page params[:page]
     else
       @locations=@search.page params[:page]
     end

@@ -7,6 +7,9 @@ class CompaniesController < ApplicationController
     if current_user.role=='oprator'
       @where = "#{current_user.company_id}"
       @search = Company.where(:id=>@where).search(params[:search])
+    elsif current_user.role=='distributor'
+      @where = current_user.permission.split(',').map(&:to_i)
+      @search = Company.where(:id=>@where).search(params[:search])
     else
       @search = Company.search(params[:search])
     end

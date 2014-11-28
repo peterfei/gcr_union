@@ -8,5 +8,5 @@ tr id="car_model_#{car_model.id}"
   td
     .btn-group
       = link_to '显示', car_model,class:"btn btn-small"
-      /= link_to '编辑', edit_car_model_path(car_model),class:"btn btn-small"
+      = link_to '编辑', edit_car_model_path(car_model),class:"btn btn-small"
       = link_to  ->{car_model.status.enable? ? '停用':'启用'}.call, car_model, class: 'btn btn-small', method: 'delete', remote: true

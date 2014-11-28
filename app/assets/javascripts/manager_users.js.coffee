@@ -5,7 +5,12 @@ $ ->
   if $('#manager_user_role').val() == 'oprator'
     $('.hide').show()
   $('body').on "change", '#manager_user_role', ->
-    if $(@).val()=='oprator'
-      $('.hide').show()
+    if ($(@).val()=='oprator')  
+    	$('.hide').show()
+    	$('.distributor').hide()
+    else if ($(@).val()=='distributor')
+      $('.distributor').show()
+      $('#company_id').select2({multiple:true})
     else
       $('.hide').hide()
+      $('.distributor').hide()

@@ -7,6 +7,9 @@ class ReservationsController < ApplicationController
     if current_user.role=='oprator'
       @where = current_user.company.locations.pluck(:id)
       @reservations= @search.where("pickup_location_id in (?) ",@where).page params[:page]
+    elsif current_user.role=='distributor'
+      @where = Location.where("company_id in (?)", current_user.permission.split(',').map(&:to_i)).pluck(:id)
+      @reservations= @search.where("pickup_location_id in (?) ",@where).page params[:page]
     else
       @reservations= @search.page params[:page]
     end

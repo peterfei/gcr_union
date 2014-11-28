@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140602024356) do
+ActiveRecord::Schema.define(:version => 20141126051252) do
 
   create_table "airports", :force => true do |t|
     t.string  "name"
@@ -305,8 +305,8 @@ ActiveRecord::Schema.define(:version => 20140602024356) do
     t.string  "district_code"
     t.string  "district_name"
     t.string  "status"
-    t.integer "suburbs"
     t.integer "city_id"
+    t.integer "suburbs"
   end
 
   add_index "districts", ["city_id"], :name => "index_districts_on_city_id"
@@ -357,7 +357,35 @@ ActiveRecord::Schema.define(:version => 20140602024356) do
     t.datetime "updated_at",        :null => false
     t.string   "role"
     t.integer  "company_id"
+    t.string   "permission"
   end
+
+  create_table "members", :force => true do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.integer  "mygroup_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "members", ["mygroup_id"], :name => "index_members_on_mygroup_id"
+
+  create_table "mygroups", :force => true do |t|
+    t.string   "title"
+    t.text     "desc"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "payment_records", :force => true do |t|
+    t.decimal  "amount",         :precision => 10, :scale => 0
+    t.string   "payment_type"
+    t.integer  "reservation_id"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+  end
+
+  add_index "payment_records", ["reservation_id"], :name => "index_payment_records_on_reservation_id"
 
   create_table "phone_validates", :force => true do |t|
     t.string   "phone_number"

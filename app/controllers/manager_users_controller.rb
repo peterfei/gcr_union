@@ -47,6 +47,8 @@ class ManagerUsersController < ApplicationController
   # POST /manager_users
   # POST /manager_users.json
   def create
+    params[:manager_user][:permission]=params[:manager_user][:permission].reject(&:empty?).join(',')
+    # params[:manager_user]=
     @manager_user = ManagerUser.new(params[:manager_user])
 
     respond_to do |format|
@@ -68,6 +70,7 @@ class ManagerUsersController < ApplicationController
     unless params[:manager_user][:password].present?
        params[:manager_user].delete(:password)
     end
+    params[:manager_user][:permission]=params[:manager_user][:permission].reject(&:empty?).join(',')
     respond_to do |format| 
       if @manager_user.update_attributes(params[:manager_user])
         format.html { redirect_to @manager_user, notice: '管理用户更新成功.' }

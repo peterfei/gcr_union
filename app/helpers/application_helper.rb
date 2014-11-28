@@ -60,7 +60,10 @@ module ApplicationHelper
   def order_count    
     if current_user.role=='oprator'
       @where = current_user.company.locations.pluck(:id) 
-      Reservation.where("pickup_location_id in (?) ",@where).where(:status=>:waitexec).count  
+      Reservation.where("pickup_location_id in (?) ",@where).where(:status=>:waitexec).count 
+    elsif current_user.role=='distributor'
+      @where = Location.where("company_id in (?)", current_user.permission.split(',').map(&:to_i)).pluck(:id)
+      @reservations=Reservation.where("pickup_location_id in (?) ",@where).where(:status=>:waitexec).count
     else 
       Reservation.where(:status=>:waitexec).count  
     end

@@ -1,13 +1,14 @@
 # coding: utf-8
 class ManagerUser < ActiveRecord::Base
-  attr_accessible :login_name, :manager_user_type, :password_digest,:password,:origin,:role,:company_id
+  attr_accessible :login_name, :manager_user_type, :password_digest,:password,:origin,:role,:company_id,:permission
   has_secure_password
   belongs_to :company
-  ROLES = [['运营中心','admin'], ['呼叫中心','call_center'], ['加盟商', 'oprator']]
+  ROLES = [['运营中心','admin'], ['呼叫中心','call_center'], ['加盟商', 'oprator'],['渠道商', 'distributor']]
 
   validates :login_name, presence: true
   validates :password, presence: true, on: :create
   validates :company_id, presence: true, if: Proc.new{|p| p.role=='oprator'}
+  validates :permission, presence: true, if: Proc.new{|p| p.role=='distributor'}
   def self.manager_user_type_list
     [['个人',0],['企业',1]]
   end

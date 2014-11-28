@@ -1,0 +1,1894 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"m",
+				"margin"
+			],
+			[
+				"admin",
+				"admin_users_path"
+			],
+			[
+				"user",
+				"user_roles"
+			],
+			[
+				"lo",
+				"loginuser"
+			],
+			[
+				"ass",
+				"asset_path"
+			],
+			[
+				"ima",
+				"image_path"
+			],
+			[
+				"f",
+				"fun	function …"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/uploaders/attachment_uploader.rb",
+			"settings":
+			{
+				"buffer_size": 1646,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/car_models/_car_model.html.slim",
+			"settings":
+			{
+				"buffer_size": 496,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/manager_users/_form.html.slim",
+			"settings":
+			{
+				"buffer_size": 908,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/layouts/_menubar.html.erb",
+			"settings":
+			{
+				"buffer_size": 2411,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/controllers/reservations_controller.rb",
+			"settings":
+			{
+				"buffer_size": 6340,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/reservations/_tail.html.slim",
+			"settings":
+			{
+				"buffer_size": 5296,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/locations_controller.rb",
+			"settings":
+			{
+				"buffer_size": 4396,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/companies_controller.rb",
+			"settings":
+			{
+				"buffer_size": 3589,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/manager_user.rb",
+			"settings":
+			{
+				"buffer_size": 1167,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/manager_users_controller.rb",
+			"settings":
+			{
+				"buffer_size": 2685,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/manager_users/new.coffee",
+			"settings":
+			{
+				"buffer_size": 275,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/javascripts/manager_users.js.coffee",
+			"settings":
+			{
+				"buffer_size": 623,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"gs",
+				"Git: Status"
+			],
+			[
+				"gc",
+				"Git: Commit"
+			],
+			[
+				"gadd",
+				"Git: Add Current File"
+			],
+			[
+				"git sta",
+				"Git: Quick Status"
+			],
+			[
+				"gq",
+				"Git: Quick Commit"
+			],
+			[
+				"gad",
+				"Git: Add Current File"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"gini",
+				"Git: Init"
+			],
+			[
+				"git:add",
+				"Git: Add..."
+			],
+			[
+				"git:comm",
+				"Git: Commit"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"markd",
+				"Set Syntax: Markdown"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"gitcomm",
+				"Git: Commit"
+			],
+			[
+				"gitcom",
+				"Set Syntax: Git Commit Message"
+			],
+			[
+				"ali",
+				"Preferences: Alignment File Settings – Syntax Specific – User"
+			],
+			[
+				"alignment",
+				"Preferences: Alignment File Settings – User"
+			],
+			[
+				"gitco",
+				"Git: Commit"
+			],
+			[
+				"goto",
+				"Emmet: Go to Matching Pair"
+			],
+			[
+				"gitl",
+				"Git: Log All"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: #!/usr/bin/env"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"ls",
+			"cd ..",
+			"choe",
+			"echo",
+			"dd"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/liufei/ROR/gcr_union",
+		"/Users/liufei/ROR/gcr_union/app",
+		"/Users/liufei/ROR/gcr_union/app/assets",
+		"/Users/liufei/ROR/gcr_union/app/assets/javascripts",
+		"/Users/liufei/ROR/gcr_union/app/controllers",
+		"/Users/liufei/ROR/gcr_union/app/views",
+		"/Users/liufei/ROR/gcr_union/app/views/reservations",
+		"/Users/liufei/ROR/gcr_union/app/views/value_added_services",
+		"/Users/liufei/ROR/gcr_union/app/views/welcome",
+		"/Users/liufei/ROR/gcr_union/config",
+		"/Users/liufei/ROR/gcr_union/db/migrate",
+		"/Users/liufei/ROR/gcr_union/public/uploads"
+	],
+	"file_history":
+	[
+		"/Users/liufei/ROR/gcr_union/config/routes.rb",
+		"/Users/liufei/ROR/gcr_union/app/helpers/application_helper.rb",
+		"/Users/liufei/ROR/gcr_union/app/views/layouts/application.html.erb",
+		"/Users/liufei/ROR/gcr_union/app/models/manager_user.rb",
+		"/Users/liufei/ROR/gcr_union/db/schema.rb",
+		"/Users/liufei/ROR/gcr_union/db/migrate/20141126051252_add_permission_to_manager_users.rb",
+		"/Users/liufei/ROR/gcr_union/app/controllers/manager_users_controller.rb",
+		"/Users/liufei/ROR/gcr_union/lib/tasks/db.rake",
+		"/Users/liufei/ROR/gcr_union/db/migrate/20130820074020_create_cms.rb",
+		"/Users/liufei/ROR/gcr_web/app/assets/javascripts/home.js.coffee",
+		"/Users/liufei/ROR/gcr_web/app/assets/javascripts/select2_ext.js.coffee",
+		"/Users/liufei/ROR/gcr_web/app/assets/javascripts/chosecity.js",
+		"/Users/liufei/ROR/gcr_web/app/controllers/home_controller.rb",
+		"/Users/liufei/ROR/gcr_web/app/views/self_drivings/choose_car.html.slim",
+		"/Users/liufei/ROR/gcr_web/app/views/reservations/_form.html.slim",
+		"/Users/liufei/ROR/gcr_web/app/views/self_drivings/_confirm.html.slim",
+		"/Users/liufei/ROR/gcr_web/app/assets/javascripts/self_drivings.js.coffee",
+		"/Users/liufei/ROR/gcr_web/app/views/self_drivings/confirm.html.slim",
+		"/Users/liufei/ROR/gcr_web/app/views/reservations/confirm.html.slim",
+		"/Users/liufei/ROR/gcr_web/app/assets/stylesheets/reservations.css",
+		"/Users/liufei/ROR/gcr_web/app/views/car_models/_index.html.slim",
+		"/Users/liufei/ROR/gcr_web/app/assets/stylesheets/self_drivings.css",
+		"/Users/liufei/ROR/gcr_web/config/routes.rb",
+		"/Users/liufei/ROR/gcr_web/app/models/self_driving.rb",
+		"/Users/liufei/ROR/gcr_web/db/schema.rb",
+		"/Users/liufei/ROR/gcr_web/app/assets/stylesheets/application.css.scss",
+		"/Users/liufei/ROR/gcr_web/app/views/layouts/application.html.slim",
+		"/Users/liufei/ROR/gcr_web/app/assets/javascripts/we/application.js",
+		"/Users/liufei/ROR/gcr_web/app/helpers/application_helper.rb",
+		"/Users/liufei/ROR/gcr_web/app/controllers/application_controller.rb",
+		"/Users/liufei/ROR/gcr_web/app/assets/javascripts/application.js",
+		"/Users/liufei/ROR/gcr_web/config/application.yml",
+		"/Users/liufei/ROR/gcr_web/config/application.rb",
+		"/Users/liufei/ROR/gcr_web/app/controllers/reservations_controller.rb",
+		"/Users/liufei/ROR/gcr_web/app/views/reservations/_form_partial.html.slim",
+		"/Users/liufei/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/liufei/ROR/gcr_web/app/views/home/index.html.erb",
+		"/Users/liufei/ROR/gcr_web/app/views/layouts/_main_top.html.erb",
+		"/Users/liufei/ROR/gcr_web/app/views/reservations/_car_type.html.slim",
+		"/Users/liufei/ROR/gcr_web/app/views/reservations/_car_type_rate.html.slim",
+		"/Users/liufei/ROR/gcr_web/app/views/reservations/new.html.slim",
+		"/Users/liufei/ROR/gcr_web/app/assets/stylesheets/main.css",
+		"/Users/liufei/ROR/gcr_web/app/views/shared/_footer.html.erb",
+		"/Users/liufei/ROR/gcr_web/app/views/shared/_login_info.html.slim",
+		"/Users/liufei/ROR/gcr_web/app/views/user_sessions/create.js.erb",
+		"/Users/liufei/ROR/gcr_web/config.ru",
+		"/Users/liufei/ROR/gcr_web/tmp/cache/sass/4f43894c695d22ece13cd8a992a12fd428eed5a8/_hero-unit.scssc",
+		"/Users/liufei/ROR/gcr_web/app/inputs/hour_input.rb",
+		"/Users/liufei/ROR/gcr_web/app/models/reservation.rb",
+		"/Users/liufei/ROR/gcr_web/tmp/restart.txt",
+		"/Users/liufei/ROR/gcr_web/config/environments/test.rb",
+		"/Users/liufei/ROR/gcr_web/app/models/car_type_rate.rb",
+		"/Users/liufei/ROR/gcr_web/tmp/cache/sass/4f43894c695d22ece13cd8a992a12fd428eed5a8/_reset.scssc",
+		"/Users/liufei/ROR/gcr_web/config/initializers/simple_form.rb",
+		"/Users/liufei/ROR/gcr_web/spec/support/mailer_macros.rb",
+		"/Users/liufei/ROR/gcr_web/app/models/member.rb",
+		"/Users/liufei/Downloads/心霖公社选课系统要求.doc",
+		"/Users/liufei/ROR/gcr_web/app/assets/stylesheets/global.css",
+		"/Users/liufei/ROR/gcr_web/config/database.yml",
+		"/Users/liufei/ROR/gcr_web/app/assets/stylesheets/login.css",
+		"/Users/liufei/ROR/gcr_web/app/assets/stylesheets/index.css",
+		"/Users/liufei/ROR/duty/app/models/admin/user_role.rb",
+		"/Users/liufei/ROR/duty/app/models/user.rb",
+		"/Users/liufei/ROR/duty/app/models/admin/user.rb",
+		"/Users/liufei/ROR/duty/app/views/admin/users/_bar.html.slim",
+		"/Users/liufei/ROR/duty/app/views/admin/permissions/index.html.slim",
+		"/Users/liufei/ROR/duty/app/views/admin/users/index.html.slim",
+		"/Users/liufei/ROR/duty/Gemfile",
+		"/Users/liufei/ROR/duty/config/routes.rb",
+		"/Users/liufei/ROR/duty/app/views/admin/users/_form.html.slim",
+		"/Users/liufei/ROR/duty/app/controllers/users_controller.rb",
+		"/Users/liufei/ROR/duty/app/controllers/admin/roles_controller.rb",
+		"/Users/liufei/ROR/duty/db/seeds.rb",
+		"/Users/liufei/ROR/duty/app/models/admin/permission.rb",
+		"/Users/liufei/ROR/duty/app/views/admin/roles/index.html.slim",
+		"/Users/liufei/ROR/duty/app/views/admin/roles/show.html.slim",
+		"/Users/liufei/ROR/duty/app/helpers/application_helper.rb",
+		"/Users/liufei/ROR/duty/app/assets/javascripts/admin/roles.js.coffee",
+		"/Users/liufei/ROR/duty/app/views/admin/roles/grant.html.slim",
+		"/Users/liufei/ROR/duty/vendor/assets/stylesheets/style.css",
+		"/Users/liufei/ROR/duty/app/views/layouts/admin.html.slim",
+		"/Users/liufei/ROR/duty/config/initializers/assets.rb",
+		"/Users/liufei/ROR/duty/app/helpers/admin/sessions_helper.rb",
+		"/Users/liufei/ROR/duty/app/models/ability.rb",
+		"/Users/liufei/ROR/duty/app/models/admin/role.rb",
+		"/Users/liufei/ROR/duty/app/assets/images/glyphicons-regular.svg",
+		"/Users/liufei/ROR/duty/app/assets/stylesheets/scaffolds.css.scss",
+		"/Users/liufei/ROR/duty/db/migrate/20141005145631_create_admin_user_roles.rb",
+		"/Users/liufei/ROR/duty/app/views/layouts/signinout.html.slim",
+		"/Users/liufei/ROR/duty/app/views/admin/dashboards/index.html.slim",
+		"/Users/liufei/ROR/duty/app/views/admin/sessions/new.html.slim",
+		"/Users/liufei/ROR/duty/app/views/admin/users/new.html.slim",
+		"/Users/liufei/ROR/duty/app/controllers/admin_controller.rb",
+		"/Users/liufei/ROR/duty/app/controllers/admin/dashboards_controller.rb",
+		"/Users/liufei/ROR/duty/app/controllers/admin/sessions_controller.rb",
+		"/Users/liufei/ROR/duty/vendor/assets/stylesheets/uniform.default.css",
+		"/Users/liufei/ROR/duty/app/assets/stylesheets/admin/dashboards.css",
+		"/Users/liufei/ROR/duty/app/controllers/admin/users_controller.rb",
+		"/Users/liufei/ROR/duty/vendor/assets/stylesheets/blue.css",
+		"/Users/liufei/ROR/duty/app/views/users/index.html.slim",
+		"/Users/liufei/ROR/duty/app/views/users/index.html",
+		"/Users/liufei/ROR/duty/app/helpers/admin/dashboards_helper.rb",
+		"/Users/liufei/ROR/duty/app/helpers/admin/users_helper.rb",
+		"/Users/liufei/ROR/duty/app/assets/javascripts/admin/dashboards.js.coffee",
+		"/Users/liufei/ROR/duty/vendor/assets/javascripts/app.js",
+		"/Users/liufei/ROR/duty/app/assets/stylesheets/signinout.css",
+		"/Users/liufei/ROR/duty/app/assets/javascripts/cloud.js",
+		"/Users/liufei/ROR/duty/app/controllers/application_controller.rb",
+		"/Users/liufei/ROR/duty/app/views/layouts/application.html.erb",
+		"/Users/liufei/ROR/duty/app/helpers/users_helper.rb",
+		"/Users/liufei/ROR/duty/test/test_helper.rb",
+		"/Users/liufei/ROR/duty/test/helpers/.keep",
+		"/Users/liufei/ROR/duty/vendor/assets/stylesheets/halflings.css",
+		"/Users/liufei/ROR/duty/config/secrets.yml",
+		"/Users/liufei/ROR/duty/config.ru",
+		"/Users/liufei/ROR/duty/vendor/assets/javascripts/contact-us.js",
+		"/Users/liufei/ROR/duty/db/migrate/20141003110746_add_remember_token_to_users.rb",
+		"/Users/liufei/ROR/duty/vendor/assets/javascripts/lock.js",
+		"/Users/liufei/ROR/duty/vendor/assets/javascripts/load-image.min.js",
+		"/Users/liufei/ROR/duty/lib/assets/.keep",
+		"/Users/liufei/ROR/duty/duty.sublime-project",
+		"/Users/liufei/ROR/duty/config/initializers/filter_parameter_logging.rb",
+		"/Users/liufei/ROR/duty/app/assets/images/glyphiconshalflings-regular.svg",
+		"/Users/liufei/ROR/duty/app/assets/images/glyphicons_halflings.svg",
+		"/Users/liufei/ROR/duty/vendor/assets/stylesheets/multi-select-metro.css",
+		"/Users/liufei/ROR/duty/config/initializers/session_store.rb",
+		"/Users/liufei/ROR/duty/config/environments/test.rb",
+		"/Users/liufei/ROR/duty/vendor/assets/stylesheets/bootstrap-toggle-buttons.css"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"<project>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"call",
+			"location_select2",
+			"search_location_id_equals",
+			"manager",
+			"manager_user",
+			"console",
+			"location_select2",
+			"location",
+			"return_location",
+			"return_location_id",
+			"DD",
+			"dd",
+			"right_cont",
+			"tab-content",
+			"nav nav-tabs",
+			"special_requirements",
+			"wdj_order_right_sure_cont",
+			"self_driving_pay_mode",
+			"wdi_order_right_choose_condition",
+			"vefi",
+			"phone",
+			"l_col",
+			"l_column",
+			"images",
+			"down",
+			"and",
+			"client-update-info",
+			"images",
+			"220px",
+			"location_select2",
+			"location",
+			"zijia_cont",
+			"dl",
+			"images",
+			"cartype_item_opts_info",
+			"cartype_item_cont",
+			"images",
+			"cartype_item_div",
+			".cartype_item_div",
+			"car_type",
+			"pic_colum",
+			"active",
+			"left_colum",
+			"cartype_item_opts_order",
+			"self_driving",
+			"%>\n",
+			"images",
+			"images/",
+			"images",
+			"airport_select2",
+			"base_rate_code",
+			"form",
+			"home",
+			"time.png",
+			"left_side",
+			"images",
+			"<%",
+			"images",
+			"</li>",
+			"<li>",
+			"admin_user",
+			"pry",
+			"match",
+			"= f.input :roles do |rf|\n    - @roles.each do |role|\n      label.checkbox.inline\n        = check_box_tag 'user[user_roles_attributes][][role_id]', role.id, @admin_user.roles.include?(role)\n        = role.name",
+			"grant",
+			"class_name",
+			"../image/",
+			".row-fluid\n        /   .span6\n        /     #sample_1_info.dataTables_info Showing 1 to 5 of 25 entries\n        /   .span6\n        /     .dataTables_paginate.paging_bootstrap.pagination\n        /       ul\n        /         li.prev.disabled\n        /           a href=\"#\" \n        /             | ←\n        /             span.hidden-480 Prev\n        /         li.active\n        /           a href=\"#\"  1\n        /         li\n        /           a href=\"#\"  2\n        /         li\n        /           a href=\"#\"  3\n        /         li\n        /           a href=\"#\"  4\n        /         li\n        /           a href=\"#\"  5\n        /         li.next\n        /           a href=\"#\" \n        /             span.hidden-480 Next\n        /             | →",
+			"span",
+			"用户",
+			"sorting_1",
+			".checker",
+			"../image/",
+			"gritter-blue",
+			"../../img/",
+			"url(../../img",
+			"url(../../img/",
+			"url(\"../../img/",
+			"..\\/..\\/img\\/",
+			"../../img/",
+			"Admin::",
+			"h3",
+			"gritter",
+			"gritter-without-image",
+			"bootstrap",
+			"\"\",\"\"",
+			"dropdown",
+			"url(../images",
+			"../images/",
+			"../images",
+			"page",
+			"search-icon",
+			"search-ico",
+			"search-icon",
+			"sidebar",
+			"user",
+			"    \n",
+			"metro",
+			"|",
+			"peterfei",
+			"simple_search",
+			"keywords",
+			"#\n",
+			" ",
+			"邱健",
+			"require",
+			"true",
+			"asides",
+			"aside",
+			"baseurl",
+			"diaspora",
+			"Diaspora",
+			"diaspora",
+			"    \n",
+			"page_title",
+			"redis",
+			"environment",
+			"assets.serve",
+			"asset",
+			"rails_environment",
+			"ssl",
+			"require_ssl",
+			"https",
+			"ssl",
+			"redis",
+			"server",
+			"certificate authorities",
+			"certificate"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"",
+			"url(/assets",
+			"url(assets",
+			"assets",
+			"###",
+			"####",
+			"##",
+			"PatientHome",
+			"assets/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/uploaders/attachment_uploader.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1646,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1055,
+								1055
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content"
+							],
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 513.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/views/car_models/_car_model.html.slim",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 496,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								496,
+								496
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/views/manager_users/_form.html.slim",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 908,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								566,
+								577
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/views/layouts/_menubar.html.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2411,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								965,
+								976
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 185.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/controllers/reservations_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6340,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								724,
+								724
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 668.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/views/reservations/_tail.html.slim",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 5296,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/controllers/locations_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4396,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								435,
+								481
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 316.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/controllers/companies_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3589,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								470,
+								470
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/models/manager_user.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1167,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								561,
+								561
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/controllers/manager_users_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2685,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1181,
+								1181
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 890.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/views/manager_users/new.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 275,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								213,
+								213
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/assets/javascripts/manager_users.js.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 623,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								439,
+								439
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"output.git-commit":
+	{
+		"height": 136.0
+	},
+	"output.git-init":
+	{
+		"height": 136.0
+	},
+	"project": "admin.zucheqq.com.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"re",
+				"app/assets/stylesheets/reservations.css"
+			],
+			[
+				"self",
+				"app/assets/stylesheets/self_drivings.css"
+			],
+			[
+				"reser",
+				"app/assets/stylesheets/reservations.css"
+			],
+			[
+				"appli",
+				"app/assets/stylesheets/application.css.scss"
+			],
+			[
+				"reservation",
+				"app/controllers/reservations_controller.rb"
+			],
+			[
+				"main",
+				"app/assets/stylesheets/main.css"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"rout",
+				"config/routes.rb"
+			],
+			[
+				"rou",
+				"config/routes.rb"
+			],
+			[
+				"gran",
+				"app/views/admin/roles/grant.html.slim"
+			],
+			[
+				"role",
+				"app/models/admin/role.rb"
+			],
+			[
+				"style.",
+				"vendor/assets/stylesheets/style.css"
+			],
+			[
+				"ass",
+				"config/initializers/assets.rb"
+			],
+			[
+				"",
+				"app/controllers/admin/sessions_controller.rb"
+			],
+			[
+				"help",
+				"app/helpers/users_helper.rb"
+			],
+			[
+				"user",
+				"app/models/user.rb"
+			],
+			[
+				"app",
+				"vendor/assets/javascripts/app.js"
+			],
+			[
+				"contr",
+				"app/controllers/admin/sessions_controller.rb"
+			],
+			[
+				"session/",
+				"app/views/admin/sessions/new.html.slim"
+			],
+			[
+				"si",
+				"app/views/layouts/signinout.html.slim"
+			],
+			[
+				"admin",
+				"app/views/layouts/admin.html.slim"
+			],
+			[
+				"bun",
+				"bin/bundle"
+			],
+			[
+				"defa",
+				"vendor/assets/stylesheets/default.css"
+			],
+			[
+				"foo",
+				"app/views/layouts/_footer.html.haml"
+			],
+			[
+				"application",
+				"app/views/layouts/application.html.haml"
+			],
+			[
+				"index_1143",
+				"tpl/Wap/default/Index_1143.html"
+			],
+			[
+				"index_new",
+				"tpl/Wap/default/Card_index_newsalon.html"
+			],
+			[
+				"photo",
+				"weiwincms/Lib/Action/Wap/PhotoAction.class.php"
+			],
+			[
+				"104",
+				"tpl/Wap/default/Index_104_index.html"
+			],
+			[
+				"index.tpl.php",
+				"weiwincms/Lib/ORG/index.Tpl.php"
+			],
+			[
+				"300",
+				"tpl/Wap/default/Index_300.html"
+			],
+			[
+				"d",
+				"weiwindata/conf/db.php"
+			],
+			[
+				"lib/org/index.tpl.php",
+				"weiwincms/Lib/ORG/index.Tpl.php"
+			],
+			[
+				"tmpl",
+				"weiwincms/Lib/Action/User/TmplsAction.class.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 359.0,
+		"selected_items":
+		[
+		],
+		"width": 384.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 194.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,738 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"admin",
+				"admin_course"
+			],
+			[
+				"no",
+				"notification"
+			],
+			[
+				"gr",
+				"grant"
+			],
+			[
+				"user",
+				"user_roles"
+			],
+			[
+				"lo",
+				"loginuser"
+			],
+			[
+				"ass",
+				"asset_path"
+			],
+			[
+				"ima",
+				"image_path"
+			],
+			[
+				"f",
+				"fun	function …"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "lib/tasks/db.rake",
+			"settings":
+			{
+				"buffer_size": 7558,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"git:add",
+				"Git: Add..."
+			],
+			[
+				"git:comm",
+				"Git: Commit"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"markd",
+				"Set Syntax: Markdown"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"gitcomm",
+				"Git: Commit"
+			],
+			[
+				"gitcom",
+				"Set Syntax: Git Commit Message"
+			],
+			[
+				"ali",
+				"Preferences: Alignment File Settings – Syntax Specific – User"
+			],
+			[
+				"alignment",
+				"Preferences: Alignment File Settings – User"
+			],
+			[
+				"gitco",
+				"Git: Commit"
+			],
+			[
+				"goto",
+				"Emmet: Go to Matching Pair"
+			],
+			[
+				"gitl",
+				"Git: Log All"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: #!/usr/bin/env"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"ls",
+			"cd ..",
+			"choe",
+			"echo",
+			"dd"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/liufei/ROR/gcr_union",
+		"/Users/liufei/ROR/gcr_union/db",
+		"/Users/liufei/ROR/gcr_union/lib",
+		"/Users/liufei/ROR/gcr_union/lib/tasks"
+	],
+	"file_history":
+	[
+		"/Users/liufei/ROR/duty/app/models/admin/user.rb",
+		"/Users/liufei/ROR/duty/config/initializers/assets.rb",
+		"/Users/liufei/ROR/duty/app/assets/stylesheets/scaffolds.css.scss",
+		"/Users/liufei/ROR/duty/app/assets/stylesheets/home.css.scss",
+		"/Users/liufei/ROR/duty/app/assets/stylesheets/application.css",
+		"/Users/liufei/ROR/duty/app/views/layouts/application.html.erb",
+		"/Users/liufei/ROR/duty/app/controllers/admin/students_controller.rb",
+		"/Users/liufei/ROR/duty/app/controllers/admin/user_roles_controller.rb",
+		"/Users/liufei/ROR/duty/app/controllers/admin/users_controller.rb",
+		"/Users/liufei/ROR/duty/app/controllers/admin/courses_controller.rb",
+		"/Users/liufei/ROR/duty/app/models/ability.rb",
+		"/Users/liufei/ROR/duty/app/views/share/_bar.html.slim",
+		"/Users/liufei/ROR/duty/app/controllers/admin/dashboards_controller.rb",
+		"/Users/liufei/ROR/duty/app/controllers/admin/roles_controller.rb",
+		"/Users/liufei/ROR/duty/app/controllers/admin_controller.rb",
+		"/Users/liufei/ROR/duty/app/controllers/admin/sessions_controller.rb",
+		"/Users/liufei/ROR/duty/config/initializers/cancan.rb",
+		"/Users/liufei/ROR/duty/Gemfile",
+		"/Users/liufei/ROR/duty/app/views/admin/courses/choosecourse.js.erb",
+		"/Users/liufei/ROR/duty/app/views/admin/courses/index.html.slim",
+		"/Users/liufei/ROR/duty/app/views/admin/roles/index.html.slim",
+		"/Users/liufei/ROR/duty/config/routes.rb",
+		"/Users/liufei/ROR/duty/db/seeds.rb",
+		"/Users/liufei/ROR/duty/app/models/admin/student.rb",
+		"/Users/liufei/ROR/duty/app/models/user.rb",
+		"/Users/liufei/ROR/duty/app/models/admin/course.rb",
+		"/Users/liufei/ROR/duty/config/initializers/inflections.rb",
+		"/Users/liufei/ROR/duty/app/views/users/index.html.slim",
+		"/Users/liufei/ROR/duty/config/initializers/session_store.rb",
+		"/Users/liufei/ROR/duty/vendor/assets/javascripts/ui-nestable.js",
+		"/Users/liufei/ROR/duty/config/locales/permissions.zh-CN.yml",
+		"/Users/liufei/ROR/duty/test/fixtures/admin/students.yml",
+		"/Users/liufei/ROR/duty/vendor/assets/stylesheets/style.css",
+		"/Users/liufei/ROR/duty/app/views/layouts/signinout.html.slim",
+		"/Users/liufei/ROR/duty/test/models/admin/student_test.rb",
+		"/Users/liufei/ROR/duty/config/locales/gflash.zh-CN.yml",
+		"/Users/liufei/ROR/duty/app/views/admin/permissions/index.html.slim",
+		"/Users/liufei/ROR/duty/app/helpers/admin/courses_helper.rb",
+		"/Users/liufei/ROR/duty/test/fixtures/admin/courses.yml",
+		"/Users/liufei/ROR/duty/vendor/assets/javascripts/contact-us.js",
+		"/Users/liufei/ROR/duty/config.ru",
+		"/Users/liufei/ROR/duty/db/migrate/20141024181152_create_admin_courses.rb",
+		"/Users/liufei/ROR/duty/app/views/admin/users/grant.html.slim",
+		"/Users/liufei/ROR/duty/app/views/admin/courses/_form.html.slim",
+		"/Users/liufei/ROR/duty/app/views/admin/users/index.html.slim",
+		"/Users/liufei/ROR/duty/app/views/admin/users/new.html.slim",
+		"/Users/liufei/ROR/duty/app/views/admin/roles/new.html.slim",
+		"/Users/liufei/ROR/duty/app/models/admin/category.rb",
+		"/Users/liufei/ROR/duty/app/views/layouts/admin.html.slim",
+		"/Users/liufei/ROR/duty/app/views/admin/dashboards/index.html.slim",
+		"/Users/liufei/ROR/duty/app/views/admin/roles/grant.html.slim",
+		"/Users/liufei/ROR/duty/db/migrate/20141024184050_create_admin_courses.rb",
+		"/Users/liufei/ROR/duty/vendor/assets/javascripts/bootstrap-modalmanager.js",
+		"/Users/liufei/ROR/duty/vendor/assets/javascripts/bootstrap-modal.js",
+		"/Users/liufei/ROR/duty/config/initializers/mime_types.rb",
+		"/Users/liufei/ROR/duty/config/application.rb",
+		"/Users/liufei/ROR/duty/app/views/admin/users/_bar.html.slim",
+		"/Users/liufei/ROR/duty/app/controllers/users_controller.rb",
+		"/Users/liufei/ROR/duty/app/models/admin/user_role.rb",
+		"/Users/liufei/ROR/duty/app/views/admin/users/_form.html.slim",
+		"/Users/liufei/ROR/duty/app/models/admin/permission.rb",
+		"/Users/liufei/ROR/duty/app/views/admin/roles/show.html.slim",
+		"/Users/liufei/ROR/duty/app/helpers/application_helper.rb",
+		"/Users/liufei/ROR/duty/app/assets/javascripts/admin/roles.js.coffee",
+		"/Users/liufei/ROR/duty/app/helpers/admin/sessions_helper.rb",
+		"/Users/liufei/ROR/duty/app/models/admin/role.rb",
+		"/Users/liufei/ROR/duty/app/assets/images/glyphicons-regular.svg",
+		"/Users/liufei/ROR/duty/db/migrate/20141005145631_create_admin_user_roles.rb",
+		"/Users/liufei/ROR/duty/app/views/admin/sessions/new.html.slim",
+		"/Users/liufei/ROR/duty/vendor/assets/stylesheets/uniform.default.css",
+		"/Users/liufei/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/liufei/ROR/duty/app/assets/stylesheets/admin/dashboards.css",
+		"/Users/liufei/ROR/duty/vendor/assets/stylesheets/blue.css",
+		"/Users/liufei/ROR/duty/app/views/users/index.html",
+		"/Users/liufei/ROR/duty/app/helpers/admin/dashboards_helper.rb",
+		"/Users/liufei/ROR/duty/app/helpers/admin/users_helper.rb",
+		"/Users/liufei/ROR/duty/app/assets/javascripts/admin/dashboards.js.coffee",
+		"/Users/liufei/ROR/duty/vendor/assets/javascripts/app.js",
+		"/Users/liufei/ROR/duty/app/assets/stylesheets/signinout.css",
+		"/Users/liufei/ROR/duty/app/assets/javascripts/cloud.js",
+		"/Users/liufei/ROR/duty/app/controllers/application_controller.rb",
+		"/Users/liufei/ROR/duty/app/helpers/users_helper.rb",
+		"/Users/liufei/ROR/duty/test/test_helper.rb",
+		"/Users/liufei/ROR/duty/test/helpers/.keep",
+		"/Users/liufei/ROR/duty/vendor/assets/stylesheets/halflings.css",
+		"/Users/liufei/ROR/duty/config/secrets.yml",
+		"/Users/liufei/ROR/duty/db/migrate/20141003110746_add_remember_token_to_users.rb",
+		"/Users/liufei/ROR/duty/vendor/assets/javascripts/lock.js",
+		"/Users/liufei/ROR/duty/vendor/assets/javascripts/load-image.min.js",
+		"/Users/liufei/ROR/duty/lib/assets/.keep",
+		"/Users/liufei/ROR/duty/duty.sublime-project",
+		"/Users/liufei/ROR/duty/config/initializers/filter_parameter_logging.rb",
+		"/Users/liufei/ROR/duty/app/assets/images/glyphiconshalflings-regular.svg",
+		"/Users/liufei/ROR/duty/app/assets/images/glyphicons_halflings.svg",
+		"/Users/liufei/ROR/duty/vendor/assets/stylesheets/multi-select-metro.css",
+		"/Users/liufei/ROR/duty/config/environments/test.rb",
+		"/Users/liufei/ROR/duty/vendor/assets/stylesheets/bootstrap-toggle-buttons.css",
+		"/Users/liufei/ROR/duty/db/migrate/20141003063107_add_password_digest_to_users.rb",
+		"/Users/liufei/ROR/duty/app/models/admin.rb",
+		"/Users/liufei/ROR/duty/db/migrate/20141002112229_create_admin_dashboards.rb",
+		"/Users/liufei/ROR/duty/bin/bundle",
+		"/Users/liufei/ROR/duty/config/initializers/backtrace_silencers.rb",
+		"/Users/liufei/ROR/duty/vendor/assets/stylesheets/default.css",
+		"/Users/liufei/ROR/duty/db/development.sqlite3",
+		"/Users/liufei/ROR/duty/vendor/assets/stylesheets/font-awesome.min.css",
+		"/Users/liufei/ROR/duty/app/assets/stylesheets/admin/dashboards.css.scss",
+		"/Users/liufei/ROR/duty/Rakefile",
+		"/Users/liufei/ROR/octopress/source/_posts/2014-09-27-mac-sublime3.markdown",
+		"/Users/liufei/ROR/octopress/source/_includes/head.html",
+		"/Users/liufei/ROR/octopress/source/_posts/2014-09-25-php-magento-productions.markdown",
+		"/Users/liufei/ROR/octopress/source/_posts/2014-09-27-ruby-meta.markdown",
+		"/Users/liufei/ROR/octopress/source/_posts/2014-09-22-rails-subselect.markdown",
+		"/Users/liufei/ROR/octopress/source/_posts/2013-04-16-rails-xiang-mu-zhong-dui-select2de-gao-ji-shi-yong.markdown",
+		"/Users/liufei/ROR/octopress/source/_includes/custom/category_feed.xml",
+		"/Users/liufei/ROR/octopress/source/_includes/footer.html",
+		"/Users/liufei/ROR/octopress/source/_posts/2014-09-18-layout-plus-content-for.markdown",
+		"/Users/liufei/ROR/octopress/source/_posts/2014-09-18-bible-plus-everyday.markdown",
+		"/Users/liufei/ROR/octopress/source/_includes/custom/asides/weibo.html",
+		"/Users/liufei/ROR/octopress/source/_includes/article.html",
+		"/Users/liufei/ROR/octopress/source/_includes/post/duoshuo.html",
+		"/Users/liufei/ROR/octopress/source/_includes/custom/footer.html",
+		"/Users/liufei/ROR/octopress/source/_layouts/page.html",
+		"/Users/liufei/ROR/octopress/source/_layouts/post.html",
+		"/Users/liufei/ROR/octopress/source/_includes/post/sharing.html",
+		"/Users/liufei/ROR/octopress/source/_includes/post/share_comment.html",
+		"/Users/liufei/ROR/octopress/plugins/related_posts.rb",
+		"/Users/liufei/ROR/octopress/source/_includes/custom/asides/recent_comments.html",
+		"/Users/liufei/ROR/octopress/sass/custom/_styles.scss"
+	],
+	"find":
+	{
+		"height": 29.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"<project>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"/home",
+			"set_admin_user",
+			"set_roles",
+			"Admin",
+			"Course",
+			"admin_dashboards_url",
+			"\n      	  		      ",
+			"admin_user",
+			"pry",
+			"match",
+			"= f.input :roles do |rf|\n    - @roles.each do |role|\n      label.checkbox.inline\n        = check_box_tag 'user[user_roles_attributes][][role_id]', role.id, @admin_user.roles.include?(role)\n        = role.name",
+			"grant",
+			"class_name",
+			"../image/",
+			".row-fluid\n        /   .span6\n        /     #sample_1_info.dataTables_info Showing 1 to 5 of 25 entries\n        /   .span6\n        /     .dataTables_paginate.paging_bootstrap.pagination\n        /       ul\n        /         li.prev.disabled\n        /           a href=\"#\" \n        /             | ←\n        /             span.hidden-480 Prev\n        /         li.active\n        /           a href=\"#\"  1\n        /         li\n        /           a href=\"#\"  2\n        /         li\n        /           a href=\"#\"  3\n        /         li\n        /           a href=\"#\"  4\n        /         li\n        /           a href=\"#\"  5\n        /         li.next\n        /           a href=\"#\" \n        /             span.hidden-480 Next\n        /             | →",
+			"span",
+			"用户",
+			"sorting_1",
+			".checker",
+			"../image/",
+			"gritter-blue",
+			"../../img/",
+			"url(../../img",
+			"url(../../img/",
+			"url(\"../../img/",
+			"..\\/..\\/img\\/",
+			"../../img/",
+			"Admin::",
+			"h3",
+			"gritter",
+			"gritter-without-image",
+			"bootstrap",
+			"\"\",\"\"",
+			"dropdown",
+			"url(../images",
+			"../images/",
+			"../images",
+			"page",
+			"search-icon",
+			"search-ico",
+			"search-icon",
+			"sidebar",
+			"user",
+			"    \n",
+			"metro",
+			"|",
+			"peterfei",
+			"simple_search",
+			"keywords",
+			"#\n",
+			" ",
+			"邱健",
+			"require",
+			"true",
+			"asides",
+			"aside",
+			"baseurl",
+			"diaspora",
+			"Diaspora",
+			"diaspora",
+			"    \n",
+			"page_title",
+			"redis",
+			"environment",
+			"assets.serve",
+			"asset",
+			"rails_environment",
+			"ssl",
+			"require_ssl",
+			"https",
+			"ssl",
+			"redis",
+			"server",
+			"certificate authorities",
+			"certificate",
+			"../image/",
+			"css",
+			"雪山",
+			"<script type=\"text/javascript\">\n            var myScroll;\n\n            function loaded() {\n                myScroll = new iScroll('wrapper', {\n                    snap: true,\n                    momentum: false,\n                    hScrollbar: false,\n                    onScrollEnd: function () {\n                        document.querySelector('#indicator > li.active').className = '';\n                        document.querySelector('#indicator > li:nth-child(' + (this.currPageX+1) + ')').className = 'active';\n                    }\n                });\n \n            }\n\n            document.addEventListener('DOMContentLoaded', loaded, false);\n        </script>",
+			"            </",
+			"1280",
+			"swiper-slide swiper-slide-visible swiper-slide-active",
+			" swiper-slide-visible",
+			"swiper-slide-visible",
+			"\n        ",
+			"        \n",
+			"memer",
+			"user",
+			", "
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"",
+			"url(/assets",
+			"url(assets",
+			"assets",
+			"###",
+			"####",
+			"##",
+			"PatientHome",
+			"assets/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "/Users/liufei/ROR/gcr_union"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "lib/tasks/db.rake",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 7558,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1167,
+								1167
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1050.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"project": "",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"rou",
+				"config/routes.rb"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"stu",
+				"app/models/admin/student.rb"
+			],
+			[
+				"student",
+				"app/controllers/admin/students_controller.rb"
+			],
+			[
+				"cour",
+				"app/controllers/admin/courses_controller.rb"
+			],
+			[
+				"model",
+				"app/models/admin/category.rb"
+			],
+			[
+				"usercon",
+				"app/controllers/admin/users_controller.rb"
+			],
+			[
+				"rout",
+				"config/routes.rb"
+			],
+			[
+				"gran",
+				"app/views/admin/roles/grant.html.slim"
+			],
+			[
+				"role",
+				"app/models/admin/role.rb"
+			],
+			[
+				"style.",
+				"vendor/assets/stylesheets/style.css"
+			],
+			[
+				"ass",
+				"config/initializers/assets.rb"
+			],
+			[
+				"",
+				"app/controllers/admin/sessions_controller.rb"
+			],
+			[
+				"help",
+				"app/helpers/users_helper.rb"
+			],
+			[
+				"user",
+				"app/models/user.rb"
+			],
+			[
+				"app",
+				"vendor/assets/javascripts/app.js"
+			],
+			[
+				"contr",
+				"app/controllers/admin/sessions_controller.rb"
+			],
+			[
+				"session/",
+				"app/views/admin/sessions/new.html.slim"
+			],
+			[
+				"si",
+				"app/views/layouts/signinout.html.slim"
+			],
+			[
+				"admin",
+				"app/views/layouts/admin.html.slim"
+			],
+			[
+				"bun",
+				"bin/bundle"
+			],
+			[
+				"defa",
+				"vendor/assets/stylesheets/default.css"
+			],
+			[
+				"foo",
+				"app/views/layouts/_footer.html.haml"
+			],
+			[
+				"application",
+				"app/views/layouts/application.html.haml"
+			],
+			[
+				"index_1143",
+				"tpl/Wap/default/Index_1143.html"
+			],
+			[
+				"index_new",
+				"tpl/Wap/default/Card_index_newsalon.html"
+			],
+			[
+				"photo",
+				"weiwincms/Lib/Action/Wap/PhotoAction.class.php"
+			],
+			[
+				"104",
+				"tpl/Wap/default/Index_104_index.html"
+			],
+			[
+				"index.tpl.php",
+				"weiwincms/Lib/ORG/index.Tpl.php"
+			],
+			[
+				"300",
+				"tpl/Wap/default/Index_300.html"
+			],
+			[
+				"d",
+				"weiwindata/conf/db.php"
+			],
+			[
+				"lib/org/index.tpl.php",
+				"weiwincms/Lib/ORG/index.Tpl.php"
+			],
+			[
+				"tmpl",
+				"weiwincms/Lib/Action/User/TmplsAction.class.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 359.0,
+		"selected_items":
+		[
+		],
+		"width": 384.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 338.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -4,6 +4,7 @@
   = f.input :manager_user_type, collection: ManagerUser.manager_user_type_list, :as=>:radio_buttons, :checked=>@manager_user[:manager_user_type] || 1, :label=>'用户类型'
   = f.input :role, collection:ManagerUser::ROLES,label:"用户角色" ,placeholder:"请选择角色" 
   .hide= f.input :company_id,collection: Company.all,:allow_blank=>false,label:"所属公司",placeholder:"请选择公司",input_html:{id:'company_owner'}
+  .hide.distributor= f.input :permission,collection: Company.all,:allow_blank=>false,label:"所属公司",placeholder:"请选择公司",input_html:{id:'company_owner',multiple:true}
   .span12.wdj_bordertop
     .wdj_btnwidth
       .btn-group
