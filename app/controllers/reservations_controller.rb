@@ -124,7 +124,7 @@ class ReservationsController < ApplicationController
               :use_phone=>(@reservation.customer.user.phone rescue nil),#用车人手机，必填
               :service_type=>(@reservation.base_rate_code.rate_code rescue nil),#业务类型，必填
               :re_car_model_id=>params[:car_model_api],#预定车型id，必填
-              :re_car_model=>'',#预定车型名称，必填
+              :re_car_model=>(@reservation.car_model.car_model_name rescue 'K2/1.4L/5座/自动'),#预定车型名称，必填
               :passengers=>0,#乘客数，（超过7座的车型，乘客数为必填项）
               :if_payment=>0,#是否需要支付定金，必填
               :account_payment=>0,#订单结算方式，必填
@@ -143,6 +143,8 @@ class ReservationsController < ApplicationController
               :pre_order_cost=>(@reservation.total_price rescue 0)
               # :reservation_person_phone=>(@reservation.customer.user.phone rescue nil)
             }
+
+            
         _hash[:instead_order_travel] = {
               :up_time =>(@reservation.pickup_date.to_s rescue nil),
               :down_time =>(@reservation.return_date.to_s rescue nil),
@@ -151,8 +153,25 @@ class ReservationsController < ApplicationController
               :days=>@reservation.use_day,
               :flight_train=>@reservation.airline||@reservation.train_number
         }
-        _hash["uu"]= {"uuid"=>"2a93bdc4-cb28-3664-ac78-7a701d658564"}
-        
+        if @reservation.base_rate_code.rate_code=='ZJ'
+              _hash[:instead_order]=
+                                _hash[:instead_order].merge(
+                                  :presale =>(@reservation.self_driving_prepayment),#预授权，必填(自驾)
+                                  :take_car_shop=>(@reservation.pickup_location.location_name),#取车门店
+                                  :to_store=>(@reservation.return_location.location_name)
+                                )
+            end
+            _hash[:instead_order_travel].delete(:days)
+            _hash[:instead_order_travel].delete(:flight_train)
+            _hash[:instead_order_travel] =
+                                  _hash[:instead_order_travel].merge(
+                                    :driver_name=>@reservation.customer.customer_name,
+                                    :driver_phone=>@reservation.customer.user.phone,
+                                    :driver_no=>'610333111111111111'
+                                    )
+        @dispicher_ip = Company.find(params[:reservation][:company_id]).dispicher_ip rescue nil
+        Api::Platforms.site= @dispicher_ip
+        _hash["uu"]= {"uuid"=>Company.find(params[:reservation][:company_id]).uuid}
         _order = Api::Platforms.create(_hash)
         if _order
           @o=true
@@ -170,8 +189,9 @@ class ReservationsController < ApplicationController
 
   def dispatch_car_model
     @dispicher_ip = Company.find(params[:search][:company_id_equals]).dispicher_ip rescue nil
+    Api::CarType.site= @dispicher_ip
     #http://117.34.66.7:7072/api/car_types/all
-    respond_to do |format|  
+    respond_to do |format|
       format.json { render_select2 Api::CarType.all,'name', text:'name'}
     end
   end

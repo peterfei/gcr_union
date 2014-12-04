@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141126051252) do
+ActiveRecord::Schema.define(:version => 20141204045258) do
 
   create_table "airports", :force => true do |t|
     t.string  "name"
@@ -245,6 +245,7 @@ ActiveRecord::Schema.define(:version => 20141126051252) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "dispicher_ip"
+    t.string   "uuid"
   end
 
   create_table "coupons", :force => true do |t|

@@ -1,6 +1,6 @@
 # coding: utf-8
 class Company < ActiveRecord::Base
-  attr_accessible :address, :created_at ,:updated_at, :comp_des, :company_full_name, :company_name, :email, :fax, :link_man, :link_man_phone, :logo_url, :phone, :reg_money, :status, :taxpayer_code, :city_id, :district_id,:dispicher_ip
+  attr_accessible :address, :created_at ,:updated_at, :comp_des, :company_full_name, :company_name, :email, :fax, :link_man, :link_man_phone, :logo_url, :phone, :reg_money, :status, :taxpayer_code, :city_id, :district_id,:dispicher_ip,:uuid
 
   #mount_uploader :logo_url, CompanyLogoUploader
   has_many :drivers
