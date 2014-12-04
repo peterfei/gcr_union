@@ -1,0 +1,19 @@
+<%if @o%>
+  $(".order_<%=@reservation.id%>").html("<%=j(render :partial=>'list',:locals=>{:reservation=>@reservation})%>");
+  $("#myModal").modal('hide');
+
+<%-else%> 
+var _html = ("<%=j(render 'reservations/dispatch_order_form')%>");
+$('#myModal').html(_html);
+$("#myModal").modal('show');
+$('#myModal').on('shown', function (e) {
+  $(_html).last().appendTo('#myModal');
+  $('#company_id').select2();
+  $('#car_model_api_id').car_model_api_select2();
+
+  $('#pickup_city').pickup_city_select2();
+  $('#pickup_district').pickup_district_select2();
+  // $('#location_id').location_select2();
+
+})
+<%-end%>

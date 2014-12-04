@@ -1,0 +1,21 @@
+=simple_form_for @reservation,:remote=>true,:url=>dispatch_order_reservation_path ,:html=>{:class=>'form-horizontal'},wrapper:'bootstrap',validate:true do |f| 
+  .modal-header
+    button type="button" class="close" data-dismiss="modal" aria-hidden="true" &times;
+    h3 订单分配
+  .modal-body 
+    =f.association :company,:label=>"选择公司",:input_html=>{:id=>"company_id"}
+    =f.association :car_type,label_method: :type_name_seat ,disabled:true,:label=>"预定车型"
+    .control-group.string.optional
+      label.string.optional.control-label 车型 
+      .controls
+        input id="car_model_api_id" value="" name="car_model_api"
+
+    / =f.association :pickup_location,:input_html=>{:id=>"location_id"},:as=>:string,:placeholder=>"请选择",:label=>"租车门店"
+    / =f.association :car,:input_html=>{:id=>"car_id"},:as=>:string,:placeholder=>"请选择" ,:validate=>{:presence=>true}
+    / -unless @reservation.base_rate_code.rate_code=='ZJ'
+    /   =f.association :driver,:input_html=>{:id=>"driver_id"},:as=>:string,:placeholder=>"请选择" 
+    /   =f.hidden_field "car_type_id",value:f.object.car_type_id
+    /   =f.hidden_field "seat",value:f.object.car_type.try(:persons)||0
+  .modal-footer
+    button class="btn" data-dismiss="modal" aria-hidden="true" 取消
+    =f.button :submit,"确认",class:"btn btn-primary"

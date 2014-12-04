@@ -134,6 +134,21 @@ $.fn.extend
             status_equals: 1
           }
           page: page
+  car_model_api_select2: () ->
+    @lazy_select2
+      url: -> '/dispatch_car_model'
+      init: (id) -> '/dispatch_car_model/' + id
+      params: (term, page) ->
+        return {}=
+          search: {
+            city_id_equals: $('#pickup_city').val()
+            company_id_equals: $('#company_id').val()
+            district_id_equals: $('#pickup_district').val()
+            location_name_contains: term
+            status_equals: 1
+          }
+          page: page
+
   car_info_select2: () ->
     @lazy_select2_car
       url: -> '/cars'

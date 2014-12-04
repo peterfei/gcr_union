@@ -23,7 +23,7 @@ module ApplicationHelper
           {id: o.send(id_method), text: o.send(name_method)}
           .merge Hash[args.zip args.map{|x| o.send x}]
         end,
-        total: object.total_count
+        total:  (object.include?(:total_count)) ? object.total_count: object.length
       }
     else
       {id: object.send(id_method), text: object.send(name_method)}

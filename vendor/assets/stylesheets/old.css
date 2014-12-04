@@ -128,9 +128,9 @@ form{  padding:0 0;}
 .menu ul li a.client_one:hover { background:url(shop_infor_ho.png) 0 0 no-repeat; }
 .menu ul li.active a.client_one{ display:inline-block; background:url(shop_infor_ac.png) 0 0 no-repeat; width:89px; height:95px; float:left;}
 
-.menu ul li a.search_one{ display:inline-block; background:url(search_sm.png) 0 0 no-repeat; width:89px; height:95px; float:left;}
-.menu ul li a.search_one:hover { background:url(search_sm_ho.png) 0 0 no-repeat; }
-.menu ul li.active a.search_one{ display:inline-block; background:url(search_sm_ac.png) 0 0 no-repeat; width:89px; height:95px; float:left;}
+.menu ul li a.search_one{ display:inline-block; background:url(customer.png) 0 0 no-repeat; width:89px; height:95px; float:left;}
+.menu ul li a.search_one:hover { background:url(customer.png) 0 0 no-repeat; }
+.menu ul li.active a.search_one{ display:inline-block; background:url(customer.png) 0 0 no-repeat; width:89px; height:95px; float:left;}
 
 .menu ul li a.statistics_one{ display:inline-block; background:url(statis_sm.png) 0 0 no-repeat; width:89px; height:95px; float:left;}
 .menu ul li a.statistics_one:hover { background:url(statis_sm_ho.png) 0 0 no-repeat; }

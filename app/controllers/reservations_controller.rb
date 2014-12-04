@@ -110,6 +110,71 @@ class ReservationsController < ApplicationController
     end 
   end 
 
+  #分配订单功能 
+  def dispatch_order
+    @reservation = Reservation.find(params[:id]) 
+    _hash = {};
+    respond_to do |format|  
+    @o =false
+     if request.put? 
+      _hash[:instead_order] ={
+              :book_name=>(@reservation.customer.customer_name rescue nil),#订车人姓名，必填
+              :book_phone =>(@reservation.customer.user.phone rescue nil),#订车人手机，必填
+              :use_name =>(@reservation.customer.customer_name rescue nil),#用车人姓名，必填
+              :use_phone=>(@reservation.customer.user.phone rescue nil),#用车人手机，必填
+              :service_type=>(@reservation.base_rate_code.rate_code rescue nil),#业务类型，必填
+              :re_car_model_id=>params[:car_model_api],#预定车型id，必填
+              :re_car_model=>'',#预定车型名称，必填
+              :passengers=>0,#乘客数，（超过7座的车型，乘客数为必填项）
+              :if_payment=>0,#是否需要支付定金，必填
+              :account_payment=>0,#订单结算方式，必填
+              :deposit_payment=>0,#定金支付方式，必填
+              :deposit_status=>0,#定金支付状态，必填
+              :need_pay_deposit=>0,#需支付定金金额，必填
+              :re_base_price=>(@reservation.reservation_base_rate rescue nil),#基价，必填
+              #(@reservation.car_type_rate.xdis_rate rescue @reservation.self_drive_price.overdistance),#基价，必填
+              # :car_model_name=>(@reservation.car_model.car_model_name rescue nil),
+              # :car_type_name=>(@reservation.car_type.car_type_name rescue nil),
+              #:xdis_rate=>(@reservation.car_type_rate.xdis_rate rescue @reservation.self_drive_price.overdistance),
+              :re_base_hour=>(@reservation.base_rate_code.base_hour rescue nil),#基本小时，必填
+              :re_base_km=>(@reservation.base_rate_code.base_km rescue nil),#基本公里，必填
+              :re_outhour_uprice=>(@reservation.car_type_rate.xhour rescue @reservation.self_drive_price.overtime rescue nil),#超小时单价，必填
+              :re_outkm_uprice=>(@reservation.car_type_rate.xdis_rate rescue @reservation.self_drive_price.overdistance),#超公里单价，必填
+              :pre_order_cost=>(@reservation.total_price rescue 0)
+              # :reservation_person_phone=>(@reservation.customer.user.phone rescue nil)
+            }
+        _hash[:instead_order_travel] = {
+              :up_time =>(@reservation.pickup_date.to_s rescue nil),
+              :down_time =>(@reservation.return_date.to_s rescue nil),
+              :up_place=>"#{@reservation.pickup_city}#{@reservation.pickup_district}#{@reservation.up_address}",
+              :down_place=>"#{@reservation.return_city}#{@reservation.return_district}#{@reservation.down_address}",
+              :days=>@reservation.use_day,
+              :flight_train=>@reservation.airline||@reservation.train_number
+        }
+        _hash["uu"]= {"uuid"=>"2a93bdc4-cb28-3664-ac78-7a701d658564"}
+        
+        _order = Api::Platforms.create(_hash)
+        if _order
+          @o=true
+          @reservation.flow("hascar")  
+        end
+        #_order.attributes['order_number']
+        # @o = @reservation.update_attributes(params[:reservation])  
+
+        # @reservation.flow("pending")
+     end 
+
+      format.js 
+    end
+  end
+
+  def dispatch_car_model
+    @dispicher_ip = Company.find(params[:search][:company_id_equals]).dispicher_ip rescue nil
+    #http://117.34.66.7:7072/api/car_types/all
+    respond_to do |format|  
+      format.json { render_select2 Api::CarType.all,'name', text:'name'}
+    end
+  end
   #分配车辆牌照 
   def dispatch_car  
     @reservation = Reservation.find(params[:id])
@@ -128,6 +193,8 @@ class ReservationsController < ApplicationController
           @dispicher_ip =  current_user.company.dispicher_ip rescue nil
           if @dispicher_ip.present?  
             _hash={:rate_code=>(@reservation.base_rate_code.rate_code rescue nil),:car_model_name=>(@reservation.car_model.car_model_name rescue nil),:car_type_name=>(@reservation.car_type.car_type_name rescue nil),:reservation_person=>(@reservation.customer.customer_name rescue nil),:xdis_rate=>(@reservation.car_type_rate.xdis_rate rescue @reservation.self_drive_price.overdistance),:xhour=>(@reservation.car_type_rate.xhour rescue @reservation.self_drive_price.overtime rescue nil),:hour_free=>(@reservation.base_rate_code.base_hour rescue nil),:dis_free=>(@reservation.base_rate_code.base_km rescue nil),:reservation_person_phone=>(@reservation.customer.user.phone rescue nil)}
+            
+            #分配订单
             CrsAdmin::Reservation.site= @dispicher_ip
             CrsAdmin::Reservation.create(@reservation.attributes.merge(_hash))
           end

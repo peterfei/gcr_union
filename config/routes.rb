@@ -25,6 +25,9 @@ GcrUnion::Application.routes.draw do
   resources :coupons
   resources :self_drive_prices
   resources :reservations do
+
+
+    match 'dispatch_order' ,:on=>:member
     match 'dispatch_location' ,:on=>:member
     match 'dispatch_car' ,:on=>:member
     match 'execing' ,:on=>:member
@@ -39,6 +42,7 @@ GcrUnion::Application.routes.draw do
   resources :locations
   resources :companies
   resources :users
+  match 'dispatch_car_model'=>"reservations#dispatch_car_model",:as=>"dispatch_car_model"
   match 'users/change_user_status/:id'=>"users#change_user_status",:as=>"change_user_status"
   match 'drivers/change_status/:id' => 'drivers#change_status',:as=>'change_status'
   match 'companies/alter_status/:id' => 'companies#alter_status',:as=>'alter_status'

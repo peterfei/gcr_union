@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new
     respond_to do |format|
       format.js
-      format.html{render:'_form',:layout=>false}
+      format.html{render:'_form'}
     end
   end
 
@@ -22,12 +22,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     @user.uuid = SecureRandom.uuid
-
     respond_to do |format|
       if @user.save
+
         flash.now[:success] = "注册成功"
-        format.html
-        format.json { render json: @user }
+        format.html { redirect_to @user, notice: '用户信息新建成功.' }
+        # format.json { render json: @user }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
