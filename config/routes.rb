@@ -1,4 +1,7 @@
 GcrUnion::Application.routes.draw do 
+  resources :black_records
+
+
   resources :self_drive_prices
   #resources :comments
 

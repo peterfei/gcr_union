@@ -1,0 +1,31 @@
+%h1 Listing black_records
+
+%table
+  %tr
+    %th Name
+    %th Phone
+    %th Email
+    %th Cid
+    %th Status
+    %th Deleted
+    %th Remark
+    %th
+    %th
+    %th
+
+  - @black_records.each do |black_record|
+    %tr
+      %td= black_record.name
+      %td= black_record.phone
+      %td= black_record.email
+      %td= black_record.cid
+      %td= black_record.status
+      %td= black_record.deleted
+      %td= black_record.remark
+      %td= link_to 'Show', black_record
+      %td= link_to 'Edit', edit_black_record_path(black_record)
+      %td= link_to 'Destroy', black_record, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Black record', new_black_record_path

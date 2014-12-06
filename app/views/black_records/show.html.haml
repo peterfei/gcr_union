@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @black_record.name
+%p
+  %b Phone:
+  = @black_record.phone
+%p
+  %b Email:
+  = @black_record.email
+%p
+  %b Cid:
+  = @black_record.cid
+%p
+  %b Status:
+  = @black_record.status
+%p
+  %b Deleted:
+  = @black_record.deleted
+%p
+  %b Remark:
+  = @black_record.remark
+
+= link_to 'Edit', edit_black_record_path(@black_record)
+\|
+= link_to 'Back', black_records_path

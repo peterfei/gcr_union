@@ -1,0 +1,31 @@
+= form_for @black_record do |f|
+  - if @black_record.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@black_record.errors.count, "error")} prohibited this black_record from being saved:"
+      %ul
+        - @black_record.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :phone
+    = f.text_field :phone
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :cid
+    = f.text_field :cid
+  .field
+    = f.label :status
+    = f.number_field :status
+  .field
+    = f.label :deleted
+    = f.number_field :deleted
+  .field
+    = f.label :remark
+    = f.text_area :remark
+  .actions
+    = f.submit 'Save'
