@@ -58,5 +58,6 @@ GcrUnion::Application.routes.draw do
 
   match 'consultation'=>"call_centers#consultation",as:"consultation"
   match 'flights/:id',:to =>"call_centers#flights",as: :flights
+  resources :black_records
 
 end
