@@ -6,6 +6,8 @@ $(window).load ->
   NProgress.done()
 
 jQuery ->
+  $('input.timepicker').timepicker({ timeFormat: 'HH:mm', interval: 30, scrollbar: true })
+
   NProgress.start()
   #$('body').on 'hidden', '.modal', ->
   #  $(@).removeData('modal')

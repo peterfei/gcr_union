@@ -1,6 +1,17 @@
+/ .control-group.select.optional.disabled
+/   label.select.optional.control-label=label rescue '下车时间'
+/   .controls 
+/     .input-append
+/       =text_field_tag 'reservation[return_date(1s)]', @reservation.return_date.date, class: 'datepicker input-small'
+/       =text_field_tag 'reservation[return_date(2s)]', @reservation.return_date.time, class: 'input-mini timepicker'
 .control-group.select.optional.disabled
   label.select.optional.control-label=label rescue '下车时间'
   .controls 
     .input-append
-      =text_field_tag 'reservation[return_date(1s)]', @reservation.return_date.date, class: 'datepicker input-small'
-      =text_field_tag 'reservation[return_date(2s)]', @reservation.return_date.time, class: 'input-mini timepicker'
+    =fields_for @reservation do |f|
+      = f.fields_for :compound_return_date do |fields|
+        = fields.text_field :date, class: 'end datepicker span5', readonly: (defined? readonly)
+        = fields.text_field :time, class: 'end timepicker span3', readonly: (defined? readonly)
+
+        -if defined? readonly
+          span （开始时间+1.5小时） 

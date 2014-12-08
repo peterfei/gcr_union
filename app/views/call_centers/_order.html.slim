@@ -1,0 +1,34 @@
+=simple_form_for @reservation||=Reservation.new,url: call_centers_path,remote:true,validate:true, :html => {:class => 'form-horizontal' },wrapper: 'bootstrap' do |f|
+  .span12.row-fluid
+    .span5
+      =f.input :reservation_person_phone
+    .span5
+      /=f.simple_fields_for :customer do |o|
+        =o.input :customer_name
+        =o.simple_fields_for :user do |u|
+          =u.input :phone
+  .span12.row-fluid
+    .span5
+      =f.association :base_rate_code,label:"业务类型",placeholder:"请选择业务类型" ,input_html:{'data-rate_code'=>@reservation.rate_code}
+    .span5 
+      -if @reservation.rate_code=='ZJ'
+        =f.association :car_model
+      -else
+        =f.association :car_type ,label:"所选车型"  ,placeholder:"请选择车型"
+      /= f.input :confirmation, :label=>'订单编号' ,disabled:true 
+  .span12
+    .span5 
+    .span5
+      /= f.association :pickup_city, :label=>'上车城市',placeholder:"请选择上车城市"
+  =render 'reservations/conditions',:f=>f 
+  /.span12
+      h4.header 增值服务 
+      /.span5=@reservation.special_requirements.map(&:text).join('/')||无
+      .span12=f.input :special_requirements,label_method: special_requirements_text, as: 'check_boxes', item_wrapper_class: 'inline'
+  /input type="text" id="price" value=""
+  /input type="button" id="get_price" value="price" class="btn"
+  .span12
+    .wdj_bordertop
+      .wdj_btnwidth
+        =f.submit "生成订单",class:"btn btn-small"
+        = link_to '返回', reservations_path, class:"btn btn-small"

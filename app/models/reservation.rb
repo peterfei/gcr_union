@@ -13,7 +13,7 @@ class Reservation < ActiveRecord::Base
     :return_location_id, :pickup_location_id,:company_id,:driver_id,
     :customer_id, :driver_attributes,
     :self_driving_prepayment, :self_driving_overtime, :self_driving_overdistance,
-    :reservation_base_rate, :reservation_xdis_rate, :reservation_xhour, :request_from
+    :reservation_base_rate, :reservation_xdis_rate, :reservation_xhour, :request_from,:customer_attributes,:compound_pickup_date_attributes, :compound_return_date_attributes
 
   default_scope ->{order("created_at DESC")}
   extend Enumerize
@@ -34,6 +34,7 @@ class Reservation < ActiveRecord::Base
   belongs_to :car_model
   belongs_to :car
   belongs_to :customer
+  accepts_nested_attributes_for :customer
   belongs_to :company
   belongs_to :driver
   belongs_to :base_rate_code
@@ -150,15 +151,29 @@ class Reservation < ActiveRecord::Base
     write_attribute :confirmation, "#{base_rate_code.rate_code}#{Time.now.strftime('%Y%m%d%H%M%S%L')}"
   end
   
-  composed_of :pickup_date,
-    :class_name => 'CompoundDatetime',
-    :mapping => [ %w(pickup_date datetime) ],
-    :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
-  composed_of :return_date,
-    :class_name => 'CompoundDatetime',
-    :mapping => [ %w(return_date datetime) ],
-    :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
-   
+  # composed_of :pickup_date,
+  #   :class_name => 'CompoundDatetime',
+  #   :mapping => [ %w(pickup_date datetime) ],
+  #   :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
+  # composed_of :return_date,
+  #   :class_name => 'CompoundDatetime',
+  #   :mapping => [ %w(return_date datetime) ],
+  #   :converter => Proc.new { |datetime| CompoundDatetime.from_datetime(datetime) }
+  def compound_pickup_date
+    CompoundDatetime.new(pickup_date)
+  end
+
+  def compound_pickup_date_attributes=(attributes)
+    self.pickup_date = compound_pickup_date.assign_attributes(attributes).datetime
+  end
+
+  def compound_return_date
+    CompoundDatetime.new(return_date)
+  end
+
+  def compound_return_date_attributes=(attributes)
+    self.return_date = compound_return_date.assign_attributes(attributes).datetime
+  end
   def self_drive_price
     SelfDrivePrice.find_by_car_model_id_and_location_id car_model_id, pickup_location_id
   end

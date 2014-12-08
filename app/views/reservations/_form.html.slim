@@ -1,10 +1,11 @@
-= simple_form_for @reservation, url: reservation_path, :html => {:class => 'form-horizontal' }, wrapper: 'bootstrap',:remote=>true do |f|
+= simple_form_for @reservation,url:reservation_path, :html => {:class => 'form-horizontal' },wrapper: 'bootstrap',:remote=>true do |f|
   -unless @reservation.rate_code=='ZJ'
     = render 'tail',:f=>f
-  -else
+  -else 
     = render 'selfdriving',:f=>f
   .span12.wdj_bordertop
-    .wdj_btnwidth
+    .wdj_btnwidth 
       .btn-group
-      = f.submit :class => 'btn', :value => '提交',id:"order_sb"
-      = link_to '返回', reservations_path, class: 'btn'
+      = f.submit :class => 'btn btn-small', :value => '提交',id:"order_sb"
+      = link_to '返回', reservations_path, class: 'btn btn-small'
+      

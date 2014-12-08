@@ -1,32 +1,36 @@
-# encoding: utf-8
 class CompoundDatetime
-  def self.from_datetime(datetime)
-    new.tap do |result|
-      result.datetime = datetime
-    end
-  end
-
   attr_accessor :datetime
 
-  # Accepts date and time string. The form just need to submit params
+  def initialize(datetime)
+    @datetime = datetime
+  end
+  def strftime str
+    @datetime.strftime(str) rescue ''
+  end
+  # accepts hash like:
   #
-  #   - compound_beginning_time(1s) for date
-  #   - compound_beginning_time(2s) for time
-  def initialize(date = nil, time = nil)
-    if date.present?
-      @datetime = Time.zone.parse([date.presence, time.presence || ''].join(' '))
+  #     {
+  #       'date' => '2012-12-20',
+  #       'time' => '20:30'
+  #     }
+  def assign_attributes(hash)
+    if hash[:date].present?
+      @datetime = Time.zone.parse([hash[:date].presence, hash[:time].presence || ''].join(' '))
     end
+    self
   end
 
-  def date
-    @datetime.strftime('%Y-%m-%d') if @datetime.present?
+  def date 
+    @datetime.strftime('%Y-%m-%d') if @datetime
   end
 
   def time
-    @datetime.strftime('%H:%M') if @datetime.present?
+    @datetime.strftime('%H:%M') if @datetime
   end
 
+  def persisted?; false; end
+
   def to_s
-    @datetime.strftime('%Y-%m-%d %H:%M:%S') rescue ''
+    @datetime.strftime('%Y-%m-%d %H:%M') rescue ''
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141204045258) do
+ActiveRecord::Schema.define(:version => 20141206110047) do
 
   create_table "airports", :force => true do |t|
     t.string  "name"
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(:version => 20141204045258) do
     t.integer  "base_km"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "black_records", :force => true do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "cid"
+    t.integer  "status"
+    t.integer  "deleted"
+    t.text     "remark"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "call_centers", :force => true do |t|
@@ -246,6 +258,21 @@ ActiveRecord::Schema.define(:version => 20141204045258) do
     t.datetime "updated_at",        :null => false
     t.string   "dispicher_ip"
     t.string   "uuid"
+  end
+
+  create_table "consultations", :force => true do |t|
+    t.string   "linkman"
+    t.string   "cons_rate"
+    t.text     "content"
+    t.string   "use_car_date"
+    t.string   "result"
+    t.string   "phone"
+    t.string   "rate_codes"
+    t.integer  "rate_code_id"
+    t.string   "car_model_code"
+    t.string   "consultation_type"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "coupons", :force => true do |t|

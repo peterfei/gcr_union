@@ -1,0 +1,46 @@
+ul.nav.nav-tabs#myTab
+  li.active
+    a href="#order" data-toggle="tab" 下单
+  li 
+    a href="#customer" data-toggle="tab" 客户信息
+  li
+    a href="#history" data-toggle="tab" 历史订单
+.tab-content
+  .tab-pane.active id="order"
+    = render 'order'
+
+  .tab-pane id="customer"
+    /=simple_form_for @user,html:{class:'form-horizontal'},wrapper:"bootstrap",remote:true do |f|
+      =f.simple_fields_for :customer do |cf|
+        .span5=cf.input :customer_name,input_html:{readonly:true}
+        .span5=cf.input :sex  ,input_html:{readonly:true,disabled:true}
+        .span5=cf.input :identity_type_name,input_html:{readonly:true}
+        .span5=cf.input :identity_code,input_html:{readonly:true}
+        .span5=cf.input :guding_phone,input_html:{readonly:true}
+      .span12 
+        .row-fluid
+          .span5  = f.input :username ,input_html:{readonly:true}
+          .span5 = f.input :phone,input_html:{readonly:true}
+      .span12 
+        .row-fluid 
+          .span5 = f.input :email,input_html:{readonly:true}
+  .tab-pane id="history"
+    table.table.table-bordered.table-hover
+      tr 
+        th  订单编号
+        th 预定时间
+        th 预定车型
+        th 业务类型
+        th 客户姓名
+        th 订单状态
+      tbody 
+        -@history.each do |e|
+          tr 
+            td=e.confirmation
+            td=e.pickup_date
+            td = e.car_type||e.car_model
+            td = e.base_rate_code
+            td = e.customer.customer_name  rescue ''
+            td = e.status_text
+          
+

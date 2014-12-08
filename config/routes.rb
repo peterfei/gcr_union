@@ -54,4 +54,9 @@ GcrUnion::Application.routes.draw do
   resources :user_sessions, :only => [:new, :create, :destroy]
   root :to=>"user_sessions#new" 
   resources :sys_parameters
+  resources :call_centers
+
+  match 'consultation'=>"call_centers#consultation",as:"consultation"
+  match 'flights/:id',:to =>"call_centers#flights",as: :flights
+
 end
