@@ -52,6 +52,46 @@
 			}
 		},
 		{
+			"file": "app/controllers/black_records_controller.rb",
+			"settings":
+			{
+				"buffer_size": 2222,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/reservations/_end_time.html.slim",
+			"settings":
+			{
+				"buffer_size": 846,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/reservations/index.html.slim",
+			"settings":
+			{
+				"buffer_size": 505,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/reservations/_search.html.slim",
+			"settings":
+			{
+				"buffer_size": 973,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/reservations/_start_time.html.slim",
+			"settings":
+			{
+				"buffer_size": 736,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "app/models/self_driving.rb",
 			"settings":
 			{
@@ -68,11 +108,53 @@
 			}
 		},
 		{
+			"contents": "Searching 879 files for \"datepicker\" (regex, case sensitive, whole word)\n\n/Users/liufei/ROR/gcr_union/app/assets/javascripts/global.js.coffee:\n   12    #$('body').on 'hidden', '.modal', ->\n   13    #  $(@).removeData('modal')\n   14:   #$('.datepicker').on 'click', (e) ->\n   15    #  options =\n   16    #    dateFmt: 'yyyy-MM-dd'\n   ..\n   33    # $('.alert').delay(2000).slideUp()\n   34  \n   35:   $('.datepicker').datepicker\n   36      format: 'yyyy-mm-dd'\n   37      language: 'zh-CN'\n\n/Users/liufei/ROR/gcr_union/app/assets/javascripts/locations.js.coffee:\n    6    $('#pickup_district,#return_district').pickup_district_select2()\n    7    $('#location_status').select2()\n    8:   $('.datepicker').datepicker\n    9      format: 'yyyy-mm-dd'\n   10      language: 'zh-CN'\n\n/Users/liufei/ROR/gcr_union/app/assets/javascripts/reservations.js.coffee:\n    3  # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/\n    4  jQuery ->\n    5:   $('.datepicker').datepicker\n    6      format: 'yyyy-mm-dd'\n    7      language: 'zh-CN'\n\n/Users/liufei/ROR/gcr_union/app/views/coupons/_form.html.slim:\n    8    =f.input :coupon_code ,:label=>\"优惠码\"\n    9    =f.input :denomination ,label:\"优惠金额\",as: :string\n   10:   =f.input :start_date ,label:\"优惠开始日期\",input_html:{ class: 'datepicker input-small'},as: :string\n   11:   =f.input :end_date ,label:\"优惠结束日期\", input_html:{ class: 'datepicker input-small'},as: :string\n   12    = f.button :submit, :value => '提交'\n   13  \n\n/Users/liufei/ROR/gcr_union/app/views/locations/_form.html.slim:\n   34          = select_tag 'start_time_hour' , options_for_select(Location.hour_list,:selected=>@start_time_hour),:style=>\"width:80px;\", :label=>'营业时间'\n   35          = select_tag 'start_time_min' , options_for_select(Location.minute_list,:selected=>@start_time_min),:style=>\"width:80px;\"\n   36:         /= f.input :start_time,as: :string, :label=>'营业时间', input_html:{class:\"datepicker\"}\n   37        .span4 style=\"width:10px;\"\n   38          |至\n\n/Users/liufei/ROR/gcr_union/app/views/reservations/_end_time.html.slim:\n    3  /   .controls \n    4  /     .input-append\n    5: /       =text_field_tag 'reservation[return_date(1s)]', @reservation.return_date.date, class: 'datepicker input-small'\n    6  /       =text_field_tag 'reservation[return_date(2s)]', @reservation.return_date.time, class: 'input-mini timepicker'\n    7  .control-group.select.optional.disabled\n    .\n   11      =fields_for @reservation do |f|\n   12        = f.fields_for :compound_return_date do |fields|\n   13:         = fields.text_field :date, class: 'end datepicker span5', readonly: (defined? readonly)\n   14          = fields.text_field :time, class: 'end timepicker span3', readonly: (defined? readonly)\n   15  \n\n/Users/liufei/ROR/gcr_union/app/views/reservations/_start_time.html.slim:\n    3  /   .controls\n    4  /     .input-append\n    5: /       =text_field_tag 'reservation[pickup_date(1s)]', @reservation.pickup_date.date, class: 'datepicker input-small'\n    6  /       =text_field_tag 'reservation[pickup_date(2s)]', @reservation.pickup_date.time, class: 'input-mini timepicker'\n    7  .control-group.select.optional.disabled\n    .\n   11        =fields_for @reservation do |f|\n   12          = f.fields_for :compound_pickup_date do |fields|\n   13:           = fields.text_field :date, class: 'start datepicker span5'\n   14            = fields.text_field :time, class: 'start timepicker span3'\n   15  \n\n~/ROR/gcr_union/log/development.log:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/C35/290/sprockets%2F4a41107393884c8278734c90f97c9f24:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/C63/430/sprockets%2F739b2e960e945c10d3e83c3782482696:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/C6D/0A0/sprockets%2F4094e9e87e870513836422658d489eeb:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/CD0/D80/sprockets%2F607c4e351a93b06d9cb503f47b3d0270:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/CD7/050/sprockets%2F6b121db9f5cf47510fd366348e30343a:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/CDE/8B0/sprockets%2F81f95a2da99bdb800f73207054fd6117:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/CE5/650/sprockets%2F8ab512c9b33ac90e699b73469d71f061:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/D08/B50/sprockets%2Fb0f397514b2bfc2e92542fd516e30d72:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/D19/910/sprockets%2Fe219cb8a2b28935a8ced55166553c68e:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/D24/1B0/sprockets%2F702247bb25d9cfc252b58c13c3a1cb11:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/D2E/7E0/sprockets%2Fe3c92258bb1241413c3acffc07563ba8:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/D31/BB0/sprockets%2F9d21e2cb4c506d65a25cbd082c9f0191:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/D44/5A0/sprockets%2F6853e131d0fed24f548f9ddf5352b25c:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/D48/9C0/sprockets%2F6a07081b48ebf7c7f4df5951bd973c32:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/D4E/1B0/sprockets%2Ff7cbd26ba1d28d48de824f0e94586655:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/D67/490/sprockets%2F0e8ebdcdace4c7834160f705b0c62574:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/D6E/780/sprockets%2F75852a31a64dbbc7c72189cad3dd567b:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/D7D/8B0/sprockets%2F845b8d6b7887e69fbbb0582d0d0af49a:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/D91/080/sprockets%2Fbcca522c6302f184f12fe0e8a7d7e71a:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/D9F/300/sprockets%2Fc13fc73ceafa45876a901b3e775b83ae:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/DA8/660/sprockets%2F623dfaca59e9b53b6f9f408be8033bd8:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/DA8/680/sprockets%2F878fe688e56016ce3cef0ca3d01ffa47:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/DB2/AB0/sprockets%2Fff2597e73da1d9ebe8d19b41637fe80e:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/DBB/AC0/sprockets%2Fba288cf62a074ef12dac4520aec22f4e:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/DC5/8C0/sprockets%2F13dde4d6cbf28b5521d3b95cf42bed14:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/DC5/8C0/sprockets%2F96c1bac27d31aae7b9c6d1ffe837211a:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/DCB/D90/sprockets%2Fac353915c6dac8b1544edbf26be83d7b:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/DCE/520/sprockets%2F53c2c096ff51544cff6ce0bebbb746e4:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/DDC/400/sprockets%2Fcffd775d018f68ce5dba1ee0d951a994:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/DE0/2B0/sprockets%2Fd8f42867efed0b3d78a8acf39330ed8e:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/E00/1D0/sprockets%2Fe24353928dcc9d6c4fc49eeb10cc0eed:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/E04/890/sprockets%2F2f5173deea6c795b8fdde723bb4b63af:\n    <binary>\n\n~/ROR/gcr_union/tmp/cache/assets/E62/A90/sprockets%2Fdcb9b4432ec14f59f03bffa4ffbe72ff:\n    <binary>\n\n/Users/liufei/ROR/gcr_union/vendor/assets/javascripts/bootstrap-datepicker.js:\n    1  /* =========================================================\n    2:  * bootstrap-datepicker.js\n    3:  * http://www.eyecon.ro/bootstrap-datepicker\n    4   * =========================================================\n    5   * Copyright 2012 Stefan Petre\n    .\n   49  \n   50  		if(this.isInline) {\n   51: 			this.picker.addClass('datepicker-inline').appendTo(this.element);\n   52  		} else {\n   53: 			this.picker.addClass('datepicker-dropdown dropdown-menu');\n   54  		}\n   55  \n   56  		if (this.o.rtl){\n   57: 			this.picker.addClass('datepicker-rtl');\n   58  			this.picker.find('.prev i, .next i')\n   59  						.toggleClass('icon-arrow-left icon-arrow-right');\n   ..\n  192  				];\n  193  			}\n  194: 			else if (this.element.is('div')) {  // inline datepicker\n  195  				this.isInline = true;\n  196  			}\n  ...\n  212  				[$(document), {\n  213  					mousedown: $.proxy(function (e) {\n  214: 						// Clicked outside the datepicker, hide it\n  215  						if (!(\n  216  							this.element.is(e.target) ||\n  ...\n  290  			this._detachSecondaryEvents();\n  291  			this.picker.remove();\n  292: 			delete this.element.data().datepicker;\n  293  			if (!this.isInput) {\n  294  				delete this.element.data().date;\n  ...\n  396  				var cell = '<th class=\"cw\">&nbsp;</th>';\n  397  				html += cell;\n  398: 				this.picker.find('.datepicker-days thead tr:first-child').prepend(cell);\n  399  			}\n  400  			while (dowCnt < this.o.weekStart + 7) {\n  ...\n  402  			}\n  403  			html += '</tr>';\n  404: 			this.picker.find('.datepicker-days thead').append(html);\n  405  		},\n  406  \n  ...\n  411  				html += '<span class=\"month\">'+dates[this.o.language].monthsShort[i++]+'</span>';\n  412  			}\n  413: 			this.picker.find('.datepicker-months td').html(html);\n  414  		},\n  415  \n  ...\n  468  				currentDate = this.date && this.date.valueOf(),\n  469  				tooltip;\n  470: 			this.picker.find('.datepicker-days thead th.datepicker-switch')\n  471  						.text(dates[this.o.language].months[month]+' '+year);\n  472  			this.picker.find('tfoot th.today')\n  ...\n  530  				prevMonth.setUTCDate(prevMonth.getUTCDate()+1);\n  531  			}\n  532: 			this.picker.find('.datepicker-days tbody').empty().append(html.join(''));\n  533  			var currentYear = this.date && this.date.getUTCFullYear();\n  534  \n  535: 			var months = this.picker.find('.datepicker-months')\n  536  						.find('th:eq(1)')\n  537  							.text(year)\n  ...\n  553  			html = '';\n  554  			year = parseInt(year/10, 10) * 10;\n  555: 			var yearCont = this.picker.find('.datepicker-years')\n  556  								.find('th:eq(1)')\n  557  									.text(year + '-' + (year + 9))\n  ...\n  608  					case 'th':\n  609  						switch(target[0].className) {\n  610: 							case 'datepicker-switch':\n  611  								this.showMode(1);\n  612  								break;\n  ...\n  863  			/*\n  864  				vitalets: fixing bug of very special conditions:\n  865: 				jquery 1.7.1 + webkit + show inline datepicker in bootstrap popover.\n  866: 				Method show() does not set display css correctly and datepicker is not shown.\n  867  				Changed to .css('display', 'block') solve the problem.\n  868  				See https://github.com/vitalets/x-editable/issues/37\n  ...\n  870  				In jquery 1.7.2+ everything works fine.\n  871  			*/\n  872: 			//this.picker.find('>div').hide().filter('.datepicker-'+DPGlobal.modes[this.viewMode].clsName).show();\n  873: 			this.picker.find('>div').hide().filter('.datepicker-'+DPGlobal.modes[this.viewMode].clsName).css('display', 'block');\n  874  			this.updateNavArrows();\n  875  		}\n  ...\n  882  \n  883  		$(this.inputs)\n  884: 			.datepicker(options)\n  885  			.bind('changeDate', $.proxy(this.dateUpdated, this));\n  886  \n  887: 		this.pickers = $.map(this.inputs, function(i){ return $(i).data('datepicker'); });\n  888  		this.updateDates();\n  889  	};\n  ...\n  900  		},\n  901  		dateUpdated: function(e){\n  902: 			var dp = $(e.target).data('datepicker'),\n  903  				new_date = dp.getUTCDate(),\n  904  				i = $.inArray(e.target, this.inputs),\n  ...\n  922  		remove: function(){\n  923  			$.map(this.pickers, function(p){ p.remove(); });\n  924: 			delete this.element.data().datepicker;\n  925  		}\n  926  	};\n  ...\n  958  	}\n  959  \n  960: 	var old = $.fn.datepicker;\n  961: 	$.fn.datepicker = function ( option ) {\n  962  		var args = Array.apply(null, arguments);\n  963  		args.shift();\n  ...\n  966  		this.each(function () {\n  967  			var $this = $(this),\n  968: 				data = $this.data('datepicker'),\n  969  				options = typeof option == 'object' && option;\n  970  			if (!data) {\n  ...\n  979  						inputs: opts.inputs || $this.find('input').toArray()\n  980  					};\n  981: 					$this.data('datepicker', (data = new DateRangePicker(this, $.extend(opts, ropts))));\n  982  				}\n  983  				else{\n  984: 					$this.data('datepicker', (data = new Datepicker(this, opts)));\n  985  				}\n  986  			}\n  ...\n  997  	};\n  998  \n  999: 	var defaults = $.fn.datepicker.defaults = {\n 1000  		autoclose: false,\n 1001  		beforeShowDay: $.noop,\n ....\n 1016  		weekStart: 0\n 1017  	};\n 1018: 	var locale_opts = $.fn.datepicker.locale_opts = [\n 1019  		'format',\n 1020  		'rtl',\n 1021  		'weekStart'\n 1022  	];\n 1023: 	$.fn.datepicker.Constructor = Datepicker;\n 1024: 	var dates = $.fn.datepicker.dates = {\n 1025  		en: {\n 1026  			days: [\"Sunday\", \"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\", \"Sunday\"],\n ....\n 1195  							'<tr>'+\n 1196  								'<th class=\"prev\"><i class=\"icon-arrow-left\"/></th>'+\n 1197: 								'<th colspan=\"5\" class=\"datepicker-switch\"></th>'+\n 1198  								'<th class=\"next\"><i class=\"icon-arrow-right\"/></th>'+\n 1199  							'</tr>'+\n ....\n 1202  		footTemplate: '<tfoot><tr><th colspan=\"7\" class=\"today\"></th></tr><tr><th colspan=\"7\" class=\"clear\"></th></tr></tfoot>'\n 1203  	};\n 1204: 	DPGlobal.template = '<div class=\"datepicker\">'+\n 1205: 							'<div class=\"datepicker-days\">'+\n 1206  								'<table class=\" table-condensed\">'+\n 1207  									DPGlobal.headTemplate+\n ....\n 1210  								'</table>'+\n 1211  							'</div>'+\n 1212: 							'<div class=\"datepicker-months\">'+\n 1213  								'<table class=\"table-condensed\">'+\n 1214  									DPGlobal.headTemplate+\n ....\n 1217  								'</table>'+\n 1218  							'</div>'+\n 1219: 							'<div class=\"datepicker-years\">'+\n 1220  								'<table class=\"table-condensed\">'+\n 1221  									DPGlobal.headTemplate+\n ....\n 1226  						'</div>';\n 1227  \n 1228: 	$.fn.datepicker.DPGlobal = DPGlobal;\n 1229  \n 1230  \n ....\n 1232  	* =================== */\n 1233  \n 1234: 	$.fn.datepicker.noConflict = function(){\n 1235: 		$.fn.datepicker = old;\n 1236  		return this;\n 1237  	};\n ....\n 1242  \n 1243  	$(document).on(\n 1244: 		'focus.datepicker.data-api click.datepicker.data-api',\n 1245: 		'[data-provide=\"datepicker\"]',\n 1246  		function(e){\n 1247  			var $this = $(this);\n 1248: 			if ($this.data('datepicker')) return;\n 1249  			e.preventDefault();\n 1250  			// component click requires us to explicitly show it\n 1251: 			$this.datepicker('show');\n 1252  		}\n 1253  	);\n 1254  	$(function(){\n 1255: 		$('[data-provide=\"datepicker-inline\"]').datepicker();\n 1256  	});\n 1257  \n\n/Users/liufei/ROR/gcr_union/vendor/assets/javascripts/jquery-datepicker/datepicker.js:\n   16  			},\n   17  			tpl = {\n   18: 				wrapper: '<div class=\"datepicker\"><div class=\"datepickerBorderT\" /><div class=\"datepickerBorderB\" /><div class=\"datepickerBorderL\" /><div class=\"datepickerBorderR\" /><div class=\"datepickerBorderTL\" /><div class=\"datepickerBorderTR\" /><div class=\"datepickerBorderBL\" /><div class=\"datepickerBorderBR\" /><div class=\"datepickerContainer\"><table cellspacing=\"0\" cellpadding=\"0\"><tbody><tr></tr></tbody></table></div></div>',\n   19  				head: [\n   20  					'<td>',\n   ..\n  154  			},\n  155  			fill = function(el) {\n  156: 				var options = $(el).data('datepicker');\n  157  				var cal = $(el);\n  158  				var currentCal = Math.floor(options.calendars/2), date, data, dow, month, cnt = 0, week, days, indic, indic2, html, tblCal;\n  ...\n  441  			},\n  442  			layout = function (el) {\n  443: 				var options = $(el).data('datepicker');\n  444  				var cal = $('#' + options.id);\n  445  				if (!options.extraHeight) {\n  ...\n  469  						return false;\n  470  					}\n  471: 					var options = $(this).data('datepicker');\n  472  					var parentEl = el.parent();\n  473  					var tblEl = parentEl.parent().parent().parent();\n  ...\n  632  					var calEl = cal.get(0);\n  633  					fill(calEl);\n  634: 					var options = cal.data('datepicker');\n  635  					options.onBeforeShow.apply(this, [cal.get(0)]);\n  636  					var pos = $(this).offset();\n  ...\n  685  			hide = function (ev) {\n  686  				if (ev.target != ev.data.trigger && !isChildOf(ev.data.cal.get(0), ev.target, ev.data.cal.get(0))) {\n  687: 					if (ev.data.cal.data('datepicker').onHide.apply(this, [ev.data.cal.get(0)]) != false) {\n  688  						ev.data.cal.hide();\n  689  					}\n  ...\n  698  				options.mode = /single|multiple|range/.test(options.mode) ? options.mode : 'single';\n  699  				return this.each(function(){\n  700: 					if (!$(this).data('datepicker')) {\n  701  						options.el = this;\n  702  						if (options.date.constructor == String) {\n  ...\n  731  						options.id = id;\n  732  						$(this).data('datepickerId', options.id);\n  733: 						var cal = $(tpl.wrapper).attr('id', id).bind('click', click).data('datepicker', options);\n  734  						if (options.className) {\n  735  							cal.addClass(options.className);\n  ...\n  786  					if ($(this).data('datepickerId')) {\n  787  						var cal = $('#' + $(this).data('datepickerId'));\n  788: 						var options = cal.data('datepicker');\n  789  						options.date = date;\n  790  						if (options.date.constructor == String) {\n  ...\n  818  			getDate: function(formated) {\n  819  				if (this.size() > 0) {\n  820: 					return prepareDate($('#' + $(this).data('datepickerId')).data('datepicker'))[formated ? 0 : 1];\n  821  				}\n  822  			},\n  ...\n  825  					if ($(this).data('datepickerId')) {\n  826  						var cal = $('#' + $(this).data('datepickerId'));\n  827: 						var options = cal.data('datepicker');\n  828  						if (options.mode != 'single') {\n  829  							options.date = [];\n  ...\n  837  					if ($(this).data('datepickerId')) {\n  838  						var cal = $('#' + $(this).data('datepickerId'));\n  839: 						var options = cal.data('datepicker');\n  840  						if (options.flat) {\n  841  							layout(cal.get(0));\n\n/Users/liufei/ROR/gcr_union/vendor/assets/javascripts/locales/bootstrap-datepicker.zh-CN.js:\n    1  /**\n    2:  * Simplified Chinese translation for bootstrap-datepicker\n    3   * Yuan Cheung <advanimal@gmail.com>\n    4   */\n    5  ;(function($){\n    6: 	$.fn.datepicker.dates['zh-CN'] = {\n    7  		days: [\"星期日\", \"星期一\", \"星期二\", \"星期三\", \"星期四\", \"星期五\", \"星期六\", \"星期日\"],\n    8  		daysShort: [\"周日\", \"周一\", \"周二\", \"周三\", \"周四\", \"周五\", \"周六\", \"周日\"],\n\n/Users/liufei/ROR/gcr_union/vendor/assets/javascripts/locales/bootstrap-datepicker.zh-TW.js:\n    1  /**\n    2:  * Traditional Chinese translation for bootstrap-datepicker\n    3   * Rung-Sheng Jang <daniel@i-trend.co.cc>\n    4   */\n    5  ;(function($){\n    6: 	$.fn.datepicker.dates['zh-TW'] = {\n    7  		days: [\"星期日\", \"星期一\", \"星期二\", \"星期三\", \"星期四\", \"星期五\", \"星期六\", \"星期日\"],\n    8  		daysShort: [\"周日\", \"周一\", \"周二\", \"周三\", \"周四\", \"周五\", \"周六\", \"周日\"],\n\n/Users/liufei/ROR/gcr_union/vendor/assets/stylesheets/datepicker.css:\n    8   *\n    9   */\n   10: .datepicker {\n   11    padding: 4px;\n   12    -webkit-border-radius: 4px;\n   ..\n   19  \n   20  }\n   21: .datepicker-inline {\n   22    width: 220px;\n   23  }\n   24: .datepicker.datepicker-rtl {\n   25    direction: rtl;\n   26  }\n   27: .datepicker.datepicker-rtl table tr td span {\n   28    float: right;\n   29  }\n   30: .datepicker-dropdown {\n   31    top: 0;\n   32    left: 0;\n   33  }\n   34: .datepicker-dropdown:before {\n   35    content: '';\n   36    display: inline-block;\n   ..\n   43    left: 6px;\n   44  }\n   45: .datepicker-dropdown:after {\n   46    content: '';\n   47    display: inline-block;\n   ..\n   53    left: 7px;\n   54  }\n   55: .datepicker > div {\n   56    display: none;\n   57  }\n   58: .datepicker.days div.datepicker-days {\n   59    display: block;\n   60  }\n   61: .datepicker.months div.datepicker-months {\n   62    display: block;\n   63  }\n   64: .datepicker.years div.datepicker-years {\n   65    display: block;\n   66  }\n   67: .datepicker table {\n   68    margin: 0;\n   69  }\n   70: .datepicker td,\n   71: .datepicker th {\n   72    text-align: center;\n   73    width: 20px;\n   ..\n   78    border: none;\n   79  }\n   80: .table-striped .datepicker table tr td,\n   81: .table-striped .datepicker table tr th {\n   82    background-color: transparent;\n   83  }\n   84: .datepicker table tr td.day:hover {\n   85    background: #eeeeee;\n   86    cursor: pointer;\n   87  }\n   88: .datepicker table tr td.old,\n   89: .datepicker table tr td.new {\n   90    color: #999999;\n   91  }\n   92: .datepicker table tr td.disabled,\n   93: .datepicker table tr td.disabled:hover {\n   94    background: none;\n   95    color: #999999;\n   96    cursor: default;\n   97  }\n   98: .datepicker table tr td.today,\n   99: .datepicker table tr td.today:hover,\n  100: .datepicker table tr td.today.disabled,\n  101: .datepicker table tr td.today.disabled:hover {\n  102    background-color: #fde19a;\n  103    background-image: -moz-linear-gradient(top, #fdd49a, #fdf59a);\n  ...\n  114    color: #000;\n  115  }\n  116: .datepicker table tr td.today:hover,\n  117: .datepicker table tr td.today:hover:hover,\n  118: .datepicker table tr td.today.disabled:hover,\n  119: .datepicker table tr td.today.disabled:hover:hover,\n  120: .datepicker table tr td.today:active,\n  121: .datepicker table tr td.today:hover:active,\n  122: .datepicker table tr td.today.disabled:active,\n  123: .datepicker table tr td.today.disabled:hover:active,\n  124: .datepicker table tr td.today.active,\n  125: .datepicker table tr td.today:hover.active,\n  126: .datepicker table tr td.today.disabled.active,\n  127: .datepicker table tr td.today.disabled:hover.active,\n  128: .datepicker table tr td.today.disabled,\n  129: .datepicker table tr td.today:hover.disabled,\n  130: .datepicker table tr td.today.disabled.disabled,\n  131: .datepicker table tr td.today.disabled:hover.disabled,\n  132: .datepicker table tr td.today[disabled],\n  133: .datepicker table tr td.today:hover[disabled],\n  134: .datepicker table tr td.today.disabled[disabled],\n  135: .datepicker table tr td.today.disabled:hover[disabled] {\n  136    background-color: #fdf59a;\n  137  }\n  138: .datepicker table tr td.today:active,\n  139: .datepicker table tr td.today:hover:active,\n  140: .datepicker table tr td.today.disabled:active,\n  141: .datepicker table tr td.today.disabled:hover:active,\n  142: .datepicker table tr td.today.active,\n  143: .datepicker table tr td.today:hover.active,\n  144: .datepicker table tr td.today.disabled.active,\n  145: .datepicker table tr td.today.disabled:hover.active {\n  146    background-color: #fbf069 \\9;\n  147  }\n  148: .datepicker table tr td.today:hover:hover {\n  149    color: #000;\n  150  }\n  151: .datepicker table tr td.today.active:hover {\n  152    color: #fff;\n  153  }\n  154: .datepicker table tr td.range,\n  155: .datepicker table tr td.range:hover,\n  156: .datepicker table tr td.range.disabled,\n  157: .datepicker table tr td.range.disabled:hover {\n  158    background: #eeeeee;\n  159    -webkit-border-radius: 0;\n  ...\n  161    border-radius: 0;\n  162  }\n  163: .datepicker table tr td.range.today,\n  164: .datepicker table tr td.range.today:hover,\n  165: .datepicker table tr td.range.today.disabled,\n  166: .datepicker table tr td.range.today.disabled:hover {\n  167    background-color: #f3d17a;\n  168    background-image: -moz-linear-gradient(top, #f3c17a, #f3e97a);\n  ...\n  181    border-radius: 0;\n  182  }\n  183: .datepicker table tr td.range.today:hover,\n  184: .datepicker table tr td.range.today:hover:hover,\n  185: .datepicker table tr td.range.today.disabled:hover,\n  186: .datepicker table tr td.range.today.disabled:hover:hover,\n  187: .datepicker table tr td.range.today:active,\n  188: .datepicker table tr td.range.today:hover:active,\n  189: .datepicker table tr td.range.today.disabled:active,\n  190: .datepicker table tr td.range.today.disabled:hover:active,\n  191: .datepicker table tr td.range.today.active,\n  192: .datepicker table tr td.range.today:hover.active,\n  193: .datepicker table tr td.range.today.disabled.active,\n  194: .datepicker table tr td.range.today.disabled:hover.active,\n  195: .datepicker table tr td.range.today.disabled,\n  196: .datepicker table tr td.range.today:hover.disabled,\n  197: .datepicker table tr td.range.today.disabled.disabled,\n  198: .datepicker table tr td.range.today.disabled:hover.disabled,\n  199: .datepicker table tr td.range.today[disabled],\n  200: .datepicker table tr td.range.today:hover[disabled],\n  201: .datepicker table tr td.range.today.disabled[disabled],\n  202: .datepicker table tr td.range.today.disabled:hover[disabled] {\n  203    background-color: #f3e97a;\n  204  }\n  205: .datepicker table tr td.range.today:active,\n  206: .datepicker table tr td.range.today:hover:active,\n  207: .datepicker table tr td.range.today.disabled:active,\n  208: .datepicker table tr td.range.today.disabled:hover:active,\n  209: .datepicker table tr td.range.today.active,\n  210: .datepicker table tr td.range.today:hover.active,\n  211: .datepicker table tr td.range.today.disabled.active,\n  212: .datepicker table tr td.range.today.disabled:hover.active {\n  213    background-color: #efe24b \\9;\n  214  }\n  215: .datepicker table tr td.selected,\n  216: .datepicker table tr td.selected:hover,\n  217: .datepicker table tr td.selected.disabled,\n  218: .datepicker table tr td.selected.disabled:hover {\n  219    background-color: #9e9e9e;\n  220    background-image: -moz-linear-gradient(top, #b3b3b3, #808080);\n  ...\n  232    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);\n  233  }\n  234: .datepicker table tr td.selected:hover,\n  235: .datepicker table tr td.selected:hover:hover,\n  236: .datepicker table tr td.selected.disabled:hover,\n  237: .datepicker table tr td.selected.disabled:hover:hover,\n  238: .datepicker table tr td.selected:active,\n  239: .datepicker table tr td.selected:hover:active,\n  240: .datepicker table tr td.selected.disabled:active,\n  241: .datepicker table tr td.selected.disabled:hover:active,\n  242: .datepicker table tr td.selected.active,\n  243: .datepicker table tr td.selected:hover.active,\n  244: .datepicker table tr td.selected.disabled.active,\n  245: .datepicker table tr td.selected.disabled:hover.active,\n  246: .datepicker table tr td.selected.disabled,\n  247: .datepicker table tr td.selected:hover.disabled,\n  248: .datepicker table tr td.selected.disabled.disabled,\n  249: .datepicker table tr td.selected.disabled:hover.disabled,\n  250: .datepicker table tr td.selected[disabled],\n  251: .datepicker table tr td.selected:hover[disabled],\n  252: .datepicker table tr td.selected.disabled[disabled],\n  253: .datepicker table tr td.selected.disabled:hover[disabled] {\n  254    background-color: #808080;\n  255  }\n  256: .datepicker table tr td.selected:active,\n  257: .datepicker table tr td.selected:hover:active,\n  258: .datepicker table tr td.selected.disabled:active,\n  259: .datepicker table tr td.selected.disabled:hover:active,\n  260: .datepicker table tr td.selected.active,\n  261: .datepicker table tr td.selected:hover.active,\n  262: .datepicker table tr td.selected.disabled.active,\n  263: .datepicker table tr td.selected.disabled:hover.active {\n  264    background-color: #666666 \\9;\n  265  }\n  266: .datepicker table tr td.active,\n  267: .datepicker table tr td.active:hover,\n  268: .datepicker table tr td.active.disabled,\n  269: .datepicker table tr td.active.disabled:hover {\n  270    background-color: #006dcc;\n  271    background-image: -moz-linear-gradient(top, #0088cc, #0044cc);\n  ...\n  283    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);\n  284  }\n  285: .datepicker table tr td.active:hover,\n  286: .datepicker table tr td.active:hover:hover,\n  287: .datepicker table tr td.active.disabled:hover,\n  288: .datepicker table tr td.active.disabled:hover:hover,\n  289: .datepicker table tr td.active:active,\n  290: .datepicker table tr td.active:hover:active,\n  291: .datepicker table tr td.active.disabled:active,\n  292: .datepicker table tr td.active.disabled:hover:active,\n  293: .datepicker table tr td.active.active,\n  294: .datepicker table tr td.active:hover.active,\n  295: .datepicker table tr td.active.disabled.active,\n  296: .datepicker table tr td.active.disabled:hover.active,\n  297: .datepicker table tr td.active.disabled,\n  298: .datepicker table tr td.active:hover.disabled,\n  299: .datepicker table tr td.active.disabled.disabled,\n  300: .datepicker table tr td.active.disabled:hover.disabled,\n  301: .datepicker table tr td.active[disabled],\n  302: .datepicker table tr td.active:hover[disabled],\n  303: .datepicker table tr td.active.disabled[disabled],\n  304: .datepicker table tr td.active.disabled:hover[disabled] {\n  305    background-color: #0044cc;\n  306  }\n  307: .datepicker table tr td.active:active,\n  308: .datepicker table tr td.active:hover:active,\n  309: .datepicker table tr td.active.disabled:active,\n  310: .datepicker table tr td.active.disabled:hover:active,\n  311: .datepicker table tr td.active.active,\n  312: .datepicker table tr td.active:hover.active,\n  313: .datepicker table tr td.active.disabled.active,\n  314: .datepicker table tr td.active.disabled:hover.active {\n  315    background-color: #003399 \\9;\n  316  }\n  317: .datepicker table tr td span {\n  318    display: block;\n  319    width: 23%;\n  ...\n  327    border-radius: 4px;\n  328  }\n  329: .datepicker table tr td span:hover {\n  330    background: #eeeeee;\n  331  }\n  332: .datepicker table tr td span.disabled,\n  333: .datepicker table tr td span.disabled:hover {\n  334    background: none;\n  335    color: #999999;\n  336    cursor: default;\n  337  }\n  338: .datepicker table tr td span.active,\n  339: .datepicker table tr td span.active:hover,\n  340: .datepicker table tr td span.active.disabled,\n  341: .datepicker table tr td span.active.disabled:hover {\n  342    background-color: #006dcc;\n  343    background-image: -moz-linear-gradient(top, #0088cc, #0044cc);\n  ...\n  355    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);\n  356  }\n  357: .datepicker table tr td span.active:hover,\n  358: .datepicker table tr td span.active:hover:hover,\n  359: .datepicker table tr td span.active.disabled:hover,\n  360: .datepicker table tr td span.active.disabled:hover:hover,\n  361: .datepicker table tr td span.active:active,\n  362: .datepicker table tr td span.active:hover:active,\n  363: .datepicker table tr td span.active.disabled:active,\n  364: .datepicker table tr td span.active.disabled:hover:active,\n  365: .datepicker table tr td span.active.active,\n  366: .datepicker table tr td span.active:hover.active,\n  367: .datepicker table tr td span.active.disabled.active,\n  368: .datepicker table tr td span.active.disabled:hover.active,\n  369: .datepicker table tr td span.active.disabled,\n  370: .datepicker table tr td span.active:hover.disabled,\n  371: .datepicker table tr td span.active.disabled.disabled,\n  372: .datepicker table tr td span.active.disabled:hover.disabled,\n  373: .datepicker table tr td span.active[disabled],\n  374: .datepicker table tr td span.active:hover[disabled],\n  375: .datepicker table tr td span.active.disabled[disabled],\n  376: .datepicker table tr td span.active.disabled:hover[disabled] {\n  377    background-color: #0044cc;\n  378  }\n  379: .datepicker table tr td span.active:active,\n  380: .datepicker table tr td span.active:hover:active,\n  381: .datepicker table tr td span.active.disabled:active,\n  382: .datepicker table tr td span.active.disabled:hover:active,\n  383: .datepicker table tr td span.active.active,\n  384: .datepicker table tr td span.active:hover.active,\n  385: .datepicker table tr td span.active.disabled.active,\n  386: .datepicker table tr td span.active.disabled:hover.active {\n  387    background-color: #003399 \\9;\n  388  }\n  389: .datepicker table tr td span.old,\n  390: .datepicker table tr td span.new {\n  391    color: #999999;\n  392  }\n  393: .datepicker th.datepicker-switch {\n  394    width: 145px;\n  395  }\n  396: .datepicker thead tr:first-child th,\n  397: .datepicker tfoot tr th {\n  398    cursor: pointer;\n  399  }\n  400: .datepicker thead tr:first-child th:hover,\n  401: .datepicker tfoot tr th:hover {\n  402    background: #eeeeee;\n  403  }\n  404: .datepicker .cw {\n  405    font-size: 10px;\n  406    width: 12px;\n  ...\n  408    vertical-align: middle;\n  409  }\n  410: .datepicker thead tr:first-child th.cw {\n  411    cursor: default;\n  412    background-color: transparent;\n\n/Users/liufei/ROR/gcr_union/vendor/assets/stylesheets/jquery-datepicker/datepicker.css:\n    1: div.datepicker {\n    2      position: relative;\n    3      font-family: Arial, Helvetica, sans-serif;\n    .\n   84      display: none;\n   85  }\n   86: div.datepicker table {\n   87      border-collapse:collapse;\n   88  }\n   89: div.datepicker a {\n   90      color: #222;\n   91      text-decoration: none;\n   ..\n   93      outline: none;\n   94  }\n   95: div.datepicker table td {\n   96      text-align: center;\n   97      padding: 0;\n   98      margin: 0;\n   99  }\n  100: div.datepicker th {\n  101      text-align: center;\n  102      color: #999;\n  103      font-weight: normal;\n  104  }\n  105: div.datepicker tbody th {\n  106      text-align: center;\n  107  }\n  108: div.datepicker tbody a {\n  109      display: block;\n  110  }\n  ...\n  136      background: #17384d;\n  137  }\n  138: div.datepicker a{ cursor: pointer;}\n  139: div.datepicker a:hover,\n  140: div.datepicker a:hover {\n  141      color:#0099FF;\n  142  }\n  143: div.datepicker td.datepickerNotInMonth a:hover {\n  144      color: #999;\n  145  }\n  146: div.datepicker tbody th {\n  147      text-align: center;\n  148  }\n\n2419 matches across 47 files\n",
+			"settings":
+			{
+				"buffer_size": 32771,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "vendor/assets/stylesheets/jquery-datepicker/datepicker.css",
+			"settings":
+			{
+				"buffer_size": 3936,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "vendor/assets/stylesheets/datepicker.css",
+			"settings":
+			{
+				"buffer_size": 16278,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "app/views/call_centers/consultation.html.slim",
 			"settings":
 			{
 				"buffer_size": 1470,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/views/call_centers/_order.html.slim",
+			"settings":
+			{
+				"buffer_size": 1436,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/users/_search.html.slim",
+			"settings":
+			{
+				"buffer_size": 579,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -96,14 +178,6 @@
 			"settings":
 			{
 				"buffer_size": 651,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/assets/javascripts/call_centers.js.coffee",
-			"settings":
-			{
-				"buffer_size": 3665,
 				"line_ending": "Unix"
 			}
 		},
@@ -167,7 +241,15 @@
 			"file": "config/routes.rb",
 			"settings":
 			{
-				"buffer_size": 2156,
+				"buffer_size": 2183,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "db/schema.rb",
+			"settings":
+			{
+				"buffer_size": 22454,
 				"line_ending": "Unix"
 			}
 		},
@@ -191,7 +273,31 @@
 			"file": "app/models/reservation.rb",
 			"settings":
 			{
-				"buffer_size": 6813,
+				"buffer_size": 7317,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/compound_datetime.rb",
+			"settings":
+			{
+				"buffer_size": 690,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/javascripts/call_centers.js.coffee",
+			"settings":
+			{
+				"buffer_size": 3768,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/consultation.rb",
+			"settings":
+			{
+				"buffer_size": 235,
 				"line_ending": "Unix"
 			}
 		},
@@ -342,20 +448,17 @@
 		"/Users/liufei/ROR/gcr_union/app/assets",
 		"/Users/liufei/ROR/gcr_union/app/assets/javascripts",
 		"/Users/liufei/ROR/gcr_union/app/controllers",
-		"/Users/liufei/ROR/gcr_union/app/helpers",
 		"/Users/liufei/ROR/gcr_union/app/models",
 		"/Users/liufei/ROR/gcr_union/app/models/api",
 		"/Users/liufei/ROR/gcr_union/app/models/crs_admin",
 		"/Users/liufei/ROR/gcr_union/app/models/platforms",
 		"/Users/liufei/ROR/gcr_union/app/views",
-		"/Users/liufei/ROR/gcr_union/app/views/call_centers",
-		"/Users/liufei/ROR/gcr_union/app/views/car_models",
-		"/Users/liufei/ROR/gcr_union/app/views/layouts",
-		"/Users/liufei/ROR/gcr_union/app/views/reservations",
+		"/Users/liufei/ROR/gcr_union/app/views/sys_parameters",
 		"/Users/liufei/ROR/gcr_union/app/views/users",
-		"/Users/liufei/ROR/gcr_union/app/views/value_added_services",
 		"/Users/liufei/ROR/gcr_union/app/views/welcome",
-		"/Users/liufei/ROR/gcr_union/config"
+		"/Users/liufei/ROR/gcr_union/config",
+		"/Users/liufei/ROR/gcr_union/config/initializers",
+		"/Users/liufei/ROR/gcr_union/db"
 	],
 	"file_history":
 	[
@@ -507,6 +610,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"datepicker",
+			"pickup_date",
 			"logo_home",
 			"车联天下",
 			"company_info_select2",
@@ -632,9 +737,7 @@
 			"asset",
 			"rails_environment",
 			"ssl",
-			"require_ssl",
-			"https",
-			"ssl"
+			"require_ssl"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -661,7 +764,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -677,8 +780,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								7137,
+								7137
 							]
 						],
 						"settings":
@@ -748,14 +851,460 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 58.0,
+						"translation.y": 3264.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "app/controllers/black_records_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2222,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2189,
+								2189
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1123.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/views/reservations/_end_time.html.slim",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 846,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								753,
+								753
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/views/reservations/index.html.slim",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 505,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17,
+								17
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/views/reservations/_search.html.slim",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 973,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								925,
+								925
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/views/reservations/_start_time.html.slim",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 736,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								734,
+								734
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "app/models/self_driving.rb",
 					"semi_transient": false,
 					"settings":
@@ -841,11 +1390,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 25,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 7,
 					"file": "app/controllers/call_centers_controller.rb",
 					"semi_transient": false,
 					"settings":
@@ -928,14 +1477,1483 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 309.0,
+						"translation.y": 288.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 32771,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										240,
+										250
+									],
+									[
+										402,
+										412
+									],
+									[
+										415,
+										425
+									],
+									[
+										688,
+										698
+									],
+									[
+										701,
+										711
+									],
+									[
+										970,
+										980
+									],
+									[
+										983,
+										993
+									],
+									[
+										1290,
+										1300
+									],
+									[
+										1393,
+										1403
+									],
+									[
+										1924,
+										1934
+									],
+									[
+										2219,
+										2229
+									],
+									[
+										2580,
+										2590
+									],
+									[
+										2965,
+										2975
+									],
+									[
+										3334,
+										3344
+									],
+									[
+										6988,
+										6998
+									],
+									[
+										7043,
+										7053
+									],
+									[
+										7235,
+										7245
+									],
+									[
+										7329,
+										7339
+									],
+									[
+										7443,
+										7453
+									],
+									[
+										7659,
+										7669
+									],
+									[
+										7830,
+										7840
+									],
+									[
+										8029,
+										8039
+									],
+									[
+										8229,
+										8239
+									],
+									[
+										8419,
+										8429
+									],
+									[
+										8617,
+										8627
+									],
+									[
+										8786,
+										8796
+									],
+									[
+										8811,
+										8821
+									],
+									[
+										9049,
+										9059
+									],
+									[
+										9223,
+										9233
+									],
+									[
+										9416,
+										9426
+									],
+									[
+										9607,
+										9617
+									],
+									[
+										9808,
+										9818
+									],
+									[
+										9905,
+										9915
+									],
+									[
+										10183,
+										10193
+									],
+									[
+										10294,
+										10304
+									],
+									[
+										10465,
+										10475
+									],
+									[
+										10631,
+										10641
+									],
+									[
+										10779,
+										10789
+									],
+									[
+										11012,
+										11022
+									],
+									[
+										11093,
+										11103
+									],
+									[
+										11118,
+										11128
+									],
+									[
+										11326,
+										11336
+									],
+									[
+										11532,
+										11542
+									],
+									[
+										11659,
+										11669
+									],
+									[
+										11788,
+										11798
+									],
+									[
+										11941,
+										11951
+									],
+									[
+										12048,
+										12058
+									],
+									[
+										12110,
+										12120
+									],
+									[
+										12388,
+										12398
+									],
+									[
+										12695,
+										12705
+									],
+									[
+										12737,
+										12747
+									],
+									[
+										12931,
+										12941
+									],
+									[
+										13126,
+										13136
+									],
+									[
+										13286,
+										13296
+									],
+									[
+										13394,
+										13404
+									],
+									[
+										13444,
+										13454
+									],
+									[
+										13549,
+										13559
+									],
+									[
+										13575,
+										13585
+									],
+									[
+										13622,
+										13632
+									],
+									[
+										13716,
+										13726
+									],
+									[
+										13847,
+										13857
+									],
+									[
+										13938,
+										13948
+									],
+									[
+										13960,
+										13970
+									],
+									[
+										14146,
+										14156
+									],
+									[
+										14672,
+										14682
+									],
+									[
+										14940,
+										14950
+									],
+									[
+										15122,
+										15132
+									],
+									[
+										15340,
+										15350
+									],
+									[
+										15639,
+										15649
+									],
+									[
+										15925,
+										15935
+									],
+									[
+										16199,
+										16209
+									],
+									[
+										16460,
+										16470
+									],
+									[
+										16718,
+										16728
+									],
+									[
+										16930,
+										16940
+									],
+									[
+										17175,
+										17185
+									],
+									[
+										17416,
+										17426
+									],
+									[
+										17517,
+										17527
+									],
+									[
+										17851,
+										17861
+									],
+									[
+										17957,
+										17967
+									],
+									[
+										18230,
+										18240
+									],
+									[
+										18334,
+										18344
+									],
+									[
+										18394,
+										18404
+									],
+									[
+										18405,
+										18415
+									],
+									[
+										18464,
+										18474
+									],
+									[
+										18475,
+										18485
+									],
+									[
+										18549,
+										18559
+									],
+									[
+										18623,
+										18633
+									],
+									[
+										18749,
+										18759
+									],
+									[
+										18874,
+										18884
+									],
+									[
+										18934,
+										18944
+									],
+									[
+										18954,
+										18964
+									],
+									[
+										19014,
+										19024
+									],
+									[
+										19036,
+										19046
+									],
+									[
+										19098,
+										19108
+									],
+									[
+										19119,
+										19129
+									],
+									[
+										19180,
+										19190
+									],
+									[
+										19236,
+										19246
+									],
+									[
+										19259,
+										19269
+									],
+									[
+										19387,
+										19397
+									],
+									[
+										19434,
+										19444
+									],
+									[
+										19516,
+										19526
+									],
+									[
+										19624,
+										19634
+									],
+									[
+										19660,
+										19670
+									],
+									[
+										19731,
+										19741
+									],
+									[
+										19772,
+										19782
+									],
+									[
+										19907,
+										19917
+									],
+									[
+										19945,
+										19955
+									],
+									[
+										19989,
+										19999
+									],
+									[
+										20036,
+										20046
+									],
+									[
+										20235,
+										20245
+									],
+									[
+										20279,
+										20289
+									],
+									[
+										20329,
+										20339
+									],
+									[
+										20382,
+										20392
+									],
+									[
+										20441,
+										20451
+									],
+									[
+										20486,
+										20496
+									],
+									[
+										20537,
+										20547
+									],
+									[
+										20591,
+										20601
+									],
+									[
+										20651,
+										20661
+									],
+									[
+										20696,
+										20706
+									],
+									[
+										20747,
+										20757
+									],
+									[
+										20801,
+										20811
+									],
+									[
+										20861,
+										20871
+									],
+									[
+										20908,
+										20918
+									],
+									[
+										20961,
+										20971
+									],
+									[
+										21017,
+										21027
+									],
+									[
+										21079,
+										21089
+									],
+									[
+										21127,
+										21137
+									],
+									[
+										21181,
+										21191
+									],
+									[
+										21238,
+										21248
+									],
+									[
+										21347,
+										21357
+									],
+									[
+										21392,
+										21402
+									],
+									[
+										21443,
+										21453
+									],
+									[
+										21497,
+										21507
+									],
+									[
+										21557,
+										21567
+									],
+									[
+										21602,
+										21612
+									],
+									[
+										21653,
+										21663
+									],
+									[
+										21707,
+										21717
+									],
+									[
+										21816,
+										21826
+									],
+									[
+										21898,
+										21908
+									],
+									[
+										21981,
+										21991
+									],
+									[
+										22019,
+										22029
+									],
+									[
+										22063,
+										22073
+									],
+									[
+										22110,
+										22120
+									],
+									[
+										22271,
+										22281
+									],
+									[
+										22315,
+										22325
+									],
+									[
+										22365,
+										22375
+									],
+									[
+										22418,
+										22428
+									],
+									[
+										22628,
+										22638
+									],
+									[
+										22678,
+										22688
+									],
+									[
+										22734,
+										22744
+									],
+									[
+										22793,
+										22803
+									],
+									[
+										22858,
+										22868
+									],
+									[
+										22909,
+										22919
+									],
+									[
+										22966,
+										22976
+									],
+									[
+										23026,
+										23036
+									],
+									[
+										23092,
+										23102
+									],
+									[
+										23143,
+										23153
+									],
+									[
+										23200,
+										23210
+									],
+									[
+										23260,
+										23270
+									],
+									[
+										23326,
+										23336
+									],
+									[
+										23379,
+										23389
+									],
+									[
+										23438,
+										23448
+									],
+									[
+										23500,
+										23510
+									],
+									[
+										23568,
+										23578
+									],
+									[
+										23622,
+										23632
+									],
+									[
+										23682,
+										23692
+									],
+									[
+										23745,
+										23755
+									],
+									[
+										23860,
+										23870
+									],
+									[
+										23911,
+										23921
+									],
+									[
+										23968,
+										23978
+									],
+									[
+										24028,
+										24038
+									],
+									[
+										24094,
+										24104
+									],
+									[
+										24145,
+										24155
+									],
+									[
+										24202,
+										24212
+									],
+									[
+										24262,
+										24272
+									],
+									[
+										24377,
+										24387
+									],
+									[
+										24418,
+										24428
+									],
+									[
+										24465,
+										24475
+									],
+									[
+										24515,
+										24525
+									],
+									[
+										24747,
+										24757
+									],
+									[
+										24794,
+										24804
+									],
+									[
+										24847,
+										24857
+									],
+									[
+										24903,
+										24913
+									],
+									[
+										24965,
+										24975
+									],
+									[
+										25013,
+										25023
+									],
+									[
+										25067,
+										25077
+									],
+									[
+										25124,
+										25134
+									],
+									[
+										25187,
+										25197
+									],
+									[
+										25235,
+										25245
+									],
+									[
+										25289,
+										25299
+									],
+									[
+										25346,
+										25356
+									],
+									[
+										25409,
+										25419
+									],
+									[
+										25459,
+										25469
+									],
+									[
+										25515,
+										25525
+									],
+									[
+										25574,
+										25584
+									],
+									[
+										25639,
+										25649
+									],
+									[
+										25690,
+										25700
+									],
+									[
+										25747,
+										25757
+									],
+									[
+										25807,
+										25817
+									],
+									[
+										25919,
+										25929
+									],
+									[
+										25967,
+										25977
+									],
+									[
+										26021,
+										26031
+									],
+									[
+										26078,
+										26088
+									],
+									[
+										26141,
+										26151
+									],
+									[
+										26189,
+										26199
+									],
+									[
+										26243,
+										26253
+									],
+									[
+										26300,
+										26310
+									],
+									[
+										26412,
+										26422
+									],
+									[
+										26451,
+										26461
+									],
+									[
+										26496,
+										26506
+									],
+									[
+										26544,
+										26554
+									],
+									[
+										26774,
+										26784
+									],
+									[
+										26819,
+										26829
+									],
+									[
+										26870,
+										26880
+									],
+									[
+										26924,
+										26934
+									],
+									[
+										26984,
+										26994
+									],
+									[
+										27030,
+										27040
+									],
+									[
+										27082,
+										27092
+									],
+									[
+										27137,
+										27147
+									],
+									[
+										27198,
+										27208
+									],
+									[
+										27244,
+										27254
+									],
+									[
+										27296,
+										27306
+									],
+									[
+										27351,
+										27361
+									],
+									[
+										27412,
+										27422
+									],
+									[
+										27460,
+										27470
+									],
+									[
+										27514,
+										27524
+									],
+									[
+										27571,
+										27581
+									],
+									[
+										27634,
+										27644
+									],
+									[
+										27683,
+										27693
+									],
+									[
+										27738,
+										27748
+									],
+									[
+										27796,
+										27806
+									],
+									[
+										27906,
+										27916
+									],
+									[
+										27952,
+										27962
+									],
+									[
+										28004,
+										28014
+									],
+									[
+										28059,
+										28069
+									],
+									[
+										28120,
+										28130
+									],
+									[
+										28166,
+										28176
+									],
+									[
+										28218,
+										28228
+									],
+									[
+										28273,
+										28283
+									],
+									[
+										28383,
+										28393
+									],
+									[
+										28511,
+										28521
+									],
+									[
+										28594,
+										28604
+									],
+									[
+										28640,
+										28650
+									],
+									[
+										28780,
+										28790
+									],
+									[
+										28824,
+										28834
+									],
+									[
+										28874,
+										28884
+									],
+									[
+										28927,
+										28937
+									],
+									[
+										29162,
+										29172
+									],
+									[
+										29212,
+										29222
+									],
+									[
+										29268,
+										29278
+									],
+									[
+										29327,
+										29337
+									],
+									[
+										29392,
+										29402
+									],
+									[
+										29443,
+										29453
+									],
+									[
+										29500,
+										29510
+									],
+									[
+										29560,
+										29570
+									],
+									[
+										29626,
+										29636
+									],
+									[
+										29677,
+										29687
+									],
+									[
+										29734,
+										29744
+									],
+									[
+										29794,
+										29804
+									],
+									[
+										29860,
+										29870
+									],
+									[
+										29913,
+										29923
+									],
+									[
+										29972,
+										29982
+									],
+									[
+										30034,
+										30044
+									],
+									[
+										30102,
+										30112
+									],
+									[
+										30156,
+										30166
+									],
+									[
+										30216,
+										30226
+									],
+									[
+										30279,
+										30289
+									],
+									[
+										30394,
+										30404
+									],
+									[
+										30445,
+										30455
+									],
+									[
+										30502,
+										30512
+									],
+									[
+										30562,
+										30572
+									],
+									[
+										30628,
+										30638
+									],
+									[
+										30679,
+										30689
+									],
+									[
+										30736,
+										30746
+									],
+									[
+										30796,
+										30806
+									],
+									[
+										30911,
+										30921
+									],
+									[
+										30952,
+										30962
+									],
+									[
+										31028,
+										31038
+									],
+									[
+										31042,
+										31052
+									],
+									[
+										31102,
+										31112
+									],
+									[
+										31146,
+										31156
+									],
+									[
+										31214,
+										31224
+									],
+									[
+										31264,
+										31274
+									],
+									[
+										31342,
+										31352
+									],
+									[
+										31463,
+										31473
+									],
+									[
+										31669,
+										31679
+									],
+									[
+										31819,
+										31829
+									],
+									[
+										31895,
+										31905
+									],
+									[
+										32020,
+										32030
+									],
+									[
+										32138,
+										32148
+									],
+									[
+										32261,
+										32271
+									],
+									[
+										32334,
+										32344
+									],
+									[
+										32449,
+										32459
+									],
+									[
+										32492,
+										32502
+									],
+									[
+										32523,
+										32533
+									],
+									[
+										32590,
+										32600
+									],
+									[
+										32679,
+										32689
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								31604,
+								31604
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 17508.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "vendor/assets/stylesheets/jquery-datepicker/datepicker.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3936,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								149,
+								149
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "vendor/assets/stylesheets/datepicker.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16278,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3208.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
 					"file": "app/views/call_centers/consultation.html.slim",
 					"semi_transient": false,
 					"settings":
@@ -1018,6 +3036,96 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+						"translation.y": 388.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "app/views/call_centers/_order.html.slim",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1436,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								237,
+								237
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -1025,7 +3133,97 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 13,
+					"file": "app/views/users/_search.html.slim",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 579,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								552,
+								552
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
 					"file": "app/views/call_centers/index.html.erb",
 					"semi_transient": false,
 					"settings":
@@ -1103,17 +3301,19 @@
 								"bh_curly_content"
 							],
 							"origin_encoding": "UTF-8",
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 550.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 15,
 					"file": "app/views/layouts/application.html.erb",
 					"semi_transient": false,
 					"settings":
@@ -1199,11 +3399,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 16,
 					"file": "app/views/layouts/application_call_center.html.erb",
 					"semi_transient": false,
 					"settings":
@@ -1289,101 +3489,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "app/assets/javascripts/call_centers.js.coffee",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 3665,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content"
-							],
-							"origin_encoding": "UTF-8",
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 892.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
+					"buffer": 17,
 					"file": "vendor/assets/stylesheets/old.css",
 					"semi_transient": false,
 					"settings":
@@ -1467,11 +3577,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 29,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 18,
 					"file": "app/controllers/users_controller.rb",
 					"semi_transient": false,
 					"settings":
@@ -1557,11 +3667,11 @@
 						"translation.y": 415.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 28,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 19,
 					"file": "app/views/users/new.html.slim",
 					"semi_transient": false,
 					"settings":
@@ -1646,11 +3756,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 27,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 20,
 					"file": "app/models/api/platforms.rb",
 					"semi_transient": false,
 					"settings":
@@ -1735,11 +3845,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 26,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 21,
 					"file": "app/views/users/_form.html.slim",
 					"semi_transient": false,
 					"settings":
@@ -1825,11 +3935,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 30,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 22,
 					"file": "app/models/platforms/create_order.rb",
 					"semi_transient": false,
 					"settings":
@@ -1914,11 +4024,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 31,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 23,
 					"file": "app/views/reservations/_list_opr.html.slim",
 					"semi_transient": false,
 					"settings":
@@ -2004,24 +4114,24 @@
 						"translation.y": 99.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 32,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 24,
 					"file": "config/routes.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2156,
+						"buffer_size": 2183,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2026,
-								2038
+								2178,
+								2178
 							]
 						],
 						"settings":
@@ -2091,14 +4201,104 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 703.0,
+						"translation.y": 724.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 25,
+					"file": "db/schema.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22454,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								795,
+								795
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 26,
 					"file": "app/assets/javascripts/global.js.coffee",
 					"semi_transient": false,
 					"settings":
@@ -2184,11 +4384,11 @@
 						"translation.y": 9.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 24,
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 27,
 					"file": "app/models/customer.rb",
 					"semi_transient": false,
 					"settings":
@@ -2266,30 +4466,32 @@
 								"bh_curly_content"
 							],
 							"origin_encoding": "ASCII",
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 23,
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 28,
 					"file": "app/models/reservation.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6813,
+						"buffer_size": 7317,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2617,
-								2617
+								6175,
+								6175
 							]
 						],
 						"settings":
@@ -2359,14 +4561,282 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 748.0,
+						"translation.y": 2555.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 29,
+					"file": "app/models/compound_datetime.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 690,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								690,
+								690
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 194.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 30,
+					"file": "app/assets/javascripts/call_centers.js.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3768,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1054,
+								1054
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 1.0,
+						"translation.y": 138.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 31,
+					"file": "app/models/consultation.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 235,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								210,
+								210
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 1012.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 32,
 					"file": "app/views/reservations/_dispatch_order_form.html.slim",
 					"semi_transient": false,
 					"settings":
@@ -2392,11 +4862,11 @@
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
@@ -2407,41 +4877,41 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_unmatched_content"
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
 							],
 							"open_with_edit": true,
 							"origin_encoding": "UTF-8",
@@ -2457,7 +4927,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 33,
 					"file": "app/assets/javascripts/select2_ext.js.coffee",
 					"semi_transient": false,
 					"settings":
@@ -2543,7 +5013,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 33,
 					"type": "text"
 				}
 			]
@@ -2608,6 +5078,14 @@
 		"selected_items":
 		[
 			[
+				"rou",
+				"config/routes.rb"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
 				"reser",
 				"app/models/reservation.rb"
 			],
@@ -2628,10 +5106,6 @@
 				"app/assets/javascripts/global.js.coffee"
 			],
 			[
-				"route",
-				"config/routes.rb"
-			],
-			[
 				"self",
 				"app/models/self_driving.rb"
 			],
@@ -2642,10 +5116,6 @@
 			[
 				"user",
 				"app/controllers/users_controller.rb"
-			],
-			[
-				"rou",
-				"config/routes.rb"
 			],
 			[
 				"rout",

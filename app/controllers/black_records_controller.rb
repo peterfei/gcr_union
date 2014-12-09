@@ -1,4 +1,4 @@
-class BlackRecordsController < ApplicationController
+class BlackRecordsController < ActionController::Base 
   # GET /black_records
   # GET /black_records.json
   def index
@@ -41,7 +41,6 @@ class BlackRecordsController < ApplicationController
   # POST /black_records.json
   def create
     @black_record = BlackRecord.new(params[:black_record])
-
     respond_to do |format|
       if @black_record.save
         format.html { redirect_to @black_record, notice: 'Black record was successfully created.' }
@@ -72,12 +71,12 @@ class BlackRecordsController < ApplicationController
   # DELETE /black_records/1
   # DELETE /black_records/1.json
   def destroy
-    @black_record = BlackRecord.find(params[:id])
+    @black_record = BlackRecord.find_by_cid(params[:id])
     @black_record.destroy
 
     respond_to do |format|
       format.html { redirect_to black_records_url }
-      format.json { head :no_content }
+      format.json {render json: @black_record}
     end
   end
 end

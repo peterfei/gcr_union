@@ -24,9 +24,11 @@ class CallCentersController < ApplicationController
     #@customer = Customer.find_by_phone(params[:callInNo]) 
     #params[:reservation][:reservation_customer_id]||=@customer.id 
     @reservation = Reservation.new(params[:reservation]) 
+    if params[:reservation][:base_rate_code_id].present?
       if @reservation.rate_code=='ZJ' 
         @reservation = SelfDriving.new(params[:reservation])
       end 
+    end
     @history = Reservation.where(:reservation_person_phone => params[:callInNo])
     @user = User.find_by_phone(params[:callInNo])
     respond_to do |format|
