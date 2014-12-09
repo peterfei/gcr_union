@@ -23,6 +23,7 @@ class CallCentersController < ApplicationController
     params[:reservation][:reservation_person_phone]||=params[:callInNo] 
     #@customer = Customer.find_by_phone(params[:callInNo]) 
     #params[:reservation][:reservation_customer_id]||=@customer.id 
+    @reservation.rate_code||='JJ'
     @reservation = Reservation.new(params[:reservation]) 
     if @reservation.rate_code.present?
       if @reservation.rate_code=='ZJ' 
