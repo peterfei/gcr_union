@@ -139,7 +139,7 @@ class ReservationsController < ApplicationController
               :re_base_hour=>(@reservation.base_rate_code.base_hour rescue nil),#基本小时，必填
               :re_base_km=>(@reservation.base_rate_code.base_km rescue nil),#基本公里，必填
               :re_outhour_uprice=>(@reservation.car_type_rate.xhour rescue @reservation.self_drive_price.overtime rescue nil),#超小时单价，必填
-              :re_outkm_uprice=>(@reservation.car_type_rate.xdis_rate rescue @reservation.self_drive_price.overdistance),#超公里单价，必填
+              :re_outkm_uprice=>(@reservation.car_type_rate.xdis_rate rescue @reservation.self_drive_price.overdistance rescue nil),#超公里单价，必填
               :pre_order_cost=>(@reservation.total_price rescue 0)
               # :reservation_person_phone=>(@reservation.customer.user.phone rescue nil)
             }
@@ -243,7 +243,7 @@ class ReservationsController < ApplicationController
     @reservation.car.update_attribute(:status,'enable')
 
     unless @reservation.base_rate_code.rate_code=='ZJ'
-      @reservation.driver.update_attribute(:status,'enable')
+      @reservation.driver.update_attribute(:status,'enable') rescue nil
     end
     respond_to do |format| 
       format.js{render 'execing.js.erb'}
