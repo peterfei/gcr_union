@@ -1,6 +1,7 @@
 class BlackRecordsController < ActionController::Base 
   # GET /black_records
   # GET /black_records.json
+  layout 'index'
   def index
     @black_records = BlackRecord.all
 

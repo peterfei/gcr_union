@@ -1,0 +1,46 @@
+/ table.table.table-bordered
+/   thead
+/     tr
+/       th 所属公司
+/       th 所属门店
+/       th 品牌车型
+/       th 车牌号
+/       th 状态
+/       th 操作
+/   tbody
+/     = render @cars
+/ -if @cars.kind_of? ActiveRecord::Relation
+/   = render partial: 'shared/pagination', locals: {collection: @cars}
+/ -else
+/   = link_to '返回', cars_path, remote: true
+table.table.table-bordered
+  thead
+    tr
+      th 姓名
+      th 电话
+      th 邮箱
+      th 身份证号
+      th 状态
+      th 是否已删
+      th 备注
+      th 操作
+      
+
+    - @black_records.each do |black_record|
+      tr
+        td= black_record.name
+        td= black_record.phone
+        td= black_record.email
+        td= black_record.cid
+        td= black_record.status
+        td= black_record.deleted
+        td= black_record.remark
+        td
+          .btn-group
+            = link_to '查看', black_record,class: 'btn btn-small'
+            = link_to 'Edit', edit_black_record_path(black_record)
+            = link_to 'Destroy', black_record, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+br
+
+= link_to '新建', new_black_record_path

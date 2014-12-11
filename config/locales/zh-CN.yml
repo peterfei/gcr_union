@@ -374,6 +374,7 @@ zh-CN:
     car_type_rate: '代驾价格'
     base_rate_code: "业务类型"
     sys_parameter: "系统参数"
+    black_record: '黑名单管理'
     welcome: '欢迎'
     errors:
       <<: *errors
