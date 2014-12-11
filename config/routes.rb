@@ -32,6 +32,7 @@ GcrUnion::Application.routes.draw do
     match 'dispatch_car' ,:on=>:member
     match 'execing' ,:on=>:member
     match 'done' ,:on=>:member
+    match 'confirm' ,:on=>:member
     match 'cancel' ,:on=>:member
     resource :comments
     match 'print',:on=>:member

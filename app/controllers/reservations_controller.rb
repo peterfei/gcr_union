@@ -250,6 +250,16 @@ class ReservationsController < ApplicationController
       #format.html { redirect_to reservations_url, notice: '订单执行成功.' }
     end
   end
+
+  #确认订单 
+  def  confirm
+    @reservation = Reservation.find(params[:id]) 
+    @reservation.flow("pending")  
+    respond_to do |format| 
+      format.js{render 'execing.js.erb'}
+      #format.html { redirect_to reservations_url, notice: '订单执行成功.' }
+    end
+  end
   #取消订单 
   def cancel
     @reservation = Reservation.find(params[:id])  

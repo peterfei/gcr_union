@@ -7,9 +7,9 @@
 .span12
   .row-fluid
     .span5  
-      =f.simple_fields_for :customer do |o| 
-        =o.input :customer_name, label:"订车人",disabled:true 
-      /= f.association :customer,label:"订车人",disabled:true
+      /=f.simple_fields_for :customer do |o| 
+        /=o.input :customer_name, label:"订车人",disabled:true 
+      = f.association :customer,label:"订车人"
     .span5 
       = f.input :reservation_person_phone, :label=>'订车人电话',input_html:{:value=>(f.object.reservation_person_phone.present? ? f.object.reservation_person_phone : (f.object.customer.user.phone rescue nil))}
 -case @reservation.base_rate_code.rate_code 
